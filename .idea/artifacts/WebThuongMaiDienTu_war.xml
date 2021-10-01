@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WebThuongMaiDienTu:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/WebThuongMaiDienTu_war</output-path>
+    <root id="archive" name="WebThuongMaiDienTu_war.war">
+      <element id="artifact" artifact-name="WebThuongMaiDienTu:war exploded" />
+    </root>
+  </artifact>
+</component>
