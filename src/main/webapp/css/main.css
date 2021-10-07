@@ -30,7 +30,35 @@
     margin-left: var(--size4);
     font-size: var(--size6);
 }
+.user .navbar-nav{
+    margin-top: 10px;
+}
+/*thanh bảng chọn*/
+.menubar {
+    background-color: var(--color1);
+    height: 50px;
+    color: var(--color5);
+}
 
+.menubar ul {
+    display: flex;
+    list-style: none;
+    margin-left: 100px;
+    text-shadow: 2px 0 black;
+
+}
+.menubar ul li{
+    font-size: var(--size1);
+    font-family: var(--font1);
+    display: block;
+    padding: 6px 6px 15px;
+    transition: 0.5s;
+}
+.menubar ul li:hover{
+    background-color: var(--color3);
+    padding-top: 3px;
+    padding-bottom: 18px;
+}
 a.login{
     color: var(--color4);
     text-decoration: none;
