@@ -1,16 +1,15 @@
-package thuongmaidientu;
+package Model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tag_product", schema = "dhs", catalog = "")
+@Table(name = "tag_product", schema = "dhs")
 public class TagProductEntity {
     private Long productId;
     private Long tagId;
+    private ProductEntity productByProductId;
+    private TagEntity tagByTagId;
 
     @Basic
     @Column(name = "productId")
@@ -43,5 +42,25 @@ public class TagProductEntity {
     @Override
     public int hashCode() {
         return Objects.hash(productId, tagId);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "productId", referencedColumnName = "id")
+    public ProductEntity getProductByProductId() {
+        return productByProductId;
+    }
+
+    public void setProductByProductId(ProductEntity productByProductId) {
+        this.productByProductId = productByProductId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "tagId", referencedColumnName = "id")
+    public TagEntity getTagByTagId() {
+        return tagByTagId;
+    }
+
+    public void setTagByTagId(TagEntity tagByTagId) {
+        this.tagByTagId = tagByTagId;
     }
 }

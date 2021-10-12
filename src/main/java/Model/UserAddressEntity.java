@@ -1,16 +1,15 @@
-package thuongmaidientu;
+package Model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "user_address", schema = "dhs", catalog = "")
+@Table(name = "user_address", schema = "dhs")
 public class UserAddressEntity {
     private Long accountId;
     private Long addressId;
+    private AccountEntity accountByAccountId;
+    private AddressEntity addressByAddressId;
 
     @Basic
     @Column(name = "accountId")
@@ -43,5 +42,25 @@ public class UserAddressEntity {
     @Override
     public int hashCode() {
         return Objects.hash(accountId, addressId);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "accountId", referencedColumnName = "id")
+    public AccountEntity getAccountByAccountId() {
+        return accountByAccountId;
+    }
+
+    public void setAccountByAccountId(AccountEntity accountByAccountId) {
+        this.accountByAccountId = accountByAccountId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "addressId", referencedColumnName = "id")
+    public AddressEntity getAddressByAddressId() {
+        return addressByAddressId;
+    }
+
+    public void setAddressByAddressId(AddressEntity addressByAddressId) {
+        this.addressByAddressId = addressByAddressId;
     }
 }

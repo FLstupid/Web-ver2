@@ -20,7 +20,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="default" />
+          <factory-entry name="default" value="1d1be166-408b-47e5-8588-806a762bc06d" />
           <factory-entry name="noname-a.xml@0" value="1d1be166-408b-47e5-8588-806a762bc06d" />
         </datasource-mapping>
         <naming-strategy-map />

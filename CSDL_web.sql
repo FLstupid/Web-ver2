@@ -76,16 +76,27 @@ create table Tag (
 
 create table Order_detail (
 	id	bigint primary key,
-    states int(1) default 0,
     phone 		int(10) not null,
     street_name nvarchar(255) not null,
     city		nvarchar(150) not null,
     district 	nvarchar(100) not null,
     delivery	nvarchar(100) not null,
     createdAt	datetime(0) not null,
-	shipPrice	float not null
+	shipPrice	float not null,
+    totalPrice	float not null,
+    updatedAt	datetime(0) not null,
+    note	text
 );
-
+create table Transistion (
+	id bigint primary key,
+    customerId bigint references Account(id),
+    orderId bigint references Order_Detail,
+    states int(1) default 0,
+    detailstates nvarchar(255),
+    payment nvarchar(255) not null,
+    detailpayment nvarchar(255),  #phone or bank id
+    updatedAt datetime(0)
+);
 create table Delivery (
 	id bigint primary key,
     methodName	nvarchar(100) not null,
@@ -147,4 +158,10 @@ create table User_address (
 create table Shop_delivery (
 	shopId bigint references Shop(id),
     deliveryId bigint references Delivery(id)
+);
+
+create table Trans (
+	id bigint primary key,
+    accountId bigint references Account(id),
+    orderId bigint references Order_Detail
 );
