@@ -375,13 +375,15 @@ label {
 }
 
 .Account_NavBar {
+    height: 400px;
     list-style: none;
     font-size: 13px;
 }
 
-.Account_NavBar a:hover, .Account_NavBar a:active, .Account_NavBar a:focus, .Account_NavBar a.is-active {
+.Account_NavBar a:hover, .Account_NavBar a:active, .Account_NavBar a:focus, .Account_NavBar is-active {
     background-color: rgb(235, 235, 240);
-    color: rgb(0, 0, 0)
+    color: rgb(0, 0, 0);
+
 }
 
 .Account_NavBar a {
@@ -398,7 +400,7 @@ label {
 }
 
 .HeadingContent {
-    font-size: 19px;
+    font-size: 30px;
     line-height: 21px;
     font-weight: 300;
     margin: 10px 0px 15px;
@@ -408,21 +410,177 @@ label {
     background-color: white;
     padding: 30px 20px;
     border-radius: 4px;
+    display: flex;
+
 }
 
-.Content_StylesNav form {
-    width: 600px;
-}
+
 
 .form-control {
     display: flex;
-    align-items: center;
+padding-left: 230px;
     margin: 0px 0px 15px;
-}
 
+}
+.buyingitem{
+    display: flex;
+}
 .input-label {
     width: 110px;
     min-width: 110px;
-    font-size: 13px;
+    font-size: 17px;
     color: rgb(51, 51, 51);
+
+}
+
+.disableForm{
+    display: none;
+}
+.enableForm{
+    display: block;
+}
+.Content_StylesNav{
+    align-items: center;
+}
+.Input-styles{
+    margin-left: 100px;
+    width: 300px;
+}
+.Input-styles1{
+    width: 970px;
+}
+
+
+
+.avt{
+    height: 200px;
+    left: -100px;
+}
+.temp{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    left: 61%;
+
+    margin-left: -680px;
+    padding-top: 160px;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+
+
+}
+.Radio_StylesRadio{
+
+}
+.styles_StylesBirthdayPicker{
+    margin-left: 100px;
+    display: flex;
+}
+.selectday{
+    margin-right: 20px;
+}
+.sexcheck{
+    display: flex;
+    margin-right: 100px;
+}
+#photo{
+    height: 60px;
+    width: 60px;
+    border: 1px solid gray;
+}
+#file{
+    display: none;
+}
+#uploadBtn{
+    height: 40px;
+    width: 80px;
+position: absolute;
+    transform: translateX(-50%);
+ right: 77%;
+    bottom: -30px;
+    text-align: center;
+    line-height: 30px;
+    font-family: "Segoe UI Light";
+    font-size: 8px;
+    cursor: pointer;
+    left: 30px;
+}
+a span{
+    font-size: 16px;
+
+}
+a{
+    text-decoration: none;
+}
+.name{
+    text-transform: uppercase;
+}
+table.bangmua{
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+    text-size-adjust: 100%;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    padding: 1px;
+    min-height: 400px;
+}
+table.comment {
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+    text-size-adjust: 100%;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    padding: 1px;
+
+}
+table tr th td{
+    text-align: center;
+}
+.new{
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+    text-size-adjust: 100%;
+    box-sizing: border-box;
+}
+.new a{
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    line-height: 1.15;
+    text-size-adjust: 100%;
+    box-sizing: border-box;
+    color: rgb(0, 127, 240);
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    font-size: 15px;
+    height: 60px;
+    border: 1px dashed rgb(216, 216, 216);
+    margin: 0px 0px 10px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.formthemdiachi .inputdiachi{
+width: 400px;
+}
+.back{
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    line-height: 1.15;
+    text-size-adjust: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    width: 190px;
+    border-radius: 4px;
+    color: rgb(74, 74, 74);
+    font-size: 14px;
+    background-color: rgb(253, 216, 53);
+    display: block;
+    padding: 10px 30px;
+    margin-left: 400px;
 }
