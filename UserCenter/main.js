@@ -31,8 +31,12 @@ document.addEventListener("DOMContentLoaded",function (){
     })
 
 })
-///xem lại
-
+//dropdown
+const buttonshowDropdown = document.querySelector(".buttonDropdown");
+const showdropdown = document.querySelector(".UserHeader_UserDropDown");
+buttonshowDropdown.addEventListener("click", function (){
+    showdropdown.classList.toggle('disableForm');
+})
 const imgDiv=document.querySelector('.temp');
 const img=document.querySelector('#photo');
 const file=document.querySelector('#file');
