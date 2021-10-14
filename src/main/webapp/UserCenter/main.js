@@ -50,6 +50,7 @@ imgDiv.addEventListener("mouseleave",function (){
     uploadBtn.style.display = "none";
 
 })
+
 file.addEventListener("change",function (){
     const choosedFile = this.files[0];
     if(choosedFile){
