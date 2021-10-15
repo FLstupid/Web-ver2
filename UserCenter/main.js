@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded",function (){
 
             for(let i=0;i<disableForm.length;i++)
             {
-
                 disableForm[i].classList.remove('is-active');
                 showForm[i].classList.add('disableForm');
             }
