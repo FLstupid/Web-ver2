@@ -3,20 +3,21 @@ use dhs;
 
 create table Account (
 	id bigint primary key,
-	username nvarchar(100) not null,
-    passwordHash nvarchar(255) not null,
+	username char(100) not null,
+    passwordHash char(255) not null,
     phone int(10) not null,
-    email nvarchar(255),
-    shop_name nvarchar(255),
+    email char(255),
+    shop_name char(255),
     birthday date,
+    role bit default 0 not null,
     LAST_UPDATE datetime(0)
 );
 
 create table Shop (
 	id bigint primary key,
-    street_name nvarchar(255) not null,
-    city nvarchar(150),
-    district nvarchar(100),
+    street_name char(255) not null,
+    city char(150),
+    district char(100),
     bank_id	int not null,
     active_day int default 0 not null,
     number_product bigint not null,
@@ -26,32 +27,35 @@ create table Shop (
 create table Address (
 	id bigint primary key,
     phone int(10) not null,
-    street_name nvarchar(255) not null,
-    city nvarchar(150),
-    district nvarchar(100)
+    street_name char(255) not null,
+    city char(150),
+    district char(100)
 );
 
 create table Cart (
 	id bigint primary key,
-    sessionId	nvarchar(100),
-    tokenId 	nvarchar(100),
+    sessionId	char(100),
+    tokenId 	char(100),
     status		smallint(6),
-    accountId 	bigint references Account(id),
+    accountId 	bigint,
     phone 		int(10) not null,
-    street_name nvarchar(255) not null,
-    city		nvarchar(150) not null,
-    district 	nvarchar(100) not null,
-    delivery	nvarchar(100) not null,
+    street_name char(255) not null,
+    city		char(150) not null,
+    district 	char(100) not null,
+    delivery	char(100) not null,
     createdAt	datetime(0),
     updatedAt	datetime(0),
-    content 	text
+    content 	text,
+    
+    foreign key (accountId) references Account(id)
 );
 
 create table Product (
 	id bigint primary key,
-    shopId bigint not null references Shop(id),
-    title nvarchar(255) not null,
-    metalTitle nvarchar(255),
+    status smallint, #have permission form admin <1> : have permission <0> : don't have permission <3> had deleted
+    shopId bigint not null,
+    title char(255) not null,
+    metalTitle char(255),
     quality	smallint not null,
     price	float not null,
     discount	float default 0 not null,
@@ -61,107 +65,138 @@ create table Product (
     content	text,
     updatedAt	datetime(0),
     createdAt	datetime(0),
-    publishedAt	datetime(0)
+    publishedAt	datetime(0),
+    
+    foreign key (shopId) references Shop(id)
 );
 
 create table Category (
 	id bigint primary key,
-    categoryName nvarchar(255) not null
+    categoryName char(255) not null
 );
 
 create table Tag (
 	id bigint primary key,
-    tagName nvarchar(255) not null
+    tagName char(255) not null
 );
 
 create table Order_detail (
 	id	bigint primary key,
     phone 		int(10) not null,
-    street_name nvarchar(255) not null,
-    city		nvarchar(150) not null,
-    district 	nvarchar(100) not null,
-    delivery	nvarchar(100) not null,
+    street_name char(255) not null,
+    city		char(150) not null,
+    district 	char(100) not null,
+    delivery	char(100) not null,
     createdAt	datetime(0) not null,
 	shipPrice	float not null,
     totalPrice	float not null,
     updatedAt	datetime(0) not null,
     note	text
 );
+
 create table Transistion (
 	id bigint primary key,
-    customerId bigint references Account(id),
-    orderId bigint references Order_Detail,
+    customerId bigint,
+    orderId bigint,
     states int(1) default 0,
-    detailstates nvarchar(255),
-    payment nvarchar(255) not null,
-    detailpayment nvarchar(255),  #phone or bank id
-    updatedAt datetime(0)
+    detailstates char(255),
+    payment char(255) not null,
+    detailpayment char(255),  #phone or bank id
+    updatedAt datetime(0),
+    
+    foreign key (customerId) references Account(id),
+    foreign key (orderId) references Order_Detail(id)
 );
+
 create table Delivery (
 	id bigint primary key,
-    methodName	nvarchar(100) not null,
+    methodName	char(100) not null,
     price	int		#This is shipping cost per km
 );
 
 create table Cart_item (
 	id bigint primary key,
-	cartId	bigint references Cart(id),
-    productId	bigint references Product(id),
+	cartId	bigint,
+    productId	bigint,
     quality	smallint not null,
     price	float not null,
     discount	float default 0 not null,
     amount	int default 1 not null,
     createdAt	datetime(0) not null,
     updatedAt	datetime(0),
-    content text
+    content text,
+    
+    foreign key (cartId) references Cart(id),
+    foreign key (productId) references Product(id)
 );
 
 create table Order_item (
 	id bigint primary key,
-	orderId	bigint references Order_detail(id),
-    productId	bigint references Product(id),
+	orderId	bigint,
+    productId	bigint,
     quality	smallint not null,
     price	float not null,
     discount	float default 0 not null,
     amount	int default 1 not null,
     createdAt	datetime(0) not null,
     updatedAt	datetime(0),
-    content text
+    content text,
+    
+	foreign key (orderId) references Order_detail(id),
+    foreign key (productId) references Product(id)
 );
 
 create table Tag_product (
-	productId	bigint references Product(id),
-    tagId	bigint references Tag(id)
+	productId	bigint,
+    tagId	bigint,
+    
+    foreign key (productId) references Product(id),
+    foreign key (tagId) references Tag(id)
 );
 
 create table Category_product (
-	productId	bigint references Product(id),
-    categoryId	bigint references Category(id)
+	productId	bigint,
+    categoryId	bigint,
+    
+    foreign key (productId) references Product(id),
+    foreign key (categoryId) references Category(id)
 );
 
 create table Review (
 	id bigint primary key,
-    productId bigint references Product(id),
-    userId bigint references Account(id),
-    title	nvarchar(255) not null,
+    productId	bigint,
+    userId	bigint,
+    title	char(255) not null,
     rating	smallint not null,
     publishedAt	datetime(0) not null,
     createdAt	datetime(0) not null,
-    content	text
+    content	text,
+    
+    foreign key (productId) references Product(id),
+    foreign key (userId) references Account(id)
 );
 
 create table User_address (
-	accountId bigint references Account(id),
-    addressId bigint references Address(id)
+	accountId bigint,
+    addressId bigint,
+    
+    foreign key (accountId) references Account(id),
+    foreign key (addressId) references Address(id)
 );
 
 create table Shop_delivery (
-	shopId bigint references Shop(id),
-    deliveryId bigint references Delivery(id)
+	shopId bigint,
+    deliveryId bigint,
+    
+    foreign key (shopId) references Shop(id),
+    foreign key (deliveryId) references Delivery(id)
 );
 
 create table Trans (
 	id bigint primary key,
-    accountId bigint references Account(id),
-    orderId bigint references Order_Detail
+    accountId bigint,
+    orderId bigint,
+    
+    foreign key (accountId) references Account(id),
+    foreign key (orderId) references Order_Detail(id)
 );
