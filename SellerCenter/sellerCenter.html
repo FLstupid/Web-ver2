@@ -4,15 +4,15 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UFT-8"/>
         <link rel="stylesheet" href="sellerCenter.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="sellerCenter.js"></script>
     </head>
     <body>
         <header class="header-root">
             <section class="header-container">
-                <a href="/HomePage.html" class="content-logo"><img src="img/android-chrome-192x192.png"></a>
-                <a href="/HomePage.html" class="style-content">
+                <a href="sellerCenter.html" class="content-logo"><img src="img/android-chrome-192x192.png"></a>
+                <a href="sellerCenter.html" class="style-content">
                     <span>Seller Center</span>
                 </a>
+
                 <div class="account-avatar">
                     <img class="avt" src="img/avatar.jfif">
                     <span>Lê Trần Minh Nhựt</span>
@@ -32,32 +32,32 @@
                 <aside class="styles-left-SideBar">
                     <ul class="nav-bar-account">
                         <li>
-                            <a href="#" class="nav is-active">
+                            <a href="sellerCenter.html" class="is-active">
                                 <span>Doanh Thu</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav">
+                            <a href="/product.html">
                                 <span>Sản Phẩm</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav">
+                            <a href="/bill.html">
                                 <span>Đơn hàng</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav">
+                            <a href="/delivery.html">
                                 <span>Vận chuyển</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav">
+                            <a href="/reviews.html">
                                 <span>Đánh giá</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav">
+                            <a href="/account.html">
                                 <span>Tài khoản</span>
                             </a>
                         </li>
@@ -65,8 +65,7 @@
                 </aside>
                 <section class="styles-middle-container has-sidebar">
                     <div class="layout-menu">
-                        <!---->
-                        <div class="summary main-content show">
+                        <div class="main-content" id="info">
                             <div class="content">
                                 <h3 class="title">Tổng quan</h3>
                                 <div class="content-1-wapper">
@@ -141,207 +140,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!---->
-                        
-                        <!---->
-                        <div class="product main-content hide">
-                            <div class="content">
-                                <h3 class="title">Thêm sản phẩm</h3>
-                                <form>
-                                    <div class="form-control"></div>
-                                    <div class="form-control"></div>
-                                    <div class="form-control"></div>
-                                    <div class="form-control"></div>
-                                    <div class="form-control"></div>
-                                    <div class="form-control"></div>
-                                </form>
-                            </div>
-                            <div class="content">
-                                <h3 class="title">Thông tin sản phẩm</h3>
-                                <table>
-                                    <tr>
-                                        <td>Tên sản phẩm</td>
-                                        <td>Loại</td>
-                                        <td>Tag</td>
-                                        <td>Giá</td>
-                                        <td>Số lượng</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <!---->
-
-                        <!---->
-                        <div class="bill main-content hide">
-                            <div class="content">
-                                <h3 class="title">Tìm kiếm đơn hàng</h3>
-                                <div class="search"></div>
-                            </div>
-                            <div class="content">
-                                <h3 class="title">Thông tin đơn hàng</h3>
-                                <table>
-                                    <tr>
-                                        <td>Tên sản phẩm</td>
-                                        <td>Loại</td>
-                                        <td>Tag</td>
-                                        <td>Giá</td>
-                                        <td>Số lượng</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <!---->
-
-                        <!---->
-                        <div class="delivery main-content hide">
-                            <div class="content">
-                                <h3 class="title">Vận chuyển</h3>
-                                <table>
-                                    <tr>
-                                        <td>Đơn vị vận chuyển</td>
-                                        <td>Loại</td>
-                                        <td>Tag</td>
-                                        <td>Giá</td>
-                                        <td>Chọn</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <!---->
-
-                        <!---->
-                        <div class="reviews main-content hide">
-                            <div class="content">
-                                <h3 class="title">Đánh giá của khách hàng</h3>
-                                <table>
-                                    <tr>
-                                        <div class="product"></div>
-                                        <div class="bill-id"></div>
-                                        <p></p>
-                                    </tr>
-                                </table>
-                            </div>  
-                        </div>
-                        <!---->
-
-                        <!---->
-                        <div class="account main-content hide" style="height: 500px;">
-                            <div class="Account_StylesAccountLayoutInner">
-                                <h3 class="HeadingContent">Thông tin tài khoản</h3>
-                                <div class="Content_StylesNav">
-                                  <form>
-                                    <div class="form-control">
-                                      <label class="input-label">Shop</label>
-                                      <div>
-                                        <input type="text" name="fullName" maxlength="128" class="Input-styles" value="">
-                                      </div>
-                                    </div>
-                                    <div class="form-control">
-                                      <label class="input-label">Số điện thoại</label>
-                                      <div>
-                                        <input type="tel" disabled name="phoneNumber" placeholder="Nhập SĐT" class="Input-styles" value="">
-                                      </div>
-                                    </div>
-                                    <div class="form-control">
-                                      <label class="input-label">Email</label>
-                                      <div>
-                                        <input type="email" disabled name="email" class="Input-styles" value="">
-                                      </div>
-                                    </div>
-                                    <div class="form-control">
-                                      <label class="input-label">Giới tính</label>
-                                      <label class="Radio_StylesRadio">
-                                        <input type="radio" name="gender" value="male" checked>
-                                        <span class="radio-fake">
-                    
-                                        </span>
-                                        <span class="label">Nam</span>
-                                      </label>
-                                      <label class="Radio_StylesRadio">
-                                        <input type="radio" name="gender" value="female">
-                                        <span class="radio-fake">
-                    
-                                        </span>
-                                        <span class="label">Nữ</span>
-                                      </label>
-                                    </div>
-                                    <div class="form-control">
-                                      <label class="input-label">
-                                        <p>Ngày sinh</p>
-                                        <span>(không bắt buộc)</span>
-                                      </label>
-                                      <div class="styles_StylesBirthdayPicker">
-                                        <select name="day">
-                                          <option value="0">Ngày</option>
-                                          <option value="1">1</option>
-                                          <option value="2">2</option>
-                                          <option value="3">3</option>
-                                          <option value="4">4</option>
-                                          <option value="5">5</option>
-                                          <option value="6">6</option>
-                                          <option value="7">7</option>
-                                          <option value="8">8</option>
-                                          <option value="9">9</option>
-                                          <option value="10">10</option>
-                                          <option value="11">11</option>
-                                          <option value="12">12</option>
-                                          <option value="13">13</option>
-                                          <option value="14">14</option>
-                                          <option value="15">15</option>
-                                          <option value="16">16</option>
-                                          <option value="17">17</option>
-                                          <option value="18">18</option>
-                                          <option value="19">19</option>
-                                          <option value="20">20</option>
-                                          <option value="21">21</option>
-                                          <option value="22">22</option>
-                                          <option value="23">23</option>
-                                          <option value="24">24</option>
-                                          <option value="25">25</option>
-                                          <option value="26">26</option>
-                                          <option value="27">27</option>
-                                          <option value="28">28</option>
-                                          <option value="29">29</option>
-                                          <option value="30">30</option>
-                                          <option value="31">31</option>
-                                        </select>
-                                        <select name="month">
-                                          <option value="0">Tháng</option>
-                                          <option value="1">1</option>
-                                          <option value="2">2</option>
-                                          <option value="3">3</option>
-                                          <option value="4">4</option>
-                                          <option value="5">5</option>
-                                          <option value="6">6</option>
-                                          <option value="7">7</option>
-                                          <option value="8">8</option>
-                                          <option value="9">9</option>
-                                          <option value="10">10</option>
-                                          <option value="11">11</option>
-                                          <option value="12">12</option>
-                                        </select>
-                                        <select name="year">
-                                          <option value="0">Năm</option>
-                                          <option value="2021">2021</option>
-                                        </select>
-                                      </div>
-                                    </div>
-                                    <div class="form-control">
-                                      <label class="input-label">&nbsp;</label>
-                                      <label class="Checkbox__StylesCheckbox">
-                                        <input type="checkbox">
-                                        <span class="checkbox-fake"></span>
-                                        <span class="label">Thay đổi mật khẩu</span>
-                                      </label>
-                                    </div>
-                                    <div class="form-control">
-                                      <label class="input-label">&nbsp;</label>
-                                      <button type="submit" class="btn-submit">Cập nhật</button>
-                                    </div>
-                                  </form>
-                                </div>
-                              </div>
                         </div>
                     </div>
                 </section>
