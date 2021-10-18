@@ -4,53 +4,112 @@
 		<meta charset="utf-8" />
 		<title>JSP - Hello World</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<link rel="stylesheet" type="text/css" href="css/all.min.css" />
-		<link rel="stylesheet" type="text/css" href="css/main.css" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="css/newcss.css">
+
 </head>
 	<body>
-		<div id="wrapper">
-			<div id="header">
-				<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-					<img class="logo" style="width: 50px" src="src/images/logo.png" alt="logo"/>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div id="navbarSupportedContent">
-						<ul class="navbar-nav mr-auto">
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" style="color: white" aria-haspopup="true" aria-expanded="false">
-									<i class="fas fa-align-justify"></i>
-									Danh Mục Sản Phẩm
-								</a>
-							</li>
-							<li>
-								<form style="align-items: center" class="form-inline my-2 my-lg-0">
-									<input style="width: 500px" class="form-control mr-sm-2" type="search" placeholder="Tìm sản phẩm, danh mục hay thương hiệu mong muốn..." aria-label="Search"/>
-									<button style="color: white; background-color: #0a53be" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-								</form>
-							</li>
-						</ul>
+	<header class="style__Header">
+		<section class="Container">
+			<div class="Middle__Wrap">
+				<div class="Middle__LeftContainer">
+					<div class="logo-menu">
+						<div class="style_Logo">
+							<a href="homepage.html" class="dhs-logo">
+								<img
+										src="./img/logo.svg"
+								/>
+							</a>
+						</div>
 					</div>
-					<div style="margin-left: 10px; color: white; font-size: 30px" class="user navbar-nav">
-						<i class="far fa-user"></i>
-						<a href="" class="login">Đăng nhập </a>
-						<p class="login"> | </p>
-						<a href="" class="login"> Đăng Ký </a>
-						<i class="fas fa-cart-plus"></i>
-						<a href="" class="login">Giỏ Hàng </a>
+
+					<div class="FormSearch__Root">
+						<div class="FormSearch__Form">
+							<input
+									type="text"
+									placeholder="Find somethings v............... ?"
+									class="FormSearch__Input"
+									value=""
+							/>
+							<button class="FormSearch__Button">
+								<img
+										class="icon-search"
+										src="https://salt.tikicdn.com/ts/upload/ed/5e/b8/8538366274240326978318348ea8af7c.png"
+								/>
+								Search
+							</button>
+						</div>
 					</div>
-				</nav>
+
+					<div class="Userstyle__Root">
+
+						<div class="Userstyle__Item">
+							<a href="customer">
+								<img   class=" profile-icon" src="./img/user.png" />
+							</a>
+							<span class="Userstyle__ItemText">
+                <span class="Userstyle__NoWrap">Tài khoản</span>
+                <span class="account_laber">
+                  <div style="display: flex" class="buttonDropdown">
+                    <span>user-name</span>
+                  <img class="arrowIcon" src="./img/down.png" />
+                  </div>
+
+                    <ul class="UserHeader_UserDropDown disableForm">
+                      <li><a rel="nofollow" href="">
+                      <p
+							  title="Order history"
+							  class="UserHeader_UserDropDownItem"
+					  >
+                        Order history
+                      </p>
+                    </a></li>
+                      <li><a rel="nofollow" href="">
+                      <p title="Notification" class="UserHeader_UserDropDownItem">
+                        Notification
+                        <span class="bagde">0</span>
+                      </p>
+                    </a></li>
+                      <li><a rel="nofollow" href="">
+                      <p title="My account" class="UserHeader_UserDropDownItem">
+                        My account
+                      </p>
+                    </a></li>
+                      <li><a rel="nofollow" href="">
+                      <p title="Reviews" class="UserHeader_UserDropDownItem">
+                        "Reviews"
+                      </p>
+                    </a></li>
+                      <li><a rel="nofollow" href="">
+                      <p title="Log out" class="UserHeader_UserDropDownItem">
+                        Log out
+                      </p>
+                    </a></li>
+                    </ul>
+                </span>
+              </span>
+						</div>
+						</a>
+						<div class="Userstyle__CartItem">
+							<a href="#" rel="nofollow">
+								<div class="Userstyle__Item2">
+									<div class="cart-wrapper">
+										<img
+												class="cart-icon"
+												src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"
+										/>
+										<span class="Userstyle__ItemCart">3</span>
+									</div>
+									<span class="cart-text">Giỏ Hàng</span>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="menubar">
-			<ul>
-				<li><a href="">1</a></li>
-				<li><a href="">2</a></li>
-				<li><a href="">3</a></li>
-				<li><a href="">4</a></li>
-			</ul>
-		</div>
+		</section>
+	</header>
+
+
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

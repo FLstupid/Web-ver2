@@ -10,7 +10,7 @@
 <head>
     <title>Title</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <link rel="stylesheet" href="../src/main/webapp/UserCenter/newcss.css" />
+    <link rel="stylesheet" href="css/newcss.css" />
 </head>
 <body>
 <!---------------------------------------------------header-------------------------------------------->
@@ -22,7 +22,7 @@
                     <div class="style_Logo">
                         <a href="homepage.html" class="dhs-logo">
                             <img
-                                    src="img/logo.svg"
+                                    src="./img/logo.svg"
                             />
                         </a>
                     </div>
@@ -47,50 +47,54 @@
                 </div>
 
                 <div class="Userstyle__Root">
+
                     <div class="Userstyle__Item">
-                        <img  class="profile-icon" src="img/user.png" />
+                        <a href="customer">
+                            <img   class=" profile-icon" src="./img/user.png" />
+                        </a>
                         <span class="Userstyle__ItemText">
                 <span class="Userstyle__NoWrap">Tài khoản</span>
                 <span class="account_laber">
                   <div style="display: flex" class="buttonDropdown">
                     <span>user-name</span>
-                  <img class="arrowIcon" src="img/down.png" />
+                  <img class="arrowIcon" src="./img/down.png" />
                   </div>
-                  <div class="UserHeader_UserDropDown disableForm">
-                    <a rel="nofollow" href="">
+
+                    <ul class="UserHeader_UserDropDown disableForm">
+                      <li><a rel="nofollow" href="">
                       <p
                               title="Order history"
                               class="UserHeader_UserDropDownItem"
                       >
                         Order history
                       </p>
-                    </a>
-                    <a rel="nofollow" href="">
+                    </a></li>
+                      <li><a rel="nofollow" href="">
                       <p title="Notification" class="UserHeader_UserDropDownItem">
                         Notification
                         <span class="bagde">0</span>
                       </p>
-                    </a>
-                    <a rel="nofollow" href="">
+                    </a></li>
+                      <li><a rel="nofollow" href="">
                       <p title="My account" class="UserHeader_UserDropDownItem">
                         My account
                       </p>
-                    </a>
-                    <a rel="nofollow" href="">
+                    </a></li>
+                      <li><a rel="nofollow" href="">
                       <p title="Reviews" class="UserHeader_UserDropDownItem">
                         "Reviews"
                       </p>
-                    </a>
-                    <a rel="nofollow" href="">
+                    </a></li>
+                      <li><a rel="nofollow" href="">
                       <p title="Log out" class="UserHeader_UserDropDownItem">
                         Log out
                       </p>
-                    </a>
-                  </div>
+                    </a></li>
+                    </ul>
                 </span>
               </span>
                     </div>
-
+                    </a>
                     <div class="Userstyle__CartItem">
                         <a href="#" rel="nofollow">
                             <div class="Userstyle__Item2">
@@ -117,8 +121,8 @@
             <div class="breadcrumb_Container"></div>
             <aside class="Account_StylesSideBar">
                 <div class="Account_StylesAvatar">
-                    <div class="temp" style="width: 10%; margin-top: 10px">
-                        <img class="avt"  id="photo" src="img/logo_ico.png">
+                    <div class=" file1 temp" style="width: 10%; margin-top: 10px">
+                        <img class="avt"  id="photo" src="./img/logo_ico.png">
                         <div class="Btnclick">
                             <input type="file" id="file" name="img" >
                             <label  for="file" id="uploadBtn">Choose Avatar</label>
@@ -171,7 +175,7 @@
                     </span>
                                     <span class="label">Nam</span>
                                 </label>
-                                <label class="Radio_StylesRadio">
+                                <label style="margin-left: 15px" class="Radio_StylesRadio">
                                     <input type="radio" name="gender" value="female">
 
                                     <span class="label">Nữ</span>
@@ -277,7 +281,7 @@
                     </div>
                     <br>
                 </div>
-                <div class="order formresult disableForm">
+                <div style="width: 970px" class="order formresult disableForm">
                     <h3 class="HeadingContent">Quản Lý Đơn Mua</h3>
                     <div class="container">
                         <div class="row height d-flex justify-content-center align-items-center">
@@ -390,7 +394,7 @@
                     </div>
 
                 </div>
-                <div id="addadress" class="themdiachi  disableForm">
+                <div style="width: 970px;" id="addadress" class="themdiachi  disableForm">
                     <h3 class="HeadingContent">Thêm địa chỉ</h3>
 
                     <div class="Content_StylesNav">
@@ -525,9 +529,9 @@
                                     <input  type="radio" name="deliveryAddressType" value="" checked="">
                                     <span class="radio-fake"></span><span class="label">Nhà riêng / Chung cư</span>
                                 </label>
-                                <label class="Radio__StyledRadio-sc-sim90b-0 kpLnYz">
+                                <label style="margin-left: 15px"Nữ class="Radio__StyledRadio-sc-sim90b-0 kpLnYz">
                                     <input  type="radio" name="deliveryAddressType" value="company">
-                                    <span class="radio-fake"></span>
+                                    <span  class="radio-fake"></span>
                                     <span class="label">Cơ quan / Công ty</span>
                                 </label></div><div class="form-control">
                             <label class="input-label">&nbsp;</label>
@@ -613,6 +617,6 @@
 
 </footer>
 
-<script src="../src/main/webapp/UserCenter/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

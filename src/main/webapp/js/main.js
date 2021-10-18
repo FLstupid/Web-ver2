@@ -37,7 +37,8 @@ const showdropdown = document.querySelector(".UserHeader_UserDropDown");
 buttonshowDropdown.addEventListener("click", function (){
     showdropdown.classList.toggle('disableForm');
 })
-const imgDiv=document.querySelector('.temp');
+//avatar
+const imgDiv=document.querySelector('.file1 ');
 const img=document.querySelector('#photo');
 const file=document.querySelector('#file');
 const uploadBtn=document.querySelector('#uploadBtn');
