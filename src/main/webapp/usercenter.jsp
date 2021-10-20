@@ -22,7 +22,7 @@
                     <div class="style_Logo">
                         <a href="homepage.html" class="dhs-logo">
                             <img
-                                    src="./img/logo.svg"
+                                    src="img/logo.svg"
                             />
                         </a>
                     </div>
@@ -50,14 +50,14 @@
 
                     <div class="Userstyle__Item">
                         <a href="customer">
-                            <img   class=" profile-icon" src="./img/user.png" />
+                            <img   class=" profile-icon" src="img/user.png" />
                         </a>
                         <span class="Userstyle__ItemText">
                 <span class="Userstyle__NoWrap">Tài khoản</span>
                 <span class="account_laber">
                   <div style="display: flex" class="buttonDropdown">
                     <span>user-name</span>
-                  <img class="arrowIcon" src="./img/down.png" />
+                  <img class="arrowIcon" src="img/down.png" />
                   </div>
 
                     <ul class="UserHeader_UserDropDown disableForm">
@@ -122,7 +122,7 @@
             <aside class="Account_StylesSideBar">
                 <div class="Account_StylesAvatar">
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <img class="avt"  id="photo" src="./img/logo_ico.png">
+                        <img class="avt"  id="photo" src="img/logo_ico.png">
                         <div class="Btnclick">
                             <input type="file" id="file" name="img" >
                             <label  for="file" id="uploadBtn">Choose Avatar</label>

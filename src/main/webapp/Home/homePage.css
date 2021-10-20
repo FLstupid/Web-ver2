@@ -25,7 +25,7 @@ input {
   color: -internal-light-dark(black, white);
   word-spacing: normal;
   text-transform: none;
-  text-indent: 0px;
+  text-indent: 0;
   text-shadow: none;
   display: inline-block;
   text-align: start;
@@ -42,7 +42,7 @@ button {
   color: -internal-light-dark(black, white);
   word-spacing: normal;
   text-transform: none;
-  text-indent: 0px;
+  text-indent: 0;
   text-shadow: none;
   display: inline-block;
   text-align: center;
@@ -55,7 +55,7 @@ button {
 
 form {
   display: block;
-  margin-top: 0em;
+  margin-top: 0;
 }
 
 label {
@@ -64,7 +64,8 @@ label {
 
 /* header_class----------------------------------------------------------------------------------------------------------------------- */
 .style__Header {
-  padding-top: 1px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   letter-spacing: normal;
   align-items: center;
 }
@@ -79,7 +80,7 @@ label {
 
 .Middle__Wrap {
   display: flex;
-  padding: 5px 0px 8px;
+  padding: 5px 0 8px;
   width: auto;
   height: auto;
   position: relative;
@@ -89,7 +90,7 @@ label {
 
 .Middle__LeftContainer {
   display: flex;
-  flex: 1 1 0%;
+  flex: 1 1 0;
   align-items: center;
 }
 
@@ -98,19 +99,19 @@ label {
   align-items: flex-start;
   flex-basis: 120px;
   flex-shrink: 0;
-  padding: 0px 16px 0px 0px;
+  padding: 0 16px 0 0;
 }
 
 .style_Logo {
   display: flex;
   align-items: center;
-  flex: 1 1 0%;
+  flex: 1 1 0;
 }
 
 .dhs-logo {
   display: flex;
   justify-content: space-between;
-  flex: 1 1 0%;
+  flex: 1 1 0;
 }
 
 .dhs-logo img {
@@ -160,7 +161,7 @@ label {
 }
 
 .FormSearch__Root {
-  flex: 1 1 0%;
+  flex: 1 1 0;
   height: auto;
   width: auto;
   margin: 0 16px;
@@ -170,25 +171,25 @@ label {
   width: 100%;
   display: flex;
   position: relative;
-  box-shadow: rgb(98 98 98 / 50%) 0px 1px 2px 0px;
+  box-shadow: rgb(98 98 98 / 50%) 0 1px 2px 0;
 }
 
 .FormSearch__Input {
-  border: 0px;
-  padding: 0px 12px;
+  border: 0;
+  padding: 0 12px;
   font-size: 13px;
-  border-radius: 2px 0px 0px 2px;
-  flex: 1 1 0%;
+  border-radius: 2px 0 0 2px;
+  flex: 1 1 0;
   outline: none;
 }
 
 .FormSearch__Button {
   cursor: pointer;
-  border: 0px;
+  border: 0;
   width: 120px;
   background: rgb(35, 216, 19);
   height: 40px;
-  border-radius: 0px 2px 2px 0px;
+  border-radius: 0 2px 2px 0;
   color: white;
   font-size: 13px;
   font-weight: 500;
@@ -214,7 +215,7 @@ label {
 
 .Userstyle__Item {
   cursor: pointer;
-  margin: 0px 0px 0px 16px;
+  margin: 0 0 0 16px;
   align-items: center;
   display: flex;
   color: rgb(255, 255, 255);
@@ -259,7 +260,7 @@ label {
   font-size: 13px;
   line-height: 20px;
   min-width: 120px;
-  flex: 1 1 0%;
+  flex: 1 1 0;
 }
 
 .arrowIcon {
@@ -277,10 +278,10 @@ label {
   min-width: 196px;
   z-index: 15;
   list-style: none;
-  margin: 0px;
-  padding: 10px 0px;
-  border-radius: 0px 0px 3px 3px;
-  box-shadow: rgb(0 0 0 / 18%) 0px 6px 12px 0px;
+  margin: 0;
+  padding: 10px 0;
+  border-radius: 0 0 3px 3px;
+  box-shadow: rgb(0 0 0 / 18%) 0 6px 12px 0;
   position: absolute;
   top: 45px;
   left: calc(50% + 10px);
@@ -302,8 +303,8 @@ label {
   bottom: 100%;
   left: 50%;
   content: " ";
-  height: 0px;
-  width: 0px;
+  height: 0;
+  width: 0;
   position: absolute;
   pointer-events: none;
 }
@@ -348,7 +349,7 @@ label {
   font-size: 13px;
   font-weight: 500;
   position: absolute;
-  padding: 0px 5px;
+  padding: 0 5px;
 }
 
 .cart-text {
@@ -363,7 +364,7 @@ label {
   width: 100%;
   min-height: 60px;
   height: auto;
-  margin: 0.7rem 0;
+  margin: 1rem 0;
 }
 
 .Tag-root p {
