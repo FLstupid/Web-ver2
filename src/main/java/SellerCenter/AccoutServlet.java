@@ -1,21 +1,24 @@
-package User;
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.annotation.*;
-import javax.servlet.http.*;
+package SellerCenter;
 
-@WebServlet(name = "customer", value = "/customer")
-public class CustomerServlet extends HttpServlet {
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet(name = "account", value = "/account")
+public class AccoutServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String action = request.getParameter("action");
         if (action == null) {
-            action = "customer"; // default action
+            action = "account"; // default action
         }
 
-        String url = "/usercenter.jsp";
+        String url = "/account.jsp";
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);

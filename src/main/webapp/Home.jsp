@@ -54,41 +54,41 @@
               Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a>
               from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
             </div>-->
-            <span class="Userstyle__ItemText">
-                <span class="Userstyle__NoWrap">Tài khoản</span>
-                <span class="account_laber">
-                  <span>user-name</span>
-                  <img class="arrowIcon" src="Home/img/down.png" alt=""/>
-                  <div class="UserHeader_UserDropDown">
-                    <a rel="nofollow" href="">
-                      <p title="Order history" class="UserHeader_UserDropDownItem">
-                        Order history
-                      </p>
-                    </a>
-                    <a rel="nofollow" href="">
-                      <p title="Notification" class="UserHeader_UserDropDownItem">
-                        Notification
-                        <span class="bagde">0</span>
-                      </p>
-                    </a>
-                    <a rel="nofollow" href="">
-                      <p title="My account" class="UserHeader_UserDropDownItem">
-                        My account
-                      </p>
-                    </a>
-                    <a rel="nofollow" href="">
-                      <p title="Reviews" class="UserHeader_UserDropDownItem">
-                        "Reviews"
-                      </p>
-                    </a>
-                    <a rel="nofollow" href="">
-                      <p title="Log out" class="UserHeader_UserDropDownItem">
-                        Log out
-                      </p>
-                    </a>
-                  </div>
-                </span>
+            <a class="Userstyle__ItemText" href="${pageContext.request.contextPath}/customer">
+              <span class="Userstyle__NoWrap">Tài khoản</span>
+              <span class="account_laber">
+                <span>user-name</span>
+                <img class="arrowIcon" src="Home/img/down.png" alt=""/>
+                <div class="UserHeader_UserDropDown">
+                  <a rel="nofollow" href="">
+                    <p title="Order history" class="UserHeader_UserDropDownItem">
+                      Order history
+                    </p>
+                  </a>
+                  <a rel="nofollow" href="">
+                    <p title="Notification" class="UserHeader_UserDropDownItem">
+                      Notification
+                      <span class="bagde">0</span>
+                    </p>
+                  </a>
+                  <a rel="nofollow" href="">
+                    <p title="My account" class="UserHeader_UserDropDownItem">
+                      My account
+                    </p>
+                  </a>
+                  <a rel="nofollow" href="">
+                    <p title="Reviews" class="UserHeader_UserDropDownItem">
+                      "Reviews"
+                    </p>
+                  </a>
+                  <a rel="nofollow" href="">
+                    <p title="Log out" class="UserHeader_UserDropDownItem">
+                      Log out
+                    </p>
+                  </a>
+                </div>
               </span>
+            </a>
           </div>
 
           <div class="Userstyle__CartItem">

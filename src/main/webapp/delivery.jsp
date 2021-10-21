@@ -1,23 +1,23 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="HomePage.css"/>
-    <title>DHS Product Seller</title>
+    <link rel="stylesheet" href="css/sellercenter.css"/>
+    <title>DHS Delivery Seller</title>
 </head>
 <body>
 <header class="header-root">
     <section class="header-container">
-        <a href="homepage.jsp" class="content-logo"><img src="img/android-chrome-192x192.png" alt=""></a>
-        <a href="homepage.jsp" class="style-content">
+        <a href="${pageContext.request.contextPath}/home" class="content-logo"><img src="SellerCenter/img/android-chrome-192x192.png" alt=""></a>
+        <a href="${pageContext.request.contextPath}/summary" class="style-content">
             <span>Seller Center</span>
         </a>
 
         <div class="account-avatar">
-            <img src="img/avatar.jfif" alt="">
+            <img src="SellerCenter/img/avatar.jfif" alt="">
             <span>Lê Trần Minh Nhựt</span>
         </div>
         <div class="quick-menu">
-            <img src="img/menu.png" height="30px" width="30px" alt="">
+            <img src="SellerCenter/img/menu.png" height="30px" width="30px" alt="">
             <!--<div>Icons made by
                 <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a>
                 from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
@@ -54,32 +54,32 @@
         <aside class="styles-left-SideBar">
             <ul class="nav-bar-account">
                 <li>
-                    <a href="homepage.jsp">
+                    <a href="${pageContext.request.contextPath}/summary">
                         <span>Doanh Thu</span>
                     </a>
                 </li>
                 <li>
-                    <a href="product.jsp" class="is-active">
+                    <a href="${pageContext.request.contextPath}/product">
                         <span>Sản Phẩm</span>
                     </a>
                 </li>
                 <li>
-                    <a href="bill.jsp">
+                    <a href="${pageContext.request.contextPath}/bill">
                         <span>Đơn hàng</span>
                     </a>
                 </li>
                 <li>
-                    <a href="delivery.jsp">
+                    <a href="${pageContext.request.contextPath}/delivery" class="is-active">
                         <span>Vận chuyển</span>
                     </a>
                 </li>
                 <li>
-                    <a href="reviews.jsp">
+                    <a href="${pageContext.request.contextPath}/reviews">
                         <span>Đánh giá</span>
                     </a>
                 </li>
                 <li>
-                    <a href="account.jsp">
+                    <a href="${pageContext.request.contextPath}/account">
                         <span>Tài khoản</span>
                     </a>
                 </li>
@@ -87,7 +87,7 @@
         </aside>
         <section class="styles-middle-container has-sidebar">
             <div class="layout-menu">
-                <div class="main-content"> PRODUCT
+                <div class="main-content"> VAN CHUYEN
                 </div>
             </div>
         </section>

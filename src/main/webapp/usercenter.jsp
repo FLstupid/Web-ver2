@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>UserCenter</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <link rel="stylesheet" href="css/newcss.css" />
 </head>
@@ -20,10 +20,10 @@
             <div class="Middle__LeftContainer">
                 <div class="logo-menu">
                     <div class="style_Logo">
-                        <a href="homepage.html" class="dhs-logo">
+                        <a href="${pageContext.request.contextPath}/home" class="dhs-logo">
                             <img
                                     src="img/logo.svg"
-                            />
+                             alt=""/>
                         </a>
                     </div>
                 </div>
