@@ -81,12 +81,15 @@ a {
     background-color: rgb(207, 206, 206);
 }
 
+.avt {
+    max-height: 36px;
+    border-radius: 50%;
+}
+
 .account-avatar img {
     margin-right: 10px;
     max-width: 100%;
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
+    object-fit: cover;
 }
 
 .account-avatar strong {
@@ -99,48 +102,6 @@ a {
 
 .quick-menu img {
     border-radius: 10%;
-}
-
-.dropdown-menu {
-    display: none;
-    max-height: 180px;
-    max-width: 350px;
-    position: absolute;
-    z-index: 1;
-    will-change: top, left;
-    transform-origin: center top;
-    top: 64px; right: 11px;
-    background-color: #d3eccf;
-}
-
-.dropdown-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    max-width: 205px;
-}
-
-.dropdown {
-    display: none;
-    top: 45px; right: 22px;
-    z-index: 10;
-    position: absolute;
-    width: 0;
-	height: 0;
-	border-left: 13px solid transparent;
-	border-right: 13px solid transparent;
-	border-bottom: 20px solid #d3eccf;
-}
-
-.quick-menu:hover .dropdown-menu,.quick-menu:hover .dropdown {
-    display: block;
-}
-
-.category-dropdown-box {
-    display: flex;
-    position: relative;
-    padding: 20px 30px;
-    margin-bottom: 10px;
 }
 
 .layout-container {
@@ -192,7 +153,7 @@ a {
     flex: 1;
 }
 
-.content-1, .content-2 {
+.content {
     margin: 15px;
     padding-bottom: 20px;
     background-color: rgb(255, 255, 255);
@@ -295,8 +256,8 @@ a {
 /* This is account.html style*/
 
 .Account_StylesAccountLayoutInner {
-    margin-top: 15px;
-    padding: 20px;
+    margin: 15px;
+    padding-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     background-color: #ffffff;
@@ -343,4 +304,12 @@ a {
 .Radio_StylesRadio {
     font-size: 18px;
     margin: 15px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }

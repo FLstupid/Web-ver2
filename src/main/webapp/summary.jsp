@@ -14,39 +14,8 @@
         </a>
 
         <div class="account-avatar">
-            <img src="SellerCenter/img/avatar.jfif" alt="">
+            <img class="avt" src="SellerCenter/img/avatar.jfif" alt="">
             <span>Lê Trần Minh Nhựt</span>
-        </div>
-        <div class="quick-menu">
-            <img src="SellerCenter/img/menu.png" height="30px" width="30px" alt="">
-            <!--<div>Icons made by
-                <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a>
-                from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-            </div>
-            -->
-            <div class="dropdown"></div>
-            <div class="dropdown-menu">
-                <div class="dropdown-content">
-                    <div class="category-dropdown-box">
-                        <span>a</span>
-                    </div>
-                    <div class="category-dropdown-box">
-                        <span>b</span>
-                    </div>
-                    <div class="category-dropdown-box">
-                        <span>c</span>
-                    </div>
-                    <div class="category-dropdown-box">
-                        <span>d</span>
-                    </div>
-                    <div class="category-dropdown-box">
-                        <span>e</span>
-                    </div>
-                    <div class="category-dropdown-box">
-                        <span>e</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 </header>
@@ -89,7 +58,7 @@
         <section class="styles-middle-container has-sidebar">
             <div class="layout-menu">
                 <div class="main-content">
-                    <div class="content-1">
+                    <div class="content">
                         <h3 class="title">Tổng quan</h3>
                         <div class="content-1-wapper">
                             <div class="to-do-box" style="max-height: 180px; overflow: hidden;transition:max-height 0.3s ease 0s;">
@@ -120,7 +89,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="content-2">
+                    <div class="content">
                         <h3 class="title">Thống kê</h3>
                         <div class="content-2-wapper">
                             <div class="statistic">

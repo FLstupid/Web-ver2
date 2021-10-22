@@ -9,7 +9,15 @@ html {
 }
 
 header {
+  z-index: 1000;
+  width: 100%;
+  position: fixed;
+  top: 0;
   background-color: rgb(0, 0, 0);
+}
+
+main {
+  margin-top: 6rem;
 }
 
 body {
@@ -64,8 +72,8 @@ label {
 
 /* header_class----------------------------------------------------------------------------------------------------------------------- */
 .style__Header {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   letter-spacing: normal;
   align-items: center;
 }
@@ -456,4 +464,17 @@ label {
 .content-product .content-product-deltals .price .money {
     color: #070707;
     vertical-align: middle;
+}
+
+.Seller {
+  height: 6rem;
+  width: 6rem;
+  position: fixed;
+  bottom: 1px;
+  left: 1px;
+  border-radius: 50%;
+}
+
+.Seller img {
+  object-fit: cover;
 }
