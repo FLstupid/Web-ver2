@@ -70,15 +70,28 @@
                     </div>
                     <div class="content">
                         <h3 class="title">Thông tin sản phẩm</h3>
-                        <table>
-                            <tr>
-                                <th>Tên sản phẩm</th>
-                                <th>Loại</th>
-                                <th>Tag</th>
-                                <th>Giá</th>
-                                <th>Số lượng</th>
-                            </tr>
-                        </table>
+                        <div class="inner">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Loại</th>
+                                    <th>Tag</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

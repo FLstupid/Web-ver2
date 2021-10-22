@@ -59,15 +59,29 @@
                 <div class="main-content">
                     <div class="content">
                         <h3 class="title">Vận chuyển</h3>
-                        <table>
-                            <tr>
-                                <td>Đơn vị vận chuyển</td>
-                                <td>Loại</td>
-                                <td>Tag</td>
-                                <td>Giá</td>
-                                <td>Chọn</td>
-                            </tr>
-                        </table>
+                        <div class="inner">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Loại</th>
+                                    <th>Tag</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

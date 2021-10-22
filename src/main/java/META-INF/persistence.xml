@@ -5,5 +5,27 @@
              version="3.0">
   <persistence-unit name="default">
 
+    <class>Model.AccountEntity</class>
+    <class>Model.AddressEntity</class>
+    <class>Model.CartEntity</class>
+    <class>Model.CartItemEntity</class>
+    <class>Model.CategoryEntity</class>
+    <class>Model.CategoryProductEntity</class>
+    <class>Model.DeliveryEntity</class>
+    <class>Model.OrderDetailEntity</class>
+    <class>Model.OrderItemEntity</class>
+    <class>Model.ProductEntity</class>
+    <class>Model.ReviewEntity</class>
+    <class>Model.ShopEntity</class>
+    <class>Model.ShopDeliveryEntity</class>
+    <class>Model.TagEntity</class>
+    <class>Model.TagProductEntity</class>
+    <class>Model.TransEntity</class>
+    <class>Model.TransistionEntity</class>
+    <class>Model.UserAddressEntity</class>
+    <properties>
+      <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306"/>
+      <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+    </properties>
   </persistence-unit>
 </persistence>

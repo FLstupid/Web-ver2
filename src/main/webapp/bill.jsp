@@ -63,22 +63,28 @@
                     </div>
                     <div class="content">
                         <h3 class="title">Thông tin đơn hàng</h3>
-                        <table>
-                            <tr>
-                                <td>Tên sản phẩm</td>
-                                <td>Loại</td>
-                                <td>Tag</td>
-                                <td>Giá</td>
-                                <td>Số lượng</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>5</td>
-                            </tr>
-                        </table>
+                        <div class="inner">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Mã thanh toán</th>
+                                    <th>Loại</th>
+                                    <th>Tag</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
