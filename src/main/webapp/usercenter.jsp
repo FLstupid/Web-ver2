@@ -11,11 +11,12 @@
 <!---------------------------------------------------header-------------------------------------------->
 <header class="style__Header">
     <section class="Container">
+        <a style="color: white" href="${pageContext.request.contextPath}/summary">Kênh Người Bán</a>
         <div class="Middle__Wrap">
             <div class="Middle__LeftContainer">
                 <div class="logo-menu">
                     <div class="style_Logo">
-                        <a href="home" class="dhs-logo">
+                        <a href="#" class="dhs-logo">
                             <img src="Home/img/logo.svg" alt=""/>
                         </a>
                     </div>

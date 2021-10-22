@@ -300,6 +300,9 @@ a{
   margin-bottom: 10px;
   font-size: 15px;
 }
+a{
+  text-decoration: none;
+}
 *,
 ::before,
 ::after {
@@ -482,7 +485,7 @@ a{
 }
 
 .seller-icon {
-
+width: 6rem;height: 6rem;
 }
 
 .seller-icon img {

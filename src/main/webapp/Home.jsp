@@ -11,6 +11,7 @@
 <!---------------------------------------------------header-------------------------------------------->
 <header class="style__Header">
   <section class="Container">
+      <a style="color: white" href="${pageContext.request.contextPath}/summary">Kênh Người Bán</a>
     <div class="Middle__Wrap">
       <div class="Middle__LeftContainer">
         <div class="logo-menu">
@@ -425,11 +426,7 @@
   </div>
 </main>
 <!---------------------------------------------------footer-------------------------------------------->
-<div class="Seller">
-  <a href="${pageContext.request.contextPath}/summary">
-    <img class="seller-icon" src="${pageContext.request.contextPath}/Home/img/Sell-Logo.svg" alt="">
-  </a>
-</div>
+
 <script src="js/main.js"></script>
 </body>
 </html>
