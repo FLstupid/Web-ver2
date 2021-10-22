@@ -430,7 +430,7 @@
 <footer></footer>
 <div class="Seller">
   <a href="${pageContext.request.contextPath}/summary">
-    <img src="${pageContext.request.contextPath}/Home/img/Sell-Logo.svg" alt="">
+    <img class="seller-icon" src="${pageContext.request.contextPath}/Home/img/Sell-Logo.svg" alt="">
   </a>
 </div>
 </body>

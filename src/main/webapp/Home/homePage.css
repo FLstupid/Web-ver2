@@ -475,6 +475,10 @@ label {
   border-radius: 50%;
 }
 
-.Seller img {
+.seller-icon {
+
+}
+
+.seller-icon img {
   object-fit: cover;
 }
