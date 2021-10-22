@@ -385,7 +385,10 @@ label {
     color: rgb(0, 0, 0);
 
 }
-
+.UserHeader_UserDropDown .UserHeader_UserDropDownItem {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
 .Account_NavBar a {
     text-decoration: none;
     display: flex;

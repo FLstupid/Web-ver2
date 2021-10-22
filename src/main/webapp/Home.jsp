@@ -50,30 +50,28 @@
         <div class="Userstyle__Root">
           <div class="Userstyle__Item">
             <img class="profile-icon" src="Home/img/user.png" alt=""/>
-            <!--<div>
-              Icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a>
-              from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-            </div>-->
-            <a class="Userstyle__ItemText" href="${pageContext.request.contextPath}/customer">
+            <a class="Userstyle__ItemText" >
               <span class="Userstyle__NoWrap">Tài khoản</span>
               <span class="account_laber">
+                <div style="display: flex" class="buttonDropdown">
                 <span>user-name</span>
                 <img class="arrowIcon" src="Home/img/down.png" alt=""/>
-                <div class="UserHeader_UserDropDown">
+                </div>
+                <div style="margin-top: 20px;" class="UserHeader_UserDropDown disableForm">
                   <a rel="nofollow" href="">
                     <p title="Order history" class="UserHeader_UserDropDownItem">
                       Order history
                     </p>
                   </a>
-                  <a rel="nofollow" href="">
-                    <p title="Notification" class="UserHeader_UserDropDownItem">
-                      Notification
-                      <span class="bagde">0</span>
-                    </p>
-                  </a>
-                  <a rel="nofollow" href="">
+
+                  <a rel="nofollow" href="${pageContext.request.contextPath}/customer">
                     <p title="My account" class="UserHeader_UserDropDownItem">
                       My account
+                    </p>
+                  </a>
+                   <a rel="nofollow" href="">
+                    <p title="Notification" class="UserHeader_UserDropDownItem">
+                      Changing password
                     </p>
                   </a>
                   <a rel="nofollow" href="">
@@ -427,12 +425,11 @@
   </div>
 </main>
 <!---------------------------------------------------footer-------------------------------------------->
-<footer></footer>
 <div class="Seller">
   <a href="${pageContext.request.contextPath}/summary">
     <img class="seller-icon" src="${pageContext.request.contextPath}/Home/img/Sell-Logo.svg" alt="">
   </a>
 </div>
+<script src="js/main.js"></script>
 </body>
-
 </html>

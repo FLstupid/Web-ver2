@@ -1,16 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Hoang
-  Date: 10/14/2021
-  Time: 8:39 AM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>UserCenter</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <link rel="stylesheet" href="css/newcss.css" />
+    <link rel="stylesheet" href="Home/homePage.css"/>
 </head>
 <body>
 <!---------------------------------------------------header-------------------------------------------->
@@ -20,89 +15,86 @@
             <div class="Middle__LeftContainer">
                 <div class="logo-menu">
                     <div class="style_Logo">
-                        <a href="${pageContext.request.contextPath}/home" class="dhs-logo">
-                            <img
-                                    src="img/logo.svg"
-                             alt=""/>
+                        <a href="home" class="dhs-logo">
+                            <img src="Home/img/logo.svg" alt=""/>
                         </a>
+                    </div>
+                </div>
+
+                <div class="Category__Root">
+                    <div class="Category">
+                        <div>
+                            <img class="Category-icon" src="https://icon-library.com/images/hamburger-icon-white/hamburger-icon-white-16.jpg"  alt="">
+                        </div>
+                        <div class="Category-info">
+                            <div class="Category-text">Danh mục
+                                <p>Sản phẩm</p>
+                            </div>
+
+                        </div>
+                        <img class="arrowIcon" src="Home/img/dropdownArrow.png" alt=""/>
                     </div>
                 </div>
 
                 <div class="FormSearch__Root">
                     <div class="FormSearch__Form">
-                        <input
-                                type="text"
-                                placeholder="Find somethings v............... ?"
-                                class="FormSearch__Input"
-                                value=""
-                        />
+                        <input type="text" placeholder="Find somethings v............... ?" class="FormSearch__Input" value="" />
                         <button class="FormSearch__Button">
-                            <img
-                                    class="icon-search"
-                                    src="https://salt.tikicdn.com/ts/upload/ed/5e/b8/8538366274240326978318348ea8af7c.png"
-                            />
+                            <img class="icon-search"
+                                 src="https://salt.tikicdn.com/ts/upload/ed/5e/b8/8538366274240326978318348ea8af7c.png"  alt=""/>
                             Search
                         </button>
                     </div>
                 </div>
 
                 <div class="Userstyle__Root">
-
                     <div class="Userstyle__Item">
-                        <a href="customer">
-                            <img   class=" profile-icon" src="img/user.png" />
-                        </a>
-                        <span class="Userstyle__ItemText">
-                <span class="Userstyle__NoWrap">Tài khoản</span>
-                <span class="account_laber">
-                  <div style="display: flex" class="buttonDropdown">
-                    <span>user-name</span>
-                  <img class="arrowIcon" src="img/down.png" />
-                  </div>
+                        <img class="profile-icon" src="Home/img/user.png" alt=""/>
+                        <a class="Userstyle__ItemText" >
+                            <span class="Userstyle__NoWrap">Tài khoản</span>
+                            <span class="account_laber">
+                <div style="display: flex" class="buttonDropdown">
+                <span>user-name</span>
+                <img class="arrowIcon" src="Home/img/down.png" alt=""/>
+                </div>
+                <div style="margin-top: 20px;" class="UserHeader_UserDropDown disableForm">
+                  <a rel="nofollow" href="">
+                    <p title="Order history" class="UserHeader_UserDropDownItem">
+                      Order history
+                    </p>
+                  </a>
 
-                    <ul class="UserHeader_UserDropDown disableForm">
-                      <li><a rel="nofollow" href="">
-                      <p
-                              title="Order history"
-                              class="UserHeader_UserDropDownItem"
-                      >
-                        Order history
-                      </p>
-                    </a></li>
-                      <li><a rel="nofollow" href="">
-                      <p title="Notification" class="UserHeader_UserDropDownItem">
-                        Notification
-                        <span class="bagde">0</span>
-                      </p>
-                    </a></li>
-                      <li><a rel="nofollow" href="">
-                      <p title="My account" class="UserHeader_UserDropDownItem">
-                        My account
-                      </p>
-                    </a></li>
-                      <li><a rel="nofollow" href="">
-                      <p title="Reviews" class="UserHeader_UserDropDownItem">
-                        "Reviews"
-                      </p>
-                    </a></li>
-                      <li><a rel="nofollow" href="">
-                      <p title="Log out" class="UserHeader_UserDropDownItem">
-                        Log out
-                      </p>
-                    </a></li>
-                    </ul>
-                </span>
+                  <a rel="nofollow" href="${pageContext.request.contextPath}/customer">
+                    <p title="My account" class="UserHeader_UserDropDownItem">
+                      My account
+                    </p>
+                  </a>
+                   <a rel="nofollow" href="">
+                    <p title="Notification" class="UserHeader_UserDropDownItem">
+                      Changing password
+                    </p>
+                  </a>
+                  <a rel="nofollow" href="">
+                    <p title="Reviews" class="UserHeader_UserDropDownItem">
+                      "Reviews"
+                    </p>
+                  </a>
+                  <a rel="nofollow" href="">
+                    <p title="Log out" class="UserHeader_UserDropDownItem">
+                      Log out
+                    </p>
+                  </a>
+                </div>
               </span>
+                        </a>
                     </div>
-                    </a>
+
                     <div class="Userstyle__CartItem">
                         <a href="#" rel="nofollow">
                             <div class="Userstyle__Item2">
                                 <div class="cart-wrapper">
-                                    <img
-                                            class="cart-icon"
-                                            src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"
-                                    />
+                                    <img class="cart-icon"
+                                         src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"  alt=""/>
                                     <span class="Userstyle__ItemCart">3</span>
                                 </div>
                                 <span class="cart-text">Giỏ Hàng</span>
@@ -121,6 +113,7 @@
             <div class="breadcrumb_Container"></div>
             <aside class="Account_StylesSideBar">
                 <div class="Account_StylesAvatar">
+
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
                         <img class="avt"  id="photo" src="img/logo_ico.png">
                         <div class="Btnclick">
@@ -613,10 +606,6 @@
     </section>
 </main>
 <!---------------------------------------------------footer-------------------------------------------->
-<footer>
-
-</footer>
-
 <script src="js/main.js"></script>
 </body>
 </html>
