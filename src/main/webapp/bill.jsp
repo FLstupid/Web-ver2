@@ -56,7 +56,30 @@
         </aside>
         <section class="styles-middle-container has-sidebar">
             <div class="layout-menu">
-                <div class="main-content"> BILL
+                <div class="main-content">
+                    <div class="content">
+                        <h3 class="title">Tìm kiếm đơn hàng</h3>
+                        <div class="search"></div>
+                    </div>
+                    <div class="content">
+                        <h3 class="title">Thông tin đơn hàng</h3>
+                        <table>
+                            <tr>
+                                <td>Tên sản phẩm</td>
+                                <td>Loại</td>
+                                <td>Tag</td>
+                                <td>Giá</td>
+                                <td>Số lượng</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>

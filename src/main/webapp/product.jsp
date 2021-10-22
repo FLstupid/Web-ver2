@@ -56,7 +56,30 @@
         </aside>
         <section class="styles-middle-container has-sidebar">
             <div class="layout-menu">
-                <div class="main-content"> PRODUCT
+                <div class="main-content">
+                    <div class="content">
+                        <h3 class="title">Thêm sản phẩm</h3>
+                        <form>
+                            <div class="form-control"></div>
+                            <div class="form-control"></div>
+                            <div class="form-control"></div>
+                            <div class="form-control"></div>
+                            <div class="form-control"></div>
+                            <div class="form-control"></div>
+                        </form>
+                    </div>
+                    <div class="content">
+                        <h3 class="title">Thông tin sản phẩm</h3>
+                        <table>
+                            <tr>
+                                <th>Tên sản phẩm</th>
+                                <th>Loại</th>
+                                <th>Tag</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>

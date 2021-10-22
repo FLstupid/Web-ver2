@@ -56,7 +56,18 @@
         </aside>
         <section class="styles-middle-container has-sidebar">
             <div class="layout-menu">
-                <div class="main-content"> VAN CHUYEN
+                <div class="main-content">
+                    <div class="content">
+                        <h3 class="title">Vận chuyển</h3>
+                        <table>
+                            <tr>
+                                <td>Đơn vị vận chuyển</td>
+                                <td>Loại</td>
+                                <td>Tag</td>
+                                <td>Giá</td>
+                                <td>Chọn</td>
+                            </tr>
+                        </table>
                 </div>
             </div>
         </section>

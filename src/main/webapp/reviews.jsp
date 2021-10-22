@@ -56,7 +56,15 @@
         </aside>
         <section class="styles-middle-container has-sidebar">
             <div class="layout-menu">
-                <div class="main-content"> REVIEWS
+                <div class="main-content">
+                    <h3 class="title">Đánh giá của khách hàng</h3>
+                    <table>
+                        <tr>
+                            <div class="product"></div>
+                            <div class="bill-id"></div>
+                            <p></p>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </section>
