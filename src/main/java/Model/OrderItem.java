@@ -5,10 +5,10 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "cart_item", schema = "dhs")
-public class CartItemEntity {
+@Table(name = "order_item", schema = "dhs", catalog = "")
+public class OrderItem {
     private long id;
-    private Long cartId;
+    private Long orderId;
     private Long productId;
     private short quality;
     private double price;
@@ -17,8 +17,8 @@ public class CartItemEntity {
     private Timestamp createdAt;
     private Timestamp updatedAt;
     private String content;
-    private CartEntity cartByCartId;
-    private ProductEntity productByProductId;
+    private OrderDetail orderDetailByOrderId;
+    private Product productByProductId;
 
     @Id
     @Column(name = "id")
@@ -31,13 +31,13 @@ public class CartItemEntity {
     }
 
     @Basic
-    @Column(name = "cartId")
-    public Long getCartId() {
-        return cartId;
+    @Column(name = "orderId")
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setCartId(Long cartId) {
-        this.cartId = cartId;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     @Basic
@@ -124,32 +124,32 @@ public class CartItemEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CartItemEntity that = (CartItemEntity) o;
-        return id == that.id && quality == that.quality && Double.compare(that.price, price) == 0 && Double.compare(that.discount, discount) == 0 && amount == that.amount && Objects.equals(cartId, that.cartId) && Objects.equals(productId, that.productId) && Objects.equals(createdAt, that.createdAt) && Objects.equals(updatedAt, that.updatedAt) && Objects.equals(content, that.content);
+        OrderItem orderItem = (OrderItem) o;
+        return id == orderItem.id && quality == orderItem.quality && Double.compare(orderItem.price, price) == 0 && Double.compare(orderItem.discount, discount) == 0 && amount == orderItem.amount && Objects.equals(orderId, orderItem.orderId) && Objects.equals(productId, orderItem.productId) && Objects.equals(createdAt, orderItem.createdAt) && Objects.equals(updatedAt, orderItem.updatedAt) && Objects.equals(content, orderItem.content);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cartId, productId, quality, price, discount, amount, createdAt, updatedAt, content);
+        return Objects.hash(id, orderId, productId, quality, price, discount, amount, createdAt, updatedAt, content);
     }
 
     @ManyToOne
-    @JoinColumn(name = "cartId", referencedColumnName = "id")
-    public CartEntity getCartByCartId() {
-        return cartByCartId;
+    @JoinColumn(name = "orderId", referencedColumnName = "id")
+    public OrderDetail getOrderDetailByOrderId() {
+        return orderDetailByOrderId;
     }
 
-    public void setCartByCartId(CartEntity cartByCartId) {
-        this.cartByCartId = cartByCartId;
+    public void setOrderDetailByOrderId(OrderDetail orderDetailByOrderId) {
+        this.orderDetailByOrderId = orderDetailByOrderId;
     }
 
     @ManyToOne
     @JoinColumn(name = "productId", referencedColumnName = "id")
-    public ProductEntity getProductByProductId() {
+    public Product getProductByProductId() {
         return productByProductId;
     }
 
-    public void setProductByProductId(ProductEntity productByProductId) {
+    public void setProductByProductId(Product productByProductId) {
         this.productByProductId = productByProductId;
     }
 }

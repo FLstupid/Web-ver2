@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "category_product", schema = "dhs")
-public class CategoryProductEntity {
+@Table(name = "category_product", schema = "dhs", catalog = "")
+public class CategoryProduct {
     private long id;
     private Long productId;
     private Long categoryId;
-    private ProductEntity productByProductId;
-    private CategoryEntity categoryByCategoryId;
+    private Product productByProductId;
+    private Category categoryByCategoryId;
 
     @Id
     @Column(name = "id")
@@ -46,7 +46,7 @@ public class CategoryProductEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CategoryProductEntity that = (CategoryProductEntity) o;
+        CategoryProduct that = (CategoryProduct) o;
         return id == that.id && Objects.equals(productId, that.productId) && Objects.equals(categoryId, that.categoryId);
     }
 
@@ -57,21 +57,21 @@ public class CategoryProductEntity {
 
     @ManyToOne
     @JoinColumn(name = "productId", referencedColumnName = "id")
-    public ProductEntity getProductByProductId() {
+    public Product getProductByProductId() {
         return productByProductId;
     }
 
-    public void setProductByProductId(ProductEntity productByProductId) {
+    public void setProductByProductId(Product productByProductId) {
         this.productByProductId = productByProductId;
     }
 
     @ManyToOne
     @JoinColumn(name = "categoryId", referencedColumnName = "id")
-    public CategoryEntity getCategoryByCategoryId() {
+    public Category getCategoryByCategoryId() {
         return categoryByCategoryId;
     }
 
-    public void setCategoryByCategoryId(CategoryEntity categoryByCategoryId) {
+    public void setCategoryByCategoryId(Category categoryByCategoryId) {
         this.categoryByCategoryId = categoryByCategoryId;
     }
 }

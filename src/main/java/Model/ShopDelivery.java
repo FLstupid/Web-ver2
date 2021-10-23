@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "shop_delivery", schema = "dhs")
-public class ShopDeliveryEntity {
+@Table(name = "shop_delivery", schema = "dhs", catalog = "")
+public class ShopDelivery {
     private long id;
     private Long shopId;
     private Long deliveryId;
-    private ShopEntity shopByShopId;
-    private DeliveryEntity deliveryByDeliveryId;
+    private Shop shopByShopId;
+    private Delivery deliveryByDeliveryId;
 
     @Id
     @Column(name = "id")
@@ -46,7 +46,7 @@ public class ShopDeliveryEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ShopDeliveryEntity that = (ShopDeliveryEntity) o;
+        ShopDelivery that = (ShopDelivery) o;
         return id == that.id && Objects.equals(shopId, that.shopId) && Objects.equals(deliveryId, that.deliveryId);
     }
 
@@ -57,21 +57,21 @@ public class ShopDeliveryEntity {
 
     @ManyToOne
     @JoinColumn(name = "shopId", referencedColumnName = "id")
-    public ShopEntity getShopByShopId() {
+    public Shop getShopByShopId() {
         return shopByShopId;
     }
 
-    public void setShopByShopId(ShopEntity shopByShopId) {
+    public void setShopByShopId(Shop shopByShopId) {
         this.shopByShopId = shopByShopId;
     }
 
     @ManyToOne
     @JoinColumn(name = "deliveryId", referencedColumnName = "id")
-    public DeliveryEntity getDeliveryByDeliveryId() {
+    public Delivery getDeliveryByDeliveryId() {
         return deliveryByDeliveryId;
     }
 
-    public void setDeliveryByDeliveryId(DeliveryEntity deliveryByDeliveryId) {
+    public void setDeliveryByDeliveryId(Delivery deliveryByDeliveryId) {
         this.deliveryByDeliveryId = deliveryByDeliveryId;
     }
 }

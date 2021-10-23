@@ -6,8 +6,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "shop", schema = "dhs")
-public class ShopEntity {
+public class Shop {
     private long id;
     private long accountId;
     private String streetName;
@@ -18,9 +17,9 @@ public class ShopEntity {
     private long numberProduct;
     private short status;
     private Timestamp lastUpdate;
-    private Collection<ProductEntity> productsById;
-    private AccountEntity accountByAccountId;
-    private Collection<ShopDeliveryEntity> shopDeliveriesById;
+    private Collection<Product> productsById;
+    private Account accountByAccountId;
+    private Collection<ShopDelivery> shopDeliveriesById;
 
     @Id
     @Column(name = "id")
@@ -126,8 +125,8 @@ public class ShopEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ShopEntity that = (ShopEntity) o;
-        return id == that.id && accountId == that.accountId && bankId == that.bankId && activeDay == that.activeDay && numberProduct == that.numberProduct && status == that.status && Objects.equals(streetName, that.streetName) && Objects.equals(city, that.city) && Objects.equals(district, that.district) && Objects.equals(lastUpdate, that.lastUpdate);
+        Shop shop = (Shop) o;
+        return id == shop.id && accountId == shop.accountId && bankId == shop.bankId && activeDay == shop.activeDay && numberProduct == shop.numberProduct && status == shop.status && Objects.equals(streetName, shop.streetName) && Objects.equals(city, shop.city) && Objects.equals(district, shop.district) && Objects.equals(lastUpdate, shop.lastUpdate);
     }
 
     @Override
@@ -136,30 +135,30 @@ public class ShopEntity {
     }
 
     @OneToMany(mappedBy = "shopByShopId")
-    public Collection<ProductEntity> getProductsById() {
+    public Collection<Product> getProductsById() {
         return productsById;
     }
 
-    public void setProductsById(Collection<ProductEntity> productsById) {
+    public void setProductsById(Collection<Product> productsById) {
         this.productsById = productsById;
     }
 
     @ManyToOne
     @JoinColumn(name = "accountId", referencedColumnName = "id", nullable = false)
-    public AccountEntity getAccountByAccountId() {
+    public Account getAccountByAccountId() {
         return accountByAccountId;
     }
 
-    public void setAccountByAccountId(AccountEntity accountByAccountId) {
+    public void setAccountByAccountId(Account accountByAccountId) {
         this.accountByAccountId = accountByAccountId;
     }
 
     @OneToMany(mappedBy = "shopByShopId")
-    public Collection<ShopDeliveryEntity> getShopDeliveriesById() {
+    public Collection<ShopDelivery> getShopDeliveriesById() {
         return shopDeliveriesById;
     }
 
-    public void setShopDeliveriesById(Collection<ShopDeliveryEntity> shopDeliveriesById) {
+    public void setShopDeliveriesById(Collection<ShopDelivery> shopDeliveriesById) {
         this.shopDeliveriesById = shopDeliveriesById;
     }
 }

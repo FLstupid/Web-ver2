@@ -5,12 +5,11 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "delivery", schema = "dhs")
-public class DeliveryEntity {
+public class Delivery {
     private long id;
     private String methodName;
     private Integer price;
-    private Collection<ShopDeliveryEntity> shopDeliveriesById;
+    private Collection<ShopDelivery> shopDeliveriesById;
 
     @Id
     @Column(name = "id")
@@ -46,8 +45,8 @@ public class DeliveryEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        DeliveryEntity that = (DeliveryEntity) o;
-        return id == that.id && Objects.equals(methodName, that.methodName) && Objects.equals(price, that.price);
+        Delivery delivery = (Delivery) o;
+        return id == delivery.id && Objects.equals(methodName, delivery.methodName) && Objects.equals(price, delivery.price);
     }
 
     @Override
@@ -56,11 +55,11 @@ public class DeliveryEntity {
     }
 
     @OneToMany(mappedBy = "deliveryByDeliveryId")
-    public Collection<ShopDeliveryEntity> getShopDeliveriesById() {
+    public Collection<ShopDelivery> getShopDeliveriesById() {
         return shopDeliveriesById;
     }
 
-    public void setShopDeliveriesById(Collection<ShopDeliveryEntity> shopDeliveriesById) {
+    public void setShopDeliveriesById(Collection<ShopDelivery> shopDeliveriesById) {
         this.shopDeliveriesById = shopDeliveriesById;
     }
 }

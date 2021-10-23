@@ -6,8 +6,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "cart", schema = "dhs")
-public class CartEntity {
+public class Cart {
     private long id;
     private String sessionId;
     private String tokenId;
@@ -21,8 +20,8 @@ public class CartEntity {
     private Timestamp createdAt;
     private Timestamp updatedAt;
     private String content;
-    private AccountEntity accountByAccountId;
-    private Collection<CartItemEntity> cartItemsById;
+    private Account accountByAccountId;
+    private Collection<CartItem> cartItemsById;
 
     @Id
     @Column(name = "id")
@@ -158,8 +157,8 @@ public class CartEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CartEntity that = (CartEntity) o;
-        return id == that.id && phone == that.phone && Objects.equals(sessionId, that.sessionId) && Objects.equals(tokenId, that.tokenId) && Objects.equals(status, that.status) && Objects.equals(accountId, that.accountId) && Objects.equals(streetName, that.streetName) && Objects.equals(city, that.city) && Objects.equals(district, that.district) && Objects.equals(delivery, that.delivery) && Objects.equals(createdAt, that.createdAt) && Objects.equals(updatedAt, that.updatedAt) && Objects.equals(content, that.content);
+        Cart cart = (Cart) o;
+        return id == cart.id && phone == cart.phone && Objects.equals(sessionId, cart.sessionId) && Objects.equals(tokenId, cart.tokenId) && Objects.equals(status, cart.status) && Objects.equals(accountId, cart.accountId) && Objects.equals(streetName, cart.streetName) && Objects.equals(city, cart.city) && Objects.equals(district, cart.district) && Objects.equals(delivery, cart.delivery) && Objects.equals(createdAt, cart.createdAt) && Objects.equals(updatedAt, cart.updatedAt) && Objects.equals(content, cart.content);
     }
 
     @Override
@@ -169,20 +168,20 @@ public class CartEntity {
 
     @ManyToOne
     @JoinColumn(name = "accountId", referencedColumnName = "id")
-    public AccountEntity getAccountByAccountId() {
+    public Account getAccountByAccountId() {
         return accountByAccountId;
     }
 
-    public void setAccountByAccountId(AccountEntity accountByAccountId) {
+    public void setAccountByAccountId(Account accountByAccountId) {
         this.accountByAccountId = accountByAccountId;
     }
 
     @OneToMany(mappedBy = "cartByCartId")
-    public Collection<CartItemEntity> getCartItemsById() {
+    public Collection<CartItem> getCartItemsById() {
         return cartItemsById;
     }
 
-    public void setCartItemsById(Collection<CartItemEntity> cartItemsById) {
+    public void setCartItemsById(Collection<CartItem> cartItemsById) {
         this.cartItemsById = cartItemsById;
     }
 }

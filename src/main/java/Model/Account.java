@@ -7,8 +7,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "account", schema = "dhs")
-public class AccountEntity {
+public class Account {
     private long id;
     private String username;
     private String passwordHash;
@@ -18,12 +17,12 @@ public class AccountEntity {
     private Date birthday;
     private boolean role;
     private Timestamp lastUpdate;
-    private Collection<CartEntity> cartsById;
-    private Collection<ReviewEntity> reviewsById;
-    private Collection<ShopEntity> shopsById;
-    private Collection<TransEntity> transById;
-    private Collection<TransistionEntity> transistionsById;
-    private Collection<UserAddressEntity> userAddressesById;
+    private Collection<Cart> cartsById;
+    private Collection<Review> reviewsById;
+    private Collection<Shop> shopsById;
+    private Collection<Trans> transById;
+    private Collection<Transistion> transistionsById;
+    private Collection<UserAddress> userAddressesById;
 
     @Id
     @Column(name = "id")
@@ -119,8 +118,8 @@ public class AccountEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AccountEntity that = (AccountEntity) o;
-        return id == that.id && phone == that.phone && role == that.role && Objects.equals(username, that.username) && Objects.equals(passwordHash, that.passwordHash) && Objects.equals(email, that.email) && Objects.equals(shopName, that.shopName) && Objects.equals(birthday, that.birthday) && Objects.equals(lastUpdate, that.lastUpdate);
+        Account account = (Account) o;
+        return id == account.id && phone == account.phone && role == account.role && Objects.equals(username, account.username) && Objects.equals(passwordHash, account.passwordHash) && Objects.equals(email, account.email) && Objects.equals(shopName, account.shopName) && Objects.equals(birthday, account.birthday) && Objects.equals(lastUpdate, account.lastUpdate);
     }
 
     @Override
@@ -129,56 +128,56 @@ public class AccountEntity {
     }
 
     @OneToMany(mappedBy = "accountByAccountId")
-    public Collection<CartEntity> getCartsById() {
+    public Collection<Cart> getCartsById() {
         return cartsById;
     }
 
-    public void setCartsById(Collection<CartEntity> cartsById) {
+    public void setCartsById(Collection<Cart> cartsById) {
         this.cartsById = cartsById;
     }
 
     @OneToMany(mappedBy = "accountByUserId")
-    public Collection<ReviewEntity> getReviewsById() {
+    public Collection<Review> getReviewsById() {
         return reviewsById;
     }
 
-    public void setReviewsById(Collection<ReviewEntity> reviewsById) {
+    public void setReviewsById(Collection<Review> reviewsById) {
         this.reviewsById = reviewsById;
     }
 
     @OneToMany(mappedBy = "accountByAccountId")
-    public Collection<ShopEntity> getShopsById() {
+    public Collection<Shop> getShopsById() {
         return shopsById;
     }
 
-    public void setShopsById(Collection<ShopEntity> shopsById) {
+    public void setShopsById(Collection<Shop> shopsById) {
         this.shopsById = shopsById;
     }
 
     @OneToMany(mappedBy = "accountByAccountId")
-    public Collection<TransEntity> getTransById() {
+    public Collection<Trans> getTransById() {
         return transById;
     }
 
-    public void setTransById(Collection<TransEntity> transById) {
+    public void setTransById(Collection<Trans> transById) {
         this.transById = transById;
     }
 
     @OneToMany(mappedBy = "accountByCustomerId")
-    public Collection<TransistionEntity> getTransistionsById() {
+    public Collection<Transistion> getTransistionsById() {
         return transistionsById;
     }
 
-    public void setTransistionsById(Collection<TransistionEntity> transistionsById) {
+    public void setTransistionsById(Collection<Transistion> transistionsById) {
         this.transistionsById = transistionsById;
     }
 
     @OneToMany(mappedBy = "accountByAccountId")
-    public Collection<UserAddressEntity> getUserAddressesById() {
+    public Collection<UserAddress> getUserAddressesById() {
         return userAddressesById;
     }
 
-    public void setUserAddressesById(Collection<UserAddressEntity> userAddressesById) {
+    public void setUserAddressesById(Collection<UserAddress> userAddressesById) {
         this.userAddressesById = userAddressesById;
     }
 }

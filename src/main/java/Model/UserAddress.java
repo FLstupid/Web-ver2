@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "user_address", schema = "dhs")
-public class UserAddressEntity {
+@Table(name = "user_address", schema = "dhs", catalog = "")
+public class UserAddress {
     private long id;
     private Long accountId;
     private Long addressId;
-    private AccountEntity accountByAccountId;
-    private AddressEntity addressByAddressId;
+    private Account accountByAccountId;
+    private Address addressByAddressId;
 
     @Id
     @Column(name = "id")
@@ -46,7 +46,7 @@ public class UserAddressEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserAddressEntity that = (UserAddressEntity) o;
+        UserAddress that = (UserAddress) o;
         return id == that.id && Objects.equals(accountId, that.accountId) && Objects.equals(addressId, that.addressId);
     }
 
@@ -57,21 +57,21 @@ public class UserAddressEntity {
 
     @ManyToOne
     @JoinColumn(name = "accountId", referencedColumnName = "id")
-    public AccountEntity getAccountByAccountId() {
+    public Account getAccountByAccountId() {
         return accountByAccountId;
     }
 
-    public void setAccountByAccountId(AccountEntity accountByAccountId) {
+    public void setAccountByAccountId(Account accountByAccountId) {
         this.accountByAccountId = accountByAccountId;
     }
 
     @ManyToOne
     @JoinColumn(name = "addressId", referencedColumnName = "id")
-    public AddressEntity getAddressByAddressId() {
+    public Address getAddressByAddressId() {
         return addressByAddressId;
     }
 
-    public void setAddressByAddressId(AddressEntity addressByAddressId) {
+    public void setAddressByAddressId(Address addressByAddressId) {
         this.addressByAddressId = addressByAddressId;
     }
 }

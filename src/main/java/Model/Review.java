@@ -5,8 +5,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "review", schema = "dhs")
-public class ReviewEntity {
+public class Review {
     private long id;
     private Long productId;
     private Long userId;
@@ -15,8 +14,8 @@ public class ReviewEntity {
     private Timestamp publishedAt;
     private Timestamp createdAt;
     private String content;
-    private ProductEntity productByProductId;
-    private AccountEntity accountByUserId;
+    private Product productByProductId;
+    private Account accountByUserId;
 
     @Id
     @Column(name = "id")
@@ -102,8 +101,8 @@ public class ReviewEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ReviewEntity that = (ReviewEntity) o;
-        return id == that.id && rating == that.rating && Objects.equals(productId, that.productId) && Objects.equals(userId, that.userId) && Objects.equals(title, that.title) && Objects.equals(publishedAt, that.publishedAt) && Objects.equals(createdAt, that.createdAt) && Objects.equals(content, that.content);
+        Review review = (Review) o;
+        return id == review.id && rating == review.rating && Objects.equals(productId, review.productId) && Objects.equals(userId, review.userId) && Objects.equals(title, review.title) && Objects.equals(publishedAt, review.publishedAt) && Objects.equals(createdAt, review.createdAt) && Objects.equals(content, review.content);
     }
 
     @Override
@@ -113,21 +112,21 @@ public class ReviewEntity {
 
     @ManyToOne
     @JoinColumn(name = "productId", referencedColumnName = "id")
-    public ProductEntity getProductByProductId() {
+    public Product getProductByProductId() {
         return productByProductId;
     }
 
-    public void setProductByProductId(ProductEntity productByProductId) {
+    public void setProductByProductId(Product productByProductId) {
         this.productByProductId = productByProductId;
     }
 
     @ManyToOne
     @JoinColumn(name = "userId", referencedColumnName = "id")
-    public AccountEntity getAccountByUserId() {
+    public Account getAccountByUserId() {
         return accountByUserId;
     }
 
-    public void setAccountByUserId(AccountEntity accountByUserId) {
+    public void setAccountByUserId(Account accountByUserId) {
         this.accountByUserId = accountByUserId;
     }
 }

@@ -6,8 +6,8 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "order_detail", schema = "dhs")
-public class OrderDetailEntity {
+@Table(name = "order_detail", schema = "dhs", catalog = "")
+public class OrderDetail {
     private long id;
     private int phone;
     private String streetName;
@@ -19,9 +19,9 @@ public class OrderDetailEntity {
     private double totalPrice;
     private Timestamp updatedAt;
     private String note;
-    private Collection<OrderItemEntity> orderItemsById;
-    private Collection<TransEntity> transById;
-    private Collection<TransistionEntity> transistionsById;
+    private Collection<OrderItem> orderItemsById;
+    private Collection<Trans> transById;
+    private Collection<Transistion> transistionsById;
 
     @Id
     @Column(name = "id")
@@ -137,7 +137,7 @@ public class OrderDetailEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrderDetailEntity that = (OrderDetailEntity) o;
+        OrderDetail that = (OrderDetail) o;
         return id == that.id && phone == that.phone && Double.compare(that.shipPrice, shipPrice) == 0 && Double.compare(that.totalPrice, totalPrice) == 0 && Objects.equals(streetName, that.streetName) && Objects.equals(city, that.city) && Objects.equals(district, that.district) && Objects.equals(delivery, that.delivery) && Objects.equals(createdAt, that.createdAt) && Objects.equals(updatedAt, that.updatedAt) && Objects.equals(note, that.note);
     }
 
@@ -147,29 +147,29 @@ public class OrderDetailEntity {
     }
 
     @OneToMany(mappedBy = "orderDetailByOrderId")
-    public Collection<OrderItemEntity> getOrderItemsById() {
+    public Collection<OrderItem> getOrderItemsById() {
         return orderItemsById;
     }
 
-    public void setOrderItemsById(Collection<OrderItemEntity> orderItemsById) {
+    public void setOrderItemsById(Collection<OrderItem> orderItemsById) {
         this.orderItemsById = orderItemsById;
     }
 
     @OneToMany(mappedBy = "orderDetailByOrderId")
-    public Collection<TransEntity> getTransById() {
+    public Collection<Trans> getTransById() {
         return transById;
     }
 
-    public void setTransById(Collection<TransEntity> transById) {
+    public void setTransById(Collection<Trans> transById) {
         this.transById = transById;
     }
 
     @OneToMany(mappedBy = "orderDetailByOrderId")
-    public Collection<TransistionEntity> getTransistionsById() {
+    public Collection<Transistion> getTransistionsById() {
         return transistionsById;
     }
 
-    public void setTransistionsById(Collection<TransistionEntity> transistionsById) {
+    public void setTransistionsById(Collection<Transistion> transistionsById) {
         this.transistionsById = transistionsById;
     }
 }

@@ -5,11 +5,10 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "category", schema = "dhs")
-public class CategoryEntity {
+public class Category {
     private long id;
     private String categoryName;
-    private Collection<CategoryProductEntity> categoryProductsById;
+    private Collection<CategoryProduct> categoryProductsById;
 
     @Id
     @Column(name = "id")
@@ -35,8 +34,8 @@ public class CategoryEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CategoryEntity that = (CategoryEntity) o;
-        return id == that.id && Objects.equals(categoryName, that.categoryName);
+        Category category = (Category) o;
+        return id == category.id && Objects.equals(categoryName, category.categoryName);
     }
 
     @Override
@@ -45,11 +44,11 @@ public class CategoryEntity {
     }
 
     @OneToMany(mappedBy = "categoryByCategoryId")
-    public Collection<CategoryProductEntity> getCategoryProductsById() {
+    public Collection<CategoryProduct> getCategoryProductsById() {
         return categoryProductsById;
     }
 
-    public void setCategoryProductsById(Collection<CategoryProductEntity> categoryProductsById) {
+    public void setCategoryProductsById(Collection<CategoryProduct> categoryProductsById) {
         this.categoryProductsById = categoryProductsById;
     }
 }

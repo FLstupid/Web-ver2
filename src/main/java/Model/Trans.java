@@ -4,13 +4,12 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "trans", schema = "dhs")
-public class TransEntity {
+public class Trans {
     private long id;
     private Long accountId;
     private Long orderId;
-    private AccountEntity accountByAccountId;
-    private OrderDetailEntity orderDetailByOrderId;
+    private Account accountByAccountId;
+    private OrderDetail orderDetailByOrderId;
 
     @Id
     @Column(name = "id")
@@ -46,8 +45,8 @@ public class TransEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TransEntity that = (TransEntity) o;
-        return id == that.id && Objects.equals(accountId, that.accountId) && Objects.equals(orderId, that.orderId);
+        Trans trans = (Trans) o;
+        return id == trans.id && Objects.equals(accountId, trans.accountId) && Objects.equals(orderId, trans.orderId);
     }
 
     @Override
@@ -57,21 +56,21 @@ public class TransEntity {
 
     @ManyToOne
     @JoinColumn(name = "accountId", referencedColumnName = "id")
-    public AccountEntity getAccountByAccountId() {
+    public Account getAccountByAccountId() {
         return accountByAccountId;
     }
 
-    public void setAccountByAccountId(AccountEntity accountByAccountId) {
+    public void setAccountByAccountId(Account accountByAccountId) {
         this.accountByAccountId = accountByAccountId;
     }
 
     @ManyToOne
     @JoinColumn(name = "orderId", referencedColumnName = "id")
-    public OrderDetailEntity getOrderDetailByOrderId() {
+    public OrderDetail getOrderDetailByOrderId() {
         return orderDetailByOrderId;
     }
 
-    public void setOrderDetailByOrderId(OrderDetailEntity orderDetailByOrderId) {
+    public void setOrderDetailByOrderId(OrderDetail orderDetailByOrderId) {
         this.orderDetailByOrderId = orderDetailByOrderId;
     }
 }

@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tag_product", schema = "dhs")
-public class TagProductEntity {
+@Table(name = "tag_product", schema = "dhs", catalog = "")
+public class TagProduct {
     private long id;
     private Long productId;
     private Long tagId;
-    private ProductEntity productByProductId;
-    private TagEntity tagByTagId;
+    private Product productByProductId;
+    private Tag tagByTagId;
 
     @Id
     @Column(name = "id")
@@ -46,7 +46,7 @@ public class TagProductEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TagProductEntity that = (TagProductEntity) o;
+        TagProduct that = (TagProduct) o;
         return id == that.id && Objects.equals(productId, that.productId) && Objects.equals(tagId, that.tagId);
     }
 
@@ -57,21 +57,21 @@ public class TagProductEntity {
 
     @ManyToOne
     @JoinColumn(name = "productId", referencedColumnName = "id")
-    public ProductEntity getProductByProductId() {
+    public Product getProductByProductId() {
         return productByProductId;
     }
 
-    public void setProductByProductId(ProductEntity productByProductId) {
+    public void setProductByProductId(Product productByProductId) {
         this.productByProductId = productByProductId;
     }
 
     @ManyToOne
     @JoinColumn(name = "tagId", referencedColumnName = "id")
-    public TagEntity getTagByTagId() {
+    public Tag getTagByTagId() {
         return tagByTagId;
     }
 
-    public void setTagByTagId(TagEntity tagByTagId) {
+    public void setTagByTagId(Tag tagByTagId) {
         this.tagByTagId = tagByTagId;
     }
 }

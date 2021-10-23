@@ -5,8 +5,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "transistion", schema = "dhs")
-public class TransistionEntity {
+public class Transistion {
     private long id;
     private Long customerId;
     private Long orderId;
@@ -15,8 +14,8 @@ public class TransistionEntity {
     private String payment;
     private String detailpayment;
     private Timestamp updatedAt;
-    private AccountEntity accountByCustomerId;
-    private OrderDetailEntity orderDetailByOrderId;
+    private Account accountByCustomerId;
+    private OrderDetail orderDetailByOrderId;
 
     @Id
     @Column(name = "id")
@@ -102,7 +101,7 @@ public class TransistionEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TransistionEntity that = (TransistionEntity) o;
+        Transistion that = (Transistion) o;
         return id == that.id && Objects.equals(customerId, that.customerId) && Objects.equals(orderId, that.orderId) && Objects.equals(states, that.states) && Objects.equals(detailstates, that.detailstates) && Objects.equals(payment, that.payment) && Objects.equals(detailpayment, that.detailpayment) && Objects.equals(updatedAt, that.updatedAt);
     }
 
@@ -113,21 +112,21 @@ public class TransistionEntity {
 
     @ManyToOne
     @JoinColumn(name = "customerId", referencedColumnName = "id")
-    public AccountEntity getAccountByCustomerId() {
+    public Account getAccountByCustomerId() {
         return accountByCustomerId;
     }
 
-    public void setAccountByCustomerId(AccountEntity accountByCustomerId) {
+    public void setAccountByCustomerId(Account accountByCustomerId) {
         this.accountByCustomerId = accountByCustomerId;
     }
 
     @ManyToOne
     @JoinColumn(name = "orderId", referencedColumnName = "id")
-    public OrderDetailEntity getOrderDetailByOrderId() {
+    public OrderDetail getOrderDetailByOrderId() {
         return orderDetailByOrderId;
     }
 
-    public void setOrderDetailByOrderId(OrderDetailEntity orderDetailByOrderId) {
+    public void setOrderDetailByOrderId(OrderDetail orderDetailByOrderId) {
         this.orderDetailByOrderId = orderDetailByOrderId;
     }
 }

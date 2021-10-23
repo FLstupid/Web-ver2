@@ -6,8 +6,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "product", schema = "dhs")
-public class ProductEntity {
+public class Product {
     private long id;
     private Short status;
     private long shopId;
@@ -23,12 +22,12 @@ public class ProductEntity {
     private Timestamp updatedAt;
     private Timestamp createdAt;
     private Timestamp publishedAt;
-    private Collection<CartItemEntity> cartItemsById;
-    private Collection<CategoryProductEntity> categoryProductsById;
-    private Collection<OrderItemEntity> orderItemsById;
-    private ShopEntity shopByShopId;
-    private Collection<ReviewEntity> reviewsById;
-    private Collection<TagProductEntity> tagProductsById;
+    private Collection<CartItem> cartItemsById;
+    private Collection<CategoryProduct> categoryProductsById;
+    private Collection<OrderItem> orderItemsById;
+    private Shop shopByShopId;
+    private Collection<Review> reviewsById;
+    private Collection<TagProduct> tagProductsById;
 
     @Id
     @Column(name = "id")
@@ -184,8 +183,8 @@ public class ProductEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ProductEntity that = (ProductEntity) o;
-        return id == that.id && shopId == that.shopId && quality == that.quality && Double.compare(that.price, price) == 0 && Double.compare(that.discount, discount) == 0 && Objects.equals(status, that.status) && Objects.equals(title, that.title) && Objects.equals(metalTitle, that.metalTitle) && Objects.equals(startAt, that.startAt) && Objects.equals(endsAt, that.endsAt) && Objects.equals(decription, that.decription) && Objects.equals(content, that.content) && Objects.equals(updatedAt, that.updatedAt) && Objects.equals(createdAt, that.createdAt) && Objects.equals(publishedAt, that.publishedAt);
+        Product product = (Product) o;
+        return id == product.id && shopId == product.shopId && quality == product.quality && Double.compare(product.price, price) == 0 && Double.compare(product.discount, discount) == 0 && Objects.equals(status, product.status) && Objects.equals(title, product.title) && Objects.equals(metalTitle, product.metalTitle) && Objects.equals(startAt, product.startAt) && Objects.equals(endsAt, product.endsAt) && Objects.equals(decription, product.decription) && Objects.equals(content, product.content) && Objects.equals(updatedAt, product.updatedAt) && Objects.equals(createdAt, product.createdAt) && Objects.equals(publishedAt, product.publishedAt);
     }
 
     @Override
@@ -194,57 +193,57 @@ public class ProductEntity {
     }
 
     @OneToMany(mappedBy = "productByProductId")
-    public Collection<CartItemEntity> getCartItemsById() {
+    public Collection<CartItem> getCartItemsById() {
         return cartItemsById;
     }
 
-    public void setCartItemsById(Collection<CartItemEntity> cartItemsById) {
+    public void setCartItemsById(Collection<CartItem> cartItemsById) {
         this.cartItemsById = cartItemsById;
     }
 
     @OneToMany(mappedBy = "productByProductId")
-    public Collection<CategoryProductEntity> getCategoryProductsById() {
+    public Collection<CategoryProduct> getCategoryProductsById() {
         return categoryProductsById;
     }
 
-    public void setCategoryProductsById(Collection<CategoryProductEntity> categoryProductsById) {
+    public void setCategoryProductsById(Collection<CategoryProduct> categoryProductsById) {
         this.categoryProductsById = categoryProductsById;
     }
 
     @OneToMany(mappedBy = "productByProductId")
-    public Collection<OrderItemEntity> getOrderItemsById() {
+    public Collection<OrderItem> getOrderItemsById() {
         return orderItemsById;
     }
 
-    public void setOrderItemsById(Collection<OrderItemEntity> orderItemsById) {
+    public void setOrderItemsById(Collection<OrderItem> orderItemsById) {
         this.orderItemsById = orderItemsById;
     }
 
     @ManyToOne
     @JoinColumn(name = "shopId", referencedColumnName = "id", nullable = false)
-    public ShopEntity getShopByShopId() {
+    public Shop getShopByShopId() {
         return shopByShopId;
     }
 
-    public void setShopByShopId(ShopEntity shopByShopId) {
+    public void setShopByShopId(Shop shopByShopId) {
         this.shopByShopId = shopByShopId;
     }
 
     @OneToMany(mappedBy = "productByProductId")
-    public Collection<ReviewEntity> getReviewsById() {
+    public Collection<Review> getReviewsById() {
         return reviewsById;
     }
 
-    public void setReviewsById(Collection<ReviewEntity> reviewsById) {
+    public void setReviewsById(Collection<Review> reviewsById) {
         this.reviewsById = reviewsById;
     }
 
     @OneToMany(mappedBy = "productByProductId")
-    public Collection<TagProductEntity> getTagProductsById() {
+    public Collection<TagProduct> getTagProductsById() {
         return tagProductsById;
     }
 
-    public void setTagProductsById(Collection<TagProductEntity> tagProductsById) {
+    public void setTagProductsById(Collection<TagProduct> tagProductsById) {
         this.tagProductsById = tagProductsById;
     }
 }

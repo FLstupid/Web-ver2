@@ -5,14 +5,13 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "address", schema = "dhs")
-public class AddressEntity {
+public class Address {
     private long id;
     private int phone;
     private String streetName;
     private String city;
     private String district;
-    private Collection<UserAddressEntity> userAddressesById;
+    private Collection<UserAddress> userAddressesById;
 
     @Id
     @Column(name = "id")
@@ -68,8 +67,8 @@ public class AddressEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AddressEntity that = (AddressEntity) o;
-        return id == that.id && phone == that.phone && Objects.equals(streetName, that.streetName) && Objects.equals(city, that.city) && Objects.equals(district, that.district);
+        Address address = (Address) o;
+        return id == address.id && phone == address.phone && Objects.equals(streetName, address.streetName) && Objects.equals(city, address.city) && Objects.equals(district, address.district);
     }
 
     @Override
@@ -78,11 +77,11 @@ public class AddressEntity {
     }
 
     @OneToMany(mappedBy = "addressByAddressId")
-    public Collection<UserAddressEntity> getUserAddressesById() {
+    public Collection<UserAddress> getUserAddressesById() {
         return userAddressesById;
     }
 
-    public void setUserAddressesById(Collection<UserAddressEntity> userAddressesById) {
+    public void setUserAddressesById(Collection<UserAddress> userAddressesById) {
         this.userAddressesById = userAddressesById;
     }
 }
