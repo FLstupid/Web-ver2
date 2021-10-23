@@ -15,13 +15,17 @@ create table Account (
 
 create table Shop (
 	id bigint primary key,
+    accountId bigint not null,
     street_name char(255) not null,
     city char(150),
     district char(100),
     bank_id	int not null,
     active_day int default 0 not null,
     number_product bigint not null,
-    LAST_UPDATE datetime(0)
+    status smallint not null default 0,
+    LAST_UPDATE datetime(0),
+    
+    foreign key (accountId) references Account(id)
 );
 
 create table Address (
@@ -147,6 +151,7 @@ create table Order_item (
 );
 
 create table Tag_product (
+	id bigint primary key,
 	productId	bigint,
     tagId	bigint,
     
@@ -155,6 +160,7 @@ create table Tag_product (
 );
 
 create table Category_product (
+	id bigint primary key,
 	productId	bigint,
     categoryId	bigint,
     
@@ -177,6 +183,7 @@ create table Review (
 );
 
 create table User_address (
+	id bigint primary key,
 	accountId bigint,
     addressId bigint,
     
@@ -185,6 +192,7 @@ create table User_address (
 );
 
 create table Shop_delivery (
+	id bigint primary key,
 	shopId bigint,
     deliveryId bigint,
     
