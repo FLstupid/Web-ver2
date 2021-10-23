@@ -1,6 +1,6 @@
 package Data;
 
-import Model.Account;
+import Model.OrderDetail;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,7 +12,7 @@ public class orderDetailIO {
     EntityManager em = emf.createEntityManager();
     EntityTransaction transaction = em.getTransaction();
 
-    public void insert (Account account)
+    public void insert (OrderDetail orderDetail)
     {
         try {
             transaction.begin();
@@ -27,7 +27,7 @@ public class orderDetailIO {
         }
     }
 
-    public void update (Account account)
+    public void update (OrderDetail orderDetail)
     {
         try {
             transaction.begin();
@@ -42,7 +42,7 @@ public class orderDetailIO {
             emf.close();
         }
     }
-    public void delete (Account account)
+    public void delete (OrderDetail orderDetail)
     {
         try {
             transaction.begin();

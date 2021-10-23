@@ -1,6 +1,6 @@
 package Data;
 
-import Model.Account;
+import Model.Shop;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,7 +12,7 @@ public class shopIO {
     EntityManager em = emf.createEntityManager();
     EntityTransaction transaction = em.getTransaction();
 
-    public void insert (Account account)
+    public void insert (Shop shop)
     {
         try {
             transaction.begin();
@@ -27,7 +27,7 @@ public class shopIO {
         }
     }
 
-    public void update (Account account)
+    public void update (Shop shop)
     {
         try {
             transaction.begin();
@@ -42,7 +42,7 @@ public class shopIO {
             emf.close();
         }
     }
-    public void delete (Account account)
+    public void delete (Shop shop)
     {
         try {
             transaction.begin();

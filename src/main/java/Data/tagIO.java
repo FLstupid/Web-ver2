@@ -1,6 +1,6 @@
 package Data;
 
-import Model.Account;
+import Model.Tag;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,7 +12,7 @@ public class tagIO {
     EntityManager em = emf.createEntityManager();
     EntityTransaction transaction = em.getTransaction();
 
-    public void insert (Account account)
+    public void insert (Tag tag)
     {
         try {
             transaction.begin();
@@ -27,7 +27,7 @@ public class tagIO {
         }
     }
 
-    public void update (Account account)
+    public void update (Tag tag)
     {
         try {
             transaction.begin();
@@ -42,7 +42,7 @@ public class tagIO {
             emf.close();
         }
     }
-    public void delete (Account account)
+    public void delete (Tag tag)
     {
         try {
             transaction.begin();

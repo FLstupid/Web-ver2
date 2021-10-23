@@ -1,6 +1,6 @@
 package Data;
 
-import Model.Account;
+import Model.Trans;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,7 +12,7 @@ public class transIO {
     EntityManager em = emf.createEntityManager();
     EntityTransaction transaction = em.getTransaction();
 
-    public void insert (Account account)
+    public void insert (Trans trans)
     {
         try {
             transaction.begin();
@@ -27,7 +27,7 @@ public class transIO {
         }
     }
 
-    public void update (Account account)
+    public void update (Trans trans)
     {
         try {
             transaction.begin();
@@ -42,7 +42,7 @@ public class transIO {
             emf.close();
         }
     }
-    public void delete (Account account)
+    public void delete (Trans trans)
     {
         try {
             transaction.begin();

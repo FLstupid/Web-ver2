@@ -1,6 +1,6 @@
 package Data;
 
-import Model.Account;
+import Model.Cart;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,7 +12,7 @@ public class cartIO {
     EntityManager em = emf.createEntityManager();
     EntityTransaction transaction = em.getTransaction();
 
-    public void insert (Account account)
+    public void insert (Cart cart)
     {
         try {
             transaction.begin();
@@ -27,7 +27,7 @@ public class cartIO {
         }
     }
 
-    public void update (Account account)
+    public void update (Cart cart)
     {
         try {
             transaction.begin();
@@ -42,7 +42,7 @@ public class cartIO {
             emf.close();
         }
     }
-    public void delete (Account account)
+    public void delete (Cart cart)
     {
         try {
             transaction.begin();

@@ -1,6 +1,6 @@
 package Data;
 
-import Model.Account;
+import Model.Review;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,7 +12,7 @@ public class reviewIO {
     EntityManager em = emf.createEntityManager();
     EntityTransaction transaction = em.getTransaction();
 
-    public void insert (Account account)
+    public void insert (Review review)
     {
         try {
             transaction.begin();
@@ -27,7 +27,7 @@ public class reviewIO {
         }
     }
 
-    public void update (Account account)
+    public void update (Review review)
     {
         try {
             transaction.begin();
@@ -42,7 +42,7 @@ public class reviewIO {
             emf.close();
         }
     }
-    public void delete (Account account)
+    public void delete (Review review)
     {
         try {
             transaction.begin();
