@@ -130,119 +130,79 @@
                 </div>
 
                 <ul class="Account_NavBar">
-                    <li><a  class="is-active" href="customer"><span>Thông tin tài khoản</span></a></li>
+                    <li><a   href="customer"><span>Thông tin tài khoản</span></a></li>
                     <li><a    href="changingpassword"><span>Đổi mật khẩu</span></a></li>
-                    <li><a   href="customerorder"><span>Quản lý đơn hàng</span></a></li>
+                    <li><a class="is-active"   href="customerorder"><span>Quản lý đơn hàng</span></a></li>
                     <li><a  href="addresslist"><span>Sổ địa chỉ</span></a></li>
                     <li><a  href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
                     <li><a   href="buyinglater"><span>Sản phẩm mua sau</span></a></li>
                 </ul>
             </aside>
             <div class="Account_StylesAccountLayoutInner">
-                <div class="account formresult ">
-                    <h3 class="HeadingContent">Thông Tin Tài Khoản</h3>
+                <div style="width: 970px" class="order formresult">
+                    <h3 class="HeadingContent">Quản Lý Đơn Mua</h3>
+                    <div class="container">
+                        <div class="row height d-flex justify-content-center align-items-center">
+                            <div class="col-md-6">
+                                <div class="form"> <i class="fab fa-search"></i>
+                                    <span  class="left-pan"><i class="fa fa-microphone"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="Content_StylesNav">
                         <form >
-                            <div class="form-control">
-                                <label class="input-label">Họ tên</label>
-                                <div>
-                                    <input type="text" name="fullName" maxlength="128" class="Input-styles" value="">
-                                </div>
-                            </div>
-                            <div class="form-control">
-                                <label class="input-label">Số điện thoại</label>
-                                <div>
-                                    <input type="tel" disabled name="phoneNumber" placeholder="Nhập SĐT" class="Input-styles" value="">
-                                </div>
-                            </div>
-                            <div class="form-control">
-                                <label class="input-label">Email</label>
-                                <div>
-                                    <input type="email" disabled name="email" class="Input-styles" value="">
-                                </div>
-                            </div>
-                            <div class="form-control">
-                                <label class="input-label sexcheck">Giới tính</label>
-                                <label class="Radio_StylesRadio">
-                                    <input type="radio" name="gender" value="male" checked>
-                                    <span class="radio-fake">
-
-                    </span>
-                                    <span class="label">Nam</span>
-                                </label>
-                                <label style="margin-left: 15px" class="Radio_StylesRadio">
-                                    <input type="radio" name="gender" value="female">
-
-                                    <span class="label">Nữ</span>
-                                </label>
-                            </div>
-                            <div class="form-control">
-                                <label class="input-label">
-                                    <p>Ngày sinh</p>
-                                </label>
-                                <div class="styles_StylesBirthdayPicker">
-                                    <select class="selectday" name="day">
-                                        <option value="0">Ngày</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="13">13</option>
-                                        <option value="14">14</option>
-                                        <option value="15">15</option>
-                                        <option value="16">16</option>
-                                        <option value="17">17</option>
-                                        <option value="18">18</option>
-                                        <option value="19">19</option>
-                                        <option value="20">20</option>
-                                        <option value="21">21</option>
-                                        <option value="22">22</option>
-                                        <option value="23">23</option>
-                                        <option value="24">24</option>
-                                        <option value="25">25</option>
-                                        <option value="26">26</option>
-                                        <option value="27">27</option>
-                                        <option value="28">28</option>
-                                        <option value="29">29</option>
-                                        <option value="30">30</option>
-                                        <option value="31">31</option>
-                                    </select>
-                                    <select class="selectday" name="month">
-                                        <option value="0">Tháng</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                    </select>
-                                    <select class="selectday" name="year">
-                                        <option value="0">Năm</option>
-                                        <option value="2021">2021</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-control">
-                                <label class="input-label">&nbsp;</label>
-                                <button type="submit" class="btn-submit">Cập nhật</button>
-                            </div>
+<%--                            <p style="margin-left: 420px">Chưa có sản phẩm nào</p>--%>
+<%--                            <a href="home" class="back">Tiếp tục mua sắm</a>--%>
+                            <table class="bangmua">
+                                <thead>
+                                <tr>
+                                    <th width="100px">Mã đơn hàng</th>
+                                    <th>Ngày mua</th>
+                                    <th>Sản phẩm</th>
+                                    <th width="100px">Tổng tiền</th>
+                                    <th width="150px">Trạng thái đơn hàng</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <a width="100px" href="/sales/order/view/280563326">280563326</a>
+                                    </td>
+                                    <td>17/09/2021</td>
+                                    <td>Điện thoại Vivo Y12s - Xanh dương nhạt- 4GB/128GB - Hàng Chính Hãng ...và 01 sản phẩm khác</td>
+                                    <td width="100px">4.448.100 ₫</td>
+                                    <td>Đã hủy</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a width="100px" href="/sales/order/view/946255654">946255654</a>
+                                    </td>
+                                    <td>08/01/2018</td>
+                                    <td>Tiếp Cận 23 Phương Pháp Giải Nhanh Hiện Đại Hóa Học</td>
+                                    <td width="100px">151.000 ₫</td>
+                                    <td>Giao hàng thành công</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a width="100px" href="/sales/order/view/862449321">862449321</a>
+                                    </td><td>04/01/2018</td>
+                                    <td>Tiếp Cận 23 Phương Pháp Giải Nhanh Hiện Đại Hóa Học</td>
+                                    <td width="100px">151.000 ₫</td>
+                                    <td>Giao hàng thành công</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a width="100px" href="/sales/order/view/15480958">15480958</a>
+                                    </td>
+                                    <td>28/08/2017</td>
+                                    <td>Nhạc Lý Căn Bản</td>
+                                    <td width="100px">41.800 ₫</td>
+                                    <td>Giao hàng thành công</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </form>
-
                     </div>
                 </div>
             </div>

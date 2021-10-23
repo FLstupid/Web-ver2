@@ -11,12 +11,12 @@
 <!---------------------------------------------------header-------------------------------------------->
 <header class="style__Header">
   <section class="Container">
-      <a style="color: white" href="${pageContext.request.contextPath}/summary">Kênh Người Bán</a>
+    <a style="color: white" href="${pageContext.request.contextPath}/summary">Kênh Người Bán</a>
     <div class="Middle__Wrap">
       <div class="Middle__LeftContainer">
         <div class="logo-menu">
           <div class="style_Logo">
-            <a href="#" class="dhs-logo">
+            <a href="home" class="dhs-logo">
               <img src="Home/img/logo.svg" alt=""/>
             </a>
           </div>
@@ -59,7 +59,7 @@
                 <img class="arrowIcon" src="Home/img/down.png" alt=""/>
                 </div>
                 <div style="margin-top: 20px;" class="UserHeader_UserDropDown disableForm">
-                  <a rel="nofollow" href="">
+                  <a rel="nofollow" href="${pageContext.request.contextPath}/customerorder">
                     <p title="Order history" class="UserHeader_UserDropDownItem">
                       Order history
                     </p>
@@ -70,12 +70,12 @@
                       My account
                     </p>
                   </a>
-                   <a rel="nofollow" href="">
+                   <a rel="nofollow" href="${pageContext.request.contextPath}/changingpassword">
                     <p title="Notification" class="UserHeader_UserDropDownItem">
                       Changing password
                     </p>
                   </a>
-                  <a rel="nofollow" href="">
+                  <a rel="nofollow" href="${pageContext.request.contextPath}/customerReview">
                     <p title="Reviews" class="UserHeader_UserDropDownItem">
                       "Reviews"
                     </p>
@@ -91,13 +91,14 @@
           </div>
 
           <div class="Userstyle__CartItem">
-            <a href="#" rel="nofollow">
+            <a href="${pageContext.request.contextPath}/cart" rel="nofollow">
               <div class="Userstyle__Item2">
                 <div class="cart-wrapper">
                   <img class="cart-icon"
-                       src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"  alt=""/>
+                       src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"  />
                   <span class="Userstyle__ItemCart">3</span>
                 </div>
+
                 <span class="cart-text">Giỏ Hàng</span>
               </div>
             </a>
@@ -108,7 +109,7 @@
   </section>
 </header>
 <!---------------------------------------------------main-------------------------------------------->
-<main>
+<main style="margin-top: 130px;">
   <div class="Container">
     <div class="Tag-root">
       <p>Danh mục nổi bật</p>
