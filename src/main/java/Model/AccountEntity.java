@@ -20,6 +20,7 @@ public class AccountEntity {
     private Timestamp lastUpdate;
     private Collection<CartEntity> cartsById;
     private Collection<ReviewEntity> reviewsById;
+    private Collection<ShopEntity> shopsById;
     private Collection<TransEntity> transById;
     private Collection<TransistionEntity> transistionsById;
     private Collection<UserAddressEntity> userAddressesById;
@@ -143,6 +144,15 @@ public class AccountEntity {
 
     public void setReviewsById(Collection<ReviewEntity> reviewsById) {
         this.reviewsById = reviewsById;
+    }
+
+    @OneToMany(mappedBy = "accountByAccountId")
+    public Collection<ShopEntity> getShopsById() {
+        return shopsById;
+    }
+
+    public void setShopsById(Collection<ShopEntity> shopsById) {
+        this.shopsById = shopsById;
     }
 
     @OneToMany(mappedBy = "accountByAccountId")

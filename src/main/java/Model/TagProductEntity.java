@@ -12,13 +12,13 @@ public class TagProductEntity {
     private ProductEntity productByProductId;
     private TagEntity tagByTagId;
 
-    @Basic
+    @Id
     @Column(name = "id")
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -47,7 +47,7 @@ public class TagProductEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TagProductEntity that = (TagProductEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(productId, that.productId) && Objects.equals(tagId, that.tagId);
+        return id == that.id && Objects.equals(productId, that.productId) && Objects.equals(tagId, that.tagId);
     }
 
     @Override

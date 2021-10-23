@@ -9,14 +9,17 @@ import java.util.Objects;
 @Table(name = "shop", schema = "dhs")
 public class ShopEntity {
     private long id;
+    private long accountId;
     private String streetName;
     private String city;
     private String district;
     private int bankId;
     private int activeDay;
     private long numberProduct;
+    private short status;
     private Timestamp lastUpdate;
     private Collection<ProductEntity> productsById;
+    private AccountEntity accountByAccountId;
     private Collection<ShopDeliveryEntity> shopDeliveriesById;
 
     @Id
@@ -27,6 +30,16 @@ public class ShopEntity {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "accountId")
+    public long getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(long accountId) {
+        this.accountId = accountId;
     }
 
     @Basic
@@ -90,6 +103,16 @@ public class ShopEntity {
     }
 
     @Basic
+    @Column(name = "status")
+    public short getStatus() {
+        return status;
+    }
+
+    public void setStatus(short status) {
+        this.status = status;
+    }
+
+    @Basic
     @Column(name = "LAST_UPDATE")
     public Timestamp getLastUpdate() {
         return lastUpdate;
@@ -104,12 +127,12 @@ public class ShopEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ShopEntity that = (ShopEntity) o;
-        return id == that.id && bankId == that.bankId && activeDay == that.activeDay && numberProduct == that.numberProduct && Objects.equals(streetName, that.streetName) && Objects.equals(city, that.city) && Objects.equals(district, that.district) && Objects.equals(lastUpdate, that.lastUpdate);
+        return id == that.id && accountId == that.accountId && bankId == that.bankId && activeDay == that.activeDay && numberProduct == that.numberProduct && status == that.status && Objects.equals(streetName, that.streetName) && Objects.equals(city, that.city) && Objects.equals(district, that.district) && Objects.equals(lastUpdate, that.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, streetName, city, district, bankId, activeDay, numberProduct, lastUpdate);
+        return Objects.hash(id, accountId, streetName, city, district, bankId, activeDay, numberProduct, status, lastUpdate);
     }
 
     @OneToMany(mappedBy = "shopByShopId")
@@ -119,6 +142,16 @@ public class ShopEntity {
 
     public void setProductsById(Collection<ProductEntity> productsById) {
         this.productsById = productsById;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "accountId", referencedColumnName = "id", nullable = false)
+    public AccountEntity getAccountByAccountId() {
+        return accountByAccountId;
+    }
+
+    public void setAccountByAccountId(AccountEntity accountByAccountId) {
+        this.accountByAccountId = accountByAccountId;
     }
 
     @OneToMany(mappedBy = "shopByShopId")

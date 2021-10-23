@@ -6,19 +6,19 @@ import java.util.Objects;
 @Entity
 @Table(name = "user_address", schema = "dhs")
 public class UserAddressEntity {
-    private Long id;
+    private long id;
     private Long accountId;
     private Long addressId;
     private AccountEntity accountByAccountId;
     private AddressEntity addressByAddressId;
 
-    @Basic
+    @Id
     @Column(name = "id")
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -47,7 +47,7 @@ public class UserAddressEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserAddressEntity that = (UserAddressEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(accountId, that.accountId) && Objects.equals(addressId, that.addressId);
+        return id == that.id && Objects.equals(accountId, that.accountId) && Objects.equals(addressId, that.addressId);
     }
 
     @Override

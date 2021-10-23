@@ -6,19 +6,19 @@ import java.util.Objects;
 @Entity
 @Table(name = "shop_delivery", schema = "dhs")
 public class ShopDeliveryEntity {
-    private Long id;
+    private long id;
     private Long shopId;
     private Long deliveryId;
     private ShopEntity shopByShopId;
     private DeliveryEntity deliveryByDeliveryId;
 
-    @Basic
+    @Id
     @Column(name = "id")
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -47,7 +47,7 @@ public class ShopDeliveryEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ShopDeliveryEntity that = (ShopDeliveryEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(shopId, that.shopId) && Objects.equals(deliveryId, that.deliveryId);
+        return id == that.id && Objects.equals(shopId, that.shopId) && Objects.equals(deliveryId, that.deliveryId);
     }
 
     @Override
