@@ -95,7 +95,7 @@
                             <div class="Userstyle__Item2">
                                 <div class="cart-wrapper">
                                     <img class="cart-icon"
-                                         src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"  />
+                                         src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"   alt=""/>
                                     <span class="Userstyle__ItemCart">3</span>
                                 </div>
 
@@ -117,7 +117,7 @@
                 <div class="Account_StylesAvatar">
 
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <img class="avt"  id="photo" src="img/logo_ico.png">
+                        <img class="avt"  id="photo" src="img/logo_ico.png" alt="">
                         <div class="Btnclick">
                             <input type="file" id="file" name="img" >
                             <label  for="file" id="uploadBtn">Choose Avatar</label>
@@ -190,7 +190,6 @@
                 </div>
 
             </div>
-        </div>
         </div>
     </section>
 </main>

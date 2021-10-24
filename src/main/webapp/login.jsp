@@ -1,12 +1,12 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html lang="en" >
 <head>
 	<title>DHS</title>
 	<meta charset="UTF-8">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css'>
-	<link rel="stylesheet" href="style.css">
+    <link rel='stylesheet' href='css/all.min.css'>
+	<link rel="stylesheet" href="Registration/style.css">
 </head>
-
+<body>
 <!-- partial:index.partial.html -->
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
@@ -55,7 +55,7 @@
 </div>
 
 <!-- partial -->
-<script  src="./script.js"></script>
+<script  src="Registration/script.js"></script>
 
 </body>
 </html>
