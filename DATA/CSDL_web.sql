@@ -6,6 +6,7 @@ create table Account (
 	username char(100) not null,
     passwordHash char(255) not null,
     phone int(10) not null,
+    gender bit default 0 not null,
     email char(255),
     shop_name char(255),
     birthday date,
