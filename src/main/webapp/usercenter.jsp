@@ -142,23 +142,24 @@
                 <div class="account formresult ">
                     <h3 class="HeadingContent">Thông Tin Tài Khoản</h3>
                     <div class="Content_StylesNav">
-                        <form >
+                        <form method="post" action="customer">
                             <div class="form-control">
+                                <input type="hidden" name="action" value="add">
                                 <label class="input-label">Họ tên</label>
                                 <div>
-                                    <input type="text" name="fullName" maxlength="128" class="Input-styles" value="">
+                                    <input type="text" name="fullName" disabled maxlength="128" class="Input-styles" value="${account.username}">
                                 </div>
                             </div>
                             <div class="form-control">
                                 <label class="input-label">Số điện thoại</label>
                                 <div>
-                                    <input type="tel" disabled name="phoneNumber" placeholder="Nhập SĐT" class="Input-styles" value="">
+                                    <input type="tel" disabled name="phoneNumber"  class="Input-styles" value="${account.phone} ">
                                 </div>
                             </div>
                             <div class="form-control">
                                 <label class="input-label">Email</label>
                                 <div>
-                                    <input type="email" disabled name="email" class="Input-styles" value="">
+                                    <input type="email" name="email" class="Input-styles" value="${account.email}">
                                 </div>
                             </div>
                             <div class="form-control">

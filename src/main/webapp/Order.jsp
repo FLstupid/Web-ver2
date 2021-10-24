@@ -151,57 +151,31 @@
                         </div>
                     </div>
                     <div class="Content_StylesNav">
-                        <form >
-<%--                            <p style="margin-left: 420px">Chưa có sản phẩm nào</p>--%>
-<%--                            <a href="home" class="back">Tiếp tục mua sắm</a>--%>
-                            <table class="bangmua">
-                                <thead>
-                                <tr>
-                                    <th width="100px">Mã đơn hàng</th>
-                                    <th>Ngày mua</th>
-                                    <th>Sản phẩm</th>
-                                    <th width="100px">Tổng tiền</th>
-                                    <th width="150px">Trạng thái đơn hàng</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        <a width="100px" href="/sales/order/view/280563326">280563326</a>
-                                    </td>
-                                    <td>17/09/2021</td>
-                                    <td>Điện thoại Vivo Y12s - Xanh dương nhạt- 4GB/128GB - Hàng Chính Hãng ...và 01 sản phẩm khác</td>
-                                    <td width="100px">4.448.100 ₫</td>
-                                    <td>Đã hủy</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a width="100px" href="/sales/order/view/946255654">946255654</a>
-                                    </td>
-                                    <td>08/01/2018</td>
-                                    <td>Tiếp Cận 23 Phương Pháp Giải Nhanh Hiện Đại Hóa Học</td>
-                                    <td width="100px">151.000 ₫</td>
-                                    <td>Giao hàng thành công</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a width="100px" href="/sales/order/view/862449321">862449321</a>
-                                    </td><td>04/01/2018</td>
-                                    <td>Tiếp Cận 23 Phương Pháp Giải Nhanh Hiện Đại Hóa Học</td>
-                                    <td width="100px">151.000 ₫</td>
-                                    <td>Giao hàng thành công</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a width="100px" href="/sales/order/view/15480958">15480958</a>
-                                    </td>
-                                    <td>28/08/2017</td>
-                                    <td>Nhạc Lý Căn Bản</td>
-                                    <td width="100px">41.800 ₫</td>
-                                    <td>Giao hàng thành công</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <form method="get" >
+                            <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
+                            <a href="home" class="back">Tiếp tục mua sắm</a>
+<%--                            <table class="bangmua">--%>
+<%--                                <thead>--%>
+<%--                                <tr>--%>
+<%--                                    <th width="100px">Mã đơn hàng</th>--%>
+<%--                                    <th>Ngày mua</th>--%>
+<%--                                    <th>Sản phẩm</th>--%>
+<%--                                    <th width="100px">Tổng tiền</th>--%>
+<%--                                    <th width="150px">Trạng thái đơn hàng</th>--%>
+<%--                                </tr>--%>
+<%--                                </thead>--%>
+<%--                                <tbody>--%>
+<%--                                <tr>--%>
+<%--                                    <td>--%>
+<%--                                        <a width="100px" href="/sales/order/view/280563326">${Order_detail.id}</a>--%>
+<%--                                    </td>--%>
+<%--                                    <td>${Order_detail.createAt}</td>--%>
+<%--                                    <td>${Product.title}</td>--%>
+<%--                                    <td width="100px">${Order_detail.totalPrice}</td>--%>
+<%--                                    <td>${Transistion.states}</td>--%>
+<%--                                </tr>--%>
+<%--                                </tbody>--%>
+<%--                            </table>--%>
                         </form>
                     </div>
                 </div>

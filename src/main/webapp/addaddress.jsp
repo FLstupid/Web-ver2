@@ -133,7 +133,7 @@
                     <li><a   href="customer"><span>Thông tin tài khoản</span></a></li>
                     <li><a    href="changingpassword"><span>Đổi mật khẩu</span></a></li>
                     <li><a   href="customerorder"><span>Quản lý đơn hàng</span></a></li>
-                    <li><a class="is-active"  href="addaddress"><span>Sổ địa chỉ</span></a></li>
+                    <li><a class="is-active"  href="addresslist"><span>Sổ địa chỉ</span></a></li>
                     <li><a  href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
                     <li><a   href="buyinglater"><span>Sản phẩm mua sau</span></a></li>
                 </ul>
@@ -144,18 +144,19 @@
 
                     <div class="Content_StylesNav">
 
-                        <form class="formthemdiachi">
+                        <form class="formthemdiachi" method="post" action="addaddress" >
+                            <input type="hidden" name="action" value="add">
                             <div class="form-control ">
                                 <label for="fullName" class="input-label">Họ và tên:</label>
                                 <div>
-                                    <input class="inputdiachi" type="text" required="" name="fullName" placeholder="Nhập họ và tên" maxlength="50" class="Input-sc-17i9bto-0 girQwT" value="Minh Hoàng">
+                                    <input class="inputdiachi" type="text" required="" name="fullName" placeholder="Nhập họ và tên" maxlength="50" class="Input-sc-17i9bto-0 girQwT" value="${account.username}">
                                 </div>
                             </div>
                             <div class="form-control"><label for="company" class="input-label">Công ty:</label>
                                 <input class="inputdiachi" type="text" name="company" placeholder="Nhập công ty" class="Input-sc-17i9bto-0 girQwT" value="">
                             </div>
                             <div class="form-control "><label for="telephone" class="input-label">Số điện thoại:</label>
-                                <div><input class="inputdiachi" type="text" required="" name="telephone" placeholder="Nhập số điện thoại" class="Input-sc-17i9bto-0 girQwT" value=""></div>
+                                <div><input class="inputdiachi" type="text" required="" name="telephone" placeholder="Nhập số điện thoại" class="Input-sc-17i9bto-0 girQwT" value="${account.phone}"></div>
                             </div>
                             <div class="form-control">
                                 <label for="region" class="input-label">Tỉnh/Thành phố:</label>
@@ -227,46 +228,13 @@
                             </div>
                             <div class="form-control">
                                 <label for="district" class="input-label">Quận huyện:</label>
-                                <select class="inputdiachi" required="">
-                                    <option value="">Chọn Quận/Huyện</option>
-                                    <option value="664">Huyện Định Quán</option>
-                                    <option value="665">Huyện Long Thành</option>
-                                    <option value="666">Huyện Cẩm Mỹ</option>
-                                    <option value="667">Thành phố Biên Hòa</option>
-                                    <option value="668">Huyện Thống Nhất</option>
-                                    <option value="669">Huyện Nhơn Trạch</option>
-                                    <option value="670">Huyện Vĩnh Cửu</option>
-                                    <option value="671">Huyện Xuân Lộc</option>
-                                    <option value="672">Huyện Trảng Bom</option>
-                                    <option value="673">Huyện Tân Phú</option>
-                                    <option value="674">Thị xã Long Khánh</option>
-                                </select>
-                            </div>
-                            <div class="form-control">
-                                <label for="ward" class="input-label">Phường xã:</label>
-                                <select class="inputdiachi" required="">
-                                    <option value="">Chọn Phường/Xã</option>
-                                    <option value="2310">Thị trấn Định Quán</option>
-                                    <option value="2311">Xã Gia Canh</option>
-                                    <option value="2312">Xã La Ngà</option>
-                                    <option value="2313">Xã Ngọc Định</option>
-                                    <option value="2314">Xã Phú Cường</option>
-                                    <option value="2315">Xã Phú Hòa</option>
-                                    <option value="2316">Xã Phú Lợi</option>
-                                    <option value="2317">Xã Phú Ngọc</option>
-                                    <option value="2318">Xã Phú Tân</option>
-                                    <option value="2319">Xã Phú Túc</option>
-                                    <option value="2320">Xã Phú Vinh</option>
-                                    <option value="2321">Xã Suối Nho</option>
-                                    <option value="2322">Xã Thanh Sơn</option>
-                                    <option value="2323">Xã Túc Trưng</option>
-                                </select>
+                                <input class="inputdiachi" type="text" required="" name="district" placeholder="Nhập huyện" maxlength="50" class="Input-sc-17i9bto-0 girQwT" value="${Address.district}">
                             </div>
                             <div class="form-control ">
                                 <label for="address" class="input-label">
                                     Địa chỉ:</label>
                                 <div>
-                                    <textarea class="inputdiachi" required="" name="street" rows="5" placeholder="Nhập địa chỉ"></textarea>
+                                    <textarea class="inputdiachi" required="" name="street" rows="5" placeholder="Nhập địa chỉ, phường/ xã"></textarea>
                                 </div>
                             </div>
                             <div class="form-control"><label for="deliveryAddressType" class="input-label">Loại địa chỉ:</label>

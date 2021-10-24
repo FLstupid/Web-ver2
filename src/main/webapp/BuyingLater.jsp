@@ -142,30 +142,30 @@
                 <div class="buying-Later formresult  ">
                     <h3 class="HeadingContent">Sản Phẩm Mua Sau</h3>
                     <div class="Content_StylesNav">
-                        <form>
-                            <!--                <p style="margin-left: 420px">Chưa có sản phẩm nào</p>-->
-                            <!--                <a href="/" class="back">Tiếp tục mua sắm</a>-->
-                            <table class="comment">
-                                <thead>
-                                <tr>
-                                    <th width="200px">Mã đơn hàng</th>
-                                    <th>Sản phẩm</th>
-                                    <th width="200px">Mua</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        <a width="100px" href="/sales/order/view/280563326">280563326</a>
-                                    </td>
+                        <form method="post" action="buyinglater">
+                             <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
+                            <a href="home" class="back">Tiếp tục mua sắm</a>
+<%--                            <table class="comment">--%>
+<%--                                <thead>--%>
+<%--                                <tr>--%>
+<%--                                    <th width="200px">Mã đơn hàng</th>--%>
+<%--                                    <th>Sản phẩm</th>--%>
+<%--                                    <th width="200px">Mua</th>--%>
+<%--                                </tr>--%>
+<%--                                </thead>--%>
+<%--                                <tbody>--%>
+<%--                                <tr>--%>
+<%--                                    <td>--%>
+<%--                                        <a width="100px" href="">${Order_detail.id}</a>--%>
+<%--                                    </td>--%>
 
-                                    <td>Điện thoại Vivo Y12s - Xanh dương nhạt- 4GB/128GB - Hàng Chính Hãng ...và 01 sản phẩm khác</td>
-                                    <td style="text-align: center" width="100px"><input type="checkbox" id="vehicle1" ></td>
-                                </tr>
+<%--                                    <td>${Product.title}</td>--%>
+<%--                                    <td style="text-align: center" width="100px"><input type="checkbox" id="vehicle1" ></td>--%>
+<%--                                </tr>--%>
 
-                                </tbody>
-                            </table>
-                            <a href="/" class="back">Mua</a>
+<%--                                </tbody>--%>
+<%--                            </table>--%>
+<%--                            <a href="/" class="back">Mua</a>--%>
                         </form>
                     </div>
                 </div>

@@ -142,23 +142,23 @@
                 <div class="resetPassword  formresult ">
                     <h3 class="HeadingContent">Thay Đổi Mật Khẩu</h3>
                     <div class="Content_StylesNav">
-                        <form>
+                        <form method="post" action="customer">
                             <div class="form-control">
                                 <label class="input-label">Mật Khẩu Cũ</label>
                                 <div>
-                                    <input type="text" name="odlPassword" maxlength="128" minlength="6" class="Input-styles" value="">
+                                    <input type="text" name="odlPassword" maxlength="128" minlength="6" class="Input-styles" value="${Account.passwordHash}">
                                 </div>
                             </div>
                             <div class="form-control">
                                 <label class="input-label">Mật Khẩu Mới</label>
                                 <div>
-                                    <input type="text" name="newPassword" maxlength="128" minlength="6" class="Input-styles" value="">
+                                    <input type="text" name="newPassword" maxlength="128" minlength="6" class="Input-styles" value="${Account.passwordHash}">
                                 </div>
                             </div>
                             <div class="form-control">
                                 <label class="input-label">Xác Nhận Mật Khẩu Mới</label>
                                 <div>
-                                    <input type="text" name="confirmNewPassword" maxlength="128" minlength="6" class="Input-styles" value="">
+                                    <input type="text" name="confirmNewPassword" maxlength="128" minlength="6" class="Input-styles" value="${Account.passwordHash}">
                                 </div>
                             </div>
 

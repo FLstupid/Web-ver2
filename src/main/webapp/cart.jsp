@@ -142,7 +142,7 @@
                 <div class="buying-Later formresult  ">
                     <h3 class="HeadingContent">Giỏ Hàng</h3>
                     <div class="Content_StylesNav">
-                        <form>
+                        <form method="get">
                             <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
                             <a href="home" class="back">Tiếp tục mua sắm</a>
                         </form>

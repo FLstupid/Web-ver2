@@ -142,59 +142,29 @@
                 <div class="comment formresult ">
                     <h3 class="HeadingContent">Nhận Xét Về Sản Phẩm Của Bạn</h3>
                     <div class="Content_StylesNav">
-                        <form>
-                            <!--                <p style="margin-left: 420px">Chưa có nhận xét nào</p>-->
-                            <!--                <a href="/" class="back">Tiếp tục mua sắm</a>-->
-                            <table class="comment">
-                                <thead>
-                                <tr>
-                                    <th width="200px">Mã đơn hàng</th>
-                                    <th>Sản phẩm</th>
-                                    <th width="200px">Nhận xét</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        <a width="100px" href="/sales/order/view/280563326">280563326</a>
-                                    </td>
+                        <form method="get" action="customerReview">
+                             <p style="margin-left: 420px">Chưa có nhận xét nào</p>
+                             <a href="/" class="back">Tiếp tục mua sắm</a>
+<%--                            <table class="comment">--%>
+<%--                                <thead>--%>
+<%--                                <tr>--%>
+<%--                                    <th width="200px">Mã đơn hàng</th>--%>
+<%--                                    <th>Sản phẩm</th>--%>
+<%--                                    <th width="200px">Nhận xét</th>--%>
+<%--                                </tr>--%>
+<%--                                </thead>--%>
+<%--                                <tbody>--%>
+<%--                                <tr>--%>
+<%--                                    <td>--%>
+<%--                                        <a width="100px" href="">${Order_detail.id}</a>--%>
+<%--                                    </td>--%>
 
-                                    <td>Điện thoại Vivo Y12s - Xanh dương nhạt- 4GB/128GB - Hàng Chính Hãng ...và 01 sản phẩm khác</td>
-                                    <td width="100px">Sản Phẩm rất tốt aaaaaa aaaaaa aaaaaa aaa</td>
-                                </tr>
+<%--                                    <td>${Product.title}</td>--%>
+<%--                                    <td width="100px">${}</td>--%>
+<%--                                </tr>--%>
 
-                                </tbody>
-                            </table>
-                        </form>
-                    </div>
-                </div>
-                <div class="buying-Later formresult disableForm ">
-                    <h3 class="HeadingContent">Sản Phẩm Mua Sau</h3>
-                    <div class="Content_StylesNav">
-                        <form>
-                            <!--                <p style="margin-left: 420px">Chưa có sản phẩm nào</p>-->
-                            <!--                <a href="/" class="back">Tiếp tục mua sắm</a>-->
-                            <table class="comment">
-                                <thead>
-                                <tr>
-                                    <th width="200px">Mã đơn hàng</th>
-                                    <th>Sản phẩm</th>
-                                    <th width="200px">Mua</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        <a width="100px" href="/sales/order/view/280563326">280563326</a>
-                                    </td>
-
-                                    <td>Điện thoại Vivo Y12s - Xanh dương nhạt- 4GB/128GB - Hàng Chính Hãng ...và 01 sản phẩm khác</td>
-                                    <td style="text-align: center" width="100px"><input type="checkbox" id="vehicle1" ></td>
-                                </tr>
-
-                                </tbody>
-                            </table>
-                            <a href="/" class="back">Mua</a>
+<%--                                </tbody>--%>
+<%--                            </table>--%>
                         </form>
                     </div>
                 </div>
