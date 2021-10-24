@@ -1,5 +1,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>UserCenter</title>
@@ -155,6 +156,7 @@
                     <div class="Content_StylesNav">
                         <form method="get" >
                             <p style="margin-left: 420px">Chưa có địa chỉ nào</p>
+
 <%--                            <div style="display: flex" class="addresslist">--%>
 <%--                                <div class="left">--%>
 <%--                                    <div class="info">--%>
