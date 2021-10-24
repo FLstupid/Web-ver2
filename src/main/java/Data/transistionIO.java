@@ -16,7 +16,7 @@ public class transistionIO {
     {
         try {
             transaction.begin();
-
+            em.persist(transistion);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -31,7 +31,7 @@ public class transistionIO {
     {
         try {
             transaction.begin();
-
+            em.merge(transistion);
 
             transaction.commit();
         } finally {
@@ -47,7 +47,7 @@ public class transistionIO {
         try {
             transaction.begin();
 
-
+            em.remove(transistion);
             transaction.commit();
         } finally {
             if (transaction.isActive()){

@@ -16,7 +16,7 @@ public class orderDetailIO {
     {
         try {
             transaction.begin();
-
+            em.persist(orderDetail);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -32,7 +32,7 @@ public class orderDetailIO {
         try {
             transaction.begin();
 
-
+            em.merge(orderDetail);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -47,7 +47,7 @@ public class orderDetailIO {
         try {
             transaction.begin();
 
-
+            em.remove(orderDetail);
             transaction.commit();
         } finally {
             if (transaction.isActive()){

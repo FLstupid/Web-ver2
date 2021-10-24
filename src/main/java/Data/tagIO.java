@@ -16,7 +16,7 @@ public class tagIO {
     {
         try {
             transaction.begin();
-
+                em.persist(tag);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -31,7 +31,7 @@ public class tagIO {
     {
         try {
             transaction.begin();
-
+            em.merge(tag);
 
             transaction.commit();
         } finally {
@@ -47,7 +47,7 @@ public class tagIO {
         try {
             transaction.begin();
 
-
+            em.remove(tag);
             transaction.commit();
         } finally {
             if (transaction.isActive()){

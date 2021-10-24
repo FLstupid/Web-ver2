@@ -16,7 +16,7 @@ public class addressIO {
     {
         try {
             transaction.begin();
-
+            em.persist(address);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -32,7 +32,7 @@ public class addressIO {
         try {
             transaction.begin();
 
-
+            em.merge(address);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -47,7 +47,7 @@ public class addressIO {
         try {
             transaction.begin();
 
-
+            em.remove(address);
             transaction.commit();
         } finally {
             if (transaction.isActive()){

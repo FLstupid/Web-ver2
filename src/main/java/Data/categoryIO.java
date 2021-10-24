@@ -16,7 +16,7 @@ public class categoryIO {
     {
         try {
             transaction.begin();
-
+            em.persist(category);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -31,7 +31,7 @@ public class categoryIO {
     {
         try {
             transaction.begin();
-
+            em.merge(category);
 
             transaction.commit();
         } finally {
@@ -47,7 +47,7 @@ public class categoryIO {
         try {
             transaction.begin();
 
-
+            em.remove(category);
             transaction.commit();
         } finally {
             if (transaction.isActive()){

@@ -16,7 +16,7 @@ public class deliveryIO {
     {
         try {
             transaction.begin();
-
+            em.persist(delivery);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -32,7 +32,7 @@ public class deliveryIO {
         try {
             transaction.begin();
 
-
+            em.merge(delivery);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -46,7 +46,7 @@ public class deliveryIO {
     {
         try {
             transaction.begin();
-
+            em.remove(delivery);
 
             transaction.commit();
         } finally {

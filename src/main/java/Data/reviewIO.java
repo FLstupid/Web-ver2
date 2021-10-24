@@ -16,7 +16,7 @@ public class reviewIO {
     {
         try {
             transaction.begin();
-
+            em.persist(review);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -32,7 +32,7 @@ public class reviewIO {
         try {
             transaction.begin();
 
-
+            em.merge(review);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -46,7 +46,7 @@ public class reviewIO {
     {
         try {
             transaction.begin();
-
+                em.remove(review);
 
             transaction.commit();
         } finally {

@@ -16,7 +16,7 @@ public class shopIO {
     {
         try {
             transaction.begin();
-
+            em.persist(shop);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -32,7 +32,7 @@ public class shopIO {
         try {
             transaction.begin();
 
-
+            em.merge(shop);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -46,7 +46,7 @@ public class shopIO {
     {
         try {
             transaction.begin();
-
+            em.remove(shop);
 
             transaction.commit();
         } finally {

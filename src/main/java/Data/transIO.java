@@ -16,7 +16,7 @@ public class transIO {
     {
         try {
             transaction.begin();
-
+            em.persist(trans);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -32,7 +32,7 @@ public class transIO {
         try {
             transaction.begin();
 
-
+            em.merge(trans);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -46,7 +46,7 @@ public class transIO {
     {
         try {
             transaction.begin();
-
+                em.remove(trans);
 
             transaction.commit();
         } finally {

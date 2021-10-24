@@ -16,7 +16,7 @@ public class tagProductIO {
     {
         try {
             transaction.begin();
-
+            em.persist(tagProduct);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -32,7 +32,7 @@ public class tagProductIO {
         try {
             transaction.begin();
 
-
+            em.merge(tagProduct);
             transaction.commit();
         } finally {
             if (transaction.isActive()){
@@ -46,7 +46,7 @@ public class tagProductIO {
     {
         try {
             transaction.begin();
-
+                em.remove(tagProduct);
 
             transaction.commit();
         } finally {
