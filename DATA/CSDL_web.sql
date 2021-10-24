@@ -60,7 +60,6 @@ create table Product (
     status smallint, #have permission form admin <1> : have permission <0> : don't have permission <3> had deleted
     shopId bigint not null,
     title char(255) not null,
-    metalTitle char(255),
     quality	smallint not null,
     price	float not null,
     discount	float default 0 not null,
@@ -143,10 +142,7 @@ create table Order_item (
     price	float not null,
     discount	float default 0 not null,
     amount	int default 1 not null,
-    createdAt	datetime(0) not null,
-    updatedAt	datetime(0),
     content text,
-    
 	foreign key (orderId) references Order_detail(id),
     foreign key (productId) references Product(id)
 );
