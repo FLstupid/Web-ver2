@@ -1,5 +1,7 @@
 package Data;
 
+import Model.TagProduct;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;

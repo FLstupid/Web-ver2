@@ -1,5 +1,7 @@
 package Data;
 
+import Model.Trans;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
