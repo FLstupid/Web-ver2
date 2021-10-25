@@ -1,6 +1,5 @@
 package Data;
 
-import Model.Account;
 import javax.persistence.*;
 
 public class accountIO {

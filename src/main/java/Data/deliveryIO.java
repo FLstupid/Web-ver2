@@ -1,7 +1,5 @@
 package Data;
 
-import Model.Delivery;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
