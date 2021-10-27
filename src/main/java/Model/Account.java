@@ -26,7 +26,7 @@ public class Account {
     private Collection<Transistion> transistionsById;
     private Collection<UserAddress> userAddressesById;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Address> addressList;
 
 
