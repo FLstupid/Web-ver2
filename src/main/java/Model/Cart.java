@@ -3,6 +3,7 @@ package Model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Cart {
@@ -16,11 +17,16 @@ public class Cart {
     private String city;
     private String district;
     private String delivery;
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp updatedAt;
     private String content;
     private Account accountByAccountId;
     private Collection<CartItem> cartItemsById;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<CartItem>  listCartItem;
 
     @Id
     @Column(name = "id")

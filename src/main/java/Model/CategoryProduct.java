@@ -11,6 +11,12 @@ public class CategoryProduct {
     private Product productByProductId;
     private Category categoryByCategoryId;
 
+    @OneToOne
+    private Product product;
+
+    @OneToOne
+    private Category category;
+
     @Id
     @Column(name = "id")
     public long getId() {

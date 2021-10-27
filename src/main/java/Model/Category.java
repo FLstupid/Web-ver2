@@ -9,6 +9,9 @@ public class Category {
     private String categoryName;
     private Collection<CategoryProduct> categoryProductsById;
 
+    @ManyToOne
+    private Category categoryproduct;
+
     @Id
     @Column(name = "id")
     public long getId() {

@@ -13,11 +13,19 @@ public class CartItem {
     private double price;
     private double discount;
     private int amount;
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp updatedAt;
     private String content;
     private Cart cartByCartId;
     private Product productByProductId;
+
+    @ManyToOne
+    private Cart cart;
+
+    @OneToOne
+    private Product product;
 
     @Id
     @Column(name = "id")

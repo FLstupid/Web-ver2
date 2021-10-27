@@ -4,9 +4,11 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Account {
+
     private long id;
     private String username;
     private String passwordHash;
@@ -24,8 +26,13 @@ public class Account {
     private Collection<Transistion> transistionsById;
     private Collection<UserAddress> userAddressesById;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Address> addressList;
+
+
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public long getId() {
         return id;
     }

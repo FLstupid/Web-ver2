@@ -12,6 +12,10 @@ public class Address {
     private String district;
     private Collection<UserAddress> userAddressesById;
 
+
+    @ManyToOne
+    private Account account;
+
     @Id
     @Column(name = "id")
     public long getId() {

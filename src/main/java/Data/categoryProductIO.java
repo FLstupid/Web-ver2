@@ -8,9 +8,9 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class categoryProductIO {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
-    EntityManager em = emf.createEntityManager();
-    EntityTransaction transaction = em.getTransaction();
+    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+    public static final EntityManager em = emf.createEntityManager();
+    public static final EntityTransaction transaction = em.getTransaction();
 
     public void insert (CategoryProduct categoryProduct)
     {
