@@ -16,6 +16,9 @@ public class Review {
     private Product productByProductId;
     private Account accountByUserId;
 
+    @ManyToOne
+    private Review review;
+
     @Id
     @Column(name = "id")
     public long getId() {

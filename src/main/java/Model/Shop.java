@@ -3,6 +3,7 @@ package Model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Shop {
@@ -19,6 +20,9 @@ public class Shop {
     private Collection<Product> productsById;
     private Account accountByAccountId;
     private Collection<ShopDelivery> shopDeliveriesById;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<ShopDelivery> shopDeliveries;
 
     @Id
     @Column(name = "id")

@@ -22,8 +22,12 @@ public class OrderDetail {
     private Collection<Trans> transById;
     private Collection<Transistion> transistionsById;
 
+    @ManyToOne
+    private Product product;
+
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public long getId() {
         return id;
     }
@@ -150,7 +154,6 @@ public class OrderDetail {
         if (createdAt != null ? !createdAt.equals(that.createdAt) : that.createdAt != null) return false;
         if (updatedAt != null ? !updatedAt.equals(that.updatedAt) : that.updatedAt != null) return false;
         if (note != null ? !note.equals(that.note) : that.note != null) return false;
-
         return true;
     }
 

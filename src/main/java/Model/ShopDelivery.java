@@ -11,6 +11,12 @@ public class ShopDelivery {
     private Shop shopByShopId;
     private Delivery deliveryByDeliveryId;
 
+    @ManyToOne
+    private Shop shop;
+
+    @ManyToOne
+    private Product product;
+
     @Id
     @Column(name = "id")
     public long getId() {

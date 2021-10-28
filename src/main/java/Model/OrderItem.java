@@ -16,6 +16,12 @@ public class OrderItem {
     private OrderDetail orderDetailByOrderId;
     private Product productByProductId;
 
+    @ManyToOne
+    private Product product;
+
+    @ManyToOne
+    private OrderDetail orderdetail;
+
     @Id
     @Column(name = "id")
     public long getId() {
