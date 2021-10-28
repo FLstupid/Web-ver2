@@ -22,12 +22,13 @@
         <datasource-mapping>
           <factory-entry name="Economic" value="1d1be166-408b-47e5-8588-806a762bc06d" />
           <factory-entry name="default" value="1d1be166-408b-47e5-8588-806a762bc06d" />
-          <factory-entry name="dhs" />
+          <factory-entry name="dhs" value="1d1be166-408b-47e5-8588-806a762bc06d" />
           <factory-entry name="noname-a.xml@0" value="1d1be166-408b-47e5-8588-806a762bc06d" />
         </datasource-mapping>
         <naming-strategy-map>
           <unit-entry name="Economic" />
           <unit-entry name="default" />
+          <unit-entry name="dhs" />
         </naming-strategy-map>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/java/META-INF/persistence.xml" />
       </configuration>
