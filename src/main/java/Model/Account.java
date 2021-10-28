@@ -8,7 +8,8 @@ import java.util.List;
 
 @Entity
 public class Account {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String username;
     private String passwordHash;
@@ -19,19 +20,23 @@ public class Account {
     private Date birthday;
     private boolean role;
     private Timestamp lastUpdate;
+
+    @OneToMany
     private Collection<Cart> cartsById;
+    @OneToMany
     private Collection<Review> reviewsById;
+    @OneToMany
     private Collection<Shop> shopsById;
+    @OneToMany
     private Collection<Trans> transById;
+    @OneToMany
     private Collection<Transistion> transistionsById;
+    @OneToMany
     private Collection<UserAddress> userAddressesById;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Address> addressList;
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public long getId() {
         return id;
     }
@@ -40,8 +45,6 @@ public class Account {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "username")
     public String getUsername() {
         return username;
     }
@@ -50,8 +53,6 @@ public class Account {
         this.username = username;
     }
 
-    @Basic
-    @Column(name = "passwordHash")
     public String getPasswordHash() {
         return passwordHash;
     }
@@ -60,8 +61,6 @@ public class Account {
         this.passwordHash = passwordHash;
     }
 
-    @Basic
-    @Column(name = "phone")
     public int getPhone() {
         return phone;
     }
@@ -70,8 +69,6 @@ public class Account {
         this.phone = phone;
     }
 
-    @Basic
-    @Column(name = "gender")
     public boolean isGender() {
         return gender;
     }
@@ -80,8 +77,6 @@ public class Account {
         this.gender = gender;
     }
 
-    @Basic
-    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -90,8 +85,6 @@ public class Account {
         this.email = email;
     }
 
-    @Basic
-    @Column(name = "shop_name")
     public String getShopName() {
         return shopName;
     }
@@ -100,8 +93,6 @@ public class Account {
         this.shopName = shopName;
     }
 
-    @Basic
-    @Column(name = "birthday")
     public Date getBirthday() {
         return birthday;
     }
@@ -110,8 +101,6 @@ public class Account {
         this.birthday = birthday;
     }
 
-    @Basic
-    @Column(name = "role")
     public boolean isRole() {
         return role;
     }
@@ -120,8 +109,6 @@ public class Account {
         this.role = role;
     }
 
-    @Basic
-    @Column(name = "LAST_UPDATE")
     public Timestamp getLastUpdate() {
         return lastUpdate;
     }
@@ -147,9 +134,7 @@ public class Account {
         if (email != null ? !email.equals(account.email) : account.email != null) return false;
         if (shopName != null ? !shopName.equals(account.shopName) : account.shopName != null) return false;
         if (birthday != null ? !birthday.equals(account.birthday) : account.birthday != null) return false;
-        if (lastUpdate != null ? !lastUpdate.equals(account.lastUpdate) : account.lastUpdate != null) return false;
-
-        return true;
+        return lastUpdate != null ? lastUpdate.equals(account.lastUpdate) : account.lastUpdate == null;
     }
 
     @Override
@@ -176,7 +161,6 @@ public class Account {
         this.cartsById = cartsById;
     }
 
-    @OneToMany(mappedBy = "accountByUserId")
     public Collection<Review> getReviewsById() {
         return reviewsById;
     }
@@ -185,7 +169,6 @@ public class Account {
         this.reviewsById = reviewsById;
     }
 
-    @OneToMany(mappedBy = "accountByAccountId")
     public Collection<Shop> getShopsById() {
         return shopsById;
     }
@@ -194,7 +177,6 @@ public class Account {
         this.shopsById = shopsById;
     }
 
-    @OneToMany(mappedBy = "accountByAccountId")
     public Collection<Trans> getTransById() {
         return transById;
     }
@@ -203,7 +185,6 @@ public class Account {
         this.transById = transById;
     }
 
-    @OneToMany(mappedBy = "accountByCustomerId")
     public Collection<Transistion> getTransistionsById() {
         return transistionsById;
     }
@@ -212,7 +193,6 @@ public class Account {
         this.transistionsById = transistionsById;
     }
 
-    @OneToMany(mappedBy = "accountByAccountId")
     public Collection<UserAddress> getUserAddressesById() {
         return userAddressesById;
     }

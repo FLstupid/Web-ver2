@@ -3,16 +3,18 @@ package Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tag_product", schema = "dhs", catalog = "")
 public class TagProduct {
+    @Id
     private long id;
     private Long productId;
     private Long tagId;
-    private Product productByProductId;
-    private Tag tagByTagId;
 
-    @Id
-    @Column(name = "id")
+    @ManyToOne
+    private Product ProductId;
+
+    @ManyToOne
+    private Tag TagId;
+
     public long getId() {
         return id;
     }
@@ -21,8 +23,6 @@ public class TagProduct {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "productId")
     public Long getProductId() {
         return productId;
     }
@@ -31,8 +31,6 @@ public class TagProduct {
         this.productId = productId;
     }
 
-    @Basic
-    @Column(name = "tagId")
     public Long getTagId() {
         return tagId;
     }
@@ -63,23 +61,19 @@ public class TagProduct {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "productId", referencedColumnName = "id")
     public Product getProductByProductId() {
-        return productByProductId;
+        return ProductId;
     }
 
     public void setProductByProductId(Product productByProductId) {
-        this.productByProductId = productByProductId;
+        this.ProductId = productByProductId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "tagId", referencedColumnName = "id")
     public Tag getTagByTagId() {
-        return tagByTagId;
+        return TagId;
     }
 
     public void setTagByTagId(Tag tagByTagId) {
-        this.tagByTagId = tagByTagId;
+        this.TagId = tagByTagId;
     }
 }

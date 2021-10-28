@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 
 @Entity
 public class Transistion {
+    @Id
     private long id;
     private Long customerId;
     private Long orderId;
@@ -13,11 +14,13 @@ public class Transistion {
     private String payment;
     private String detailpayment;
     private Timestamp updatedAt;
+
+    @ManyToOne
     private Account accountByCustomerId;
+
+    @ManyToOne
     private OrderDetail orderDetailByOrderId;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -26,8 +29,6 @@ public class Transistion {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "customerId")
     public Long getCustomerId() {
         return customerId;
     }
@@ -36,8 +37,6 @@ public class Transistion {
         this.customerId = customerId;
     }
 
-    @Basic
-    @Column(name = "orderId")
     public Long getOrderId() {
         return orderId;
     }
@@ -46,8 +45,6 @@ public class Transistion {
         this.orderId = orderId;
     }
 
-    @Basic
-    @Column(name = "states")
     public Integer getStates() {
         return states;
     }
@@ -56,8 +53,6 @@ public class Transistion {
         this.states = states;
     }
 
-    @Basic
-    @Column(name = "detailstates")
     public String getDetailstates() {
         return detailstates;
     }
@@ -66,8 +61,6 @@ public class Transistion {
         this.detailstates = detailstates;
     }
 
-    @Basic
-    @Column(name = "payment")
     public String getPayment() {
         return payment;
     }
@@ -76,8 +69,6 @@ public class Transistion {
         this.payment = payment;
     }
 
-    @Basic
-    @Column(name = "detailpayment")
     public String getDetailpayment() {
         return detailpayment;
     }
@@ -86,8 +77,6 @@ public class Transistion {
         this.detailpayment = detailpayment;
     }
 
-    @Basic
-    @Column(name = "updatedAt")
     public Timestamp getUpdatedAt() {
         return updatedAt;
     }
@@ -111,9 +100,7 @@ public class Transistion {
         if (payment != null ? !payment.equals(that.payment) : that.payment != null) return false;
         if (detailpayment != null ? !detailpayment.equals(that.detailpayment) : that.detailpayment != null)
             return false;
-        if (updatedAt != null ? !updatedAt.equals(that.updatedAt) : that.updatedAt != null) return false;
-
-        return true;
+        return updatedAt != null ? updatedAt.equals(that.updatedAt) : that.updatedAt == null;
     }
 
     @Override
@@ -129,8 +116,6 @@ public class Transistion {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "customerId", referencedColumnName = "id")
     public Account getAccountByCustomerId() {
         return accountByCustomerId;
     }
@@ -139,8 +124,6 @@ public class Transistion {
         this.accountByCustomerId = accountByCustomerId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "orderId", referencedColumnName = "id")
     public OrderDetail getOrderDetailByOrderId() {
         return orderDetailByOrderId;
     }

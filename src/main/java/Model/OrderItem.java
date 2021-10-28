@@ -3,8 +3,8 @@ package Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "order_item", schema = "dhs", catalog = "")
 public class OrderItem {
+    @Id
     private long id;
     private Long orderId;
     private Long productId;
@@ -13,17 +13,12 @@ public class OrderItem {
     private double discount;
     private int amount;
     private String content;
+
+    @ManyToOne
     private OrderDetail orderDetailByOrderId;
+    @ManyToOne
     private Product productByProductId;
 
-    @ManyToOne
-    private Product product;
-
-    @ManyToOne
-    private OrderDetail orderdetail;
-
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -32,8 +27,6 @@ public class OrderItem {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "orderId")
     public Long getOrderId() {
         return orderId;
     }
@@ -42,8 +35,6 @@ public class OrderItem {
         this.orderId = orderId;
     }
 
-    @Basic
-    @Column(name = "productId")
     public Long getProductId() {
         return productId;
     }
@@ -52,8 +43,6 @@ public class OrderItem {
         this.productId = productId;
     }
 
-    @Basic
-    @Column(name = "quality")
     public short getQuality() {
         return quality;
     }
@@ -62,8 +51,6 @@ public class OrderItem {
         this.quality = quality;
     }
 
-    @Basic
-    @Column(name = "price")
     public double getPrice() {
         return price;
     }
@@ -72,8 +59,6 @@ public class OrderItem {
         this.price = price;
     }
 
-    @Basic
-    @Column(name = "discount")
     public double getDiscount() {
         return discount;
     }
@@ -82,8 +67,6 @@ public class OrderItem {
         this.discount = discount;
     }
 
-    @Basic
-    @Column(name = "amount")
     public int getAmount() {
         return amount;
     }
@@ -92,8 +75,6 @@ public class OrderItem {
         this.amount = amount;
     }
 
-    @Basic
-    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -116,9 +97,7 @@ public class OrderItem {
         if (amount != orderItem.amount) return false;
         if (orderId != null ? !orderId.equals(orderItem.orderId) : orderItem.orderId != null) return false;
         if (productId != null ? !productId.equals(orderItem.productId) : orderItem.productId != null) return false;
-        if (content != null ? !content.equals(orderItem.content) : orderItem.content != null) return false;
-
-        return true;
+        return content != null ? content.equals(orderItem.content) : orderItem.content == null;
     }
 
     @Override
@@ -138,8 +117,6 @@ public class OrderItem {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "orderId", referencedColumnName = "id")
     public OrderDetail getOrderDetailByOrderId() {
         return orderDetailByOrderId;
     }
@@ -148,8 +125,6 @@ public class OrderItem {
         this.orderDetailByOrderId = orderDetailByOrderId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "productId", referencedColumnName = "id")
     public Product getProductByProductId() {
         return productByProductId;
     }

@@ -5,12 +5,13 @@ import java.util.Collection;
 
 @Entity
 public class Tag {
+    @Id
     private long id;
     private String tagName;
+
+    @OneToMany
     private Collection<TagProduct> tagProductsById;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -19,8 +20,6 @@ public class Tag {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "tagName")
     public String getTagName() {
         return tagName;
     }
@@ -37,9 +36,7 @@ public class Tag {
         Tag tag = (Tag) o;
 
         if (id != tag.id) return false;
-        if (tagName != null ? !tagName.equals(tag.tagName) : tag.tagName != null) return false;
-
-        return true;
+        return tagName != null ? tagName.equals(tag.tagName) : tag.tagName == null;
     }
 
     @Override
@@ -49,7 +46,6 @@ public class Tag {
         return result;
     }
 
-    @OneToMany(mappedBy = "tagByTagId")
     public Collection<TagProduct> getTagProductsById() {
         return tagProductsById;
     }

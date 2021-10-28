@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 public class Shop {
+    @Id
     private long id;
     private long accountId;
     private String streetName;
@@ -17,15 +18,14 @@ public class Shop {
     private long numberProduct;
     private short status;
     private Timestamp lastUpdate;
+
+    @OneToMany
     private Collection<Product> productsById;
+    @ManyToOne
     private Account accountByAccountId;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Collection<ShopDelivery> shopDeliveriesById;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<ShopDelivery> shopDeliveries;
-
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -34,8 +34,6 @@ public class Shop {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "accountId")
     public long getAccountId() {
         return accountId;
     }
@@ -44,8 +42,6 @@ public class Shop {
         this.accountId = accountId;
     }
 
-    @Basic
-    @Column(name = "street_name")
     public String getStreetName() {
         return streetName;
     }
@@ -54,8 +50,6 @@ public class Shop {
         this.streetName = streetName;
     }
 
-    @Basic
-    @Column(name = "city")
     public String getCity() {
         return city;
     }
@@ -64,8 +58,6 @@ public class Shop {
         this.city = city;
     }
 
-    @Basic
-    @Column(name = "district")
     public String getDistrict() {
         return district;
     }
@@ -74,8 +66,6 @@ public class Shop {
         this.district = district;
     }
 
-    @Basic
-    @Column(name = "bank_id")
     public int getBankId() {
         return bankId;
     }
@@ -84,8 +74,6 @@ public class Shop {
         this.bankId = bankId;
     }
 
-    @Basic
-    @Column(name = "active_day")
     public int getActiveDay() {
         return activeDay;
     }
@@ -94,8 +82,6 @@ public class Shop {
         this.activeDay = activeDay;
     }
 
-    @Basic
-    @Column(name = "number_product")
     public long getNumberProduct() {
         return numberProduct;
     }
@@ -104,8 +90,6 @@ public class Shop {
         this.numberProduct = numberProduct;
     }
 
-    @Basic
-    @Column(name = "status")
     public short getStatus() {
         return status;
     }
@@ -114,8 +98,6 @@ public class Shop {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "LAST_UPDATE")
     public Timestamp getLastUpdate() {
         return lastUpdate;
     }
@@ -160,7 +142,6 @@ public class Shop {
         return result;
     }
 
-    @OneToMany(mappedBy = "shopByShopId")
     public Collection<Product> getProductsById() {
         return productsById;
     }
@@ -169,8 +150,6 @@ public class Shop {
         this.productsById = productsById;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "accountId", referencedColumnName = "id", nullable = false)
     public Account getAccountByAccountId() {
         return accountByAccountId;
     }
@@ -179,7 +158,6 @@ public class Shop {
         this.accountByAccountId = accountByAccountId;
     }
 
-    @OneToMany(mappedBy = "shopByShopId")
     public Collection<ShopDelivery> getShopDeliveriesById() {
         return shopDeliveriesById;
     }

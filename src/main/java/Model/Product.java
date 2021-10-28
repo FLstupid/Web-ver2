@@ -6,6 +6,8 @@ import java.util.Collection;
 
 @Entity
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private Short status;
     private long shopId;
@@ -15,21 +17,25 @@ public class Product {
     private double discount;
     private Timestamp startAt;
     private Timestamp endsAt;
-    private Object decription;
+    private String decription;
     private String content;
     private Timestamp updatedAt;
     private Timestamp createdAt;
     private Timestamp publishedAt;
+
+    @OneToMany
     private Collection<CartItem> cartItemsById;
+    @OneToMany
     private Collection<CategoryProduct> categoryProductsById;
+    @OneToMany
     private Collection<OrderItem> orderItemsById;
+    @ManyToOne
     private Shop shopByShopId;
+    @OneToMany
     private Collection<Review> reviewsById;
+    @OneToMany
     private Collection<TagProduct> tagProductsById;
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public long getId() {
         return id;
     }
@@ -38,8 +44,6 @@ public class Product {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "status")
     public Short getStatus() {
         return status;
     }
@@ -48,8 +52,6 @@ public class Product {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "shopId")
     public long getShopId() {
         return shopId;
     }
@@ -58,8 +60,6 @@ public class Product {
         this.shopId = shopId;
     }
 
-    @Basic
-    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -68,8 +68,6 @@ public class Product {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "quality")
     public short getQuality() {
         return quality;
     }
@@ -78,8 +76,6 @@ public class Product {
         this.quality = quality;
     }
 
-    @Basic
-    @Column(name = "price")
     public double getPrice() {
         return price;
     }
@@ -88,8 +84,6 @@ public class Product {
         this.price = price;
     }
 
-    @Basic
-    @Column(name = "discount")
     public double getDiscount() {
         return discount;
     }
@@ -98,8 +92,6 @@ public class Product {
         this.discount = discount;
     }
 
-    @Basic
-    @Column(name = "startAt")
     public Timestamp getStartAt() {
         return startAt;
     }
@@ -108,8 +100,6 @@ public class Product {
         this.startAt = startAt;
     }
 
-    @Basic
-    @Column(name = "endsAt")
     public Timestamp getEndsAt() {
         return endsAt;
     }
@@ -118,18 +108,14 @@ public class Product {
         this.endsAt = endsAt;
     }
 
-    @Basic
-    @Column(name = "decription")
-    public Object getDecription() {
+    public String getDecription() {
         return decription;
     }
 
-    public void setDecription(Object decription) {
+    public void setDecription(String decription) {
         this.decription = decription;
     }
 
-    @Basic
-    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -138,8 +124,6 @@ public class Product {
         this.content = content;
     }
 
-    @Basic
-    @Column(name = "updatedAt")
     public Timestamp getUpdatedAt() {
         return updatedAt;
     }
@@ -148,8 +132,6 @@ public class Product {
         this.updatedAt = updatedAt;
     }
 
-    @Basic
-    @Column(name = "createdAt")
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -158,8 +140,6 @@ public class Product {
         this.createdAt = createdAt;
     }
 
-    @Basic
-    @Column(name = "publishedAt")
     public Timestamp getPublishedAt() {
         return publishedAt;
     }
@@ -188,9 +168,7 @@ public class Product {
         if (content != null ? !content.equals(product.content) : product.content != null) return false;
         if (updatedAt != null ? !updatedAt.equals(product.updatedAt) : product.updatedAt != null) return false;
         if (createdAt != null ? !createdAt.equals(product.createdAt) : product.createdAt != null) return false;
-        if (publishedAt != null ? !publishedAt.equals(product.publishedAt) : product.publishedAt != null) return false;
-
-        return true;
+        return publishedAt != null ? publishedAt.equals(product.publishedAt) : product.publishedAt == null;
     }
 
     @Override
@@ -216,7 +194,6 @@ public class Product {
         return result;
     }
 
-    @OneToMany(mappedBy = "productByProductId")
     public Collection<CartItem> getCartItemsById() {
         return cartItemsById;
     }
@@ -225,7 +202,6 @@ public class Product {
         this.cartItemsById = cartItemsById;
     }
 
-    @OneToMany(mappedBy = "productByProductId")
     public Collection<CategoryProduct> getCategoryProductsById() {
         return categoryProductsById;
     }
@@ -234,7 +210,6 @@ public class Product {
         this.categoryProductsById = categoryProductsById;
     }
 
-    @OneToMany(mappedBy = "productByProductId")
     public Collection<OrderItem> getOrderItemsById() {
         return orderItemsById;
     }
@@ -243,8 +218,6 @@ public class Product {
         this.orderItemsById = orderItemsById;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "shopId", referencedColumnName = "id", nullable = false)
     public Shop getShopByShopId() {
         return shopByShopId;
     }
@@ -253,7 +226,6 @@ public class Product {
         this.shopByShopId = shopByShopId;
     }
 
-    @OneToMany(mappedBy = "productByProductId")
     public Collection<Review> getReviewsById() {
         return reviewsById;
     }
@@ -262,7 +234,6 @@ public class Product {
         this.reviewsById = reviewsById;
     }
 
-    @OneToMany(mappedBy = "productByProductId")
     public Collection<TagProduct> getTagProductsById() {
         return tagProductsById;
     }

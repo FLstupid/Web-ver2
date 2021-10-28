@@ -5,8 +5,9 @@ import java.sql.Timestamp;
 import java.util.Collection;
 
 @Entity
-@Table(name = "order_detail", schema = "dhs", catalog = "")
 public class OrderDetail {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private int phone;
     private String streetName;
@@ -18,16 +19,14 @@ public class OrderDetail {
     private double totalPrice;
     private Timestamp updatedAt;
     private String note;
+
+    @OneToMany
     private Collection<OrderItem> orderItemsById;
+    @OneToMany
     private Collection<Trans> transById;
+    @OneToMany
     private Collection<Transistion> transistionsById;
 
-    @ManyToOne
-    private Product product;
-
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public long getId() {
         return id;
     }
@@ -36,8 +35,6 @@ public class OrderDetail {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "phone")
     public int getPhone() {
         return phone;
     }
@@ -46,8 +43,6 @@ public class OrderDetail {
         this.phone = phone;
     }
 
-    @Basic
-    @Column(name = "street_name")
     public String getStreetName() {
         return streetName;
     }
@@ -56,8 +51,6 @@ public class OrderDetail {
         this.streetName = streetName;
     }
 
-    @Basic
-    @Column(name = "city")
     public String getCity() {
         return city;
     }
@@ -66,8 +59,6 @@ public class OrderDetail {
         this.city = city;
     }
 
-    @Basic
-    @Column(name = "district")
     public String getDistrict() {
         return district;
     }
@@ -76,8 +67,6 @@ public class OrderDetail {
         this.district = district;
     }
 
-    @Basic
-    @Column(name = "delivery")
     public String getDelivery() {
         return delivery;
     }
@@ -86,8 +75,6 @@ public class OrderDetail {
         this.delivery = delivery;
     }
 
-    @Basic
-    @Column(name = "createdAt")
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -96,8 +83,6 @@ public class OrderDetail {
         this.createdAt = createdAt;
     }
 
-    @Basic
-    @Column(name = "shipPrice")
     public double getShipPrice() {
         return shipPrice;
     }
@@ -106,8 +91,6 @@ public class OrderDetail {
         this.shipPrice = shipPrice;
     }
 
-    @Basic
-    @Column(name = "totalPrice")
     public double getTotalPrice() {
         return totalPrice;
     }
@@ -116,8 +99,6 @@ public class OrderDetail {
         this.totalPrice = totalPrice;
     }
 
-    @Basic
-    @Column(name = "updatedAt")
     public Timestamp getUpdatedAt() {
         return updatedAt;
     }
@@ -126,8 +107,6 @@ public class OrderDetail {
         this.updatedAt = updatedAt;
     }
 
-    @Basic
-    @Column(name = "note")
     public String getNote() {
         return note;
     }
@@ -153,8 +132,7 @@ public class OrderDetail {
         if (delivery != null ? !delivery.equals(that.delivery) : that.delivery != null) return false;
         if (createdAt != null ? !createdAt.equals(that.createdAt) : that.createdAt != null) return false;
         if (updatedAt != null ? !updatedAt.equals(that.updatedAt) : that.updatedAt != null) return false;
-        if (note != null ? !note.equals(that.note) : that.note != null) return false;
-        return true;
+        return note != null ? note.equals(that.note) : that.note == null;
     }
 
     @Override
@@ -177,7 +155,6 @@ public class OrderDetail {
         return result;
     }
 
-    @OneToMany(mappedBy = "orderDetailByOrderId")
     public Collection<OrderItem> getOrderItemsById() {
         return orderItemsById;
     }
@@ -186,7 +163,6 @@ public class OrderDetail {
         this.orderItemsById = orderItemsById;
     }
 
-    @OneToMany(mappedBy = "orderDetailByOrderId")
     public Collection<Trans> getTransById() {
         return transById;
     }
@@ -195,7 +171,6 @@ public class OrderDetail {
         this.transById = transById;
     }
 
-    @OneToMany(mappedBy = "orderDetailByOrderId")
     public Collection<Transistion> getTransistionsById() {
         return transistionsById;
     }

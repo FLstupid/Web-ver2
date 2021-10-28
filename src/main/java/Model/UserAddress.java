@@ -3,16 +3,18 @@ package Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_address", schema = "dhs", catalog = "")
 public class UserAddress {
+    @Id
     private long id;
     private Long accountId;
     private Long addressId;
+
+    @ManyToOne
     private Account accountByAccountId;
+
+    @ManyToOne
     private Address addressByAddressId;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -21,8 +23,6 @@ public class UserAddress {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "accountId")
     public Long getAccountId() {
         return accountId;
     }
@@ -31,8 +31,6 @@ public class UserAddress {
         this.accountId = accountId;
     }
 
-    @Basic
-    @Column(name = "addressId")
     public Long getAddressId() {
         return addressId;
     }
@@ -50,9 +48,7 @@ public class UserAddress {
 
         if (id != that.id) return false;
         if (accountId != null ? !accountId.equals(that.accountId) : that.accountId != null) return false;
-        if (addressId != null ? !addressId.equals(that.addressId) : that.addressId != null) return false;
-
-        return true;
+        return addressId != null ? addressId.equals(that.addressId) : that.addressId == null;
     }
 
     @Override
@@ -63,8 +59,6 @@ public class UserAddress {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "accountId", referencedColumnName = "id")
     public Account getAccountByAccountId() {
         return accountByAccountId;
     }
@@ -73,8 +67,6 @@ public class UserAddress {
         this.accountByAccountId = accountByAccountId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "addressId", referencedColumnName = "id")
     public Address getAddressByAddressId() {
         return addressByAddressId;
     }

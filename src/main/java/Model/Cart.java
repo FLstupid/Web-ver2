@@ -3,10 +3,12 @@ package Model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Entity
 public class Cart {
+    @Id
     private long id;
     private String sessionId;
     private String tokenId;
@@ -18,18 +20,18 @@ public class Cart {
     private String district;
     private String delivery;
     @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp createdAt;
+    private Date createdAt;
     @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp updatedAt;
+    private Date updatedAt;
     private String content;
+    @ManyToOne
     private Account accountByAccountId;
+    @OneToMany
     private Collection<CartItem> cartItemsById;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<CartItem>  listCartItem;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -38,8 +40,6 @@ public class Cart {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "sessionId")
     public String getSessionId() {
         return sessionId;
     }
@@ -48,8 +48,6 @@ public class Cart {
         this.sessionId = sessionId;
     }
 
-    @Basic
-    @Column(name = "tokenId")
     public String getTokenId() {
         return tokenId;
     }
@@ -58,8 +56,6 @@ public class Cart {
         this.tokenId = tokenId;
     }
 
-    @Basic
-    @Column(name = "status")
     public Short getStatus() {
         return status;
     }
@@ -68,8 +64,6 @@ public class Cart {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "accountId")
     public Long getAccountId() {
         return accountId;
     }
@@ -78,8 +72,6 @@ public class Cart {
         this.accountId = accountId;
     }
 
-    @Basic
-    @Column(name = "phone")
     public int getPhone() {
         return phone;
     }
@@ -88,8 +80,6 @@ public class Cart {
         this.phone = phone;
     }
 
-    @Basic
-    @Column(name = "street_name")
     public String getStreetName() {
         return streetName;
     }
@@ -98,8 +88,6 @@ public class Cart {
         this.streetName = streetName;
     }
 
-    @Basic
-    @Column(name = "city")
     public String getCity() {
         return city;
     }
@@ -108,8 +96,6 @@ public class Cart {
         this.city = city;
     }
 
-    @Basic
-    @Column(name = "district")
     public String getDistrict() {
         return district;
     }
@@ -118,8 +104,6 @@ public class Cart {
         this.district = district;
     }
 
-    @Basic
-    @Column(name = "delivery")
     public String getDelivery() {
         return delivery;
     }
@@ -128,9 +112,7 @@ public class Cart {
         this.delivery = delivery;
     }
 
-    @Basic
-    @Column(name = "createdAt")
-    public Timestamp getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
@@ -138,9 +120,7 @@ public class Cart {
         this.createdAt = createdAt;
     }
 
-    @Basic
-    @Column(name = "updatedAt")
-    public Timestamp getUpdatedAt() {
+    public Date getUpdatedAt() {
         return updatedAt;
     }
 
@@ -148,8 +128,6 @@ public class Cart {
         this.updatedAt = updatedAt;
     }
 
-    @Basic
-    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -177,9 +155,7 @@ public class Cart {
         if (delivery != null ? !delivery.equals(cart.delivery) : cart.delivery != null) return false;
         if (createdAt != null ? !createdAt.equals(cart.createdAt) : cart.createdAt != null) return false;
         if (updatedAt != null ? !updatedAt.equals(cart.updatedAt) : cart.updatedAt != null) return false;
-        if (content != null ? !content.equals(cart.content) : cart.content != null) return false;
-
-        return true;
+        return content != null ? content.equals(cart.content) : cart.content == null;
     }
 
     @Override
@@ -200,8 +176,6 @@ public class Cart {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "accountId", referencedColumnName = "id")
     public Account getAccountByAccountId() {
         return accountByAccountId;
     }
@@ -210,7 +184,6 @@ public class Cart {
         this.accountByAccountId = accountByAccountId;
     }
 
-    @OneToMany(mappedBy = "cartByCartId")
     public Collection<CartItem> getCartItemsById() {
         return cartItemsById;
     }

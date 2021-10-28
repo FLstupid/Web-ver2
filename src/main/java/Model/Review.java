@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 
 @Entity
 public class Review {
+    @Id
     private long id;
     private Long productId;
     private Long userId;
@@ -13,14 +14,12 @@ public class Review {
     private Timestamp publishedAt;
     private Timestamp createdAt;
     private String content;
-    private Product productByProductId;
-    private Account accountByUserId;
 
     @ManyToOne
-    private Review review;
+    private Product productByProductId;
+    @ManyToOne
+    private Account accountByUserId;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -29,8 +28,6 @@ public class Review {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "productId")
     public Long getProductId() {
         return productId;
     }
@@ -39,8 +36,6 @@ public class Review {
         this.productId = productId;
     }
 
-    @Basic
-    @Column(name = "userId")
     public Long getUserId() {
         return userId;
     }
@@ -49,8 +44,6 @@ public class Review {
         this.userId = userId;
     }
 
-    @Basic
-    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -59,8 +52,6 @@ public class Review {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "rating")
     public short getRating() {
         return rating;
     }
@@ -69,8 +60,6 @@ public class Review {
         this.rating = rating;
     }
 
-    @Basic
-    @Column(name = "publishedAt")
     public Timestamp getPublishedAt() {
         return publishedAt;
     }
@@ -79,8 +68,6 @@ public class Review {
         this.publishedAt = publishedAt;
     }
 
-    @Basic
-    @Column(name = "createdAt")
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -89,8 +76,6 @@ public class Review {
         this.createdAt = createdAt;
     }
 
-    @Basic
-    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -131,8 +116,6 @@ public class Review {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "productId", referencedColumnName = "id")
     public Product getProductByProductId() {
         return productByProductId;
     }
@@ -141,8 +124,6 @@ public class Review {
         this.productByProductId = productByProductId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "userId", referencedColumnName = "id")
     public Account getAccountByUserId() {
         return accountByUserId;
     }

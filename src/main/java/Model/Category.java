@@ -5,15 +5,13 @@ import java.util.Collection;
 
 @Entity
 public class Category {
+    @Id
     private long id;
     private String categoryName;
+
+    @OneToMany
     private Collection<CategoryProduct> categoryProductsById;
 
-    @ManyToOne
-    private Category categoryproduct;
-
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -22,8 +20,6 @@ public class Category {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "categoryName")
     public String getCategoryName() {
         return categoryName;
     }
@@ -40,10 +36,7 @@ public class Category {
         Category category = (Category) o;
 
         if (id != category.id) return false;
-        if (categoryName != null ? !categoryName.equals(category.categoryName) : category.categoryName != null)
-            return false;
-
-        return true;
+        return categoryName != null ? categoryName.equals(category.categoryName) : category.categoryName == null;
     }
 
     @Override
@@ -53,7 +46,6 @@ public class Category {
         return result;
     }
 
-    @OneToMany(mappedBy = "categoryByCategoryId")
     public Collection<CategoryProduct> getCategoryProductsById() {
         return categoryProductsById;
     }

@@ -5,18 +5,16 @@ import java.util.Collection;
 
 @Entity
 public class Address {
+    @Id
     private long id;
     private int phone;
     private String streetName;
     private String city;
     private String district;
+
+    @OneToMany
     private Collection<UserAddress> userAddressesById;
 
-    @ManyToOne
-    private Account account;
-
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -25,8 +23,6 @@ public class Address {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "phone")
     public int getPhone() {
         return phone;
     }
@@ -35,8 +31,6 @@ public class Address {
         this.phone = phone;
     }
 
-    @Basic
-    @Column(name = "street_name")
     public String getStreetName() {
         return streetName;
     }
@@ -45,8 +39,6 @@ public class Address {
         this.streetName = streetName;
     }
 
-    @Basic
-    @Column(name = "city")
     public String getCity() {
         return city;
     }
@@ -55,8 +47,6 @@ public class Address {
         this.city = city;
     }
 
-    @Basic
-    @Column(name = "district")
     public String getDistrict() {
         return district;
     }
@@ -76,9 +66,7 @@ public class Address {
         if (phone != address.phone) return false;
         if (streetName != null ? !streetName.equals(address.streetName) : address.streetName != null) return false;
         if (city != null ? !city.equals(address.city) : address.city != null) return false;
-        if (district != null ? !district.equals(address.district) : address.district != null) return false;
-
-        return true;
+        return district != null ? district.equals(address.district) : address.district == null;
     }
 
     @Override
@@ -89,11 +77,6 @@ public class Address {
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (district != null ? district.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "addressByAddressId")
-    public Collection<UserAddress> getUserAddressesById() {
-        return userAddressesById;
     }
 
     public void setUserAddressesById(Collection<UserAddress> userAddressesById) {

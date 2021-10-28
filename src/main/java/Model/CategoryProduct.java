@@ -3,22 +3,18 @@ package Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "category_product", schema = "dhs", catalog = "")
 public class CategoryProduct {
+    @Id
     private long id;
     private Long productId;
     private Long categoryId;
+
+    @ManyToOne
     private Product productByProductId;
+
+    @ManyToOne
     private Category categoryByCategoryId;
 
-    @OneToOne
-    private Product product;
-
-    @OneToOne
-    private Category category;
-
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -27,8 +23,6 @@ public class CategoryProduct {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "productId")
     public Long getProductId() {
         return productId;
     }
@@ -37,8 +31,6 @@ public class CategoryProduct {
         this.productId = productId;
     }
 
-    @Basic
-    @Column(name = "categoryId")
     public Long getCategoryId() {
         return categoryId;
     }
@@ -56,9 +48,7 @@ public class CategoryProduct {
 
         if (id != that.id) return false;
         if (productId != null ? !productId.equals(that.productId) : that.productId != null) return false;
-        if (categoryId != null ? !categoryId.equals(that.categoryId) : that.categoryId != null) return false;
-
-        return true;
+        return categoryId != null ? categoryId.equals(that.categoryId) : that.categoryId == null;
     }
 
     @Override
@@ -69,8 +59,6 @@ public class CategoryProduct {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "productId", referencedColumnName = "id")
     public Product getProductByProductId() {
         return productByProductId;
     }
@@ -79,8 +67,6 @@ public class CategoryProduct {
         this.productByProductId = productByProductId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "categoryId", referencedColumnName = "id")
     public Category getCategoryByCategoryId() {
         return categoryByCategoryId;
     }

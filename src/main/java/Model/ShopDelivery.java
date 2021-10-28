@@ -3,22 +3,18 @@ package Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "shop_delivery", schema = "dhs", catalog = "")
 public class ShopDelivery {
+    @Id
     private long id;
     private Long shopId;
     private Long deliveryId;
+
+    @ManyToOne
     private Shop shopByShopId;
+
+    @ManyToOne
     private Delivery deliveryByDeliveryId;
 
-    @ManyToOne
-    private Shop shop;
-
-    @ManyToOne
-    private Product product;
-
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -27,8 +23,6 @@ public class ShopDelivery {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "shopId")
     public Long getShopId() {
         return shopId;
     }
@@ -37,8 +31,6 @@ public class ShopDelivery {
         this.shopId = shopId;
     }
 
-    @Basic
-    @Column(name = "deliveryId")
     public Long getDeliveryId() {
         return deliveryId;
     }
@@ -56,9 +48,7 @@ public class ShopDelivery {
 
         if (id != that.id) return false;
         if (shopId != null ? !shopId.equals(that.shopId) : that.shopId != null) return false;
-        if (deliveryId != null ? !deliveryId.equals(that.deliveryId) : that.deliveryId != null) return false;
-
-        return true;
+        return deliveryId != null ? deliveryId.equals(that.deliveryId) : that.deliveryId == null;
     }
 
     @Override
@@ -69,8 +59,6 @@ public class ShopDelivery {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "shopId", referencedColumnName = "id")
     public Shop getShopByShopId() {
         return shopByShopId;
     }
@@ -79,8 +67,6 @@ public class ShopDelivery {
         this.shopByShopId = shopByShopId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "deliveryId", referencedColumnName = "id")
     public Delivery getDeliveryByDeliveryId() {
         return deliveryByDeliveryId;
     }

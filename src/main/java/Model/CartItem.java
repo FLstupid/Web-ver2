@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "cart_item", schema = "dhs", catalog = "")
 public class CartItem {
+    @Id
     private long id;
     private Long cartId;
     private Long productId;
@@ -13,22 +13,15 @@ public class CartItem {
     private double price;
     private double discount;
     private int amount;
-    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp createdAt;
-    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp updatedAt;
     private String content;
-    private Cart cartByCartId;
-    private Product productByProductId;
 
     @ManyToOne
-    private Cart cart;
+    private Cart cartByCartId;
+    @ManyToOne
+    private Product productByProductId;
 
-    @OneToOne
-    private Product product;
-
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -37,8 +30,6 @@ public class CartItem {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "cartId")
     public Long getCartId() {
         return cartId;
     }
@@ -47,8 +38,6 @@ public class CartItem {
         this.cartId = cartId;
     }
 
-    @Basic
-    @Column(name = "productId")
     public Long getProductId() {
         return productId;
     }
@@ -57,8 +46,6 @@ public class CartItem {
         this.productId = productId;
     }
 
-    @Basic
-    @Column(name = "quality")
     public short getQuality() {
         return quality;
     }
@@ -67,8 +54,6 @@ public class CartItem {
         this.quality = quality;
     }
 
-    @Basic
-    @Column(name = "price")
     public double getPrice() {
         return price;
     }
@@ -77,8 +62,6 @@ public class CartItem {
         this.price = price;
     }
 
-    @Basic
-    @Column(name = "discount")
     public double getDiscount() {
         return discount;
     }
@@ -87,8 +70,6 @@ public class CartItem {
         this.discount = discount;
     }
 
-    @Basic
-    @Column(name = "amount")
     public int getAmount() {
         return amount;
     }
@@ -97,8 +78,6 @@ public class CartItem {
         this.amount = amount;
     }
 
-    @Basic
-    @Column(name = "createdAt")
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -107,8 +86,6 @@ public class CartItem {
         this.createdAt = createdAt;
     }
 
-    @Basic
-    @Column(name = "updatedAt")
     public Timestamp getUpdatedAt() {
         return updatedAt;
     }
@@ -117,8 +94,6 @@ public class CartItem {
         this.updatedAt = updatedAt;
     }
 
-    @Basic
-    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -143,9 +118,7 @@ public class CartItem {
         if (productId != null ? !productId.equals(cartItem.productId) : cartItem.productId != null) return false;
         if (createdAt != null ? !createdAt.equals(cartItem.createdAt) : cartItem.createdAt != null) return false;
         if (updatedAt != null ? !updatedAt.equals(cartItem.updatedAt) : cartItem.updatedAt != null) return false;
-        if (content != null ? !content.equals(cartItem.content) : cartItem.content != null) return false;
-
-        return true;
+        return content != null ? content.equals(cartItem.content) : cartItem.content == null;
     }
 
     @Override
@@ -167,8 +140,6 @@ public class CartItem {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "cartId", referencedColumnName = "id")
     public Cart getCartByCartId() {
         return cartByCartId;
     }
@@ -177,8 +148,6 @@ public class CartItem {
         this.cartByCartId = cartByCartId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "productId", referencedColumnName = "id")
     public Product getProductByProductId() {
         return productByProductId;
     }

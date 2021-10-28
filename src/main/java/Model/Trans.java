@@ -4,14 +4,17 @@ import javax.persistence.*;
 
 @Entity
 public class Trans {
+    @Id
     private long id;
     private Long accountId;
     private Long orderId;
-    private Account accountByAccountId;
-    private OrderDetail orderDetailByOrderId;
 
-    @Id
-    @Column(name = "id")
+    @ManyToOne
+    private Account AccountId;
+
+    @ManyToOne
+    private OrderDetail OrderId;
+
     public long getId() {
         return id;
     }
@@ -20,8 +23,6 @@ public class Trans {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "accountId")
     public Long getAccountId() {
         return accountId;
     }
@@ -30,8 +31,6 @@ public class Trans {
         this.accountId = accountId;
     }
 
-    @Basic
-    @Column(name = "orderId")
     public Long getOrderId() {
         return orderId;
     }
@@ -49,9 +48,7 @@ public class Trans {
 
         if (id != trans.id) return false;
         if (accountId != null ? !accountId.equals(trans.accountId) : trans.accountId != null) return false;
-        if (orderId != null ? !orderId.equals(trans.orderId) : trans.orderId != null) return false;
-
-        return true;
+        return orderId != null ? orderId.equals(trans.orderId) : trans.orderId == null;
     }
 
     @Override
@@ -62,23 +59,19 @@ public class Trans {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "accountId", referencedColumnName = "id")
     public Account getAccountByAccountId() {
-        return accountByAccountId;
+        return AccountId;
     }
 
     public void setAccountByAccountId(Account accountByAccountId) {
-        this.accountByAccountId = accountByAccountId;
+        this.AccountId = accountByAccountId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "orderId", referencedColumnName = "id")
     public OrderDetail getOrderDetailByOrderId() {
-        return orderDetailByOrderId;
+        return OrderId;
     }
 
     public void setOrderDetailByOrderId(OrderDetail orderDetailByOrderId) {
-        this.orderDetailByOrderId = orderDetailByOrderId;
+        this.OrderId = orderDetailByOrderId;
     }
 }
