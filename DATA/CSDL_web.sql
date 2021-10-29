@@ -44,7 +44,7 @@ create table Cart (
     status		smallint(6),
     accountId 	bigint,
     phone 		int(10) not null,
-    street_name char(255) not null,
+    streetName char(255) not null,
     city		char(150) not null,
     district 	char(100) not null,
     delivery	char(100) not null,
@@ -202,6 +202,6 @@ create table Trans (
     AccountId bigint,
     orderId bigint,
     
-    foreign key (AccountId_id) references Account(id),
+    foreign key (AccountId) references Account(id),
     foreign key (orderId) references Order_Detail(id)
 );
