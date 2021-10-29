@@ -8,10 +8,10 @@ create table Account (
     phone int(10) not null,
     gender bit default 0 not null,
     email char(255),
-    shop_name char(255),
+    shopName char(255),
     birthday date,
     role bit default 0 not null,
-    LAST_UPDATE datetime(0)
+    lastUpdate datetime(0)
 );
 
 create table Shop (
@@ -199,9 +199,9 @@ create table Shop_delivery (
 
 create table Trans (
 	id bigint primary key,
-    accountId bigint,
+    AccountId bigint,
     orderId bigint,
     
-    foreign key (accountId) references Account(id),
+    foreign key (AccountId_id) references Account(id),
     foreign key (orderId) references Order_Detail(id)
 );

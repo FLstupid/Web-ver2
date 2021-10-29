@@ -25,12 +25,12 @@ public class Cart {
     private Date updatedAt;
     private String content;
     @ManyToOne
-    private Account accountByAccountId;
+    private Account accountByAccountId_id;
     @OneToMany
     private Collection<CartItem> cartItemsById;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<CartItem>  listCartItem;
+    private Collection<CartItem>  listCartItem;
 
     public long getId() {
         return id;
@@ -177,11 +177,11 @@ public class Cart {
     }
 
     public Account getAccountByAccountId() {
-        return accountByAccountId;
+        return accountByAccountId_id;
     }
 
-    public void setAccountByAccountId(Account accountByAccountId) {
-        this.accountByAccountId = accountByAccountId;
+    public void setAccountByAccountId(Account accountByAccountId_id) {
+        this.accountByAccountId_id = accountByAccountId_id;
     }
 
     public Collection<CartItem> getCartItemsById() {

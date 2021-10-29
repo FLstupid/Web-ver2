@@ -148,13 +148,13 @@
                                 <input type="hidden" name="action" value="add">
                                 <label class="input-label">Họ tên</label>
                                 <div>
-                                    <input type="text" name="fullName" disabled maxlength="128" class="Input-styles" value="${account.username}">
+                                    <input type="text" name="fullName"  maxlength="128" class="Input-styles" value="${account.username}">
                                 </div>
                             </div>
                             <div class="form-control">
                                 <label class="input-label">Số điện thoại</label>
                                 <div>
-                                    <input type="tel" disabled name="phoneNumber"  class="Input-styles" value="${account.phone} ">
+                                    <input type="tel"  name="phoneNumber"  class="Input-styles" value="${account.phone} ">
                                 </div>
                             </div>
                             <div class="form-control">
@@ -166,15 +166,12 @@
                             <div class="form-control">
                                 <label class="input-label sexcheck">Giới tính</label>
                                 <label class="Radio_StylesRadio">
-                                    <input type="radio" name="gender" value="male" checked>
-                                    <span class="radio-fake">
-
-                    </span>
+                                    <input type="radio" name="gender" value="${account.gender}" checked>
+                                    <span class="radio-fake"></span>
                                     <span class="label">Nam</span>
                                 </label>
                                 <label style="margin-left: 15px" class="Radio_StylesRadio">
                                     <input type="radio" name="gender" value="female">
-
                                     <span class="label">Nữ</span>
                                 </label>
                             </div>
@@ -235,8 +232,10 @@
                                     <select class="selectday" name="year">
                                         <option value="0">Năm</option>
                                         <option value="2021">2021</option>
+                                        <option value="2020">2020</option>
                                     </select>
                                 </div>
+
                             </div>
 
                             <div class="form-control">
