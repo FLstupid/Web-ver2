@@ -25,7 +25,7 @@ public class Cart {
     private Date updatedAt;
     private String content;
     @ManyToOne
-    private Account accountByAccountId_id;
+    private Account accountByAccountId;
     @OneToMany
     private Collection<CartItem> cartItemsById;
 
@@ -177,11 +177,11 @@ public class Cart {
     }
 
     public Account getAccountByAccountId() {
-        return accountByAccountId_id;
+        return accountByAccountId;
     }
 
-    public void setAccountByAccountId(Account accountByAccountId_id) {
-        this.accountByAccountId_id = accountByAccountId_id;
+    public void setAccountByAccountId(Account accountByAccountId) {
+        this.accountByAccountId = accountByAccountId;
     }
 
     public Collection<CartItem> getCartItemsById() {
