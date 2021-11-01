@@ -144,11 +144,17 @@
                     <h3 class="HeadingContent">Thông Tin Tài Khoản</h3>
                     <div class="Content_StylesNav">
                         <form method="post" action="customer">
+                            <input type="hidden" name="action" value="add">
                             <div class="form-control">
-                                <input type="hidden" name="action" value="add">
                                 <label class="input-label">Họ tên</label>
                                 <div>
                                     <input type="text" name="fullName"  maxlength="128" class="Input-styles" value="${account.username}">
+                                </div>
+                            </div>
+                            <div class="form-control">
+                                <label class="input-label">Mật khẩu</label>
+                                <div>
+                                    <input type="password" name="password"  maxlength="128" class="Input-styles" value="${account.passwordHash}">
                                 </div>
                             </div>
                             <div class="form-control">
@@ -166,7 +172,7 @@
                             <div class="form-control">
                                 <label class="input-label sexcheck">Giới tính</label>
                                 <label class="Radio_StylesRadio">
-                                    <input type="radio" name="gender" value="${account.gender}" checked>
+                                    <input type="radio" name="gender" value="male" checked>
                                     <span class="radio-fake"></span>
                                     <span class="label">Nam</span>
                                 </label>

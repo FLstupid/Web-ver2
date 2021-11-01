@@ -13,7 +13,7 @@ public class Account {
     private long id;
     private String username;
     private String passwordHash;
-    private int phone;
+    private String phone;
     private boolean gender;
     private String email;
     private String shopName;
@@ -36,6 +36,22 @@ public class Account {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Address> addressList;
+
+    public Account(String username, String password, String phone, Boolean gender, String email, String sa, Date birhday, Boolean c, Timestamp lastUpdate) {
+        this.username = username;
+        this.passwordHash = password;
+        this.phone = phone;
+        this.gender = gender;
+        this.email = email;
+        this.shopName = sa;
+        this.birthday = birhday;
+        this.role = c;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public Account() {
+
+    }
 
     public long getId() {
         return id;
@@ -61,11 +77,11 @@ public class Account {
         this.passwordHash = passwordHash;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -142,7 +158,7 @@ public class Account {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (passwordHash != null ? passwordHash.hashCode() : 0);
-        result = 31 * result + phone;
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (gender ? 1 : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (shopName != null ? shopName.hashCode() : 0);

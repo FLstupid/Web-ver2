@@ -5,7 +5,7 @@ create table Account (
 	id bigint primary key,
 	username char(100) not null,
     passwordHash char(255) not null,
-    phone int(10) not null,
+    phone char(10) not null,
     gender bit default 0 not null,
     email char(255),
     shopName char(255),
