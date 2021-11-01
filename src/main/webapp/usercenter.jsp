@@ -186,7 +186,7 @@
                                     <p>Ngày sinh</p>
                                 </label>
                                 <div class="styles_StylesBirthdayPicker">
-                                    <select class="selectday" name="day">
+                                    <select  class="selectday" name="day" value="${account.day}">
                                         <option value="0">Ngày</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -220,7 +220,7 @@
                                         <option value="30">30</option>
                                         <option value="31">31</option>
                                     </select>
-                                    <select class="selectday" name="month">
+                                    <select class="selectday" name="month" value="${account.month}">
                                         <option value="0">Tháng</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -235,7 +235,7 @@
                                         <option value="11">11</option>
                                         <option value="12">12</option>
                                     </select>
-                                    <select class="selectday" name="year">
+                                    <select class="selectday" name="year" value="${account.year}">
                                         <option value="0">Năm</option>
                                         <option value="2021">2021</option>
                                         <option value="2020">2020</option>

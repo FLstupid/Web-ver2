@@ -50,7 +50,7 @@ public class CustomerServlet extends HttpServlet {
             String   year=request.getParameter("year");
             //birhday
             DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            String dateString = "2014-02-11";
+            String dateString = year+"-"+month+"-"+day;
             Date birthday1 = null;
             try {
                 birthday1 = sdf.parse(dateString);
@@ -67,8 +67,7 @@ public class CustomerServlet extends HttpServlet {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            long time = date.getTime();
-            lastUpdate = new Timestamp(time);
+            lastUpdate = new Timestamp(System.currentTimeMillis());
             Account  newaccount = new Account(username,password,phone,Gender ,email,"sa",birthday,role,lastUpdate);
             String message;
             if ( email == null || email.isEmpty() || phone == null || phone.isEmpty()) {
@@ -78,7 +77,7 @@ public class CustomerServlet extends HttpServlet {
             else {
                 message = "";
                 accountIO.insert(newaccount);
-                url = "/success.jsp";
+                url = "/usercenter.jsp";
 
             }
             request.setAttribute("account", newaccount);
