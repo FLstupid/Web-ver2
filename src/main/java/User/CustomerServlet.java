@@ -21,11 +21,6 @@ public class CustomerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url="/usercenter.jsp";
-        Boolean Gender;
-        Calendar calendar = Calendar.getInstance();
-        Date birhday;
-        Timestamp lastUpdate;
-        String phone;
         String action = request.getParameter("action");
         if (action == null) {
             action = "join";  // default action
@@ -35,10 +30,15 @@ public class CustomerServlet extends HttpServlet {
         }
         else if (action.equals("add")) {
             String username =  request.getParameter("fullName");
+            Boolean Gender;
+            String phone;
+            String message;
+            Timestamp lastUpdate;
             String password =  request.getParameter("password");
             phone =request.getParameter("phoneNumber");
             String email =  request.getParameter("email");
             String sex = request.getParameter("gender");
+
             if(sex.equals("male")){
                 Gender = true;
             }
@@ -49,9 +49,10 @@ public class CustomerServlet extends HttpServlet {
             String   month=request.getParameter("month");
             String   year=request.getParameter("year");
             //birhday
+            Date birthday1 = null;
             DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String dateString = year+"-"+month+"-"+day;
-            Date birthday1 = null;
+
             try {
                 birthday1 = sdf.parse(dateString);
             } catch (ParseException e) {
@@ -69,7 +70,6 @@ public class CustomerServlet extends HttpServlet {
             }
             lastUpdate = new Timestamp(System.currentTimeMillis());
             Account  newaccount = new Account(username,password,phone,Gender ,email,"sa",birthday,role,lastUpdate);
-            String message;
             if ( email == null || email.isEmpty() || phone == null || phone.isEmpty()) {
                 message = "Please fill out all three text boxes.";
                 url = "/usercenter.jsp";
@@ -83,6 +83,7 @@ public class CustomerServlet extends HttpServlet {
             request.setAttribute("account", newaccount);
             request.setAttribute("message", message);
         }
+
 
         getServletContext()
                 .getRequestDispatcher(url)

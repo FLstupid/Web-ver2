@@ -29,18 +29,15 @@ public  class accountIO {
 
     public static void update (Account account)
     {
+        transaction.begin();
         try {
-            transaction.begin();
 
             em.merge(account);
             transaction.commit();
         }catch (Exception e){
-            System.out.println(2);
             transaction.rollback();
-        } finally {
-            if (transaction.isActive()){
-                transaction.rollback();
-            }
+        } finally
+        {
             em.close();
             emf.close();
         }
