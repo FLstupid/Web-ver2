@@ -8,20 +8,21 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class addressIO {
-    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
     public static final EntityManager em = emf.createEntityManager();
     public static final EntityTransaction transaction = em.getTransaction();
 
-    public void insert (Address address)
+    public static void insert (Address address)
     {
+        transaction.begin();
         try {
-            transaction.begin();
+
             em.persist(address);
             transaction.commit();
-        } finally {
-            if (transaction.isActive()){
-                transaction.rollback();
-            }
+        }catch (Exception e){
+            transaction.rollback();
+        } finally
+        {
             em.close();
             emf.close();
         }

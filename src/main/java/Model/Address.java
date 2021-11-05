@@ -7,13 +7,24 @@ import java.util.Collection;
 public class Address {
     @Id
     private long id;
-    private int phone;
+    private String phone;
     private String streetName;
     private String city;
     private String district;
 
     @OneToMany
     private Collection<UserAddress> userAddressesById;
+
+    public Address(String phone, String addressname, String province, String district) {
+        this.phone = phone;
+        this.streetName = addressname;
+        this.city = province;
+        this.district = district;
+    }
+
+    public Address() {
+
+    }
 
     public long getId() {
         return id;
@@ -23,11 +34,11 @@ public class Address {
         this.id = id;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -72,7 +83,7 @@ public class Address {
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + phone;
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (streetName != null ? streetName.hashCode() : 0);
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (district != null ? district.hashCode() : 0);

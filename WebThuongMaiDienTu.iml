@@ -67,8 +67,20 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.1.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.dom4j:dom4j:2.1.1" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.25" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
+    <orderEntry type="library" name="Maven: com.hp.hpl.jena:jena:2.6.4" level="project" />
+    <orderEntry type="library" name="Maven: com.hp.hpl.jena:iri:0.8" level="project" />
+    <orderEntry type="library" name="Maven: com.ibm.icu:icu4j:3.4.4" level="project" />
+    <orderEntry type="library" name="Maven: xerces:xercesImpl:2.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.5.8" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:slf4j-log4j12:1.5.8" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: log4j:log4j:1.2.13" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.5.8.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.4.2.Final" level="project" />
     <orderEntry type="library" name="Maven: javax.persistence:javax.persistence-api:2.2" level="project" />
     <orderEntry type="library" name="Maven: org.javassist:javassist:3.27.0-GA" level="project" />
     <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.11.12" level="project" />
@@ -83,15 +95,5 @@
     <orderEntry type="library" name="Maven: com.sun.istack:istack-commons-runtime:3.0.7" level="project" />
     <orderEntry type="library" name="Maven: org.jvnet.staxex:stax-ex:1.8" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.15" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.1.2.Final" level="project" />
-    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.25" level="project" />
-    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
-    <orderEntry type="library" name="Maven: com.hp.hpl.jena:jena:2.6.4" level="project" />
-    <orderEntry type="library" name="Maven: com.hp.hpl.jena:iri:0.8" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.icu:icu4j:3.4.4" level="project" />
-    <orderEntry type="library" name="Maven: xerces:xercesImpl:2.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.5.8" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.slf4j:slf4j-log4j12:1.5.8" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: log4j:log4j:1.2.13" level="project" />
   </component>
 </module>

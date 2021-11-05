@@ -155,38 +155,45 @@
                     </div>
                     <div class="Content_StylesNav">
                         <form method="get" >
-                            <p style="margin-left: 420px">Chưa có địa chỉ nào</p>
+                            <c:catch var="exception">${address}</c:catch>
+                            <c:choose>
+                                <c:when test="${exception==null}">
+                                    <p style="margin-left: 420px">Chưa có địa chỉ nào</p>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:forEach items="${address}" var="element">
+                                    <div style="display: flex" class="addresslist">
+                                        <div class="left">
+                                            <div class="info">
+                                                <div class="name">${account.username}
+                                                    <span>
+                                                        <svg style="color: greenyellow;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                                          <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 48c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m140.204 130.267l-22.536-22.718c-4.667-4.705-12.265-4.736-16.97-.068L215.346 303.697l-59.792-60.277c-4.667-4.705-12.265-4.736-16.97-.069l-22.719 22.536c-4.705 4.667-4.736 12.265-.068 16.971l90.781 91.516c4.667 4.705 12.265 4.736 16.97.068l172.589-171.204c4.704-4.668 4.734-12.266.067-16.971z">
+                                                          </path>
+                                                        </svg>
+                                                        <span style="color: greenyellow;" >
+                                                          Địa chỉ mặc định
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="address">
+                                                    <span>Địa chỉ: </span>
+                                                    ${Address.street_name}, ${Address.district}, ${Address.city}</div>
+                                                    <div class="phone"> <span>Điện thoại:</span>${account.phone}</div>
+                                                </div>
+                                                <div>
+                                                    <div class="right">
+                                                        <div style="margin-left: 500px; margin-right: -500px;" class="action">
+                                                            <a class="edit" href="/customer/address/edit/2533851">
+                                                                Chỉnh sửa
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                 </div>
+                                    </c:forEach>
+                                </c:otherwise>
+                            </c:choose>
 
-<%--                            <div style="display: flex" class="addresslist">--%>
-<%--                                <div class="left">--%>
-<%--                                    <div class="info">--%>
-<%--                                        <div class="name">${account.username}--%>
-<%--                                            <span>--%>
-<%--                        <svg style="color: greenyellow;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">--%>
-<%--                          <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 48c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m140.204 130.267l-22.536-22.718c-4.667-4.705-12.265-4.736-16.97-.068L215.346 303.697l-59.792-60.277c-4.667-4.705-12.265-4.736-16.97-.069l-22.719 22.536c-4.705 4.667-4.736 12.265-.068 16.971l90.781 91.516c4.667 4.705 12.265 4.736 16.97.068l172.589-171.204c4.704-4.668 4.734-12.266.067-16.971z">--%>
-<%--                          </path>--%>
-<%--                        </svg>--%>
-<%--                        <span style="color: greenyellow;" >--%>
-<%--                          Địa chỉ mặc định--%>
-<%--                        </span>--%>
-<%--                      </span>--%>
-<%--                                        </div>--%>
-<%--                                        <div class="address">--%>
-<%--                                            <span>Địa chỉ: </span>--%>
-<%--                                            ${Address.street_name}, ${Address.district}, ${Address.city}</div>--%>
-<%--                                        <div class="phone">--%>
-<%--                      <span>Điện thoại:--%>
-<%--                      </span>${account.phone}</div>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                                <div class="right">--%>
-<%--                                    <div style="margin-left: 500px; margin-right: -500px;" class="action">--%>
-<%--                                        <a class="edit" href="/customer/address/edit/2533851">--%>
-<%--                                            Chỉnh sửa--%>
-<%--                                        </a>--%>
-<%--                                    </div>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
                         </form>
                     </div>
 

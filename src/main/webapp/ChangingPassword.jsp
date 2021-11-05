@@ -143,29 +143,37 @@
                 <div class="resetPassword  formresult ">
                     <h3 class="HeadingContent">Thay Đổi Mật Khẩu</h3>
                     <div class="Content_StylesNav">
-                        <form method="post" action="customer">
+                        <form method="post" action="changingpassword">
+                            <input type="hidden" name="action" value="changingPass">
                             <div class="form-control">
                                 <label class="input-label">Mật Khẩu Cũ</label>
                                 <div>
-                                    <input type="text" name="odlPassword" maxlength="128" minlength="6" class="Input-styles" value="${Account.passwordHash}">
+                                    <input type="password" name="odlPassword" maxlength="128" minlength="6" class="Input-styles" value="${Account.passwordHash}">
                                 </div>
                             </div>
                             <div class="form-control">
                                 <label class="input-label">Mật Khẩu Mới</label>
                                 <div>
-                                    <input type="text" name="newPassword" maxlength="128" minlength="6" class="Input-styles" value="${Account.passwordHash}">
+                                    <input type="password" name="newPassword" maxlength="128" minlength="6" class="Input-styles" value="${Account.passwordHash}">
                                 </div>
                             </div>
                             <div class="form-control">
                                 <label class="input-label">Xác Nhận Mật Khẩu Mới</label>
                                 <div>
-                                    <input type="text" name="confirmNewPassword" maxlength="128" minlength="6" class="Input-styles" value="${Account.passwordHash}">
+                                    <input type="password" name="confirmNewPassword" maxlength="128" minlength="6" class="Input-styles" value="${Account.passwordHash}">
                                 </div>
                             </div>
 
                             <div class="form-control">
                                 <label class="input-label">&nbsp;</label>
                                 <button type="submit" class="btn-submit">Thay Đổi Mật Khẩu</button>
+                                <c:if test="${not empty message}">
+                                    <script>
+                                        window.addEventListener("load",function(){
+                                            alert("${message}");
+                                        })
+                                    </script>
+                                </c:if>
                             </div>
                         </form>
                     </div>

@@ -1,4 +1,6 @@
-
+<%@ page import="Model.Review" %>
+<%@ page import="static com.hp.hpl.jena.vocabulary.RSS.items" %>
+<%@ page import="static javafx.beans.binding.Bindings.length" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -144,28 +146,35 @@
                     <h3 class="HeadingContent">Nhận Xét Về Sản Phẩm Của Bạn</h3>
                     <div class="Content_StylesNav">
                         <form method="get" action="customerReview">
-                             <p style="margin-left: 420px">Chưa có nhận xét nào</p>
-                             <a href="/" class="back">Tiếp tục mua sắm</a>
-<%--                            <table class="comment">--%>
-<%--                                <thead>--%>
-<%--                                <tr>--%>
-<%--                                    <th width="200px">Mã đơn hàng</th>--%>
-<%--                                    <th>Sản phẩm</th>--%>
-<%--                                    <th width="200px">Nhận xét</th>--%>
-<%--                                </tr>--%>
-<%--                                </thead>--%>
-<%--                                <tbody>--%>
-<%--                                <tr>--%>
-<%--                                    <td>--%>
-<%--                                        <a width="100px" href="">${Order_detail.id}</a>--%>
-<%--                                    </td>--%>
-
-<%--                                    <td>${Product.title}</td>--%>
-<%--                                    <td width="100px">${}</td>--%>
-<%--                                </tr>--%>
-
-<%--                                </tbody>--%>
-<%--                            </table>--%>
+                            <c:catch var="exception">${review}</c:catch>
+                            <c:choose>
+                            <c:when test="${exception==null}">
+                                <p style="margin-left: 420px">Chưa có nhận xét nào</p>
+                                <a href="home" class="back">Tiếp tục mua sắm</a>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach items="${myList}" var="element">
+                                    <table class="comment">
+                                        <thead>
+                                            <tr>
+                                                <th width="200px">Mã đơn hàng</th>
+                                                <th>Sản phẩm</th>
+                                                <th width="200px">Nhận xét</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>
+                                               <a width="100px" href="">${Product.id}</a>
+                                            </td>
+                                            <td>${Product.title}</td>
+                                            <td width="100px">${element.title}</td>
+                                          </tr>
+                                        </tbody>
+                                    </table>
+                                </c:forEach>
+                            </c:otherwise>
+                            </c:choose>
                         </form>
                     </div>
                 </div>

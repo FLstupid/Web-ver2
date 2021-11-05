@@ -1,23 +1,4 @@
-document.addEventListener("DOMContentLoaded",function (){
-    let disableForm = document.querySelectorAll(".formshow");
-    let showForm = document.querySelectorAll(".formresult");
-    let showadd = document.querySelector(".themdiachi");
-    for(let i=0;i<disableForm.length;i++)
-    {       let t=i;
-        disableForm[i].addEventListener("click",function (){
 
-            for(let i=0;i<disableForm.length;i++)
-            {
-
-                disableForm[i].classList.remove('is-active');
-                showForm[i].classList.add('disableForm');
-            }
-            this.classList.add('is-active');
-            showForm[t].classList.remove('disableForm');
-            showadd.classList.add('disableForm');
-        })
-    }
-})
 document.addEventListener("DOMContentLoaded",function (){
     let showForm = document.querySelectorAll(".formresult");
     let showadd = document.querySelector("#a");

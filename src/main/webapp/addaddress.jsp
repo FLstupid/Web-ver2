@@ -147,20 +147,17 @@
                         <form class="formthemdiachi" method="post" action="addaddress" >
                             <input type="hidden" name="action" value="add">
                             <div class="form-control ">
-                                <label for="fullName" class="input-label">Họ và tên:</label>
+                                <label  class="input-label">Họ và tên:</label>
                                 <div>
                                     <input class="inputdiachi" type="text" required="" name="fullName" placeholder="Nhập họ và tên" maxlength="50" class="Input-sc-17i9bto-0 girQwT" value="${account.username}">
                                 </div>
                             </div>
-                            <div class="form-control"><label for="company" class="input-label">Công ty:</label>
-                                <input class="inputdiachi" type="text" name="company" placeholder="Nhập công ty" class="Input-sc-17i9bto-0 girQwT" value="">
-                            </div>
-                            <div class="form-control "><label for="telephone" class="input-label">Số điện thoại:</label>
-                                <div><input class="inputdiachi" type="text" required="" name="telephone" placeholder="Nhập số điện thoại" class="Input-sc-17i9bto-0 girQwT" value="${account.phone}"></div>
+                            <div class="form-control "><label name="telephone" class="input-label">Số điện thoại:</label>
+                                <div><input class="inputdiachi" type="text" required="" name="telephone" placeholder="Nhập số điện thoại" class="Input-sc-17i9bto-0 girQwT" value="${address.phone}"></div>
                             </div>
                             <div class="form-control">
-                                <label for="region" class="input-label">Tỉnh/Thành phố:</label>
-                                <select class="inputdiachi" required=""><option value="">Chọn Tỉnh/Thành phố</option>
+                                <label name="region" class="input-label">Tỉnh/Thành phố:</label>
+                                <select id="nameprovince" name="province"  class="inputdiachi" required=""><option value="">Chọn Tỉnh/Thành phố</option>
                                     <option value="294">Hồ Chí Minh</option>
                                     <option value="297">Hà Nội</option>
                                     <option value="291">Đà Nẵng</option>
@@ -227,34 +224,28 @@
                                 </select>
                             </div>
                             <div class="form-control">
-                                <label for="district" class="input-label">Quận huyện:</label>
-                                <input class="inputdiachi" type="text" required="" name="district" placeholder="Nhập huyện" maxlength="50" class="Input-sc-17i9bto-0 girQwT" value="${Address.district}">
+                                <label name="district"  class="input-label">Quận huyện:</label>
+                                <input class="inputdiachi" type="text" required="" name="district" placeholder="Nhập huyện" maxlength="50" class="Input-sc-17i9bto-0 girQwT"  value="${address.district}">
                             </div>
                             <div class="form-control ">
-                                <label for="address" class="input-label">
+                                <label name="address" class="input-label">
                                     Địa chỉ:</label>
                                 <div>
                                     <textarea class="inputdiachi" required="" name="street" rows="5" placeholder="Nhập địa chỉ, phường/ xã"></textarea>
                                 </div>
                             </div>
-                            <div class="form-control"><label for="deliveryAddressType" class="input-label">Loại địa chỉ:</label>
-                                <label class="Radio__StyledRadio-sc-sim90b-0 kpLnYz">
-                                    <input  type="radio" name="deliveryAddressType" value="" checked="">
-                                    <span class="radio-fake"></span><span class="label">Nhà riêng / Chung cư</span>
-                                </label>
-                                <label style="margin-left: 15px"Nữ class="Radio__StyledRadio-sc-sim90b-0 kpLnYz">
-                                    <input  type="radio" name="deliveryAddressType" value="company">
-                                    <span  class="radio-fake"></span>
-                                    <span class="label">Cơ quan / Công ty</span>
-                                </label></div><div class="form-control">
-                            <label class="input-label">&nbsp;</label>
-                            <label class="Checkbox__StyledCheckbox-sc-75m08j-0 etNXAi">
-                                <input type="checkbox"><span class="checkbox-fake">
-                    </span><span class="label">Đặt làm địa chỉ mặc định</span>
-                            </label></div><div class="form-control">
+
+                           <div class="form-control">
                             <label class="input-label">&nbsp;</label>
                             <button type="submit" class="btn-submit">
                                 Cập nhật</button>
+                               <c:if test="${not empty message1}">
+                                   <script>
+                                       window.addEventListener("load",function(){
+                                           alert("${message1}");
+                                       })
+                                   </script>
+                               </c:if>
                         </div>
                         </form>
 

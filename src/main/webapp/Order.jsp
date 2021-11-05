@@ -153,30 +153,40 @@
                     </div>
                     <div class="Content_StylesNav">
                         <form method="get" >
-                            <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
-                            <a href="home" class="back">Tiếp tục mua sắm</a>
-<%--                            <table class="bangmua">--%>
-<%--                                <thead>--%>
-<%--                                <tr>--%>
-<%--                                    <th width="100px">Mã đơn hàng</th>--%>
-<%--                                    <th>Ngày mua</th>--%>
-<%--                                    <th>Sản phẩm</th>--%>
-<%--                                    <th width="100px">Tổng tiền</th>--%>
-<%--                                    <th width="150px">Trạng thái đơn hàng</th>--%>
-<%--                                </tr>--%>
-<%--                                </thead>--%>
-<%--                                <tbody>--%>
-<%--                                <tr>--%>
-<%--                                    <td>--%>
-<%--                                        <a width="100px" href="/sales/order/view/280563326">${Order_detail.id}</a>--%>
-<%--                                    </td>--%>
-<%--                                    <td>${Order_detail.createAt}</td>--%>
-<%--                                    <td>${Product.title}</td>--%>
-<%--                                    <td width="100px">${Order_detail.totalPrice}</td>--%>
-<%--                                    <td>${Transistion.states}</td>--%>
-<%--                                </tr>--%>
-<%--                                </tbody>--%>
-<%--                            </table>--%>
+                            <c:catch var="exception">${OrderDetail}</c:catch>
+                            <c:choose>
+                                <c:when test="${exception==null}">
+                                    <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
+                                    <a href="home" class="back">Tiếp tục mua sắm</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:forEach items="${OrderDetail}" var="element">
+                                        <table class="bangmua">
+                                            <thead>
+                                            <tr>
+                                                <th width="100px">Mã đơn hàng</th>
+                                                <th>Ngày mua</th>
+                                                <th>Sản phẩm</th>
+                                                <th width="100px">Tổng tiền</th>
+                                                <th width="150px">Trạng thái đơn hàng</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a width="100px" href="/sales/order/view/280563326">${Order_detail.id}</a>
+                                                </td>
+                                                <td>${Order_detail.createAt}</td>
+                                                <td>${Product.title}</td>
+                                                <td width="100px">${Order_detail.totalPrice}</td>
+                                                <td>${Transistion.states}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </c:forEach>
+                                </c:otherwise>
+                            </c:choose>
+
                         </form>
                     </div>
                 </div>

@@ -144,8 +144,35 @@
                     <h3 class="HeadingContent">Giỏ Hàng</h3>
                     <div class="Content_StylesNav">
                         <form method="get">
-                            <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
-                            <a href="home" class="back">Tiếp tục mua sắm</a>
+                            <c:catch var="exception">${cart}</c:catch>
+                            <c:choose>
+                                <c:when test="${exception==null}">
+                                    <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
+                                    <a href="home" class="back">Tiếp tục mua sắm</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:forEach items="${cart}" var="element">
+                                        <table class="comment">
+                                            <thead>
+                                            <tr>
+                                                <th width="200px">Mã đơn hàng</th>
+                                                <th>Sản phẩm</th>
+                                                <th width="200px">Nhận xét</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a width="100px" href="">${Product.id}</a>
+                                                </td>
+                                                <td>${Product.title}</td>
+                                                <td width="100px">${element.title}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </c:forEach>
+                                </c:otherwise>
+                            </c:choose>
                         </form>
                     </div>
                 </div>

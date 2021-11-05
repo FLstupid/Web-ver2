@@ -160,13 +160,13 @@
                             <div class="form-control">
                                 <label class="input-label">Số điện thoại</label>
                                 <div>
-                                    <input type="tel"  name="phoneNumber"  class="Input-styles" value="${account.phone} ">
+                                    <input type="tel" pattern="(84|0[3|5|7|8|9])+([0-9]{8})\b"  name="phoneNumber" required  class="Input-styles" value="${account.phone} ">
                                 </div>
                             </div>
                             <div class="form-control">
                                 <label class="input-label">Email</label>
                                 <div>
-                                    <input type="email" name="email" class="Input-styles" value="${account.email}">
+                                    <input type="email" name="email" required class="Input-styles" value="${account.email}">
                                 </div>
                             </div>
                             <div class="form-control">
@@ -186,41 +186,41 @@
                                     <p>Ngày sinh</p>
                                 </label>
                                 <div class="styles_StylesBirthdayPicker">
-                                    <select id="day"  class="selectday" name="day">
-                                        <option name="day1" value="0" selected>Ngày</option>
-                                        <option name="day1" value="1" >1</option>
-                                        <option name="day1" value="2">2</option>
-                                        <option name="day1" value="3">3</option>
-                                        <option name="day1" value="4">4</option>
-                                        <option name="day1" value="5">5</option>
-                                        <option name="day1" value="6">6</option>
-                                        <option name="day1" value="7">7</option>
-                                        <option name="day1" value="8">8</option>
-                                        <option name="day1" value="9">9</option>
-                                        <option name="day1" value="10">10</option>
-                                        <option name="day1" value="11">11</option>
-                                        <option name="day1" value="12">12</option>
-                                        <option name="day1" value="13">13</option>
-                                        <option name="day1" value="14">14</option>
-                                        <option name="day1" value="15">15</option>
-                                        <option name="day1" value="16">16</option>
-                                        <option name="day1" value="17">17</option>
-                                        <option name="day1" value="18">18</option>
-                                        <option name="day1" value="19">19</option>
-                                        <option name="day1" value="20">20</option>
-                                        <option name="day1" value="21">21</option>
-                                        <option name="day1" value="22">22</option>
-                                        <option name="day1" value="23">23</option>
-                                        <option name="day1" value="24">24</option>
-                                        <option name="day1" value="25">25</option>
-                                        <option name="day1" value="26">26</option>
-                                        <option name="day1" value="27">27</option>
-                                        <option name="day1" value="28">28</option>
-                                        <option name="day1" value="29">29</option>
-                                        <option name="day1" value="30">30</option>
-                                        <option name="day1" value="31">31</option>
+                                    <select id="day"   class="selectday" name="day" required>
+                                        <option class="day1" value="0" selected>Ngày</option>
+                                        <option class="day1" value="1" >1</option>
+                                        <option class="day1" value="2">2</option>
+                                        <option class="day1" value="3">3</option>
+                                        <option class="day1" value="4">4</option>
+                                        <option class="day1" value="5">5</option>
+                                        <option class="day1" value="6">6</option>
+                                        <option class="day1" value="7">7</option>
+                                        <option class="day1" value="8">8</option>
+                                        <option class="day1" value="9">9</option>
+                                        <option class="day1" value="10">10</option>
+                                        <option class="day1" value="11">11</option>
+                                        <option class="day1" value="12">12</option>
+                                        <option class="day1" value="13">13</option>
+                                        <option class="day1" value="14">14</option>
+                                        <option class="day1" value="15">15</option>
+                                        <option class="day1" value="16">16</option>
+                                        <option class="day1" value="17">17</option>
+                                        <option class="day1" value="18">18</option>
+                                        <option class="day1" value="19">19</option>
+                                        <option class="day1" value="20">20</option>
+                                        <option class="day1" value="21">21</option>
+                                        <option class="day1" value="22">22</option>
+                                        <option class="day1" value="23">23</option>
+                                        <option class="day1" value="24">24</option>
+                                        <option class="day1" value="25">25</option>
+                                        <option class="day1" value="26">26</option>
+                                        <option class="day1" value="27">27</option>
+                                        <option class="day1" value="28">28</option>
+                                        <option class="day1" value="29">29</option>
+                                        <option class="day1" value="30">30</option>
+                                        <option class="day1" value="31">31</option>
                                     </select>
-                                    <select class="selectmonth" name="month"  >
+                                    <select class="selectmonth" name="month" required>
                                         <option name="month1" value="" selected>Tháng</option>
                                         <option name="month1"  value="1" >1</option>
                                         <option name="month1" value="2">2</option>
@@ -235,80 +235,80 @@
                                         <option name="month1" value="11">11</option>
                                         <option name="month1" value="12">12</option>
                                     </select>
-                                    <select style=" margin-left: 20px" class="selectyear" name="year">
-                                        <option name="year" value="" selected>Năm</option>
-                                        <option name="year" value="2021">2021</option>
-                                        <option name="year" value="2020">2020</option>
-                                        <option name="year" value="2021">2019</option>
-                                        <option name="year" value="2020">2018</option>
-                                        <option name="year" value="2021">2017</option>
-                                        <option name="year" value="2020">2016</option>
-                                        <option name="year" value="2021">2015</option>
-                                        <option name="year" value="2020">2014</option>
-                                        <option name="year" value="2021">2013</option>
-                                        <option name="year" value="2020">2012</option>
-                                        <option name="year" value="2021">2011</option>
-                                        <option name="year" value="2020">2010</option>
-                                        <option name="year" value="2021">2009</option>
-                                        <option name="year" value="2020">2008</option>
-                                        <option name="year" value="2021">2007</option>
-                                        <option name="year" value="2020">2006</option>
-                                        <option name="year" value="2021">2005</option>
-                                        <option name="year" value="2020">2004</option>
-                                        <option name="year" value="2021">2003</option>
-                                        <option name="year" value="2020">2002</option>
-                                        <option name="year" value="2021">2001</option>
-                                        <option name="year" value="2020">2000</option>
-                                        <option name="year" value="2020">1999</option>
-                                        <option name="year" value="2020">1998</option>
-                                        <option name="year" value="2020">1997</option>
-                                        <option name="year" value="2020">1996</option>
-                                        <option name="year" value="2020">1995</option>
-                                        <option name="year" value="2020">1994</option>
-                                        <option name="year" value="2020">1993</option>
-                                        <option name="year" value="2020">1992</option>
-                                        <option name="year" value="2020">1991</option>
-                                        <option name="year" value="2020">1990</option>
-                                        <option name="year" value="2020">1989</option>
-                                        <option name="year" value="2020">1988</option>
-                                        <option name="year" value="2020">1987</option>
-                                        <option name="year" value="2020">1986</option>
-                                        <option name="year" value="2020">1985</option>
-                                        <option name="year" value="2020">1984</option>
-                                        <option name="year" value="2020">1983</option>
-                                        <option name="year" value="2020">1982</option>
-                                        <option name="year" value="2020">1981</option>
-                                        <option name="year" value="2020">1980</option>
-                                        <option name="year" value="2020">1979</option>
-                                        <option name="year" value="2020">1978</option>
-                                        <option name="year" value="2020">1977</option>
-                                        <option name="year" value="2020">1976</option>
-                                        <option name="year" value="2020">1975</option>
-                                        <option name="year" value="2020">1974</option>
-                                        <option name="year" value="2020">1973</option>
-                                        <option name="year" value="2020">1972</option>
-                                        <option name="year" value="2020">1971</option>
-                                        <option name="year" value="2020">1970</option>
-                                        <option name="year" value="2020">1969</option>
-                                        <option name="year" value="2020">1968</option>
-                                        <option name="year" value="2020">1967</option>
-                                        <option name="year" value="2020">1966</option>
-                                        <option name="year" value="2020">1965</option>
-                                        <option name="year" value="2020">1964</option>
-                                        <option name="year" value="2020">1963</option>
-                                        <option name="year" value="2020">1962</option>
-                                        <option name="year" value="2020">1961</option>
-                                        <option name="year" value="2020">1960</option>
-                                        <option name="year" value="2020">1959</option>
-                                        <option name="year" value="2020">1958</option>
-                                        <option name="year" value="2020">1957</option>
-                                        <option name="year" value="2020">1956</option>
-                                        <option name="year" value="2020">1955</option>
-                                        <option name="year" value="2020">1954</option>
-                                        <option name="year" value="2020">1953</option>
-                                        <option name="year" value="2020">1952</option>
-                                        <option name="year" value="2020">1951</option>
-                                        <option name="year" value="2020">1950</option>
+                                    <select style=" margin-left: 20px" class="selectyear" name="year" required>
+                                        <option name="year1" value="" selected>Năm</option>
+                                        <option name="year1" value="2021">2021</option>
+                                        <option name="year1" value="2020">2020</option>
+                                        <option name="year1" value="2019">2019</option>
+                                        <option name="year1" value="2018">2018</option>
+                                        <option name="year1" value="2017">2017</option>
+                                        <option name="year1" value="2016">2016</option>
+                                        <option name="year1" value="2015">2015</option>
+                                        <option name="year1" value="2014">2014</option>
+                                        <option name="year1" value="2013">2013</option>
+                                        <option name="year1" value="2012">2012</option>
+                                        <option name="year1" value="2011">2011</option>
+                                        <option name="year1" value="2010">2010</option>
+                                        <option name="year1" value="2009">2009</option>
+                                        <option name="year1" value="2008">2008</option>
+                                        <option name="year1" value="2007">2007</option>
+                                        <option name="year1" value="2006">2006</option>
+                                        <option name="year1" value="2005">2005</option>
+                                        <option name="year1" value="2004">2004</option>
+                                        <option name="year1" value="2003">2003</option>
+                                        <option name="year1" value="2002">2002</option>
+                                        <option name="year1" value="2001">2001</option>
+                                        <option name="year1" value="2000">2000</option>
+                                        <option name="year1" value="1999">1999</option>
+                                        <option name="year1" value="1998">1998</option>
+                                        <option name="year1" value="1997">1997</option>
+                                        <option name="year1" value="1996">1996</option>
+                                        <option name="year1" value="1995">1995</option>
+                                        <option name="year1" value="1994">1994</option>
+                                        <option name="year1" value="1993">1993</option>
+                                        <option name="year1" value="1992">1992</option>
+                                        <option name="year1" value="1991">1991</option>
+                                        <option name="year1" value="1990">1990</option>
+                                        <option name="year1" value="1989">1989</option>
+                                        <option name="year1" value="1988">1988</option>
+                                        <option name="year1" value="1987">1987</option>
+                                        <option name="year1" value="1986">1986</option>
+                                        <option name="year1" value="1985">1985</option>
+                                        <option name="year1" value="1984">1984</option>
+                                        <option name="year1" value="1983">1983</option>
+                                        <option name="year1" value="1982">1982</option>
+                                        <option name="year1" value="1981">1981</option>
+                                        <option name="year1" value="1980">1980</option>
+                                        <option name="year1" value="1979">1979</option>
+                                        <option name="year1" value="1978">1978</option>
+                                        <option name="year1" value="1977">1977</option>
+                                        <option name="year1" value="1976">1976</option>
+                                        <option name="year1" value="1975">1975</option>
+                                        <option name="year1" value="1974">1974</option>
+                                        <option name="year1" value="1973">1973</option>
+                                        <option name="year1" value="1972">1972</option>
+                                        <option name="year1" value="1971">1971</option>
+                                        <option name="year1" value="1970">1970</option>
+                                        <option name="year1" value="1969">1969</option>
+                                        <option name="year1" value="1968">1968</option>
+                                        <option name="year1" value="1967">1967</option>
+                                        <option name="year1" value="1966">1966</option>
+                                        <option name="year1" value="1965">1965</option>
+                                        <option name="year1" value="1964">1964</option>
+                                        <option name="year1" value="1963">1963</option>
+                                        <option name="year1" value="1962">1962</option>
+                                        <option name="year1" value="1961">1961</option>
+                                        <option name="year1" value="1960">1960</option>
+                                        <option name="year1" value="1959">1959</option>
+                                        <option name="year1" value="1958">1958</option>
+                                        <option name="year1" value="1957">1957</option>
+                                        <option name="year1" value="1956">1956</option>
+                                        <option name="year1" value="1955">1955</option>
+                                        <option name="year1" value="1954">1954</option>
+                                        <option name="year1" value="1953">1953</option>
+                                        <option name="year1" value="1952">1952</option>
+                                        <option name="year1" value="1951">1951</option>
+                                        <option name="year1" value="1950">1950</option>
                                     </select>
                                 </div>
 
@@ -316,7 +316,14 @@
 
                             <div class="form-control">
                                 <label class="input-label">&nbsp;</label>
-                                <button type="submit" class="btn-submit">Cập nhật</button>
+                                <button type="submit" onclick="Showmessage(message)" class="btn-submit">Cập nhật</button>
+                                <c:if test="${not empty message}">
+                                    <script>
+                                        window.addEventListener("load",function(){
+                                            alert("${message}");
+                                        })
+                                    </script>
+                                </c:if>
                             </div>
                         </form>
 
@@ -328,7 +335,14 @@
     </section>
 </main>
 <!---------------------------------------------------footer-------------------------------------------->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script src="js/main.js">
+</script>
+<script>
+    function Showmessage(message)
+    {
+        alert(message);
+    }
 </script>
 </body>
 </html>

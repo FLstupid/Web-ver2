@@ -1,5 +1,7 @@
 package User;
 
+import Model.Review;
+
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
@@ -7,6 +9,7 @@ import javax.servlet.http.*;
 
 @WebServlet(name = "customerReview", value = "/customerReview")
 public class CustomerReviewServlet  extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -15,7 +18,9 @@ public class CustomerReviewServlet  extends HttpServlet {
         if (action == null) {
             action = "customerreview"; // default action
         }
-
+//        Review rv = new Review();
+//        HttpSession session = request.getSession();
+//        session.setAttribute("review", rv);
         String url = "/customerreview.jsp";
         getServletContext()
                 .getRequestDispatcher(url)
