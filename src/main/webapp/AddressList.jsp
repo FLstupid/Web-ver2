@@ -161,7 +161,7 @@
                                     <p style="margin-left: 420px">Chưa có địa chỉ nào</p>
                                 </c:when>
                                 <c:otherwise>
-                                    <c:forEach items="${address}" var="element">
+                                     <c:forEach items="${address}" var="element">
                                     <div style="display: flex" class="addresslist">
                                         <div class="left">
                                             <div class="info">
