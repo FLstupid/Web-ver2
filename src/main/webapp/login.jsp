@@ -1,10 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-<html lang="en" >
+<html lang="en">
 <head>
 	<title>DHS</title>
-	<meta charset="UTF-8">
-    <link rel='stylesheet' href='css/all.min.css'>
-	<link rel="stylesheet" href="Registration/style.css">
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" href="css/all.min.css"/>
+	<link rel="stylesheet" href="Registration/style.css"/>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -18,8 +18,8 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>Hoặc tiếp tục bằng</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Mật Khẩu" />
+			<input type="email" placeholder="Email"/>
+			<input type="password" placeholder="Mật Khẩu"/>
 			<button>Đăng Ký</button>
 		</form>
 	</div>
@@ -32,8 +32,8 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>Hoặc tiếp tục bằng</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Mật khẩu" />
+			<input type="email" placeholder="Email"/>
+			<input type="password" placeholder="Mật khẩu"/>
 			<a href="#">Quên mật khẩu ?</a>
 			<button>Đăng Nhập</button>
 		</form>
@@ -48,14 +48,13 @@
 			<div class="overlay-panel overlay-right">
 				<h1>Mua sắm tại DHS</h1>
 				<p>Siêu ưu đãi mỗi ngày</p>
-				<button class="ghost" id="signUp">Đăng Ký</button>
+				<button class="ghost" id="signUp">Đăng Ký Ngay</button>
 			</div>
 		</div>
 	</div>
 </div>
 
 <!-- partial -->
-<script  src="Registration/script.js"></script>
-
+<script src="Registration/script.js"></script>
 </body>
 </html>
