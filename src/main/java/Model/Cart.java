@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Cart {
@@ -26,8 +25,8 @@ public class Cart {
     private String content;
     @ManyToOne
     private Account accountByAccountId;
-    @OneToMany
-    private Collection<CartItem> cartItemsById;
+//    @OneToMany
+//    private ArrayList<CartItem> cartItemsById;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Collection<CartItem>  listCartItem;
@@ -184,11 +183,36 @@ public class Cart {
         this.accountByAccountId = accountByAccountId;
     }
 
-    public Collection<CartItem> getCartItemsById() {
-        return cartItemsById;
-    }
-
-    public void setCartItemsById(Collection<CartItem> cartItemsById) {
-        this.cartItemsById = cartItemsById;
-    }
+//    public Collection<CartItem> getCartItemsById() {
+//        return cartItemsById;
+//    }
+//    public int getCount() {
+//        return cartItemsById.size();
+//    }
+//    public void addItem(CartItem item) {
+//       long code = item.getProductId();
+//        int amount = item.getAmount();
+//        for (int i = 0; i < cartItemsById.size(); i++) {
+//            CartItem lineItem = cartItemsById.get(i);
+//            if (lineItem.getProductId().equals(code)) {
+//                lineItem.setAmount(amount);
+//                return;
+//            }
+//        }
+//        cartItemsById.add(item);
+//    }
+//
+//    public void removeItem(CartItem item) {
+//        long code = item.getProductId();
+//        for (int i = 0; i < cartItemsById.size(); i++) {
+//            CartItem lineItem = cartItemsById.get(i);
+//            if (lineItem.getProductId().equals(code)) {
+//                cartItemsById.remove(i);
+//                return;
+//            }
+//        }
+//    }
+//    public void setCartItemsById(ArrayList<CartItem> cartItemsById) {
+//        this.cartItemsById = cartItemsById;
+//    }
 }

@@ -131,12 +131,11 @@
                 </div>
 
                 <ul class="Account_NavBar">
-                    <li><a   href="customer"><span>Thông tin tài khoản</span></a></li>
+                    <li><a  class="is-active" href="customer"><span>Thông tin tài khoản</span></a></li>
                     <li><a    href="changingpassword"><span>Đổi mật khẩu</span></a></li>
                     <li><a   href="customerorder"><span>Quản lý đơn hàng</span></a></li>
-                    <li><a class="is-active" href="addresslist"><span>Sổ địa chỉ</span></a></li>
+                    <li><a  href="addresslist"><span>Sổ địa chỉ</span></a></li>
                     <li><a  href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
-                    <li><a class="is-active"  href="buyinglater"><span>Sản phẩm mua sau</span></a></li>
                 </ul>
             </aside>
             <div class="Account_StylesAccountLayoutInner">
@@ -144,38 +143,34 @@
                     <h3 class="HeadingContent">Sản Phẩm Mua Sau</h3>
                     <div class="Content_StylesNav">
                         <form method="post" action="buyinglater">
-                            <c:catch var="exception">${buyinglater}</c:catch>
-                            <c:choose>
-                                <c:when test="${exception==null}">
-                                    <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
-                                    <a href="home" class="back">Tiếp tục mua sắm</a>
-                                </c:when>
-                                <c:otherwise>
-                                    <c:forEach items="${buyinglater}" var="element">
-                                        <table class="comment">
-                                            <thead>
-                                            <tr>
-                                                <th width="200px">Mã đơn hàng</th>
-                                                <th>Sản phẩm</th>
-                                                <th width="200px">Mua</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a width="100px" href="">${Order_detail.id}</a>
-                                                </td>
+                            <c:if test="${empty address}">
+                                <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
+                                <a href="home" class="back">Tiếp tục mua sắm</a>
+                            </c:if>
+                            <c:if test="${not empty address}">
+                                <c:forEach items="${buyinglater}" var="element">
+                                    <table class="comment">
+                                        <thead>
+                                        <tr>
+                                            <th width="200px">Mã đơn hàng</th>
+                                            <th>Sản phẩm</th>
+                                            <th width="200px">Mua</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td width="50%">
+                                                <a href="">${element.[0]}</a>
+                                            </td>
+                                            <td width="50%" >${element.[1]}</td>
+<%--                                            <td style="text-align: center" width="100px"><input type="checkbox" id="vehicle1" ></td>--%>
+                                        </tr>
 
-                                                <td>${Product.title}</td>
-                                                <td style="text-align: center" width="100px"><input type="checkbox" id="vehicle1" ></td>
-                                            </tr>
-
-                                            </tbody>
-                                        </table>
-                                        <a href="/" class="back">Mua</a>
-                                    </c:forEach>
-                                </c:otherwise>
-                            </c:choose>
+                                        </tbody>
+                                    </table>
+                                    <a href="/" class="back">Mua</a>
+                                </c:forEach>
+                            </c:if>
                         </form>
                     </div>
                 </div>

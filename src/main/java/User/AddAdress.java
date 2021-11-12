@@ -1,17 +1,19 @@
 package User;
 
-import java.io.*;
-import java.sql.Timestamp;
-import javax.servlet.*;
-import javax.servlet.annotation.*;
-import javax.servlet.http.*;
-import javax.swing.*;
-
-import Data.accountIO;
 import Data.addressIO;
+import Data.userAddressIO;
 import Model.Account;
 import Model.Address;
 import Model.UserAddress;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "addaddress", value = "/addaddress")
 public class AddAdress extends HttpServlet {
@@ -35,22 +37,30 @@ public class AddAdress extends HttpServlet {
             district = request.getParameter("district");
             addressname = request.getParameter("street");
             Address address = new Address(phone,addressname,province,district);
+            HttpSession session = request.getSession();
+            session.setAttribute("address", address);
+            Account acc = (Account) request.getSession().getAttribute("acc");
             if ( addressname == null || addressname.isEmpty() || phone == null || phone.isEmpty()|| province == null || province.isEmpty()|| district == null || district.isEmpty()) {
                 message = "Please fill out all three text boxes.";
                 url = "/addaddress.jsp";
             }
             else {
                 message1 = "Cập nhật địa chỉ thành công";
-                //show message
-                //cách show giá trị trong select ra sau khi update
-
+                long id1 = acc.getId();
                 addressIO.insert(address);
-                url = "/usercenter.jsp";
+                long id2 = address.getId();
+                UserAddress ua = new UserAddress(id1,id2);
+                userAddressIO.insert(ua);
+                List listaddress = addressIO.selectUserAdress(id1);
+                session.setAttribute("listaddress", listaddress);
+                url = "/addaddress.jsp";
 
             }
             request.setAttribute("address", address);
             request.setAttribute("message", message);
             request.setAttribute("message1", message1);
+            request.getSession().setAttribute("address", address);
+
         }
         getServletContext()
                 .getRequestDispatcher(url)

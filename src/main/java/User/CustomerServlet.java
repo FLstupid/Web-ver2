@@ -1,24 +1,20 @@
 package User;
 
+import Data.accountIO;
 import Model.Account;
 
-import java.io.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.text.ParseException;
-
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.persistence.EntityManager;
-import javax.servlet.*;
-import javax.servlet.annotation.*;
-import javax.servlet.http.*;
-import javax.swing.*;
-
-import Data.accountIO;
-
-import static java.lang.System.out;
-import static javax.swing.JOptionPane.*;
 
 
 @WebServlet(name = "customer", value = "/customer")
@@ -72,7 +68,8 @@ public class CustomerServlet extends HttpServlet {
             //last update
             lastUpdate = new Timestamp(System.currentTimeMillis());
             Account  account = new Account(username,password,phone,Gender ,email,"sa",birthday,role,lastUpdate);
-
+            HttpSession session = request.getSession();
+            session.setAttribute("account", account);
             if ( email == null || email.isEmpty() || phone == null || phone.isEmpty()) {
                 message = "Please fill out all three text boxes.";
                 url = "/usercenter.jsp";

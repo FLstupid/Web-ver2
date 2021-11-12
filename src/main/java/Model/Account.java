@@ -32,7 +32,7 @@ public class Account {
     @OneToMany
     private Collection<Transistion> transistionsById;
     @OneToMany
-    private Collection<UserAddress> userAddressesById;
+    private Collection<UserAddress> userAccountById;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Address> addressList;
@@ -209,11 +209,11 @@ public class Account {
         this.transistionsById = transistionsById;
     }
 
-    public Collection<UserAddress> getUserAddressesById() {
-        return userAddressesById;
+    public Collection<UserAddress> getUserAccountById() {
+        return userAccountById;
     }
 
-    public void setUserAddressesById(Collection<UserAddress> userAddressesById) {
-        this.userAddressesById = userAddressesById;
+    public void setUserAddressesById(Collection<UserAddress> userAccountById) {
+        this.userAccountById = userAccountById;
     }
 }

@@ -1,23 +1,20 @@
 package Data;
 
 import Model.Account;
-import com.mysql.cj.Session;
-
 
 import javax.persistence.*;
 
 public  class accountIO {
   public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
-   public static final EntityManager em = emf.createEntityManager();
+
 
     public accountIO (){
 
     }
     public static long insert (Account account)
-    {
+    {    EntityManager em = emf.createEntityManager();
          EntityTransaction transaction = em.getTransaction();
         long id;
-
         transaction.begin();
         try {
                 em.persist(account);
@@ -38,7 +35,7 @@ public  class accountIO {
         return a.getId();
     }
     public static void update (Account account)
-    {
+    { EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
 
         try {
@@ -54,7 +51,7 @@ public  class accountIO {
         }
     }
     public static void delete (Account account)
-    {
+    {EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
@@ -67,7 +64,7 @@ public  class accountIO {
         }
     }
     public static Account selectAcc (String username)
-    {
+    {EntityManager em = emf.createEntityManager();
         String query = "SELECT u FROM Account u " +
                 "WHERE u.username = :username";
         TypedQuery<Account> q = em.createQuery(query,Account.class);
@@ -91,7 +88,7 @@ public  class accountIO {
     }
     public static Account getAccountById (long Id){
 
-
+        EntityManager em = emf.createEntityManager();
         try{
             Account acc = em.find(Account.class, Id);
             return  acc;

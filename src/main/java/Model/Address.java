@@ -6,6 +6,7 @@ import java.util.Collection;
 @Entity
 public class Address {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String phone;
     private String streetName;
@@ -92,5 +93,9 @@ public class Address {
 
     public void setUserAddressesById(Collection<UserAddress> userAddressesById) {
         this.userAddressesById = userAddressesById;
+    }
+
+    public Collection<UserAddress> getUserAddressesById() {
+        return userAddressesById;
     }
 }

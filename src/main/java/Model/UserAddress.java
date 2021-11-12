@@ -1,19 +1,25 @@
 package Model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class UserAddress {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private Long accountId;
-    private Long addressId;
+    private long userAccountById;
+    private long userAddressById;
 
-    @ManyToOne
-    private Account accountByAccountId;
+    public UserAddress(long accountId, long addressId) {
+        this.userAccountById = accountId;
+        this.userAddressById = addressId;
+    }
 
-    @ManyToOne
-    private Address addressByAddressId;
+    public UserAddress() {
+
+    }
+
 
     public long getId() {
         return id;
@@ -23,55 +29,32 @@ public class UserAddress {
         this.id = id;
     }
 
-    public Long getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
-    }
-
-    public Long getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(Long addressId) {
-        this.addressId = addressId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         UserAddress that = (UserAddress) o;
-
-        if (id != that.id) return false;
-        if (accountId != null ? !accountId.equals(that.accountId) : that.accountId != null) return false;
-        return addressId != null ? addressId.equals(that.addressId) : that.addressId == null;
+        return id == that.id;
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (accountId != null ? accountId.hashCode() : 0);
-        result = 31 * result + (addressId != null ? addressId.hashCode() : 0);
-        return result;
+        return Objects.hash(id);
     }
 
-    public Account getAccountByAccountId() {
-        return accountByAccountId;
+    public long getAddressId() {
+        return userAddressById;
     }
 
-    public void setAccountByAccountId(Account accountByAccountId) {
-        this.accountByAccountId = accountByAccountId;
+    public void setAddressId(long addressId) {
+        this.userAddressById = addressId;
     }
 
-    public Address getAddressByAddressId() {
-        return addressByAddressId;
+    public long getAccountId() {
+        return userAccountById;
     }
 
-    public void setAddressByAddressId(Address addressByAddressId) {
-        this.addressByAddressId = addressByAddressId;
+    public void setAccountId(long accountId) {
+        this.userAccountById = accountId;
     }
 }

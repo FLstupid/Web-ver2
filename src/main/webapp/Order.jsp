@@ -131,12 +131,11 @@
                 </div>
 
                 <ul class="Account_NavBar">
-                    <li><a   href="customer"><span>Thông tin tài khoản</span></a></li>
+                    <li><a  class="is-active" href="customer"><span>Thông tin tài khoản</span></a></li>
                     <li><a    href="changingpassword"><span>Đổi mật khẩu</span></a></li>
-                    <li><a class="is-active"   href="customerorder"><span>Quản lý đơn hàng</span></a></li>
+                    <li><a   href="customerorder"><span>Quản lý đơn hàng</span></a></li>
                     <li><a  href="addresslist"><span>Sổ địa chỉ</span></a></li>
                     <li><a  href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
-                    <li><a   href="buyinglater"><span>Sản phẩm mua sau</span></a></li>
                 </ul>
             </aside>
             <div class="Account_StylesAccountLayoutInner">
@@ -153,40 +152,36 @@
                     </div>
                     <div class="Content_StylesNav">
                         <form method="get" >
-                            <c:catch var="exception">${OrderDetail}</c:catch>
-                            <c:choose>
-                                <c:when test="${exception==null}">
-                                    <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
-                                    <a href="home" class="back">Tiếp tục mua sắm</a>
-                                </c:when>
-                                <c:otherwise>
-                                    <c:forEach items="${OrderDetail}" var="element">
-                                        <table class="bangmua">
-                                            <thead>
-                                            <tr>
-                                                <th width="100px">Mã đơn hàng</th>
-                                                <th>Ngày mua</th>
-                                                <th>Sản phẩm</th>
-                                                <th width="100px">Tổng tiền</th>
-                                                <th width="150px">Trạng thái đơn hàng</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a width="100px" href="/sales/order/view/280563326">${Order_detail.id}</a>
-                                                </td>
-                                                <td>${Order_detail.createAt}</td>
-                                                <td>${Product.title}</td>
-                                                <td width="100px">${Order_detail.totalPrice}</td>
-                                                <td>${Transistion.states}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </c:forEach>
-                                </c:otherwise>
-                            </c:choose>
-
+                            <c:if test="${empty listOrder}">
+                                <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
+                                <a href="home" class="back">Tiếp tục mua sắm</a>
+                            </c:if>
+                            <c:if test="${not empty listOrder}">
+                                <c:forEach items="${listOrder}" var="element">
+                                    <table class="bangmua">
+                                        <thead>
+                                        <tr>
+                                            <th width="100px">Mã đơn hàng</th>
+                                            <th>Ngày mua</th>
+                                            <th>Sản phẩm</th>
+                                            <th width="100px">Tổng tiền</th>
+                                            <th width="150px">Trạng thái đơn hàng</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <a width="100px" href="/sales/order/view/280563326">${Order_detail.id}</a>
+                                            </td>
+                                            <td>${element.[0]}</td>
+                                            <td>${element.[1]}</td>
+                                            <td width="100px">${element.[2]}</td>
+                                            <td>${element.[3]}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </c:forEach>
+                            </c:if>
                         </form>
                     </div>
                 </div>

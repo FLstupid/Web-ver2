@@ -48,13 +48,16 @@
                         </button>
                     </div>
                 </div>
-
-                <div class="Userstyle__Root">
-                    <div class="Userstyle__Item">
-                        <img class="profile-icon" src="Home/img/user.png" alt=""/>
-                        <a class="Userstyle__ItemText" >
-                            <span class="Userstyle__NoWrap">Tài khoản</span>
-                            <span class="account_laber">
+<%--                <c:if test="">--%>
+<%--                    <a href=""> Đăng nhập | Đăng ký</a>--%>
+<%--                </c:if>--%>
+<%--                <c:if test="">--%>
+                    <div class="Userstyle__Root">
+                        <div class="Userstyle__Item">
+                            <img class="profile-icon" src="Home/img/user.png" alt=""/>
+                            <a class="Userstyle__ItemText" >
+                                <span class="Userstyle__NoWrap">Tài khoản</span>
+                                <span class="account_laber">
                 <div style="display: flex" class="buttonDropdown">
                 <span>user-name</span>
                 <img class="arrowIcon" src="Home/img/down.png" alt=""/>
@@ -88,23 +91,24 @@
                   </a>
                 </div>
               </span>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
 
-                    <div class="Userstyle__CartItem">
-                        <a href="${pageContext.request.contextPath}/cart" rel="nofollow">
-                            <div class="Userstyle__Item2">
-                                <div class="cart-wrapper">
-                                    <img class="cart-icon"
-                                         src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"  />
-                                    <span class="Userstyle__ItemCart">3</span>
+                        <div class="Userstyle__CartItem">
+                            <a href="${pageContext.request.contextPath}/cart" rel="nofollow">
+                                <div class="Userstyle__Item2">
+                                    <div class="cart-wrapper">
+                                        <img class="cart-icon"
+                                             src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"  />
+                                        <span class="Userstyle__ItemCart">3</span>
+                                    </div>
+
+                                    <span class="cart-text">Giỏ Hàng</span>
                                 </div>
-
-                                <span class="cart-text">Giỏ Hàng</span>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
-                </div>
+<%--                </c:if>--%>
             </div>
         </div>
     </section>
@@ -136,7 +140,6 @@
                     <li><a   href="customerorder"><span>Quản lý đơn hàng</span></a></li>
                     <li><a  href="addresslist"><span>Sổ địa chỉ</span></a></li>
                     <li><a  href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
-                    <li><a   href="buyinglater"><span>Sản phẩm mua sau</span></a></li>
                 </ul>
             </aside>
             <div class="Account_StylesAccountLayoutInner">
@@ -186,7 +189,7 @@
                                     <p>Ngày sinh</p>
                                 </label>
                                 <div class="styles_StylesBirthdayPicker">
-                                    <select id="day"   class="selectday" name="day" required>
+                                    <select id="day"  class="selectday" name="day" required>
                                         <option class="day1" value="0" selected>Ngày</option>
                                         <option class="day1" value="1" >1</option>
                                         <option class="day1" value="2">2</option>
@@ -339,6 +342,8 @@
 <script src="js/main.js">
 </script>
 <script>
+
+
     function Showmessage(message)
     {
         alert(message);

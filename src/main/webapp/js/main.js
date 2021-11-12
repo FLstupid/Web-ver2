@@ -1,4 +1,15 @@
+document.addEventListener("DOMContentLoaded",function (){
+    let selectday = document.querySelectorAll(".day1");
 
+    selectday.addEventListener("selected", function (){
+        for(let i=0;i<selectday.length;i++)
+        {
+            this.removeAttribute('selected');
+        }
+        this.setAttribute('selected', true);
+    })
+
+})
 document.addEventListener("DOMContentLoaded",function (){
     let showForm = document.querySelectorAll(".formresult");
     let showadd = document.querySelector("#a");

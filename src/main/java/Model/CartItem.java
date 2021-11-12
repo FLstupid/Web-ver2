@@ -101,7 +101,10 @@ public class CartItem {
     public void setContent(String content) {
         this.content = content;
     }
-
+    public double getSumPrice(){
+        price=price*quality;
+        return price;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

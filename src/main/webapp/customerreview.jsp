@@ -133,12 +133,11 @@
                 </div>
 
                 <ul class="Account_NavBar">
-                    <li><a   href="customer"><span>Thông tin tài khoản</span></a></li>
+                    <li><a  class="is-active" href="customer"><span>Thông tin tài khoản</span></a></li>
                     <li><a    href="changingpassword"><span>Đổi mật khẩu</span></a></li>
                     <li><a   href="customerorder"><span>Quản lý đơn hàng</span></a></li>
                     <li><a  href="addresslist"><span>Sổ địa chỉ</span></a></li>
-                    <li><a class="is-active" href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
-                    <li><a   href="buyinglater"><span>Sản phẩm mua sau</span></a></li>
+                    <li><a  href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
                 </ul>
             </aside>
             <div class="Account_StylesAccountLayoutInner">
@@ -146,14 +145,12 @@
                     <h3 class="HeadingContent">Nhận Xét Về Sản Phẩm Của Bạn</h3>
                     <div class="Content_StylesNav">
                         <form method="get" action="customerReview">
-                            <c:catch var="exception">${review}</c:catch>
-                            <c:choose>
-                            <c:when test="${exception==null}">
-                                <p style="margin-left: 420px">Chưa có nhận xét nào</p>
+                            <c:if test="${empty reviewlist}">
+                                <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
                                 <a href="home" class="back">Tiếp tục mua sắm</a>
-                            </c:when>
-                            <c:otherwise>
-                                <c:forEach items="${myList}" var="element">
+                            </c:if>
+                            <c:if test="${not empty reviewlist}">
+                                <c:forEach items="${reviewlist}" var="element">
                                     <table class="comment">
                                         <thead>
                                             <tr>
@@ -165,16 +162,15 @@
                                         <tbody>
                                           <tr>
                                             <td>
-                                               <a width="100px" href="">${Product.id}</a>
+                                               <a width="100px" href="">${element[0]}</a>
                                             </td>
-                                            <td>${Product.title}</td>
-                                            <td width="100px">${element.title}</td>
+                                            <td>${element.[1]}</td>
+                                            <td width="100px">${element.[2]}</td>
                                           </tr>
                                         </tbody>
                                     </table>
                                 </c:forEach>
-                            </c:otherwise>
-                            </c:choose>
+                            </c:if>
                         </form>
                     </div>
                 </div>

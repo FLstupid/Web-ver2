@@ -131,48 +131,53 @@
                 </div>
 
                 <ul class="Account_NavBar">
-                    <li><a   href="customer"><span>Thông tin tài khoản</span></a></li>
+                    <li><a  class="is-active" href="customer"><span>Thông tin tài khoản</span></a></li>
                     <li><a    href="changingpassword"><span>Đổi mật khẩu</span></a></li>
                     <li><a   href="customerorder"><span>Quản lý đơn hàng</span></a></li>
-                    <li><a class="is-active" href="addresslist"><span>Sổ địa chỉ</span></a></li>
+                    <li><a  href="addresslist"><span>Sổ địa chỉ</span></a></li>
                     <li><a  href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
-                    <li><a   href="buyinglater"><span>Sản phẩm mua sau</span></a></li>
                 </ul>
             </aside>
             <div class="Account_StylesAccountLayoutInner">
                 <div class="buying-Later formresult  ">
                     <h3 class="HeadingContent">Giỏ Hàng</h3>
                     <div class="Content_StylesNav">
-                        <form method="get">
-                            <c:catch var="exception">${cart}</c:catch>
-                            <c:choose>
-                                <c:when test="${exception==null}">
-                                    <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
-                                    <a href="home" class="back">Tiếp tục mua sắm</a>
-                                </c:when>
-                                <c:otherwise>
-                                    <c:forEach items="${cart}" var="element">
-                                        <table class="comment">
-                                            <thead>
-                                            <tr>
-                                                <th width="200px">Mã đơn hàng</th>
-                                                <th>Sản phẩm</th>
-                                                <th width="200px">Nhận xét</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a width="100px" href="">${Product.id}</a>
-                                                </td>
-                                                <td>${Product.title}</td>
-                                                <td width="100px">${element.title}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </c:forEach>
-                                </c:otherwise>
-                            </c:choose>
+                        <form method="post" action="cart" >
+                            <c:if test="${empty cart}">
+                                <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
+                                <a href="home" class="back">Tiếp tục mua sắm</a>
+                            </c:if>
+                            <c:if test="${not empty cart}">
+                                <c:forEach items="${buyinglater}" var="element">
+                                    <table class="comment">
+                                        <thead>
+                                        <tr>
+                                            <th >Số Lượng</th>
+                                            <th width="200px">Mã giỏ hàng</th>
+                                            <th width="200px">Mã người dùng</th>
+                                            <th >phone</th>
+                                            <th >Địa chỉ</th>
+                                            <th >Quận/Huyện</th>
+                                            <th >Tỉnh/ Thành Phố</th>
+                                            <th>deli</th>
+                                            <th>thời gian tạo</th>
+                                            <th>cập nhật</th>
+                                            <th width="200px">Chi tiết</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <input type="text" name="amount" value="${cart_item.amount}" id="quantity" >
+                                            <td>${cart.id}</td>
+                                            <td>${cart.acountId}</td>
+                                            <td style="text-align: center" width="100px">
+                                                <input type="checkbox" id="vehicle1" ></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <a href="/" class="back">Mua</a>
+                                </c:forEach>
+                            </c:if>
                         </form>
                     </div>
                 </div>

@@ -2,18 +2,16 @@ package Data;
 
 import Model.Address;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import java.util.List;
 
 public class addressIO {
     public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
-    public static final EntityManager em = emf.createEntityManager();
-    public static final EntityTransaction transaction = em.getTransaction();
+
 
     public static void insert (Address address)
-    {
+    {EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         try {
 
@@ -24,12 +22,12 @@ public class addressIO {
         } finally
         {
             em.close();
-            emf.close();
         }
     }
 
     public void update (Address address)
-    {
+    {EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
 
@@ -40,11 +38,11 @@ public class addressIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
         }
     }
     public void delete (Address address)
-    {
+    {EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
 
@@ -55,7 +53,24 @@ public class addressIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
+        }
+    }
+    public static List selectUserAdress (long ID)
+    {
+        EntityManager em = emf.createEntityManager();
+        try {
+            List acc = em.createQuery("SELECT p.username as username, g.streetName as streetName" +
+                    ",g.district as district ,g.city as city , g.phone as phone  FROM Account p ," +
+                    " UserAddress n , Address g WHERE p.id = n.userAccountById AND " +
+                    "g.id = n.userAddressById AND  p.id =?1").setParameter(1,ID).getResultList();
+            return acc;
+
+        } catch (Exception e)
+        {
+            System.out.println(e);
+            return null;
+        }finally {
+            em.close();
         }
     }
 }
