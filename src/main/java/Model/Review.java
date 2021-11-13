@@ -2,13 +2,12 @@ package Model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
 public class Review {
     @Id
     private long id;
-    private Long productId;
-    private Long userId;
     private String title;
     private short rating;
     private Timestamp publishedAt;
@@ -16,14 +15,10 @@ public class Review {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "productId", referencedColumnName = "id")
     private Product productByProductId;
     @ManyToOne
-    @JoinColumn(name = "userId", referencedColumnName = "id")
-    private Account accountByUserId;
+    private Account accountByAccountId;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -32,28 +27,6 @@ public class Review {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "productId")
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    @Basic
-    @Column(name = "userId")
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    @Basic
-    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -62,8 +35,6 @@ public class Review {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "rating")
     public short getRating() {
         return rating;
     }
@@ -72,8 +43,6 @@ public class Review {
         this.rating = rating;
     }
 
-    @Basic
-    @Column(name = "publishedAt")
     public Timestamp getPublishedAt() {
         return publishedAt;
     }
@@ -82,8 +51,6 @@ public class Review {
         this.publishedAt = publishedAt;
     }
 
-    @Basic
-    @Column(name = "createdAt")
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -92,8 +59,6 @@ public class Review {
         this.createdAt = createdAt;
     }
 
-    @Basic
-    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -111,19 +76,15 @@ public class Review {
 
         if (id != review.id) return false;
         if (rating != review.rating) return false;
-        if (productId != null ? !productId.equals(review.productId) : review.productId != null) return false;
-        if (userId != null ? !userId.equals(review.userId) : review.userId != null) return false;
-        if (title != null ? !title.equals(review.title) : review.title != null) return false;
-        if (publishedAt != null ? !publishedAt.equals(review.publishedAt) : review.publishedAt != null) return false;
-        if (createdAt != null ? !createdAt.equals(review.createdAt) : review.createdAt != null) return false;
-        return content != null ? content.equals(review.content) : review.content == null;
+        if (!Objects.equals(title, review.title)) return false;
+        if (!Objects.equals(publishedAt, review.publishedAt)) return false;
+        if (!Objects.equals(createdAt, review.createdAt)) return false;
+        return Objects.equals(content, review.content);
     }
 
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (productId != null ? productId.hashCode() : 0);
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (int) rating;
         result = 31 * result + (publishedAt != null ? publishedAt.hashCode() : 0);
@@ -140,11 +101,11 @@ public class Review {
         this.productByProductId = productByProductId;
     }
 
-    public Account getAccountByUserId() {
-        return accountByUserId;
+    public Account getaccountByAccountId() {
+        return accountByAccountId;
     }
 
-    public void setAccountByUserId(Account accountByUserId) {
-        this.accountByUserId = accountByUserId;
+    public void setaccountByAccountId(Account accountByAccountId) {
+        this.accountByAccountId = accountByAccountId;
     }
 }

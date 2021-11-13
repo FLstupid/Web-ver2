@@ -3,19 +3,15 @@ package Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tag_product", schema = "dhs", catalog = "")
 public class TagProduct {
+    @Id
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "productId", referencedColumnName = "id")
     private Product productByProductId;
     @ManyToOne
-    @JoinColumn(name = "tagId", referencedColumnName = "id")
     private Tag tagByTagId;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }

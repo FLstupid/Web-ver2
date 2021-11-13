@@ -2,9 +2,12 @@ package Model;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Address {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String phone;
     private String streetName;
@@ -25,9 +28,6 @@ public class Address {
 
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -36,8 +36,6 @@ public class Address {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "phone")
     public String getPhone() {
         return phone;
     }
@@ -46,8 +44,6 @@ public class Address {
         this.phone = phone;
     }
 
-    @Basic
-    @Column(name = "streetName")
     public String getStreetName() {
         return streetName;
     }
@@ -56,8 +52,6 @@ public class Address {
         this.streetName = streetName;
     }
 
-    @Basic
-    @Column(name = "city")
     public String getCity() {
         return city;
     }
@@ -66,8 +60,6 @@ public class Address {
         this.city = city;
     }
 
-    @Basic
-    @Column(name = "district")
     public String getDistrict() {
         return district;
     }
@@ -84,10 +76,10 @@ public class Address {
         Address address = (Address) o;
 
         if (id != address.id) return false;
-        if (phone != address.phone) return false;
-        if (streetName != null ? !streetName.equals(address.streetName) : address.streetName != null) return false;
-        if (city != null ? !city.equals(address.city) : address.city != null) return false;
-        return district != null ? district.equals(address.district) : address.district == null;
+        if (!Objects.equals(phone, address.phone)) return false;
+        if (!Objects.equals(streetName, address.streetName)) return false;
+        if (!Objects.equals(city, address.city)) return false;
+        return Objects.equals(district, address.district);
     }
 
     @Override
@@ -98,10 +90,6 @@ public class Address {
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (district != null ? district.hashCode() : 0);
         return result;
-    }
-
-    public Collection<UserAddress> getUserAddressesById() {
-        return userAddressesById;
     }
 
     public void setUserAddressesById(Collection<UserAddress> userAddressesById) {

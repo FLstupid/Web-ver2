@@ -2,17 +2,17 @@ package Model;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Tag {
+    @Id
     private long id;
     private String tagName;
 
     @OneToMany(mappedBy = "tagByTagId")
     private Collection<TagProduct> tagProductsById;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -21,8 +21,6 @@ public class Tag {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "tagName")
     public String getTagName() {
         return tagName;
     }
@@ -39,7 +37,7 @@ public class Tag {
         Tag tag = (Tag) o;
 
         if (id != tag.id) return false;
-        return tagName != null ? tagName.equals(tag.tagName) : tag.tagName == null;
+        return Objects.equals(tagName, tag.tagName);
     }
 
     @Override

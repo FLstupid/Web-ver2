@@ -2,17 +2,17 @@ package Model;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Category {
+    @Id
     private long id;
     private String categoryName;
 
     @OneToMany(mappedBy = "categoryByCategoryId")
     private Collection<CategoryProduct> categoryProductsById;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -21,8 +21,6 @@ public class Category {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "categoryName")
     public String getCategoryName() {
         return categoryName;
     }
@@ -39,7 +37,7 @@ public class Category {
         Category category = (Category) o;
 
         if (id != category.id) return false;
-        return categoryName != null ? categoryName.equals(category.categoryName) : category.categoryName == null;
+        return Objects.equals(categoryName, category.categoryName);
     }
 
     @Override
@@ -49,11 +47,4 @@ public class Category {
         return result;
     }
 
-    public Collection<CategoryProduct> getCategoryProductsById() {
-        return categoryProductsById;
-    }
-
-    public void setCategoryProductsById(Collection<CategoryProduct> categoryProductsById) {
-        this.categoryProductsById = categoryProductsById;
-    }
 }

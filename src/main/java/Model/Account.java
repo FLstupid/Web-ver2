@@ -8,6 +8,8 @@ import java.util.Objects;
 
 @Entity
 public class Account {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String username;
     private String passwordHash;
@@ -22,7 +24,7 @@ public class Account {
     @OneToMany(mappedBy = "accountByAccountId")
     private Collection<Cart> cartsById;
 
-    @OneToMany(mappedBy = "accountByUserId")
+    @OneToMany(mappedBy = "accountByAccountId")
     private Collection<Review> reviewsById;
 
     @OneToMany(mappedBy = "accountByAccountId")
@@ -54,9 +56,6 @@ public class Account {
         this.passwordHash = password;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -65,8 +64,6 @@ public class Account {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "username")
     public String getUsername() {
         return username;
     }
@@ -75,8 +72,6 @@ public class Account {
         this.username = username;
     }
 
-    @Basic
-    @Column(name = "passwordHash")
     public String getPasswordHash() {
         return passwordHash;
     }
@@ -85,8 +80,6 @@ public class Account {
         this.passwordHash = passwordHash;
     }
 
-    @Basic
-    @Column(name = "phone")
     public String getPhone() {
         return phone;
     }
@@ -95,8 +88,6 @@ public class Account {
         this.phone = phone;
     }
 
-    @Basic
-    @Column(name = "gender")
     public boolean getGender() {
         return gender;
     }
@@ -104,8 +95,6 @@ public class Account {
         this.gender = gender;
     }
 
-    @Basic
-    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -114,8 +103,6 @@ public class Account {
         this.email = email;
     }
 
-    @Basic
-    @Column(name = "shopName")
     public String getShopName() {
         return shopName;
     }
@@ -124,8 +111,6 @@ public class Account {
         this.shopName = shopName;
     }
 
-    @Basic
-    @Column(name = "birthday")
     public Date getBirthday() {
         return birthday;
     }
@@ -134,8 +119,6 @@ public class Account {
         this.birthday = birthday;
     }
 
-    @Basic
-    @Column(name = "role")
     public boolean getRole() {
         return role;
     }
@@ -144,8 +127,6 @@ public class Account {
         this.role = role;
     }
 
-    @Basic
-    @Column(name = "lastUpdate")
     public Timestamp getLastUpdate() {
         return lastUpdate;
     }
@@ -194,22 +175,6 @@ public class Account {
 
     public void setCartsById(Collection<Cart> cartsById) {
         this.cartsById = cartsById;
-    }
-
-    public Collection<Review> getReviewsById() {
-        return reviewsById;
-    }
-
-    public void setReviewsById(Collection<Review> reviewsById) {
-        this.reviewsById = reviewsById;
-    }
-
-    public Collection<Shop> getShopsById() {
-        return shopsById;
-    }
-
-    public void setShopsById(Collection<Shop> shopsById) {
-        this.shopsById = shopsById;
     }
 
     public Collection<Trans> getTransById() {

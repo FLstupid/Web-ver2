@@ -5,9 +5,8 @@ import java.sql.Timestamp;
 
 @Entity
 public class Trans {
+    @Id
     private long id;
-    private Long accountId;
-    private Long orderId;
     private Integer states;
     private String detailstates;
     private String payment;
@@ -15,39 +14,17 @@ public class Trans {
     private Timestamp updatedAt;
 
     @ManyToOne
-    private Account AccountId;
+    private Account accountByAccountId;
 
     @ManyToOne
-    private OrderDetail OrderId;
+    private OrderDetail orderDetailByOrderId;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    @Basic
-    @Column(name = "AccountId")
-    public Long getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
-    }
-
-    @Basic
-    @Column(name = "orderId")
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
     }
 
     @Override
@@ -57,41 +34,32 @@ public class Trans {
 
         Trans trans = (Trans) o;
 
-        if (id != trans.id) return false;
-        if (accountId != null ? !accountId.equals(trans.accountId) : trans.accountId != null) return false;
-        return orderId != null ? orderId.equals(trans.orderId) : trans.orderId == null;
+        return id == trans.id;
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (accountId != null ? accountId.hashCode() : 0);
-        result = 31 * result + (orderId != null ? orderId.hashCode() : 0);
-        return result;
+        return (int) (id ^ (id >>> 32));
     }
 
     @ManyToOne
-    @JoinColumn(name = "AccountId", referencedColumnName = "id")
     public Account getAccountByAccountId() {
-        return AccountId;
+        return accountByAccountId;
     }
 
     public void setAccountByAccountId(Account accountByAccountId) {
-        this.AccountId = accountByAccountId;
+        this.accountByAccountId = accountByAccountId;
     }
 
     @ManyToOne
-    @JoinColumn(name = "orderId", referencedColumnName = "id")
     public OrderDetail getOrderDetailByOrderId() {
-        return OrderId;
+        return orderDetailByOrderId;
     }
 
     public void setOrderDetailByOrderId(OrderDetail orderDetailByOrderId) {
-        this.OrderId = orderDetailByOrderId;
+        this.orderDetailByOrderId = orderDetailByOrderId;
     }
 
-    @Basic
-    @Column(name = "states")
     public Integer getStates() {
         return states;
     }
@@ -100,8 +68,6 @@ public class Trans {
         this.states = states;
     }
 
-    @Basic
-    @Column(name = "detailstates")
     public String getDetailstates() {
         return detailstates;
     }
@@ -110,8 +76,6 @@ public class Trans {
         this.detailstates = detailstates;
     }
 
-    @Basic
-    @Column(name = "payment")
     public String getPayment() {
         return payment;
     }
@@ -120,8 +84,6 @@ public class Trans {
         this.payment = payment;
     }
 
-    @Basic
-    @Column(name = "detailpayment")
     public String getDetailpayment() {
         return detailpayment;
     }
@@ -130,8 +92,6 @@ public class Trans {
         this.detailpayment = detailpayment;
     }
 
-    @Basic
-    @Column(name = "updatedAt")
     public Timestamp getUpdatedAt() {
         return updatedAt;
     }

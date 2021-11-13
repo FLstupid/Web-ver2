@@ -6,8 +6,8 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "order_detail", schema = "dhs", catalog = "")
 public class OrderDetail {
+    @Id
     private long id;
     private int phone;
     private String streetName;
@@ -26,8 +26,6 @@ public class OrderDetail {
     @OneToMany(mappedBy = "orderDetailByOrderId")
     private Collection<Trans> transById;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -36,8 +34,6 @@ public class OrderDetail {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "phone")
     public int getPhone() {
         return phone;
     }
@@ -46,8 +42,6 @@ public class OrderDetail {
         this.phone = phone;
     }
 
-    @Basic
-    @Column(name = "street_name")
     public String getStreetName() {
         return streetName;
     }
@@ -56,8 +50,6 @@ public class OrderDetail {
         this.streetName = streetName;
     }
 
-    @Basic
-    @Column(name = "city")
     public String getCity() {
         return city;
     }
@@ -66,8 +58,6 @@ public class OrderDetail {
         this.city = city;
     }
 
-    @Basic
-    @Column(name = "district")
     public String getDistrict() {
         return district;
     }
@@ -76,8 +66,6 @@ public class OrderDetail {
         this.district = district;
     }
 
-    @Basic
-    @Column(name = "delivery")
     public String getDelivery() {
         return delivery;
     }
@@ -86,8 +74,6 @@ public class OrderDetail {
         this.delivery = delivery;
     }
 
-    @Basic
-    @Column(name = "createdAt")
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -96,18 +82,6 @@ public class OrderDetail {
         this.createdAt = createdAt;
     }
 
-    @Basic
-    @Column(name = "shipPrice")
-    public double getShipPrice() {
-        return shipPrice;
-    }
-
-    public void setShipPrice(double shipPrice) {
-        this.shipPrice = shipPrice;
-    }
-
-    @Basic
-    @Column(name = "totalPrice")
     public double getTotalPrice() {
         return totalPrice;
     }
@@ -116,8 +90,6 @@ public class OrderDetail {
         this.totalPrice = totalPrice;
     }
 
-    @Basic
-    @Column(name = "updatedAt")
     public Timestamp getUpdatedAt() {
         return updatedAt;
     }
@@ -126,8 +98,6 @@ public class OrderDetail {
         this.updatedAt = updatedAt;
     }
 
-    @Basic
-    @Column(name = "note")
     public String getNote() {
         return note;
     }
@@ -147,14 +117,6 @@ public class OrderDetail {
     @Override
     public int hashCode() {
         return Objects.hash(id, phone, streetName, city, district, delivery, createdAt, shipPrice, totalPrice, updatedAt, note);
-    }
-
-    public Collection<OrderItem> getOrderItemsById() {
-        return orderItemsById;
-    }
-
-    public void setOrderItemsById(Collection<OrderItem> orderItemsById) {
-        this.orderItemsById = orderItemsById;
     }
 
     public Collection<Trans> getTransById() {

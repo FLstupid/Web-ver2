@@ -2,9 +2,11 @@ package Model;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Delivery {
+    @Id
     private long id;
     private String methodName;
     private Integer price;
@@ -12,8 +14,6 @@ public class Delivery {
     @OneToMany(mappedBy = "deliveryByDeliveryId")
     private Collection<ShopDelivery> shopDeliveriesById;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -22,8 +22,6 @@ public class Delivery {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "methodName")
     public String getMethodName() {
         return methodName;
     }
@@ -32,8 +30,6 @@ public class Delivery {
         this.methodName = methodName;
     }
 
-    @Basic
-    @Column(name = "price")
     public Integer getPrice() {
         return price;
     }
@@ -50,8 +46,8 @@ public class Delivery {
         Delivery delivery = (Delivery) o;
 
         if (id != delivery.id) return false;
-        if (methodName != null ? !methodName.equals(delivery.methodName) : delivery.methodName != null) return false;
-        return price != null ? price.equals(delivery.price) : delivery.price == null;
+        if (!Objects.equals(methodName, delivery.methodName)) return false;
+        return Objects.equals(price, delivery.price);
     }
 
     @Override
@@ -62,11 +58,4 @@ public class Delivery {
         return result;
     }
 
-    public Collection<ShopDelivery> getShopDeliveriesById() {
-        return shopDeliveriesById;
-    }
-
-    public void setShopDeliveriesById(Collection<ShopDelivery> shopDeliveriesById) {
-        this.shopDeliveriesById = shopDeliveriesById;
-    }
 }

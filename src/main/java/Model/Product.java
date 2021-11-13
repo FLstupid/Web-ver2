@@ -7,9 +7,10 @@ import java.util.Objects;
 
 @Entity
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private Short status;
-    private long shopId;
     private String title;
     private short quality;
     private double price;
@@ -29,16 +30,12 @@ public class Product {
     @OneToMany(mappedBy = "productByProductId")
     private Collection<OrderItem> orderItemsById;
     @ManyToOne
-    @JoinColumn(name = "shopId", referencedColumnName = "id", nullable = false)
     private Shop shopByShopId;
     @OneToMany(mappedBy = "productByProductId")
     private Collection<Review> reviewsById;
     @OneToMany(mappedBy = "productByProductId")
     private Collection<TagProduct> tagProductsById;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -47,8 +44,6 @@ public class Product {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "status")
     public Short getStatus() {
         return status;
     }
@@ -57,18 +52,6 @@ public class Product {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "shopId")
-    public long getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(long shopId) {
-        this.shopId = shopId;
-    }
-
-    @Basic
-    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -77,8 +60,6 @@ public class Product {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "quality")
     public short getQuality() {
         return quality;
     }
@@ -87,8 +68,6 @@ public class Product {
         this.quality = quality;
     }
 
-    @Basic
-    @Column(name = "price")
     public double getPrice() {
         return price;
     }
@@ -97,8 +76,6 @@ public class Product {
         this.price = price;
     }
 
-    @Basic
-    @Column(name = "discount")
     public double getDiscount() {
         return discount;
     }
@@ -107,8 +84,6 @@ public class Product {
         this.discount = discount;
     }
 
-    @Basic
-    @Column(name = "startAt")
     public Timestamp getStartAt() {
         return startAt;
     }
@@ -117,8 +92,6 @@ public class Product {
         this.startAt = startAt;
     }
 
-    @Basic
-    @Column(name = "endsAt")
     public Timestamp getEndsAt() {
         return endsAt;
     }
@@ -127,8 +100,6 @@ public class Product {
         this.endsAt = endsAt;
     }
 
-    @Basic
-    @Column(name = "decription")
     public String getDecription() {
         return decription;
     }
@@ -138,8 +109,6 @@ public class Product {
         this.decription = decription;
     }
 
-    @Basic
-    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -148,8 +117,6 @@ public class Product {
         this.content = content;
     }
 
-    @Basic
-    @Column(name = "updatedAt")
     public Timestamp getUpdatedAt() {
         return updatedAt;
     }
@@ -158,8 +125,6 @@ public class Product {
         this.updatedAt = updatedAt;
     }
 
-    @Basic
-    @Column(name = "createdAt")
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -168,8 +133,6 @@ public class Product {
         this.createdAt = createdAt;
     }
 
-    @Basic
-    @Column(name = "publishedAt")
     public Timestamp getPublishedAt() {
         return publishedAt;
     }
@@ -186,7 +149,6 @@ public class Product {
         Product product = (Product) o;
 
         if (id != product.id) return false;
-        if (shopId != product.shopId) return false;
         if (quality != product.quality) return false;
         if (Double.compare(product.price, price) != 0) return false;
         if (Double.compare(product.discount, discount) != 0) return false;
@@ -207,7 +169,6 @@ public class Product {
         long temp;
         result = (int) (id ^ (id >>> 32));
         result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + (int) (shopId ^ (shopId >>> 32));
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (int) quality;
         temp = Double.doubleToLongBits(price);

@@ -3,14 +3,15 @@ package Model;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 public class Cart {
+    @Id
     private long id;
     private String sessionId;
     private String tokenId;
     private Short status;
-    private Long accountId;
     private int phone;
     private String streetName;
     private String city;
@@ -23,7 +24,6 @@ public class Cart {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "accountId", referencedColumnName = "id")
     private Account accountByAccountId;
 //    @OneToMany
 //    private ArrayList<CartItem> cartItemsById;
@@ -65,8 +65,6 @@ public class Cart {
     @OneToMany(mappedBy = "cartByCartId")
     private Collection<CartItem> cartItemsById;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -75,8 +73,6 @@ public class Cart {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "sessionId")
     public String getSessionId() {
         return sessionId;
     }
@@ -85,8 +81,6 @@ public class Cart {
         this.sessionId = sessionId;
     }
 
-    @Basic
-    @Column(name = "tokenId")
     public String getTokenId() {
         return tokenId;
     }
@@ -95,8 +89,6 @@ public class Cart {
         this.tokenId = tokenId;
     }
 
-    @Basic
-    @Column(name = "status")
     public Short getStatus() {
         return status;
     }
@@ -105,18 +97,6 @@ public class Cart {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "accountId")
-    public Long getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
-    }
-
-    @Basic
-    @Column(name = "phone")
     public int getPhone() {
         return phone;
     }
@@ -125,8 +105,6 @@ public class Cart {
         this.phone = phone;
     }
 
-    @Basic
-    @Column(name = "streetName")
     public String getStreetName() {
         return streetName;
     }
@@ -135,8 +113,6 @@ public class Cart {
         this.streetName = streetName;
     }
 
-    @Basic
-    @Column(name = "city")
     public String getCity() {
         return city;
     }
@@ -145,8 +121,6 @@ public class Cart {
         this.city = city;
     }
 
-    @Basic
-    @Column(name = "district")
     public String getDistrict() {
         return district;
     }
@@ -155,8 +129,6 @@ public class Cart {
         this.district = district;
     }
 
-    @Basic
-    @Column(name = "delivery")
     public String getDelivery() {
         return delivery;
     }
@@ -165,8 +137,6 @@ public class Cart {
         this.delivery = delivery;
     }
 
-    @Basic
-    @Column(name = "createdAt")
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -175,8 +145,6 @@ public class Cart {
         this.createdAt = createdAt;
     }
 
-    @Basic
-    @Column(name = "updatedAt")
     public Date getUpdatedAt() {
         return updatedAt;
     }
@@ -185,8 +153,6 @@ public class Cart {
         this.updatedAt = updatedAt;
     }
 
-    @Basic
-    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -204,17 +170,16 @@ public class Cart {
 
         if (id != cart.id) return false;
         if (phone != cart.phone) return false;
-        if (sessionId != null ? !sessionId.equals(cart.sessionId) : cart.sessionId != null) return false;
-        if (tokenId != null ? !tokenId.equals(cart.tokenId) : cart.tokenId != null) return false;
-        if (status != null ? !status.equals(cart.status) : cart.status != null) return false;
-        if (accountId != null ? !accountId.equals(cart.accountId) : cart.accountId != null) return false;
-        if (streetName != null ? !streetName.equals(cart.streetName) : cart.streetName != null) return false;
-        if (city != null ? !city.equals(cart.city) : cart.city != null) return false;
-        if (district != null ? !district.equals(cart.district) : cart.district != null) return false;
-        if (delivery != null ? !delivery.equals(cart.delivery) : cart.delivery != null) return false;
-        if (createdAt != null ? !createdAt.equals(cart.createdAt) : cart.createdAt != null) return false;
-        if (updatedAt != null ? !updatedAt.equals(cart.updatedAt) : cart.updatedAt != null) return false;
-        return content != null ? content.equals(cart.content) : cart.content == null;
+        if (!Objects.equals(sessionId, cart.sessionId)) return false;
+        if (!Objects.equals(tokenId, cart.tokenId)) return false;
+        if (!Objects.equals(status, cart.status)) return false;
+        if (!Objects.equals(streetName, cart.streetName)) return false;
+        if (!Objects.equals(city, cart.city)) return false;
+        if (!Objects.equals(district, cart.district)) return false;
+        if (!Objects.equals(delivery, cart.delivery)) return false;
+        if (!Objects.equals(createdAt, cart.createdAt)) return false;
+        if (!Objects.equals(updatedAt, cart.updatedAt)) return false;
+        return Objects.equals(content, cart.content);
     }
 
     @Override
@@ -223,7 +188,6 @@ public class Cart {
         result = 31 * result + (sessionId != null ? sessionId.hashCode() : 0);
         result = 31 * result + (tokenId != null ? tokenId.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + (accountId != null ? accountId.hashCode() : 0);
         result = 31 * result + phone;
         result = 31 * result + (streetName != null ? streetName.hashCode() : 0);
         result = 31 * result + (city != null ? city.hashCode() : 0);
@@ -233,14 +197,6 @@ public class Cart {
         result = 31 * result + (updatedAt != null ? updatedAt.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         return result;
-    }
-
-    public Account getAccountByAccountId() {
-        return accountByAccountId;
-    }
-
-    public void setAccountByAccountId(Account accountByAccountId) {
-        this.accountByAccountId = accountByAccountId;
     }
 
     public Collection<CartItem> getCartItemsById() {

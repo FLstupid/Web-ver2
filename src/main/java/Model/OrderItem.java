@@ -1,13 +1,12 @@
 package Model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
-@Table(name = "order_item", schema = "dhs", catalog = "")
 public class OrderItem {
+    @Id
     private long id;
-    private Long orderId;
-    private Long productId;
     private short quality;
     private double price;
     private double discount;
@@ -15,15 +14,11 @@ public class OrderItem {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "orderId", referencedColumnName = "id")
     private OrderDetail orderDetailByOrderId;
 
     @ManyToOne
-    @JoinColumn(name = "productId", referencedColumnName = "id")
     private Product productByProductId;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -32,28 +27,6 @@ public class OrderItem {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "orderId")
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    @Basic
-    @Column(name = "productId")
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    @Basic
-    @Column(name = "quality")
     public short getQuality() {
         return quality;
     }
@@ -62,8 +35,6 @@ public class OrderItem {
         this.quality = quality;
     }
 
-    @Basic
-    @Column(name = "price")
     public double getPrice() {
         return price;
     }
@@ -72,8 +43,6 @@ public class OrderItem {
         this.price = price;
     }
 
-    @Basic
-    @Column(name = "discount")
     public double getDiscount() {
         return discount;
     }
@@ -82,8 +51,6 @@ public class OrderItem {
         this.discount = discount;
     }
 
-    @Basic
-    @Column(name = "amount")
     public int getAmount() {
         return amount;
     }
@@ -92,8 +59,6 @@ public class OrderItem {
         this.amount = amount;
     }
 
-    @Basic
-    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -114,9 +79,7 @@ public class OrderItem {
         if (Double.compare(orderItem.price, price) != 0) return false;
         if (Double.compare(orderItem.discount, discount) != 0) return false;
         if (amount != orderItem.amount) return false;
-        if (orderId != null ? !orderId.equals(orderItem.orderId) : orderItem.orderId != null) return false;
-        if (productId != null ? !productId.equals(orderItem.productId) : orderItem.productId != null) return false;
-        return content != null ? content.equals(orderItem.content) : orderItem.content == null;
+        return Objects.equals(content, orderItem.content);
     }
 
     @Override
@@ -124,8 +87,6 @@ public class OrderItem {
         int result;
         long temp;
         result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (orderId != null ? orderId.hashCode() : 0);
-        result = 31 * result + (productId != null ? productId.hashCode() : 0);
         result = 31 * result + (int) quality;
         temp = Double.doubleToLongBits(price);
         result = 31 * result + (int) (temp ^ (temp >>> 32));

@@ -3,20 +3,16 @@ package Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "category_product", schema = "dhs", catalog = "")
 public class CategoryProduct {
+    @Id
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "productId", referencedColumnName = "id")
     private Product productByProductId;
 
     @ManyToOne
-    @JoinColumn(name = "categoryId", referencedColumnName = "id")
     private Category categoryByCategoryId;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -38,21 +34,5 @@ public class CategoryProduct {
     @Override
     public int hashCode() {
         return (int) (id ^ (id >>> 32));
-    }
-
-    public Product getProductByProductId() {
-        return productByProductId;
-    }
-
-    public void setProductByProductId(Product productByProductId) {
-        this.productByProductId = productByProductId;
-    }
-
-    public Category getCategoryByCategoryId() {
-        return categoryByCategoryId;
-    }
-
-    public void setCategoryByCategoryId(Category categoryByCategoryId) {
-        this.categoryByCategoryId = categoryByCategoryId;
     }
 }

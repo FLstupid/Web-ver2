@@ -2,13 +2,12 @@ package Model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
-@Table(name = "cart_item", schema = "dhs", catalog = "")
 public class CartItem {
+    @Id
     private long id;
-    private Long cartId;
-    private Long productId;
     private short quality;
     private double price;
     private double discount;
@@ -18,15 +17,11 @@ public class CartItem {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "cartId", referencedColumnName = "id")
     private Cart cartByCartId;
 
     @ManyToOne
-    @JoinColumn(name = "productId", referencedColumnName = "id")
     private Product productByProductId;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -35,28 +30,6 @@ public class CartItem {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "cartId")
-    public Long getCartId() {
-        return cartId;
-    }
-
-    public void setCartId(Long cartId) {
-        this.cartId = cartId;
-    }
-
-    @Basic
-    @Column(name = "productId")
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    @Basic
-    @Column(name = "quality")
     public short getQuality() {
         return quality;
     }
@@ -65,8 +38,6 @@ public class CartItem {
         this.quality = quality;
     }
 
-    @Basic
-    @Column(name = "price")
     public double getPrice() {
         return price;
     }
@@ -75,8 +46,6 @@ public class CartItem {
         this.price = price;
     }
 
-    @Basic
-    @Column(name = "discount")
     public double getDiscount() {
         return discount;
     }
@@ -85,8 +54,6 @@ public class CartItem {
         this.discount = discount;
     }
 
-    @Basic
-    @Column(name = "amount")
     public int getAmount() {
         return amount;
     }
@@ -95,8 +62,6 @@ public class CartItem {
         this.amount = amount;
     }
 
-    @Basic
-    @Column(name = "createdAt")
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -105,8 +70,6 @@ public class CartItem {
         this.createdAt = createdAt;
     }
 
-    @Basic
-    @Column(name = "updatedAt")
     public Timestamp getUpdatedAt() {
         return updatedAt;
     }
@@ -115,8 +78,6 @@ public class CartItem {
         this.updatedAt = updatedAt;
     }
 
-    @Basic
-    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -137,11 +98,9 @@ public class CartItem {
         if (Double.compare(cartItem.price, price) != 0) return false;
         if (Double.compare(cartItem.discount, discount) != 0) return false;
         if (amount != cartItem.amount) return false;
-        if (cartId != null ? !cartId.equals(cartItem.cartId) : cartItem.cartId != null) return false;
-        if (productId != null ? !productId.equals(cartItem.productId) : cartItem.productId != null) return false;
-        if (createdAt != null ? !createdAt.equals(cartItem.createdAt) : cartItem.createdAt != null) return false;
-        if (updatedAt != null ? !updatedAt.equals(cartItem.updatedAt) : cartItem.updatedAt != null) return false;
-        return content != null ? content.equals(cartItem.content) : cartItem.content == null;
+        if (!Objects.equals(createdAt, cartItem.createdAt)) return false;
+        if (!Objects.equals(updatedAt, cartItem.updatedAt)) return false;
+        return Objects.equals(content, cartItem.content);
     }
 
     @Override
@@ -149,8 +108,6 @@ public class CartItem {
         int result;
         long temp;
         result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (cartId != null ? cartId.hashCode() : 0);
-        result = 31 * result + (productId != null ? productId.hashCode() : 0);
         result = 31 * result + (int) quality;
         temp = Double.doubleToLongBits(price);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
@@ -161,21 +118,5 @@ public class CartItem {
         result = 31 * result + (updatedAt != null ? updatedAt.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         return result;
-    }
-
-    public Cart getCartByCartId() {
-        return cartByCartId;
-    }
-
-    public void setCartByCartId(Cart cartByCartId) {
-        this.cartByCartId = cartByCartId;
-    }
-
-    public Product getProductByProductId() {
-        return productByProductId;
-    }
-
-    public void setProductByProductId(Product productByProductId) {
-        this.productByProductId = productByProductId;
     }
 }
