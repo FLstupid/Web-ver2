@@ -173,10 +173,10 @@
                                             <td>
                                                 <a width="100px" href="/sales/order/view/280563326">${Order_detail.id}</a>
                                             </td>
-                                            <td>${element.[0]}</td>
-                                            <td>${element.[1]}</td>
-                                            <td width="100px">${element.[2]}</td>
-                                            <td>${element.[3]}</td>
+                                            <td>${element[0]}</td>
+                                            <td>${element[1]}</td>
+                                            <td width="100px">${element[2]}</td>
+                                            <td>${element[3]}</td>
                                         </tr>
                                         </tbody>
                                     </table>

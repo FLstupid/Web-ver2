@@ -22,7 +22,7 @@ public class OrderServlet extends HttpServlet {
         if (action == null) {
             action = "customerorder"; // default action
         }
-        Account acc = (Account) request.getSession().getAttribute("acc");
+        Account acc = (Account) request.getSession().getAttribute("account");
         long id1 = acc.getId();
         HttpSession session = request.getSession();
         List listorder = orderDetailIO.selectOrderList(id1);

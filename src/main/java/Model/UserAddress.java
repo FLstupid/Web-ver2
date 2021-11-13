@@ -1,19 +1,21 @@
 package Model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
+@Table(name = "user_address", schema = "dhs", catalog = "")
 public class UserAddress {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private long userAccountById;
-    private long userAddressById;
+    private long accountid;
+    private long addressid;
 
-    public UserAddress(long accountId, long addressId) {
-        this.userAccountById = accountId;
-        this.userAddressById = addressId;
+    public UserAddress(long accountid, long addressid) {
+        this.accountid = accountid;
+        this.addressid = addressid;
     }
 
     public UserAddress() {
@@ -21,6 +23,8 @@ public class UserAddress {
     }
 
 
+    @Id
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -42,19 +46,19 @@ public class UserAddress {
         return Objects.hash(id);
     }
 
-    public long getAddressId() {
-        return userAddressById;
+    public long getAddressid() {
+        return addressid;
     }
 
-    public void setAddressId(long addressId) {
-        this.userAddressById = addressId;
+    public void setAddressid(long addressid) {
+        this.addressid = addressid;
     }
 
-    public long getAccountId() {
-        return userAccountById;
+    public long getAccountid() {
+        return accountid;
     }
 
-    public void setAccountId(long accountId) {
-        this.userAccountById = accountId;
+    public void setAccountid(long accountid) {
+        this.accountid = accountid;
     }
 }

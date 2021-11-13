@@ -136,7 +136,6 @@
                     <li><a   href="customerorder"><span>Quản lý đơn hàng</span></a></li>
                     <li><a  href="addresslist"><span>Sổ địa chỉ</span></a></li>
                     <li><a  href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
-                    <li><a   href="buyinglater"><span>Sản phẩm mua sau</span></a></li>
                 </ul>
             </aside>
             <div class="Account_StylesAccountLayoutInner">

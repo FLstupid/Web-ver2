@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 import java.util.List;
 
 public class reviewIO {
-    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
 
 
     public void insert (Review review)

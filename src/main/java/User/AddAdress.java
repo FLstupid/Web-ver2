@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "addaddress", value = "/addaddress")
 public class AddAdress extends HttpServlet {
@@ -39,9 +38,9 @@ public class AddAdress extends HttpServlet {
             Address address = new Address(phone,addressname,province,district);
             HttpSession session = request.getSession();
             session.setAttribute("address", address);
-            Account acc = (Account) request.getSession().getAttribute("acc");
+            Account acc = (Account) request.getSession().getAttribute("account");
             if ( addressname == null || addressname.isEmpty() || phone == null || phone.isEmpty()|| province == null || province.isEmpty()|| district == null || district.isEmpty()) {
-                message = "Please fill out all three text boxes.";
+                message = "Xin hãy nhập đủ giá trị.";
                 url = "/addaddress.jsp";
             }
             else {
@@ -51,8 +50,7 @@ public class AddAdress extends HttpServlet {
                 long id2 = address.getId();
                 UserAddress ua = new UserAddress(id1,id2);
                 userAddressIO.insert(ua);
-                List listaddress = addressIO.selectUserAdress(id1);
-                session.setAttribute("listaddress", listaddress);
+
                 url = "/addaddress.jsp";
 
             }

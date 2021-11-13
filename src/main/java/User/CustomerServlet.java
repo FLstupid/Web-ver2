@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -67,15 +66,20 @@ public class CustomerServlet extends HttpServlet {
             boolean role = true;
             //last update
             lastUpdate = new Timestamp(System.currentTimeMillis());
-            Account  account = new Account(username,password,phone,Gender ,email,"sa",birthday,role,lastUpdate);
-            HttpSession session = request.getSession();
-            session.setAttribute("account", account);
+            Account  account = (Account) request.getSession().getAttribute("account");
             if ( email == null || email.isEmpty() || phone == null || phone.isEmpty()) {
                 message = "Xin hãy điền tất cả các giá trị";
                 url = "/usercenter.jsp";
             }
             else {
                 message = "Cập nhật tài khoản thành công";
+                account.setBirthday(birthday);
+                account.setGender(Gender);
+                account.setLastUpdate(lastUpdate);
+                account.setPhone(phone);
+                account.setRole(role);
+                account.setShopName("");
+                account.setUsername(username);
                 accountIO.update(account);
                 url = "/usercenter.jsp";
             }

@@ -61,8 +61,8 @@ public class addressIO {
         try {
             List acc = em.createQuery("SELECT p.username as username, g.streetName as streetName" +
                     ",g.district as district ,g.city as city , g.phone as phone  FROM Account p ," +
-                    " UserAddress n , Address g WHERE p.id = n.userAccountById AND " +
-                    "g.id = n.userAddressById AND  p.id =?1").setParameter(1,ID).getResultList();
+                    " UserAddress n , Address g WHERE p.id = n.accountid AND " +
+                    "g.id = n.addressid AND  p.id =?1").setParameter(1,ID).getResultList();
             return acc;
 
         } catch (Exception e)

@@ -24,7 +24,7 @@ public class CustomerReviewServlet  extends HttpServlet {
         if (action == null) {
             action = "customerreview"; // default action
         }
-        Account acc = (Account) request.getSession().getAttribute("acc");
+        Account acc = (Account) request.getSession().getAttribute("account");
         HttpSession session = request.getSession();
         long id1 = acc.getId();
         List<Review> reviewlist = reviewIO.selectOrderReviewList(id1);

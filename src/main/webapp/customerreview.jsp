@@ -161,11 +161,11 @@
                                         </thead>
                                         <tbody>
                                           <tr>
-                                            <td>
-                                               <a width="100px" href="">${element[0]}</a>
+                                            <td width="100px">
+                                               ${element[0]}
                                             </td>
-                                            <td>${element.[1]}</td>
-                                            <td width="100px">${element.[2]}</td>
+                                            <td>${element[1]}</td>
+                                            <td width="100px">${element[2]}</td>
                                           </tr>
                                         </tbody>
                                     </table>

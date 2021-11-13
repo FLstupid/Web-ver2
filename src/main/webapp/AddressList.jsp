@@ -158,6 +158,7 @@
                                 <p style="margin-left: 420px">Chưa có địa chỉ nào</p>
                             </c:if>
                             <c:if test="${not empty listaddress}">
+                                <c:out value="${elements[0]}"/>
                                 <c:forEach items="${listaddress}" var="elements">
                                     <div class = "_1address">
                                             <div style="display: flex; margin-bottom: 10px;" class="addresslist">
