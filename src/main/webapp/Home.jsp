@@ -66,78 +66,81 @@
                         </button>
                     </div>
                 </div>
-            <% session = request.getSession(false);
-                if (session == null || session.getAttribute("loggedInUser") == null) {%>
-                <a href="login"> Đăng nhập | Đăng ký</a>
-            <%} else {%>
+                <% session = request.getSession(false);
+                    if (session == null || session.getAttribute("loggedInUser") == null) {%>
+                <a href=""> Đăng nhập | Đăng ký</a>
+                <%} else {%>
                 <div class="Userstyle__Root">
                     <div class="Userstyle__Item">
                         <img class="profile-icon" src="Home/img/user.png" alt="" />
                         <a class="Userstyle__ItemText">
                             <span class="Userstyle__NoWrap">Tài khoản</span>
                             <span class="account_laber">
-                                <div style="display: flex" class="buttonDropdown">
-                                    <span>user-name</span>
-                                    <img class="arrowIcon" src="Home/img/down.png" alt="" />
-                                </div>
-                                <div
-                                        style="margin-top: 20px"
-                                        class="UserHeader_UserDropDown disableForm"
-                                >
-                                    <a
-                                            rel="nofollow"
-                                            href="${pageContext.request.contextPath}/customerorder"
-                                    >
-                                        <p
-                                                title="Order history"
-                                                class="UserHeader_UserDropDownItem"
+										<div style="display: flex" class="buttonDropdown">
+											<span>user-name</span>
+											<img class="arrowIcon" src="Home/img/down.png" alt="" />
+										</div>
+										<div
+                                                style="margin-top: 20px"
+                                                class="UserHeader_UserDropDown disableForm"
                                         >
-                                            Order history
-                                        </p>
-                                    </a>
+											<a
+                                                    rel="nofollow"
+                                                    href="${pageContext.request.contextPath}/customerorder"
+                                            >
+												<p
+                                                        title="Order history"
+                                                        class="UserHeader_UserDropDownItem"
+                                                >
+													Order history
+												</p>
+											</a>
 
-                                    <a
-                                            rel="nofollow"
-                                            href="${pageContext.request.contextPath}/customer"
-                                    >
-                                        <p
-                                                title="My account"
-                                                class="UserHeader_UserDropDownItem"
-                                        >
-                                            My account
-                                        </p>
-                                    </a>
-                                    <a
-                                            rel="nofollow"
-                                            href="${pageContext.request.contextPath}/changingpassword"
-                                    >
-                                        <p
-                                                title="Notification"
-                                                class="UserHeader_UserDropDownItem"
-                                        >
-                                            Changing password
-                                        </p>
-                                    </a>
-                                    <a
-                                            rel="nofollow"
-                                            href="${pageContext.request.contextPath}/customerReview"
-                                    >
-                                        <p title="Reviews" class="UserHeader_UserDropDownItem">
-                                            "Reviews"
-                                        </p>
-                                    </a>
-                                    <a rel="nofollow" href="">
-                                        <p title="Log out" class="UserHeader_UserDropDownItem">
-                                            Log out
-                                        </p>
-                                    </a>
-                                </div>
-                            </span>
+											<a
+                                                    rel="nofollow"
+                                                    href="${pageContext.request.contextPath}/customer"
+                                            >
+												<p
+                                                        title="My account"
+                                                        class="UserHeader_UserDropDownItem"
+                                                >
+													My account
+												</p>
+											</a>
+											<a
+                                                    rel="nofollow"
+                                                    href="${pageContext.request.contextPath}/changingpassword"
+                                            >
+												<p
+                                                        title="Notification"
+                                                        class="UserHeader_UserDropDownItem"
+                                                >
+													Changing password
+												</p>
+											</a>
+											<a
+                                                    rel="nofollow"
+                                                    href="${pageContext.request.contextPath}/customerReview"
+                                            >
+												<p title="Reviews" class="UserHeader_UserDropDownItem">
+													"Reviews"
+												</p>
+											</a>
+											<a rel="nofollow" href="">
+												<p title="Log out" class="UserHeader_UserDropDownItem">
+													Log out
+												</p>
+											</a>
+										</div>
+									</span>
                         </a>
                     </div>
+
                     <div class="Userstyle__CartItem">
-                        <a href="${pageContext.request.contextPath}/cart"
-                                rel="nofollow">
+                        <a
+                                href="${pageContext.request.contextPath}/cart"
+                                rel="nofollow"
+                        >
                             <div class="Userstyle__Item2">
                                 <div class="cart-wrapper">
                                     <img
@@ -152,10 +155,13 @@
                         </a>
                     </div>
                 </div>
-            <%}%>
+                <%}%>
+            </c:if>
+            </div>
         </div>
     </section>
 </header>
+
 <!---------------------------------------------------main-------------------------------------------->
 <main style="margin-top: 130px">
     <div class="Container">
@@ -560,6 +566,7 @@
     </div>
 </main>
 <!---------------------------------------------------footer-------------------------------------------->
+
 <script src="js/main.js"></script>
 </body>
 </html>

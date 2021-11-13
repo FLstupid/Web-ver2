@@ -32,7 +32,7 @@ public class Users extends HttpServlet{
             {
                 message = "Tài khoản đã tồn tài";
             }else{
-                message = "Cập nhật tài khoản thành công";
+                message = "Đang kí tài khoản thành công";
                  temp = new Account(email,password);
                  accountIO.insert(temp);
                 request.setAttribute("loggedInUser", temp);
@@ -50,6 +50,7 @@ public class Users extends HttpServlet{
                temp = accountIO.selectAcc(email);
               if(temp.getPasswordHash().equals(password))
               {
+                  message = "Đăng nhập thành công";
                   url = "/HOME.jsp";
               }else {
                   message = "Mật khẩu không trùng khớp";
