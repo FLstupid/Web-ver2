@@ -337,8 +337,6 @@
 <script src="js/main.js">
 </script>
 <script>
-
-
     function Showmessage(message)
     {
         alert(message);

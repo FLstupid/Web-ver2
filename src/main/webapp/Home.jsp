@@ -68,7 +68,7 @@
                 </div>
                 <% session = request.getSession(false);
                     if (session == null || session.getAttribute("loggedInUser") == null) {%>
-                <a href=""> Đăng nhập | Đăng ký</a>
+                <a href="login" style="text-decoration: none; color: whitesmoke;"> Đăng nhập | Đăng ký</a>
                 <%} else {%>
                 <div class="Userstyle__Root">
                     <div class="Userstyle__Item">

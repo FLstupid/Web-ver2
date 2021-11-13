@@ -53,8 +53,8 @@ public class Account {
 
     }
 
-    public Account(String username, String password) {
-        this.email = username;
+    public Account(String email, String password) {
+        this.email = email;
         this.passwordHash = password;
     }
 

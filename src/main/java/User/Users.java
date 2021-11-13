@@ -8,15 +8,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "login", value = "/login")
+@WebServlet(name = "login1", value = "/login1")
 public class Users extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = "/login.jsp";
         String action = request.getParameter("action");
         String message = "";
+        HttpSession session = request.getSession();
         Account temp = null;
         if (action == null) {
             action = "join";  // default action
@@ -30,17 +32,16 @@ public class Users extends HttpServlet{
             String password = request.getParameter("password");
             if(accountIO.userExist(email))
             {
-                message = "Tài khoản đã tồn tài";
+                 message = "Tài khoản đã tồn tại";
             }else{
-                message = "Đang kí tài khoản thành công";
+                message = "Đăng kí tài khoản thành công";
                  temp = new Account(email,password);
                  accountIO.insert(temp);
-                request.setAttribute("loggedInUser", temp);
-                request.setAttribute("message", message);
+
             }
-            getServletContext()
-                    .getRequestDispatcher(url)
-                    .forward(request, response);
+            request.setAttribute("loggedInUser", temp);
+            request.setAttribute("message", message);
+
         }
         else if (action.equals("signin")){
             String email = request.getParameter("email");
@@ -51,7 +52,9 @@ public class Users extends HttpServlet{
               if(temp.getPasswordHash().equals(password))
               {
                   message = "Đăng nhập thành công";
-                  url = "/HOME.jsp";
+
+                  session.setAttribute("loggedInUser", temp);
+                  url = "/Home.jsp";
               }else {
                   message = "Mật khẩu không trùng khớp";
               }
@@ -62,8 +65,9 @@ public class Users extends HttpServlet{
             }
             request.setAttribute("account", temp);
             request.setAttribute("message", message);
+
         }
-        request.getSession().setAttribute("acc", temp);
+        request.getSession().setAttribute("account", temp);
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
