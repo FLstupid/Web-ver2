@@ -71,12 +71,12 @@ public class CustomerServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("account", account);
             if ( email == null || email.isEmpty() || phone == null || phone.isEmpty()) {
-                message = "Please fill out all three text boxes.";
+                message = "Xin hãy điền tất cả các giá trị";
                 url = "/usercenter.jsp";
             }
             else {
                 message = "Cập nhật tài khoản thành công";
-                accountIO.insert(account);
+                accountIO.update(account);
                 url = "/usercenter.jsp";
             }
             request.setAttribute("account", account);

@@ -63,12 +63,12 @@ public  class accountIO {
             em.close();
         }
     }
-    public static Account selectAcc (String username)
+    public static Account selectAcc (String email)
     {EntityManager em = emf.createEntityManager();
         String query = "SELECT u FROM Account u " +
-                "WHERE u.username = :username";
+                "WHERE u.email = :email";
         TypedQuery<Account> q = em.createQuery(query,Account.class);
-        q.setParameter("username",username);
+        q.setParameter("email",email);
         try {
             Account acc = q.getSingleResult();
             return acc;

@@ -53,6 +53,11 @@ public class Account {
 
     }
 
+    public Account(String username, String password) {
+        this.email = username;
+        this.passwordHash = password;
+    }
+
     public long getId() {
         return id;
     }

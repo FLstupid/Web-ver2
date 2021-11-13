@@ -48,10 +48,6 @@
                         </button>
                     </div>
                 </div>
-<%--                <c:if test="">--%>
-<%--                    <a href=""> Đăng nhập | Đăng ký</a>--%>
-<%--                </c:if>--%>
-<%--                <c:if test="">--%>
                     <div class="Userstyle__Root">
                         <div class="Userstyle__Item">
                             <img class="profile-icon" src="Home/img/user.png" alt=""/>
@@ -108,7 +104,6 @@
                             </a>
                         </div>
                     </div>
-<%--                </c:if>--%>
             </div>
         </div>
     </section>

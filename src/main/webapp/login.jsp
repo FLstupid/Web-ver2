@@ -10,7 +10,8 @@
 <!-- partial:index.partial.html -->
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form method="post" action="login">
+			<input type="hidden" name="action" value="add">
 			<h1>Đăng Ký</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -20,11 +21,20 @@
 			<span>Hoặc tiếp tục bằng</span>
 			<input type="email" placeholder="Email"/>
 			<input type="password" placeholder="Mật Khẩu"/>
-			<button>Đăng Ký</button>
+<%--			<div  class="form-control">--%>
+				<button type="submit" class="btn-submit">Đăng Ký</button>
+<%--				<c:if test="${not empty message}">--%>
+<%--					<script>--%>
+<%--					window.addEventListener("load",function(){--%>
+<%--					alert("${message}");--%>
+<%--					})--%>
+<%--					</script>--%>
+<%--			</div>--%>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form method="post" action="login">
+			<input type="hidden" name="action" value="signin">
 			<h1>Đăng Nhập</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -35,7 +45,15 @@
 			<input type="email" placeholder="Email"/>
 			<input type="password" placeholder="Mật khẩu"/>
 			<a href="#">Quên mật khẩu ?</a>
-			<button>Đăng Nhập</button>
+			<div class="form-control">
+			<button type="submit" class="btn-submit">Đăng Nhập</button>
+<%--			<c:if test="${not empty message}">--%>
+<%--				<script>--%>
+<%--				window.addEventListener("load",function(){--%>
+<%--				alert("${message}");--%>
+<%--				})--%>
+<%--				</script>--%>
+			</div>
 		</form>
 	</div>
 	<div class="overlay-container">
