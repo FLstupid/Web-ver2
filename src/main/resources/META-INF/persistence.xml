@@ -22,7 +22,6 @@
     <class>Model.Tag</class>
     <class>Model.TagProduct</class>
     <class>Model.Trans</class>
-    <class>Model.Transistion</class>
     <class>Model.UserAddress</class>
       <class>Model.UserAddress</class>
 

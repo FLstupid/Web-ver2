@@ -1,13 +1,18 @@
 package Model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 public class Trans {
-    @Id
     private long id;
     private Long accountId;
     private Long orderId;
+    private Integer states;
+    private String detailstates;
+    private String payment;
+    private String detailpayment;
+    private Timestamp updatedAt;
 
     @ManyToOne
     private Account AccountId;
@@ -15,6 +20,8 @@ public class Trans {
     @ManyToOne
     private OrderDetail OrderId;
 
+    @Id
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -23,6 +30,8 @@ public class Trans {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "AccountId")
     public Long getAccountId() {
         return accountId;
     }
@@ -31,6 +40,8 @@ public class Trans {
         this.accountId = accountId;
     }
 
+    @Basic
+    @Column(name = "orderId")
     public Long getOrderId() {
         return orderId;
     }
@@ -59,6 +70,8 @@ public class Trans {
         return result;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "AccountId", referencedColumnName = "id")
     public Account getAccountByAccountId() {
         return AccountId;
     }
@@ -67,11 +80,63 @@ public class Trans {
         this.AccountId = accountByAccountId;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "orderId", referencedColumnName = "id")
     public OrderDetail getOrderDetailByOrderId() {
         return OrderId;
     }
 
     public void setOrderDetailByOrderId(OrderDetail orderDetailByOrderId) {
         this.OrderId = orderDetailByOrderId;
+    }
+
+    @Basic
+    @Column(name = "states")
+    public Integer getStates() {
+        return states;
+    }
+
+    public void setStates(Integer states) {
+        this.states = states;
+    }
+
+    @Basic
+    @Column(name = "detailstates")
+    public String getDetailstates() {
+        return detailstates;
+    }
+
+    public void setDetailstates(String detailstates) {
+        this.detailstates = detailstates;
+    }
+
+    @Basic
+    @Column(name = "payment")
+    public String getPayment() {
+        return payment;
+    }
+
+    public void setPayment(String payment) {
+        this.payment = payment;
+    }
+
+    @Basic
+    @Column(name = "detailpayment")
+    public String getDetailpayment() {
+        return detailpayment;
+    }
+
+    public void setDetailpayment(String detailpayment) {
+        this.detailpayment = detailpayment;
+    }
+
+    @Basic
+    @Column(name = "updatedAt")
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

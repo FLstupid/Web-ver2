@@ -5,14 +5,15 @@ import java.util.Collection;
 
 @Entity
 public class Delivery {
-    @Id
     private long id;
     private String methodName;
     private Integer price;
 
-    @OneToMany
+    @OneToMany(mappedBy = "deliveryByDeliveryId")
     private Collection<ShopDelivery> shopDeliveriesById;
 
+    @Id
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -21,6 +22,8 @@ public class Delivery {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "methodName")
     public String getMethodName() {
         return methodName;
     }
@@ -29,6 +32,8 @@ public class Delivery {
         this.methodName = methodName;
     }
 
+    @Basic
+    @Column(name = "price")
     public Integer getPrice() {
         return price;
     }

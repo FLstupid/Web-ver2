@@ -2,6 +2,7 @@ package Model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +19,12 @@ public class OrderDetail {
     private double totalPrice;
     private Timestamp updatedAt;
     private String note;
+
+    @OneToMany(mappedBy = "orderDetailByOrderId")
+    private Collection<OrderItem> orderItemsById;
+
+    @OneToMany(mappedBy = "orderDetailByOrderId")
+    private Collection<Trans> transById;
 
     @Id
     @Column(name = "id")
@@ -140,5 +147,21 @@ public class OrderDetail {
     @Override
     public int hashCode() {
         return Objects.hash(id, phone, streetName, city, district, delivery, createdAt, shipPrice, totalPrice, updatedAt, note);
+    }
+
+    public Collection<OrderItem> getOrderItemsById() {
+        return orderItemsById;
+    }
+
+    public void setOrderItemsById(Collection<OrderItem> orderItemsById) {
+        this.orderItemsById = orderItemsById;
+    }
+
+    public Collection<Trans> getTransById() {
+        return transById;
+    }
+
+    public void setTransById(Collection<Trans> transById) {
+        this.transById = transById;
     }
 }

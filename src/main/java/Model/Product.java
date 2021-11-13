@@ -3,11 +3,10 @@ package Model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private Short status;
     private long shopId;
@@ -23,19 +22,23 @@ public class Product {
     private Timestamp createdAt;
     private Timestamp publishedAt;
 
-    @OneToMany
+    @OneToMany(mappedBy = "productByProductId")
     private Collection<CartItem> cartItemsById;
-    @OneToMany
+    @OneToMany(mappedBy = "productByProductId")
     private Collection<CategoryProduct> categoryProductsById;
-    @OneToMany
+    @OneToMany(mappedBy = "productByProductId")
     private Collection<OrderItem> orderItemsById;
     @ManyToOne
+    @JoinColumn(name = "shopId", referencedColumnName = "id", nullable = false)
     private Shop shopByShopId;
-    @OneToMany
+    @OneToMany(mappedBy = "productByProductId")
     private Collection<Review> reviewsById;
-    @OneToMany
+    @OneToMany(mappedBy = "productByProductId")
     private Collection<TagProduct> tagProductsById;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -44,6 +47,8 @@ public class Product {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "status")
     public Short getStatus() {
         return status;
     }
@@ -52,6 +57,8 @@ public class Product {
         this.status = status;
     }
 
+    @Basic
+    @Column(name = "shopId")
     public long getShopId() {
         return shopId;
     }
@@ -60,6 +67,8 @@ public class Product {
         this.shopId = shopId;
     }
 
+    @Basic
+    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -68,6 +77,8 @@ public class Product {
         this.title = title;
     }
 
+    @Basic
+    @Column(name = "quality")
     public short getQuality() {
         return quality;
     }
@@ -76,6 +87,8 @@ public class Product {
         this.quality = quality;
     }
 
+    @Basic
+    @Column(name = "price")
     public double getPrice() {
         return price;
     }
@@ -84,6 +97,8 @@ public class Product {
         this.price = price;
     }
 
+    @Basic
+    @Column(name = "discount")
     public double getDiscount() {
         return discount;
     }
@@ -92,6 +107,8 @@ public class Product {
         this.discount = discount;
     }
 
+    @Basic
+    @Column(name = "startAt")
     public Timestamp getStartAt() {
         return startAt;
     }
@@ -100,6 +117,8 @@ public class Product {
         this.startAt = startAt;
     }
 
+    @Basic
+    @Column(name = "endsAt")
     public Timestamp getEndsAt() {
         return endsAt;
     }
@@ -108,14 +127,19 @@ public class Product {
         this.endsAt = endsAt;
     }
 
+    @Basic
+    @Column(name = "decription")
     public String getDecription() {
         return decription;
     }
+
 
     public void setDecription(String decription) {
         this.decription = decription;
     }
 
+    @Basic
+    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -124,6 +148,8 @@ public class Product {
         this.content = content;
     }
 
+    @Basic
+    @Column(name = "updatedAt")
     public Timestamp getUpdatedAt() {
         return updatedAt;
     }
@@ -132,6 +158,8 @@ public class Product {
         this.updatedAt = updatedAt;
     }
 
+    @Basic
+    @Column(name = "createdAt")
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -140,6 +168,8 @@ public class Product {
         this.createdAt = createdAt;
     }
 
+    @Basic
+    @Column(name = "publishedAt")
     public Timestamp getPublishedAt() {
         return publishedAt;
     }
@@ -160,15 +190,15 @@ public class Product {
         if (quality != product.quality) return false;
         if (Double.compare(product.price, price) != 0) return false;
         if (Double.compare(product.discount, discount) != 0) return false;
-        if (status != null ? !status.equals(product.status) : product.status != null) return false;
-        if (title != null ? !title.equals(product.title) : product.title != null) return false;
-        if (startAt != null ? !startAt.equals(product.startAt) : product.startAt != null) return false;
-        if (endsAt != null ? !endsAt.equals(product.endsAt) : product.endsAt != null) return false;
-        if (decription != null ? !decription.equals(product.decription) : product.decription != null) return false;
-        if (content != null ? !content.equals(product.content) : product.content != null) return false;
-        if (updatedAt != null ? !updatedAt.equals(product.updatedAt) : product.updatedAt != null) return false;
-        if (createdAt != null ? !createdAt.equals(product.createdAt) : product.createdAt != null) return false;
-        return publishedAt != null ? publishedAt.equals(product.publishedAt) : product.publishedAt == null;
+        if (!Objects.equals(status, product.status)) return false;
+        if (!Objects.equals(title, product.title)) return false;
+        if (!Objects.equals(startAt, product.startAt)) return false;
+        if (!Objects.equals(endsAt, product.endsAt)) return false;
+        if (!Objects.equals(decription, product.decription)) return false;
+        if (!Objects.equals(content, product.content)) return false;
+        if (!Objects.equals(updatedAt, product.updatedAt)) return false;
+        if (!Objects.equals(createdAt, product.createdAt)) return false;
+        return Objects.equals(publishedAt, product.publishedAt);
     }
 
     @Override
@@ -233,6 +263,7 @@ public class Product {
     public void setReviewsById(Collection<Review> reviewsById) {
         this.reviewsById = reviewsById;
     }
+
 
     public Collection<TagProduct> getTagProductsById() {
         return tagProductsById;

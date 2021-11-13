@@ -23,7 +23,7 @@
           <factory-entry name="Economic" value="1d1be166-408b-47e5-8588-806a762bc06d" />
           <factory-entry name="WebThuongMaiDienTu" />
           <factory-entry name="default" value="1d1be166-408b-47e5-8588-806a762bc06d" />
-          <factory-entry name="dhs" value="f66f9825-99dd-4590-8230-883f4a4498ad" />
+          <factory-entry name="dhs" value="5ba7e909-370a-4cb6-b2f7-159460b8e993" />
           <factory-entry name="noname-a.xml@0" value="1d1be166-408b-47e5-8588-806a762bc06d" />
         </datasource-mapping>
         <naming-strategy-map>

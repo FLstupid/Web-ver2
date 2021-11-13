@@ -3,11 +3,10 @@ package Model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
-import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Shop {
-    @Id
     private long id;
     private long accountId;
     private String streetName;
@@ -19,13 +18,16 @@ public class Shop {
     private short status;
     private Timestamp lastUpdate;
 
-    @OneToMany
+    @OneToMany(mappedBy = "shopByShopId")
     private Collection<Product> productsById;
     @ManyToOne
+    @JoinColumn(name = "accountId", referencedColumnName = "id", nullable = false)
     private Account accountByAccountId;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "shopByShopId")
     private Collection<ShopDelivery> shopDeliveriesById;
 
+    @Id
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -34,6 +36,8 @@ public class Shop {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "accountId")
     public long getAccountId() {
         return accountId;
     }
@@ -42,6 +46,8 @@ public class Shop {
         this.accountId = accountId;
     }
 
+    @Basic
+    @Column(name = "street_name")
     public String getStreetName() {
         return streetName;
     }
@@ -50,6 +56,8 @@ public class Shop {
         this.streetName = streetName;
     }
 
+    @Basic
+    @Column(name = "city")
     public String getCity() {
         return city;
     }
@@ -58,6 +66,8 @@ public class Shop {
         this.city = city;
     }
 
+    @Basic
+    @Column(name = "district")
     public String getDistrict() {
         return district;
     }
@@ -66,6 +76,8 @@ public class Shop {
         this.district = district;
     }
 
+    @Basic
+    @Column(name = "bank_id")
     public int getBankId() {
         return bankId;
     }
@@ -74,6 +86,8 @@ public class Shop {
         this.bankId = bankId;
     }
 
+    @Basic
+    @Column(name = "active_day")
     public int getActiveDay() {
         return activeDay;
     }
@@ -82,6 +96,8 @@ public class Shop {
         this.activeDay = activeDay;
     }
 
+    @Basic
+    @Column(name = "number_product")
     public long getNumberProduct() {
         return numberProduct;
     }
@@ -90,6 +106,8 @@ public class Shop {
         this.numberProduct = numberProduct;
     }
 
+    @Basic
+    @Column(name = "status")
     public short getStatus() {
         return status;
     }
@@ -98,6 +116,8 @@ public class Shop {
         this.status = status;
     }
 
+    @Basic
+    @Column(name = "LAST_UPDATE")
     public Timestamp getLastUpdate() {
         return lastUpdate;
     }
@@ -119,12 +139,10 @@ public class Shop {
         if (activeDay != shop.activeDay) return false;
         if (numberProduct != shop.numberProduct) return false;
         if (status != shop.status) return false;
-        if (streetName != null ? !streetName.equals(shop.streetName) : shop.streetName != null) return false;
-        if (city != null ? !city.equals(shop.city) : shop.city != null) return false;
-        if (district != null ? !district.equals(shop.district) : shop.district != null) return false;
-        if (lastUpdate != null ? !lastUpdate.equals(shop.lastUpdate) : shop.lastUpdate != null) return false;
-
-        return true;
+        if (!Objects.equals(streetName, shop.streetName)) return false;
+        if (!Objects.equals(city, shop.city)) return false;
+        if (!Objects.equals(district, shop.district)) return false;
+        return Objects.equals(lastUpdate, shop.lastUpdate);
     }
 
     @Override
@@ -145,7 +163,6 @@ public class Shop {
     public Collection<Product> getProductsById() {
         return productsById;
     }
-
     public void setProductsById(Collection<Product> productsById) {
         this.productsById = productsById;
     }
@@ -153,7 +170,6 @@ public class Shop {
     public Account getAccountByAccountId() {
         return accountByAccountId;
     }
-
     public void setAccountByAccountId(Account accountByAccountId) {
         this.accountByAccountId = accountByAccountId;
     }
@@ -161,7 +177,6 @@ public class Shop {
     public Collection<ShopDelivery> getShopDeliveriesById() {
         return shopDeliveriesById;
     }
-
     public void setShopDeliveriesById(Collection<ShopDelivery> shopDeliveriesById) {
         this.shopDeliveriesById = shopDeliveriesById;
     }

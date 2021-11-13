@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
+@Table(name = "cart_item", schema = "dhs", catalog = "")
 public class CartItem {
-    @Id
     private long id;
     private Long cartId;
     private Long productId;
@@ -18,10 +18,15 @@ public class CartItem {
     private String content;
 
     @ManyToOne
+    @JoinColumn(name = "cartId", referencedColumnName = "id")
     private Cart cartByCartId;
+
     @ManyToOne
+    @JoinColumn(name = "productId", referencedColumnName = "id")
     private Product productByProductId;
 
+    @Id
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -30,6 +35,8 @@ public class CartItem {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "cartId")
     public Long getCartId() {
         return cartId;
     }
@@ -38,6 +45,8 @@ public class CartItem {
         this.cartId = cartId;
     }
 
+    @Basic
+    @Column(name = "productId")
     public Long getProductId() {
         return productId;
     }
@@ -46,6 +55,8 @@ public class CartItem {
         this.productId = productId;
     }
 
+    @Basic
+    @Column(name = "quality")
     public short getQuality() {
         return quality;
     }
@@ -54,6 +65,8 @@ public class CartItem {
         this.quality = quality;
     }
 
+    @Basic
+    @Column(name = "price")
     public double getPrice() {
         return price;
     }
@@ -62,6 +75,8 @@ public class CartItem {
         this.price = price;
     }
 
+    @Basic
+    @Column(name = "discount")
     public double getDiscount() {
         return discount;
     }
@@ -70,6 +85,8 @@ public class CartItem {
         this.discount = discount;
     }
 
+    @Basic
+    @Column(name = "amount")
     public int getAmount() {
         return amount;
     }
@@ -78,6 +95,8 @@ public class CartItem {
         this.amount = amount;
     }
 
+    @Basic
+    @Column(name = "createdAt")
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -86,6 +105,8 @@ public class CartItem {
         this.createdAt = createdAt;
     }
 
+    @Basic
+    @Column(name = "updatedAt")
     public Timestamp getUpdatedAt() {
         return updatedAt;
     }
@@ -94,6 +115,8 @@ public class CartItem {
         this.updatedAt = updatedAt;
     }
 
+    @Basic
+    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -101,10 +124,7 @@ public class CartItem {
     public void setContent(String content) {
         this.content = content;
     }
-    public double getSumPrice(){
-        price=price*quality;
-        return price;
-    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

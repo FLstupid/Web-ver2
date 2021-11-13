@@ -1,27 +1,26 @@
 package Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "user_address", schema = "dhs", catalog = "")
 public class UserAddress {
     private long id;
-    private long accountid;
-    private long addressid;
+    @ManyToOne
+    @JoinColumn(name = "accountId", referencedColumnName = "id")
+    private Account accountByAccountId;
+    @ManyToOne
+    @JoinColumn(name = "addressId", referencedColumnName = "id")
+    private Address addressByAddressId;
 
-    public UserAddress(long accountid, long addressid) {
-        this.accountid = accountid;
-        this.addressid = addressid;
+    public UserAddress(Account accountid, Address addressid) {
+        this.accountByAccountId = accountid;
+        this.addressByAddressId = addressid;
     }
-
     public UserAddress() {
 
     }
-
 
     @Id
     @Column(name = "id")
@@ -46,19 +45,19 @@ public class UserAddress {
         return Objects.hash(id);
     }
 
-    public long getAddressid() {
-        return addressid;
+    public Account getAccountByAccountId() {
+        return accountByAccountId;
     }
 
-    public void setAddressid(long addressid) {
-        this.addressid = addressid;
+    public void setAccountByAccountId(Account accountByAccountId) {
+        this.accountByAccountId = accountByAccountId;
     }
 
-    public long getAccountid() {
-        return accountid;
+    public Address getAddressByAddressId() {
+        return addressByAddressId;
     }
 
-    public void setAccountid(long accountid) {
-        this.accountid = accountid;
+    public void setAddressByAddressId(Address addressByAddressId) {
+        this.addressByAddressId = addressByAddressId;
     }
 }

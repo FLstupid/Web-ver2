@@ -4,12 +4,10 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Collection;
-import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Account {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String username;
     private String passwordHash;
@@ -21,21 +19,20 @@ public class Account {
     private boolean role;
     private Timestamp lastUpdate;
 
-    @OneToMany
+    @OneToMany(mappedBy = "accountByAccountId")
     private Collection<Cart> cartsById;
-    @OneToMany
-    private Collection<Review> reviewsById;
-    @OneToMany
-    private Collection<Shop> shopsById;
-    @OneToMany
-    private Collection<Trans> transById;
-    @OneToMany
-    private Collection<Transistion> transistionsById;
-    @OneToMany
-    private Collection<UserAddress> userAccountById;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Address> addressList;
+    @OneToMany(mappedBy = "accountByUserId")
+    private Collection<Review> reviewsById;
+
+    @OneToMany(mappedBy = "accountByAccountId")
+    private Collection<Shop> shopsById;
+
+    @OneToMany(mappedBy = "accountByAccountId")
+    private Collection<Trans> transById;
+
+    @OneToMany(mappedBy = "accountByAccountId")
+    private Collection<UserAddress> userAccountById;
 
     public Account(String username, String password, String phone, Boolean gender, String email, String sa, Date birhday, Boolean c, Timestamp lastUpdate) {
         this.username = username;
@@ -48,7 +45,6 @@ public class Account {
         this.role = c;
         this.lastUpdate = lastUpdate;
     }
-
     public Account() {
 
     }
@@ -58,6 +54,9 @@ public class Account {
         this.passwordHash = password;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -66,6 +65,8 @@ public class Account {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "username")
     public String getUsername() {
         return username;
     }
@@ -74,6 +75,8 @@ public class Account {
         this.username = username;
     }
 
+    @Basic
+    @Column(name = "passwordHash")
     public String getPasswordHash() {
         return passwordHash;
     }
@@ -82,6 +85,8 @@ public class Account {
         this.passwordHash = passwordHash;
     }
 
+    @Basic
+    @Column(name = "phone")
     public String getPhone() {
         return phone;
     }
@@ -90,14 +95,17 @@ public class Account {
         this.phone = phone;
     }
 
-    public boolean isGender() {
+    @Basic
+    @Column(name = "gender")
+    public boolean getGender() {
         return gender;
     }
-
     public void setGender(boolean gender) {
         this.gender = gender;
     }
 
+    @Basic
+    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -106,6 +114,8 @@ public class Account {
         this.email = email;
     }
 
+    @Basic
+    @Column(name = "shopName")
     public String getShopName() {
         return shopName;
     }
@@ -114,6 +124,8 @@ public class Account {
         this.shopName = shopName;
     }
 
+    @Basic
+    @Column(name = "birthday")
     public Date getBirthday() {
         return birthday;
     }
@@ -122,7 +134,9 @@ public class Account {
         this.birthday = birthday;
     }
 
-    public boolean isRole() {
+    @Basic
+    @Column(name = "role")
+    public boolean getRole() {
         return role;
     }
 
@@ -130,6 +144,8 @@ public class Account {
         this.role = role;
     }
 
+    @Basic
+    @Column(name = "lastUpdate")
     public Timestamp getLastUpdate() {
         return lastUpdate;
     }
@@ -146,16 +162,16 @@ public class Account {
         Account account = (Account) o;
 
         if (id != account.id) return false;
-        if (phone != account.phone) return false;
+        if (!Objects.equals(phone, account.phone)) return false;
         if (gender != account.gender) return false;
         if (role != account.role) return false;
-        if (username != null ? !username.equals(account.username) : account.username != null) return false;
-        if (passwordHash != null ? !passwordHash.equals(account.passwordHash) : account.passwordHash != null)
+        if (!Objects.equals(username, account.username)) return false;
+        if (!Objects.equals(passwordHash, account.passwordHash))
             return false;
-        if (email != null ? !email.equals(account.email) : account.email != null) return false;
-        if (shopName != null ? !shopName.equals(account.shopName) : account.shopName != null) return false;
-        if (birthday != null ? !birthday.equals(account.birthday) : account.birthday != null) return false;
-        return lastUpdate != null ? lastUpdate.equals(account.lastUpdate) : account.lastUpdate == null;
+        if (!Objects.equals(email, account.email)) return false;
+        if (!Objects.equals(shopName, account.shopName)) return false;
+        if (!Objects.equals(birthday, account.birthday)) return false;
+        return Objects.equals(lastUpdate, account.lastUpdate);
     }
 
     @Override
@@ -172,8 +188,6 @@ public class Account {
         result = 31 * result + (lastUpdate != null ? lastUpdate.hashCode() : 0);
         return result;
     }
-
-    @OneToMany(mappedBy = "accountByAccountId")
     public Collection<Cart> getCartsById() {
         return cartsById;
     }
@@ -206,19 +220,11 @@ public class Account {
         this.transById = transById;
     }
 
-    public Collection<Transistion> getTransistionsById() {
-        return transistionsById;
-    }
-
-    public void setTransistionsById(Collection<Transistion> transistionsById) {
-        this.transistionsById = transistionsById;
-    }
-
     public Collection<UserAddress> getUserAccountById() {
         return userAccountById;
     }
 
-    public void setUserAddressesById(Collection<UserAddress> userAccountById) {
+    public void setUserAccountById(Collection<UserAddress> userAccountById) {
         this.userAccountById = userAccountById;
     }
 }

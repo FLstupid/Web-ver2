@@ -16,10 +16,14 @@ public class Review {
     private String content;
 
     @ManyToOne
+    @JoinColumn(name = "productId", referencedColumnName = "id")
     private Product productByProductId;
     @ManyToOne
+    @JoinColumn(name = "userId", referencedColumnName = "id")
     private Account accountByUserId;
 
+    @Id
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -28,6 +32,8 @@ public class Review {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "productId")
     public Long getProductId() {
         return productId;
     }
@@ -36,6 +42,8 @@ public class Review {
         this.productId = productId;
     }
 
+    @Basic
+    @Column(name = "userId")
     public Long getUserId() {
         return userId;
     }
@@ -44,6 +52,8 @@ public class Review {
         this.userId = userId;
     }
 
+    @Basic
+    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -52,6 +62,8 @@ public class Review {
         this.title = title;
     }
 
+    @Basic
+    @Column(name = "rating")
     public short getRating() {
         return rating;
     }
@@ -60,6 +72,8 @@ public class Review {
         this.rating = rating;
     }
 
+    @Basic
+    @Column(name = "publishedAt")
     public Timestamp getPublishedAt() {
         return publishedAt;
     }
@@ -68,6 +82,8 @@ public class Review {
         this.publishedAt = publishedAt;
     }
 
+    @Basic
+    @Column(name = "createdAt")
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -76,6 +92,8 @@ public class Review {
         this.createdAt = createdAt;
     }
 
+    @Basic
+    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -98,9 +116,7 @@ public class Review {
         if (title != null ? !title.equals(review.title) : review.title != null) return false;
         if (publishedAt != null ? !publishedAt.equals(review.publishedAt) : review.publishedAt != null) return false;
         if (createdAt != null ? !createdAt.equals(review.createdAt) : review.createdAt != null) return false;
-        if (content != null ? !content.equals(review.content) : review.content != null) return false;
-
-        return true;
+        return content != null ? content.equals(review.content) : review.content == null;
     }
 
     @Override

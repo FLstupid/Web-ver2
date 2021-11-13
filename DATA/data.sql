@@ -23,6 +23,20 @@ use dhs;
 -- insert into Shop values (17,2,'PhamNguLao','TPHaNoi','Quan1','54369527','EveryDay',456852,1,'10/8/2021');
 -- insert into Shop values (18,1,'LeVanKhuong','TPHoChiMinh','Quan12','54369527','EveryDay',782695,1,'10/19/2021');
 -- insert into Shop values (19,3,'DuongSo6','TPHoChiMinh','TPThuDuc','54369527','EveryDay',1256489,1,'10/11/2021');
--- insert into Shop values (20,3,'HaiBaTrung','TPHaNoi','Quan4','54369527','EveryDay',4562358,1,'10/12/2021');
+-- insert into Shop values (20,3,'HaiBaTrung','TPHaNoi','Quan4','54369527','EveryDay',4562358,1,'10/12/20s
+--  xóa database
+DELETE FROM User_address
+WHERE id >= 0;
+DELETE FROM address
+WHERE id >= 0;
+DELETE FROM account
+WHERE id > 90;
 
-select * from Shop
+--  DELETE FROM address
+-- WHERE id = 0;
+-- select * from  User_address;
+-- select * from  User_address;
+-- select * from address
+-- ALTER TABLE Review MODIFY COLUMN  title nvarchar(255) not null;
+
+-- select * from account

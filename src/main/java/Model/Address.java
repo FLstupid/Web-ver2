@@ -5,15 +5,13 @@ import java.util.Collection;
 
 @Entity
 public class Address {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String phone;
     private String streetName;
     private String city;
     private String district;
 
-    @OneToMany
+    @OneToMany(mappedBy = "addressByAddressId")
     private Collection<UserAddress> userAddressesById;
 
     public Address(String phone, String addressname, String province, String district) {
@@ -27,6 +25,9 @@ public class Address {
 
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -35,6 +36,8 @@ public class Address {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "phone")
     public String getPhone() {
         return phone;
     }
@@ -43,6 +46,8 @@ public class Address {
         this.phone = phone;
     }
 
+    @Basic
+    @Column(name = "streetName")
     public String getStreetName() {
         return streetName;
     }
@@ -51,6 +56,8 @@ public class Address {
         this.streetName = streetName;
     }
 
+    @Basic
+    @Column(name = "city")
     public String getCity() {
         return city;
     }
@@ -59,6 +66,8 @@ public class Address {
         this.city = city;
     }
 
+    @Basic
+    @Column(name = "district")
     public String getDistrict() {
         return district;
     }
@@ -91,11 +100,11 @@ public class Address {
         return result;
     }
 
-    public void setUserAddressesById(Collection<UserAddress> userAddressesById) {
-        this.userAddressesById = userAddressesById;
-    }
-
     public Collection<UserAddress> getUserAddressesById() {
         return userAddressesById;
+    }
+
+    public void setUserAddressesById(Collection<UserAddress> userAddressesById) {
+        this.userAddressesById = userAddressesById;
     }
 }

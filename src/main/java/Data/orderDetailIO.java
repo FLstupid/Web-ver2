@@ -67,10 +67,10 @@ public class orderDetailIO {
     {
         EntityManager em = emf.createEntityManager();
         try {
-            List acc = em.createQuery("SELECT p.id as MaDonHang, p.createdAt as NgayMua" +
-                    ",g.title as TenSanPham ,p.totalPrice as TongTien   FROM OrderDetail p ," +
-                    " OrderItem  n , Product g,Trans l WHERE p.id = n.id AND " +
-                    "p.id = l.id AND n.orderId =p.id AND  l.id =?1").setParameter(1,ID).getResultList();
+            List acc = em.createQuery("SELECT p.id as MaDonHang, p.createdAt as NgayMua,g.title as TenSanPham ,p.totalPrice as TongTien " +
+                    " FROM OrderDetail p , Account ac,\n" +
+                    " OrderItem  n , Product g,Trans l WHERE p.id = n.id AND\n" +
+                    " p.id = l.id AND n.orderId =p.id AND g.id=n.productId AND ac.id = l.accountId AND  ac.id =?1").setParameter(1,ID).getResultList();
             return acc;
 
         } catch (Exception e)

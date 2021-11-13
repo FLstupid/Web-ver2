@@ -5,13 +5,14 @@ import java.util.Collection;
 
 @Entity
 public class Tag {
-    @Id
     private long id;
     private String tagName;
 
-    @OneToMany
+    @OneToMany(mappedBy = "tagByTagId")
     private Collection<TagProduct> tagProductsById;
 
+    @Id
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -20,6 +21,8 @@ public class Tag {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "tagName")
     public String getTagName() {
         return tagName;
     }

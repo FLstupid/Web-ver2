@@ -3,18 +3,22 @@ package Model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "shop_delivery", schema = "dhs", catalog = "")
 public class ShopDelivery {
-    @Id
     private long id;
     private Long shopId;
     private Long deliveryId;
 
     @ManyToOne
+    @JoinColumn(name = "shopId", referencedColumnName = "id")
     private Shop shopByShopId;
 
     @ManyToOne
+    @JoinColumn(name = "deliveryId", referencedColumnName = "id")
     private Delivery deliveryByDeliveryId;
 
+    @Id
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -23,6 +27,8 @@ public class ShopDelivery {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "shopId")
     public Long getShopId() {
         return shopId;
     }
@@ -31,6 +37,8 @@ public class ShopDelivery {
         this.shopId = shopId;
     }
 
+    @Basic
+    @Column(name = "deliveryId")
     public Long getDeliveryId() {
         return deliveryId;
     }

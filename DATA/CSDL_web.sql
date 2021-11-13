@@ -3,23 +3,23 @@ use dhs;
 
 create table Account (
 	id bigint primary key,
-	username char(100) not null,
+	username nvarchar(255),
     passwordHash char(255) not null,
-    phone char(10) not null,
-    gender bit default 0 not null,
-    email char(255),
-    shopName char(255),
+    phone char(10) ,
+    gender int default 0,
+    email char(255) not null,
+    shopName nvarchar(255),
     birthday date,
-    role bit default 0 not null,
+    role int default 0 ,
     lastUpdate datetime(0)
 );
 
 create table Shop (
 	id bigint primary key,
     accountId bigint not null,
-    street_name char(255) not null,
-    city char(150),
-    district char(100),
+    street_name nvarchar(255) not null,
+    city nvarchar(255),
+    district nvarchar(255),
     bank_id	int not null,
     active_day int default 0 not null,
     number_product bigint not null,
@@ -31,8 +31,8 @@ create table Shop (
 
 create table Address (
 	id bigint primary key,
-    phone int(10) not null,
-    street_name char(255) not null,
+    phone char(10) not null,
+    streetName nvarchar(255) default "" not null,
     city char(150),
     district char(100)
 );
@@ -44,10 +44,10 @@ create table Cart (
     status		smallint(6),
     accountId 	bigint,
     phone 		int(10) not null,
-    streetName char(255) not null,
-    city		char(150) not null,
-    district 	char(100) not null,
-    delivery	char(100) not null,
+    streetName nvarchar(255) not null,
+    city		nvarchar(255) not null,
+    district 	nvarchar(255) not null,
+    delivery	nvarchar(255) not null,
     createdAt	datetime(0),
     updatedAt	datetime(0),
     content 	text,
@@ -59,7 +59,7 @@ create table Product (
 	id bigint primary key,
     status smallint, #have permission form admin <1> : have permission <0> : don't have permission <3> had deleted
     shopId bigint not null,
-    title char(255) not null,
+    title nvarchar(255) not null,
     quality	smallint not null,
     price	float not null,
     discount	float default 0 not null,
@@ -87,10 +87,10 @@ create table Tag (
 create table Order_detail (
 	id	bigint primary key,
     phone 		int(10) not null,
-    street_name char(255) not null,
-    city		char(150) not null,
-    district 	char(100) not null,
-    delivery	char(100) not null,
+    street_name nvarchar(255) not null,
+    city		nvarchar(255) not null,
+    district 	nvarchar(255) not null,
+    delivery	nvarchar(255) not null,
     createdAt	datetime(0) not null,
 	shipPrice	float not null,
     totalPrice	float not null,
@@ -98,23 +98,11 @@ create table Order_detail (
     note	text
 );
 
-create table Transistion (
-	id bigint primary key,
-    customerId bigint,
-    orderId bigint,
-    states int(1) default 0,
-    detailstates char(255),
-    payment char(255) not null,
-    detailpayment char(255),  #phone or bank id
-    updatedAt datetime(0),
-    
-    foreign key (customerId) references Account(id),
-    foreign key (orderId) references Order_Detail(id)
-);
+
 
 create table Delivery (
 	id bigint primary key,
-    methodName	char(100) not null,
+    methodName	nvarchar(255) not null,
     price	int		#This is shipping cost per km
 );
 
@@ -169,7 +157,7 @@ create table Review (
 	id bigint primary key,
     productId	bigint,
     userId	bigint,
-    title	char(255) not null,
+    title	nvarchar(255) not null,
     rating	smallint not null,
     publishedAt	datetime(0) not null,
     createdAt	datetime(0) not null,
@@ -201,6 +189,11 @@ create table Trans (
 	id bigint primary key,
     AccountId bigint,
     orderId bigint,
+    states int(1) default 0,
+    detailstates nvarchar(255),
+    payment nvarchar(255) not null,
+    detailpayment char(255),  #phone or bank id
+    updatedAt datetime(0),
     
     foreign key (AccountId) references Account(id),
     foreign key (orderId) references Order_Detail(id)

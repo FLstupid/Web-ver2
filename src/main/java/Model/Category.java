@@ -5,13 +5,14 @@ import java.util.Collection;
 
 @Entity
 public class Category {
-    @Id
     private long id;
     private String categoryName;
 
-    @OneToMany
+    @OneToMany(mappedBy = "categoryByCategoryId")
     private Collection<CategoryProduct> categoryProductsById;
 
+    @Id
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -20,6 +21,8 @@ public class Category {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "categoryName")
     public String getCategoryName() {
         return categoryName;
     }

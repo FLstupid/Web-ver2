@@ -3,8 +3,8 @@ package Model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "order_item", schema = "dhs", catalog = "")
 public class OrderItem {
-    @Id
     private long id;
     private Long orderId;
     private Long productId;
@@ -15,10 +15,15 @@ public class OrderItem {
     private String content;
 
     @ManyToOne
+    @JoinColumn(name = "orderId", referencedColumnName = "id")
     private OrderDetail orderDetailByOrderId;
+
     @ManyToOne
+    @JoinColumn(name = "productId", referencedColumnName = "id")
     private Product productByProductId;
 
+    @Id
+    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -27,6 +32,8 @@ public class OrderItem {
         this.id = id;
     }
 
+    @Basic
+    @Column(name = "orderId")
     public Long getOrderId() {
         return orderId;
     }
@@ -35,6 +42,8 @@ public class OrderItem {
         this.orderId = orderId;
     }
 
+    @Basic
+    @Column(name = "productId")
     public Long getProductId() {
         return productId;
     }
@@ -43,6 +52,8 @@ public class OrderItem {
         this.productId = productId;
     }
 
+    @Basic
+    @Column(name = "quality")
     public short getQuality() {
         return quality;
     }
@@ -51,6 +62,8 @@ public class OrderItem {
         this.quality = quality;
     }
 
+    @Basic
+    @Column(name = "price")
     public double getPrice() {
         return price;
     }
@@ -59,6 +72,8 @@ public class OrderItem {
         this.price = price;
     }
 
+    @Basic
+    @Column(name = "discount")
     public double getDiscount() {
         return discount;
     }
@@ -67,6 +82,8 @@ public class OrderItem {
         this.discount = discount;
     }
 
+    @Basic
+    @Column(name = "amount")
     public int getAmount() {
         return amount;
     }
@@ -75,6 +92,8 @@ public class OrderItem {
         this.amount = amount;
     }
 
+    @Basic
+    @Column(name = "content")
     public String getContent() {
         return content;
     }

@@ -3,40 +3,25 @@ package Model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "tag_product", schema = "dhs", catalog = "")
 public class TagProduct {
-    @Id
     private long id;
-    private Long productId;
-    private Long tagId;
 
     @ManyToOne
-    private Product ProductId;
-
+    @JoinColumn(name = "productId", referencedColumnName = "id")
+    private Product productByProductId;
     @ManyToOne
-    private Tag TagId;
+    @JoinColumn(name = "tagId", referencedColumnName = "id")
+    private Tag tagByTagId;
 
+    @Id
+    @Column(name = "id")
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public Long getTagId() {
-        return tagId;
-    }
-
-    public void setTagId(Long tagId) {
-        this.tagId = tagId;
     }
 
     @Override
@@ -46,34 +31,27 @@ public class TagProduct {
 
         TagProduct that = (TagProduct) o;
 
-        if (id != that.id) return false;
-        if (productId != null ? !productId.equals(that.productId) : that.productId != null) return false;
-        if (tagId != null ? !tagId.equals(that.tagId) : that.tagId != null) return false;
-
-        return true;
+        return id == that.id;
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (productId != null ? productId.hashCode() : 0);
-        result = 31 * result + (tagId != null ? tagId.hashCode() : 0);
-        return result;
+        return (int) (id ^ (id >>> 32));
     }
 
     public Product getProductByProductId() {
-        return ProductId;
+        return productByProductId;
     }
 
     public void setProductByProductId(Product productByProductId) {
-        this.ProductId = productByProductId;
+        this.productByProductId = productByProductId;
     }
 
     public Tag getTagByTagId() {
-        return TagId;
+        return tagByTagId;
     }
 
     public void setTagByTagId(Tag tagByTagId) {
-        this.TagId = tagByTagId;
+        this.tagByTagId = tagByTagId;
     }
 }

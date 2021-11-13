@@ -3,40 +3,26 @@ package Model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "category_product", schema = "dhs", catalog = "")
 public class CategoryProduct {
-    @Id
     private long id;
-    private Long productId;
-    private Long categoryId;
 
     @ManyToOne
+    @JoinColumn(name = "productId", referencedColumnName = "id")
     private Product productByProductId;
 
     @ManyToOne
+    @JoinColumn(name = "categoryId", referencedColumnName = "id")
     private Category categoryByCategoryId;
 
+    @Id
+    @Column(name = "id")
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
     }
 
     @Override
@@ -46,17 +32,12 @@ public class CategoryProduct {
 
         CategoryProduct that = (CategoryProduct) o;
 
-        if (id != that.id) return false;
-        if (productId != null ? !productId.equals(that.productId) : that.productId != null) return false;
-        return categoryId != null ? categoryId.equals(that.categoryId) : that.categoryId == null;
+        return  id != that.id;
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (productId != null ? productId.hashCode() : 0);
-        result = 31 * result + (categoryId != null ? categoryId.hashCode() : 0);
-        return result;
+        return (int) (id ^ (id >>> 32));
     }
 
     public Product getProductByProductId() {
