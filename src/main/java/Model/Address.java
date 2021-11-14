@@ -14,8 +14,6 @@ public class Address {
     private String city;
     private String district;
 
-    @OneToMany(mappedBy = "addressByAddressId")
-    private Collection<UserAddress> userAddressesById;
 
     public Address(String phone, String addressname, String province, String district) {
         this.phone = phone;
@@ -92,7 +90,4 @@ public class Address {
         return result;
     }
 
-    public void setUserAddressesById(Collection<UserAddress> userAddressesById) {
-        this.userAddressesById = userAddressesById;
-    }
 }

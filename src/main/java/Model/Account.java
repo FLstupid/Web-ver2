@@ -33,8 +33,7 @@ public class Account {
     @OneToMany(mappedBy = "accountByAccountId")
     private Collection<Trans> transById;
 
-    @OneToMany(mappedBy = "accountByAccountId")
-    private Collection<UserAddress> userAccountById;
+
 
     public Account(String username, String password, String phone, Boolean gender, String email, String sa, Date birhday, Boolean c, Timestamp lastUpdate) {
         this.username = username;
@@ -185,11 +184,11 @@ public class Account {
         this.transById = transById;
     }
 
-    public Collection<UserAddress> getUserAccountById() {
-        return userAccountById;
-    }
-
-    public void setUserAccountById(Collection<UserAddress> userAccountById) {
-        this.userAccountById = userAccountById;
-    }
+//    public Collection<UserAddress> getUserAccountById() {
+//        return userAccountById;
+//    }
+//
+//    public void setUserAccountById(Collection<UserAddress> userAccountById) {
+//        this.userAccountById = userAccountById;
+//    }
 }

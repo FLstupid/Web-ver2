@@ -1,7 +1,10 @@
 package User;
 
+import Data.addressIO;
+import Data.userAddressIO;
 import Model.Account;
 import Model.Address;
+import Model.UserAddress;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,13 +44,12 @@ public class AddAdress extends HttpServlet {
                 url = "/addaddress.jsp";
             }
             else {
-//                message1 = "Cập nhật địa chỉ thành công";
-//                long id1 = acc.getId();
-//                addressIO.insert(address);
-//                long id2 = address.getId();
-//                UserAddress ua = new UserAddress(id1,id2);
-//                userAddressIO.insert(ua);
-
+                message1 = "Cập nhật địa chỉ thành công";
+                long id1 = acc.getId();
+                addressIO.insert(address);
+                long id2 = address.getId();
+                UserAddress ua = new UserAddress(id1,id2);
+                userAddressIO.insert(ua);
                 url = "/addaddress.jsp";
 
             }

@@ -6,13 +6,18 @@ import java.util.Objects;
 @Entity
 public class UserAddress {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @ManyToOne
-    private Account accountByAccountId;
-    @ManyToOne
-    private Address addressByAddressId;
+    private long accountId;
+    private long addressId;
+
 
     public UserAddress() {
+    }
+
+    public UserAddress(long accountId, long addressId) {
+        this.addressId =addressId;
+        this.accountId = accountId;
     }
 
     public long getId() {
@@ -22,7 +27,21 @@ public class UserAddress {
     public void setId(long id) {
         this.id = id;
     }
+    public long getAccountId() {
+        return accountId;
+    }
 
+    public void setAccountId(long accountId) {
+        this.accountId = accountId;
+    }
+
+    public long getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(long addressId) {
+        this.addressId = addressId;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -36,19 +55,4 @@ public class UserAddress {
         return Objects.hash(id);
     }
 
-    public Account getAccountByAccountId() {
-        return accountByAccountId;
-    }
-
-    public void setAccountByAccountId(Account accountByAccountId) {
-        this.accountByAccountId = accountByAccountId;
-    }
-
-    public Address getAddressByAddressId() {
-        return addressByAddressId;
-    }
-
-    public void setAddressByAddressId(Address addressByAddressId) {
-        this.addressByAddressId = addressByAddressId;
-    }
 }
