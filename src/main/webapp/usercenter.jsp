@@ -48,12 +48,13 @@
                         </button>
                     </div>
                 </div>
-                    <div class="Userstyle__Root">
-                        <div class="Userstyle__Item">
-                            <img class="profile-icon" src="Home/img/user.png" alt=""/>
-                            <a class="Userstyle__ItemText" >
-                                <span class="Userstyle__NoWrap">Tài khoản</span>
-                                <span class="account_laber">
+
+                <div class="Userstyle__Root">
+                    <div class="Userstyle__Item">
+                        <img class="profile-icon" src="Home/img/user.png" alt=""/>
+                        <a class="Userstyle__ItemText" >
+                            <span class="Userstyle__NoWrap">Tài khoản</span>
+                            <span class="account_laber">
                 <div style="display: flex" class="buttonDropdown">
                 <span>user-name</span>
                 <img class="arrowIcon" src="Home/img/down.png" alt=""/>
@@ -80,30 +81,30 @@
                       "Reviews"
                     </p>
                   </a>
-                  <a rel="nofollow" href="">
+                  <a rel="nofollow" href="${pageContext.request.contextPath}/logout">
                     <p title="Log out" class="UserHeader_UserDropDownItem">
                       Log out
                     </p>
                   </a>
                 </div>
               </span>
-                            </a>
-                        </div>
-
-                        <div class="Userstyle__CartItem">
-                            <a href="${pageContext.request.contextPath}/cart" rel="nofollow">
-                                <div class="Userstyle__Item2">
-                                    <div class="cart-wrapper">
-                                        <img class="cart-icon"
-                                             src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"  />
-                                        <span class="Userstyle__ItemCart">3</span>
-                                    </div>
-
-                                    <span class="cart-text">Giỏ Hàng</span>
-                                </div>
-                            </a>
-                        </div>
+                        </a>
                     </div>
+
+                    <div class="Userstyle__CartItem">
+                        <a href="${pageContext.request.contextPath}/cart" rel="nofollow">
+                            <div class="Userstyle__Item2">
+                                <div class="cart-wrapper">
+                                    <img class="cart-icon"
+                                         src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"  />
+                                    <span class="Userstyle__ItemCart">3</span>
+                                </div>
+
+                                <span class="cart-text">Giỏ Hàng</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

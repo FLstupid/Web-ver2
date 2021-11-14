@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%--<%@ page contentType="text/html;charset=UTF-8" %>--%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
@@ -126,7 +127,7 @@
 													"Reviews"
 												</p>
 											</a>
-											<a rel="nofollow" href="">
+											<a rel="nofollow" href="logout">
 												<p title="Log out" class="UserHeader_UserDropDownItem">
 													Log out
 												</p>

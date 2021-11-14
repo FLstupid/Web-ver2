@@ -46,13 +46,15 @@ public class Account {
         this.role = c;
         this.lastUpdate = lastUpdate;
     }
-    public Account() {
 
-    }
 
     public Account(String email, String password) {
         this.email = email;
         this.passwordHash = password;
+    }
+
+    public Account() {
+
     }
 
     public long getId() {
@@ -168,14 +170,20 @@ public class Account {
         result = 31 * result + (lastUpdate != null ? lastUpdate.hashCode() : 0);
         return result;
     }
-    public Collection<Cart> getCartsById() {
-        return cartsById;
+    public Collection<Review> getReviewsById() {
+        return reviewsById;
     }
 
-    public void setCartsById(Collection<Cart> cartsById) {
-        this.cartsById = cartsById;
+    public void setReviewsById(Collection<Review> reviewsById) {
+        this.reviewsById = reviewsById;
+    }
+    public Collection<Shop> getShopsById() {
+        return shopsById;
     }
 
+    public void setShopsByIdshopsById(Collection<Shop> shopsById) {
+        this.shopsById = shopsById;
+    }
     public Collection<Trans> getTransById() {
         return transById;
     }
@@ -183,12 +191,11 @@ public class Account {
     public void setTransById(Collection<Trans> transById) {
         this.transById = transById;
     }
+    public Collection<Cart> get() {
+        return cartsById;
+    }
 
-//    public Collection<UserAddress> getUserAccountById() {
-//        return userAccountById;
-//    }
-//
-//    public void setUserAccountById(Collection<UserAddress> userAccountById) {
-//        this.userAccountById = userAccountById;
-//    }
+    public void setCartsById(Collection<Cart> cartsById) {
+        this.cartsById = cartsById;
+    }
 }

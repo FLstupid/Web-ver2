@@ -5,6 +5,7 @@
 <head>
     <title>UserCenter</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" href="css/usercenter.css"/>
     <link rel="stylesheet" href="css/newcss.css" />
     <link rel="stylesheet" href="Home/homePage.css"/>
 </head>
@@ -81,7 +82,7 @@
                       "Reviews"
                     </p>
                   </a>
-                  <a rel="nofollow" href="">
+                  <a rel="nofollow" href="${pageContext.request.contextPath}/logout">
                     <p title="Log out" class="UserHeader_UserDropDownItem">
                       Log out
                     </p>
@@ -158,25 +159,25 @@
                             </c:if>
                             <c:if test="${not empty listOrder}">
                                 <c:forEach items="${listOrder}" var="element">
-                                    <table class="bangmua">
+                                    <table class="bangmua1">
                                         <thead>
-                                        <tr>
-                                            <th width="100px">Mã đơn hàng</th>
-                                            <th>Ngày mua</th>
-                                            <th>Sản phẩm</th>
-                                            <th width="100px">Tổng tiền</th>
-                                            <th width="150px">Trạng thái đơn hàng</th>
+                                        <tr style="align-items: center">
+                                            <th width="10%">Mã đơn hàng</th>
+                                            <th width="30%">Ngày mua</th>
+                                            <th width="40%">Sản phẩm</th>
+                                            <th width="10%">Tổng tiền</th>
+                                            <th width="10%">Trạng thái đơn hàng</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <a width="100px" href="/sales/order/view/280563326">${Order_detail.id}</a>
+                                                <a width="100px" href="/sales/order/view/280563326">${element[0]}</a>
                                             </td>
-                                            <td>${element[0]}</td>
                                             <td>${element[1]}</td>
-                                            <td width="100px">${element[2]}</td>
-                                            <td>${element[3]}</td>
+                                            <td>${element[2]}</td>
+                                            <td width="100px">${element[3]}</td>
+                                            <td>${element[4]}</td>
                                         </tr>
                                         </tbody>
                                     </table>

@@ -80,7 +80,7 @@
                       "Reviews"
                     </p>
                   </a>
-                  <a rel="nofollow" href="">
+                  <a rel="nofollow" href="${pageContext.request.contextPath}/logout">
                     <p title="Log out" class="UserHeader_UserDropDownItem">
                       Log out
                     </p>

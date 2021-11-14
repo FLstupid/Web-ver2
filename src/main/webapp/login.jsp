@@ -21,15 +21,7 @@
 			<span>Hoặc tiếp tục bằng</span>
 			<input type="email" name="email" placeholder="Email"/>
 			<input type="password" name="password" placeholder="Mật Khẩu"/>
-<%--			<div  class="form-control">--%>
 				<button type="submit" class="btn1" class="btn-submit">Đăng Ký</button>
-<%--				<c:if test="${not empty message}">--%>
-<%--					<script>--%>
-<%--					window.addEventListener("load",function(){--%>
-<%--					alert("${message}");--%>
-<%--					})--%>
-<%--					</script>--%>
-<%--			</div>--%>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">

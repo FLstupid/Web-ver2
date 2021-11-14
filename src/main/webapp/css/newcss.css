@@ -62,10 +62,6 @@ ul {
     padding-inline-start: 40px;
 }
 
-form {
-    display: block;
-    margin-top: 0em;
-}
 
 label {
     cursor: default;
@@ -518,16 +514,9 @@ a{
 .name{
     text-transform: uppercase;
 }
-table.bangmua{
-    font-family: Roboto,Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 1.15;
-    text-size-adjust: 100%;
-    box-sizing: border-box;
-    background-color: rgb(255, 255, 255);
-    border-radius: 4px;
-    padding: 1px;
-    min-height: 400px;
+
+td{
+    text-align: center;
 }
 table.comment {
     font-family: Roboto,Helvetica,Arial,sans-serif;
