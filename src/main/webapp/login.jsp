@@ -10,7 +10,7 @@
 <!-- partial:index.partial.html -->
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form method="post" action="login1">
+		<form method="post" action="login">
 			<input type="hidden" name="action" value="add">
 			<h1>Đăng Ký</h1>
 			<div class="social-container">
@@ -33,7 +33,7 @@
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form method="post" action="login1">
+		<form method="post" action="login">
 			<input type="hidden" name="action" value="signin">
 			<h1>Đăng Nhập</h1>
 			<div class="social-container">
