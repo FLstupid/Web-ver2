@@ -59,9 +59,16 @@ public class cartIO {
     {
         EntityManager em = emf.createEntityManager();
         try {
-            List acc = em.createQuery("SELECT p.username as username FROM Account p ," +
-                    " Cart n , CartItem g,Product f WHERE p.id = n.accountId AND " +
-                    "g.cartId = n.id AND g.productId =f.id AND  p.id =?1").setParameter(1,ID).getResultList();
+            List acc = em.createQuery("SELECT g.amount, n.id,n.accountByAccountId.id, f.title, g.price," +
+                    "f.discount, c.categoryName, n.delivery," +
+                    " n.content FROM Account p ," +
+                    " Cart n , CartItem g,Product f, Category c, CategoryProduct cp " +
+                    "WHERE p.id= n.accountByAccountId.id " +
+                    "AND n.id = g.cartByCartId.id " +
+                    "AND  g.productByProductId.id = f.id " +
+                    "AND f.id = cp.productByProductId.id " +
+                    "AND cp.categoryByCategoryId.id = c.id " +
+                    "AND p.id =?1").setParameter(1,ID).getResultList();
             return acc;
 
         } catch (Exception e)

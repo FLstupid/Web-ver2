@@ -17,6 +17,13 @@ form {
 .comment1{
     width: 100%;
 }
+.cart{
+    width: 100%;
+    margin: auto;
+}
+thead{
+    width: 100%;
+}
 td{
     text-align: center;
 }

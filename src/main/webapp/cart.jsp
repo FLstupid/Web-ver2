@@ -5,8 +5,10 @@
 <head>
     <title>UserCenter</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" href="css/usercenter.css" />
     <link rel="stylesheet" href="css/newcss.css" />
     <link rel="stylesheet" href="Home/homePage.css"/>
+
 </head>
 <body>
 <!---------------------------------------------------header-------------------------------------------->
@@ -79,7 +81,8 @@
                             <span class="Userstyle__NoWrap">Tài khoản</span>
                             <span class="account_laber">
 										<div style="display: flex" class="buttonDropdown">
-                                            <% if(session.getAttribute("loggedInUser") == null){%>
+
+                                            <% if(session == null || session.getAttribute("loggedInUser") == null){%>
 											<span>user-name</span>
                                             <%}else {%>
                                             <span>${account.username}</span>
@@ -201,47 +204,69 @@
                     <h3 class="HeadingContent">Giỏ Hàng</h3>
                     <div class="Content_StylesNav">
                         <form method="post" action="cart" >
-                            <c:if test="${empty cart}">
+                            <c:if test="${empty listcart}">
                                 <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
                                 <a href="home" class="back">Tiếp tục mua sắm</a>
                             </c:if>
-                            <c:if test="${not empty cart}">
-                                <c:forEach items="${buyinglater}" var="element">
-                                    <table class="comment">
+                            <c:if test="${not empty listcart}">
+                                <div>
+                                    <table class="cart">
                                         <thead>
                                         <tr>
                                             <th >Số Lượng</th>
-                                            <th width="200px">Mã giỏ hàng</th>
-                                            <th width="200px">Mã người dùng</th>
-                                            <th >phone</th>
-                                            <th >Địa chỉ</th>
-                                            <th >Quận/Huyện</th>
-                                            <th >Tỉnh/ Thành Phố</th>
-                                            <th>deli</th>
-                                            <th>thời gian tạo</th>
-                                            <th>cập nhật</th>
-                                            <th width="200px">Chi tiết</th>
+                                            <th >Mã giỏ hàng</th>
+                                            <th >Mã người dùng</th>
+                                            <th> Tên sản phẩm</th>
+                                            <th> Giá</th>
+                                            <th>Ưu đãi</th>
+                                            <th>Đơn vị vận chuyển</th>
+                                            <th>Chi tiết</th>
+                                            <th></th>
                                         </tr>
                                         </thead>
+                                        <c:forEach items="${listcart}" var="element">
                                         <tbody>
                                         <tr>
-                                            <input type="text" name="amount" value="${cart_item.amount}" id="quantity" >
-                                            <td>${cart.id}</td>
-                                            <td>${cart.acountId}</td>
-                                            <td style="text-align: center" width="100px">
-                                                <input type="checkbox" id="vehicle1" ></td>
+                                            <form action="cart" method="post">
+                                                <td > <input type="hidden" name="productCode"
+                                                             value="<c:out value='${cartitem.id}'/>">
+                                                    <input style="width: 50px;" type="text" name="amount" value="${element[0]}" id="amount" >
+                                                    <input type="submit" onclick="updateAmount()" value="Update"></td>
+                                            </form>
+                                            <td>${element[1]}</td>
+                                            <td>${element[2]}</td>
+                                            <td>${element[3]}</td>
+                                            <td>${element[4]}</td>
+                                            <td>${element[5]}</td>
+                                            <td>${element[7]}</td>
+                                            <td>${element[8]}</td>
+                                            <td>
+                                                <form action="cart" method="post">
+                                                    <input type="hidden" name="productCode"
+                                                           value="<c:out value='${cartitem.id}'/>">
+                                                    <input type="hidden" name="amount" value="0">
+                                                    <input type="submit"  value="Remove">
+                                                </form>
+                                            </td>
                                         </tr>
                                         </tbody>
+                                        </c:forEach>
                                     </table>
                                     <a href="/" class="back">Mua</a>
-                                </c:forEach>
+                                    <span>Chọn địa chỉ: </span>
+
+                                <select class="form-select" name="listaddress" aria-label="Default select example">
+                                    <c:forEach items="${listaddress}" var="element" varStatus="loop">
+                                    <option value="${loop.index}"/> <c:out value="${element[1]}"/>, <c:out value="${element[2]}"/>, <c:out value="${element[3]}"/></option>
+                                    </c:forEach>
+                                </select>
+                                </div>
                             </c:if>
                         </form>
                     </div>
                 </div>
             </div>
             </div>
-        </div>
         </div>
     </section>
 </main>

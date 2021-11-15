@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
 
         String url = "/login.jsp";
         String action = request.getParameter("action");
-        String message = "";
+        String message;
         HttpSession session = request.getSession();
         Account temp = null;
         if (action == null) {
@@ -32,6 +32,7 @@ public class LoginServlet extends HttpServlet {
         {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
+            String t=null;
             if(accountIO.userExist(email))
             {
                 message = "Tài khoản đã tồn tại";
@@ -39,11 +40,11 @@ public class LoginServlet extends HttpServlet {
                 message = "Đăng kí tài khoản thành công";
                 temp = new Account(email,password);
                 accountIO.insert(temp);
-
+                t = temp.getUsername();
             }
             request.setAttribute("loggedInUser", temp);
             request.setAttribute("message", message);
-
+            request.getSession().setAttribute("username", t);
         }
         else if (action.equals("signin")){
             String email = request.getParameter("email");
@@ -70,6 +71,7 @@ public class LoginServlet extends HttpServlet {
 
         }
         request.getSession().setAttribute("account", temp);
+
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);

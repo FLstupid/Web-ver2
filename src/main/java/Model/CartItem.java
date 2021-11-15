@@ -2,6 +2,7 @@ package Model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -9,7 +10,7 @@ public class CartItem {
     @Id
     private long id;
     private short quality;
-    private double price;
+    private double price = sumPrice();
     private double discount;
     private int amount;
     private Timestamp createdAt;
@@ -60,6 +61,7 @@ public class CartItem {
 
     public void setAmount(int amount) {
         this.amount = amount;
+        price = sumPrice();
     }
 
     public Timestamp getCreatedAt() {
@@ -119,4 +121,14 @@ public class CartItem {
         result = 31 * result + (content != null ? content.hashCode() : 0);
         return result;
     }
+    public double sumPrice(){
+        return  amount*price;
+    }
+    public void setProductByProductId(Product productByProductId) {
+        this.productByProductId = productByProductId;
+    }
+    public Product getProducts() {
+        return productByProductId;
+    }
+
 }

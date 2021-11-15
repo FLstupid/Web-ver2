@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class shopIO {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
     EntityManager em = emf.createEntityManager();
     EntityTransaction transaction = em.getTransaction();
 

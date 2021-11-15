@@ -1,7 +1,12 @@
 package User;
 
+import Data.addressIO;
+import Data.cartIO;
+import Data.productIO;
+import Model.Account;
 import Model.Cart;
 import Model.CartItem;
+import Model.Product;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -11,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "cart", value = "/cart")
 public class CartServlet extends HttpServlet{
@@ -24,17 +30,17 @@ public class CartServlet extends HttpServlet{
         }
         String url = "/cart.jsp";
         if (action.equals("cart")) {
-            String productCode = request.getParameter("productCode");
+//            String productCode = request.getParameter("productCode");
             String amountString = request.getParameter("amount");
-
+//
             HttpSession session = request.getSession();
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
                 cart = new Cart();
             }
-
-            //if the user enters a negative or invalid quantity,
-            //the quantity is automatically reset to 1.
+//
+//            //if the user enters a negative or invalid quantity,
+//            //the quantity is automatically reset to 1.
             short amount;
             try {
                 amount = Short.parseShort(amountString);
@@ -44,18 +50,32 @@ public class CartServlet extends HttpServlet{
             } catch (NumberFormatException nfe) {
                 amount = 1;
             }
-
-            CartItem cartItem = new CartItem();
-            //cartItem.setProductByProductId(product);
-//            cartItem.setAmount(amount);
-//            if (amount > 0) {
-//                cart.addItem(cartItem);
-//            } else if (amount == 0) {
-//                cart.removeItem(cartItem);
+//            if(amount>1)
+//            {
+//                CartItem.setAmount(amount);
 //            }
+            //get product
 
-            session.setAttribute("cart", cart);
-            request.setAttribute("amount", amount);
+//            long id = Long.parseLong(productCode);
+//            Product product = productIO.selectProduct(id);
+//
+//
+            CartItem cartItem = new CartItem();
+//           cartItem.setProductByProductId(product);
+            cartItem.setAmount(amount);
+//            if (amount > 0) {
+//               cart.addCartItem(cartItem);
+//            } else if (amount == 0) {
+//                cart.removeCartItem(cartItem);
+//            }
+            Account acc = (Account) request.getSession().getAttribute("account");
+            long id1 = acc.getId();
+            List listcart = cartIO.selectCart(id1);
+            List listaddress = addressIO.selectUserAdress(id1);
+            request.getSession().setAttribute("listaddress", listaddress);
+    //           session.setAttribute("cart", cart);
+           request.setAttribute("amount", amount);
+            request.getSession().setAttribute("listcart", listcart);
             url = "/cart.jsp";
         }
         getServletContext()

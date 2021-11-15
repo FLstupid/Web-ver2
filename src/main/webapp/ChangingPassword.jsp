@@ -79,7 +79,8 @@
                             <span class="Userstyle__NoWrap">Tài khoản</span>
                             <span class="account_laber">
 										<div style="display: flex" class="buttonDropdown">
-                                            <% if(session.getAttribute("loggedInUser") == null){%>
+
+                                            <% if(session == null || session.getAttribute("loggedInUser") == null){%>
 											<span>user-name</span>
                                             <%}else {%>
                                             <span>${account.username}</span>

@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class cartItemIO {
-    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
     public static final EntityManager em = emf.createEntityManager();
     public static final EntityTransaction transaction = em.getTransaction();
 

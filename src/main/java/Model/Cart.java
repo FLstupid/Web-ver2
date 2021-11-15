@@ -25,8 +25,6 @@ public class Cart {
 
     @ManyToOne
     private Account accountByAccountId;
-//    @OneToMany
-//    private ArrayList<CartItem> cartItemsById;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Collection<CartItem>  listCartItem;
@@ -202,7 +200,12 @@ public class Cart {
     public Collection<CartItem> getCartItemsById() {
         return cartItemsById;
     }
-
+    public void addCartItem(CartItem cartItemsById) {
+        this.cartItemsById.add(cartItemsById);
+    }
+    public void removeCartItem(CartItem cartItemsById) {
+        this.cartItemsById.remove(cartItemsById);
+    }
     public void setCartItemsById(Collection<CartItem> cartItemsById) {
         this.cartItemsById = cartItemsById;
     }

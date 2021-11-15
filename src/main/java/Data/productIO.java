@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 public class productIO {
-    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
 
 
     public void insert (Product product)
@@ -85,7 +85,7 @@ public class productIO {
                     "p.decription as decription" +
                     ",p.status as status ,p.price as price ," +
                     " p.discount as discount,g.tagName as Tag  FROM Product p ," +
-                    " TagProduct n , Tag g, Shop f WHERE p.shopId = f.id")
+                    " TagProduct n , Tag g, Shop f WHERE p.shopByShopId.id = f.id")
                     .getResultList();
             return acc;
 
