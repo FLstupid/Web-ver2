@@ -19,7 +19,9 @@ public class CustomerReviewServlet  extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        if (request.getCharacterEncoding() == null) {
+            request.setCharacterEncoding("UTF-8");
+        }
         String action = request.getParameter("action");
         if (action == null) {
             action = "customerreview"; // default action
