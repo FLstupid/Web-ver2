@@ -79,10 +79,11 @@
                             <span class="Userstyle__NoWrap">Tài khoản</span>
                             <span class="account_laber">
 										<div style="display: flex" class="buttonDropdown">
-
-                                            <% if(session == null || session.getAttribute("loggedInUser") == null){%>
+                                            <%
+                                                if(session.getAttribute("username") == null ||session.getAttribute("username") == "" ||session == null || session.getAttribute("loggedInUser") == null){%>
 											<span>user-name</span>
-                                            <%}else {%>
+                                            <%}else {
+                                            %>
                                             <span>${account.username}</span>
                                             <%}%>
 											<img class="arrowIcon" src="Home/img/down.png" alt="" />
@@ -212,7 +213,7 @@
                             <div class="form-control">
                                 <label class="input-label">Mật khẩu</label>
                                 <div>
-                                    <input type="password" name="password"  maxlength="128" minlength="6" class="Input-styles"  value="${account.passwordHash}">
+                                    <input type="password" name="password" disabled  maxlength="128" minlength="6" class="Input-styles"  value="${account.passwordHash}">
                                 </div>
                             </div>
                             <div class="form-control">
@@ -224,7 +225,7 @@
                             <div class="form-control">
                                 <label class="input-label">Email</label>
                                 <div>
-                                    <input type="email" name="email" required class="Input-styles" value="${account.email}">
+                                    <input type="email" name="email" disabled required class="Input-styles" value="${account.email}">
                                 </div>
                             </div>
                             <div class="form-control">

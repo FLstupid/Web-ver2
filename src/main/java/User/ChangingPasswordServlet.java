@@ -27,21 +27,21 @@ public class ChangingPasswordServlet extends HttpServlet {
         }
         else if (action.equals("changingPass")) {
 
-            Account acc = (Account) request.getSession().getAttribute("acc");
+            Account acc = (Account) request.getSession().getAttribute("account");
             String oldPassword = request.getParameter("odlPassword");
             String newPassword = request.getParameter("newPassword");
             String confirmPassword = request.getParameter("confirmNewPassword");
             String message = "";
             if (oldPassword.equals(acc.getPasswordHash())) {
                 if (newPassword.equals(confirmPassword)) {
-                    message = "Password has been change!";
+                    message = "Mật Khẩu thay đổi thành công!";
                     acc.setPasswordHash(newPassword);
                     accountIO.update(acc);
                 } else {
-                    message = "password does not macth";
+                    message = "Xác nhận mật khẩu không đúng";
                 }
             } else {
-                message = "Invalid password";
+                message = "Mật khẩu cũ không đúng";
             }
              url = "/ChangingPassword.jsp";
             request.setAttribute("account", acc);

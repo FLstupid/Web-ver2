@@ -80,10 +80,11 @@
                             <span class="Userstyle__NoWrap">Tài khoản</span>
                             <span class="account_laber">
 										<div style="display: flex" class="buttonDropdown">
-
-                                            <% if(session == null || session.getAttribute("loggedInUser") == null){%>
+                                            <%
+                                                if(session.getAttribute("username") == null ||session.getAttribute("username") == "" ||session == null || session.getAttribute("loggedInUser") == null){%>
 											<span>user-name</span>
-                                            <%}else {%>
+                                            <%}else {
+                                            %>
                                             <span>${account.username}</span>
                                             <%}%>
 											<img class="arrowIcon" src="Home/img/down.png" alt="" />

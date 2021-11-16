@@ -89,7 +89,7 @@ public class CustomerServlet extends HttpServlet {
             request.setAttribute("account", account);
             request.setAttribute("message", message);
             request.setAttribute("username", username);
-            request.getSession().setAttribute("acc", account);
+            request.getSession().setAttribute("username", account.getUsername());
         }
         getServletContext()
                 .getRequestDispatcher(url)

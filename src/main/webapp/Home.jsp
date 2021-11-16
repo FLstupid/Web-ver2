@@ -80,7 +80,7 @@
                             <span class="account_laber">
 										<div style="display: flex" class="buttonDropdown">
                                             <%
-                                                if(session == null || session.getAttribute("loggedInUser") == null){%>
+                                                if(session.getAttribute("username") == null ||session.getAttribute("username") == "" ||session == null || session.getAttribute("loggedInUser") == null){%>
 											<span>user-name</span>
                                             <%}else {
                                             %>
