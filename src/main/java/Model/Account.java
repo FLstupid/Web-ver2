@@ -20,6 +20,7 @@ public class Account {
     private Date birthday;
     private boolean role;
     private Timestamp lastUpdate;
+    private String Images;
 
     @OneToMany(mappedBy = "accountByAccountId")
     private Collection<Cart> cartsById;
@@ -55,6 +56,11 @@ public class Account {
 
     public Account() {
 
+    }
+
+    public Account(String username, String mail,String images) {
+        this.username = username;
+        this.email = mail;
     }
 
     public long getId() {

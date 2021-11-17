@@ -203,6 +203,14 @@
             <div class="Account_StylesAccountLayoutInner">
                 <div class="buying-Later formresult  ">
                     <h3 class="HeadingContent">Giỏ Hàng</h3>
+                    <div style="margin-right: auto;">
+                        <span style="margin-left: 600px;">Chọn địa chỉ: </span>
+                        <select class="form-select" name="listaddress" aria-label="Default select example">
+                            <c:forEach items="${listaddress}" var="element" varStatus="loop">
+                                <option value="${loop.index}"/> <c:out value="${element[1]}"/>, <c:out value="${element[2]}"/>, <c:out value="${element[3]}"/></option>
+                            </c:forEach>
+                        </select>
+                    </div>
                     <div class="Content_StylesNav">
                         <form method="post" action="cart" >
                             <c:if test="${empty listcart}">
@@ -254,13 +262,6 @@
                                         </c:forEach>
                                     </table>
                                     <a href="/" class="back">Mua</a>
-                                    <span>Chọn địa chỉ: </span>
-
-                                <select class="form-select" name="listaddress" aria-label="Default select example">
-                                    <c:forEach items="${listaddress}" var="element" varStatus="loop">
-                                    <option value="${loop.index}"/> <c:out value="${element[1]}"/>, <c:out value="${element[2]}"/>, <c:out value="${element[3]}"/></option>
-                                    </c:forEach>
-                                </select>
                                 </div>
                             </c:if>
                         </form>

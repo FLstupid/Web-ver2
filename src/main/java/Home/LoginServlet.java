@@ -19,8 +19,8 @@ public class LoginServlet extends HttpServlet {
 
         String url = "/login.jsp";
         String action = request.getParameter("action");
-        String message;
-        HttpSession session = request.getSession();
+        String message = null;
+        String t=null;
         Account temp = null;
         if (action == null) {
             action = "join";  // default action
@@ -28,53 +28,55 @@ public class LoginServlet extends HttpServlet {
         if (action.equals("join")) {
             action = "login";
         }
-        else if(action.equals("add"))
-        {
+        else if(action.equals("add")) {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            String t=null;
-            if(accountIO.userExist(email))
-            {
-                message = "Tài khoản đã tồn tại";
-            }else{
-                message = "Đăng kí tài khoản thành công";
-                temp = new Account(email,password);
-                accountIO.insert(temp);
-                t = temp.getUsername();
+            if (email.equals(null) || email.equals("") || password.equals(null) || password.equals("")) {
+                message = "Xin hãy nhập tài khoản và mật khẩu";
+                url = "/login.jsp";
+            } else {
+                if (accountIO.userExist(email)) {
+                    message = "Tài khoản đã tồn tại";
+                } else {
+                    message = "Đăng kí tài khoản thành công";
+                    temp = new Account(email, password);
+                    accountIO.insert(temp);
+                    t = temp.getUsername();
+                }
             }
-            request.setAttribute("loggedInUser", temp);
-            request.setAttribute("message", message);
-            request.getSession().setAttribute("username", t);
         }
-        else if (action.equals("signin")){
+        if (action.equals("signin")) {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            if(accountIO.userExist(email))
-            {
-                temp = accountIO.selectAcc(email);
-                if(temp.getPasswordHash().equals(password))
-                {
-                    message = "Đăng nhập thành công";
 
+            if (email.equals(null) || email.equals("") || password.equals("")) {
+                message = "Xin hãy nhập tài khoản và mật khẩu";
+                url = "/login.jsp";
+            }
+            else if (accountIO.userExist(email)) {
+                temp = accountIO.selectAcc(email);
+                if (temp.getPasswordHash().equals(password)) {
+                    message = "Đăng nhập thành công";
+                    HttpSession session = request.getSession();
                     session.setAttribute("loggedInUser", temp);
+                    request.setAttribute("account", temp);
+                    request.setAttribute("message", message);
+                    request.getSession().setAttribute("account", temp);
+                    t = temp.getUsername();
                     url = "/Home.jsp";
-                }else {
+                } else {
                     message = "Mật khẩu không trùng khớp";
                 }
 
-            }
-            else {
+            } else {
                 message = "Tài khoản chưa tồn tại";
             }
-            request.setAttribute("account", temp);
-            request.setAttribute("message", message);
-
         }
-        request.getSession().setAttribute("account", temp);
-
+        request.setAttribute("loggedInUser", temp);
+        request.setAttribute("message", message);
+        request.getSession().setAttribute("username", t);
         getServletContext()
-                .getRequestDispatcher(url)
-                .forward(request, response);
+                .getRequestDispatcher(url).forward(request, response);
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -76,6 +76,48 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.5.8.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.7.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.id.tmm.http-constants</groupId>
+            <artifactId>http-constants-circe_2.13</artifactId>
+            <version>1.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.id.tmm.http-constants</groupId>
+            <artifactId>http-constants-core_2.13</artifactId>
+            <version>1.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.id.tmm.http-constants</groupId>
+            <artifactId>http-constants-core_2.12</artifactId>
+            <version>1.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.id.tmm.http-constants</groupId>
+            <artifactId>http-constants-argonaut_2.13</artifactId>
+            <version>1.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.id.tmm.http-constants</groupId>
+            <artifactId>http-constants-argonaut_2.12</artifactId>
+            <version>1.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>au.id.tmm.http-constants</groupId>
+            <artifactId>http-constants-circe_2.12</artifactId>
+            <version>1.1.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
