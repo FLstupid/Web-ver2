@@ -2,11 +2,9 @@ package User;
 
 import Data.addressIO;
 import Data.cartIO;
-import Data.productIO;
 import Model.Account;
 import Model.Cart;
 import Model.CartItem;
-import Model.Product;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

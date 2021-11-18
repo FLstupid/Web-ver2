@@ -7,10 +7,9 @@ import java.util.List;
 
 public class productIO {
     public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
-
-
     public void insert (Product product)
-    {EntityManager em = emf.createEntityManager();
+    {
+        EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
@@ -21,12 +20,13 @@ public class productIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
         }
     }
 
     public void update (Product product)
-    {EntityManager em = emf.createEntityManager();
+    {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
+        EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
@@ -38,11 +38,11 @@ public class productIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
         }
     }
     public void delete (Product product)
-    {EntityManager em = emf.createEntityManager();
+    {
+        EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
@@ -54,7 +54,6 @@ public class productIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
         }
     }
     public static Product selectProduct(long ID)
@@ -64,12 +63,12 @@ public class productIO {
                         "Where i.id = :id";
         TypedQuery<Product> x = em.createQuery(q,Product.class);
         x.setParameter("id",ID);
-        Product product = null;
+        Product product;
         try {
             product = x.getSingleResult();
         } catch (Exception e)
         {
-            System.out.println(e);
+            System.out.println(e.getMessage());
             return null;
         }finally {
             em.close();
@@ -77,11 +76,11 @@ public class productIO {
         return product;
     }
     //xem lại
-    public static List selectListProduct()
+    public static List<?> selectListProduct()
     {
         EntityManager em = emf.createEntityManager();
         try {
-            List acc = em.createQuery("SELECT p.title as productname, " +
+            return em.createQuery("SELECT p.title as productname, " +
                     "p.decription as decription" +
                     ",p.price as price , p.shopByShopId.shopname " +
                     "FROM Product p")
@@ -109,11 +108,10 @@ public class productIO {
                                     "  where p.id = ?1"
                             ).setParameter(1,idproduct)
                     .getResultList();
-            return acc;
 
         } catch (Exception e)
         {
-            System.out.println(e);
+            System.out.println(e.getMessage());
             return null;
         }finally {
             em.close();

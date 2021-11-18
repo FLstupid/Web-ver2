@@ -44,7 +44,6 @@ public class AddAdress extends HttpServlet {
             Account acc = (Account) request.getSession().getAttribute("account");
             if ( addressname == null || addressname.isEmpty() || phone == null || phone.isEmpty()|| province == null || province.isEmpty()|| district == null || district.isEmpty()) {
                 message = "Xin hãy nhập đủ giá trị.";
-                url = "/addaddress.jsp";
             }
             else {
                 message1 = "Cập nhật địa chỉ thành công";
@@ -53,9 +52,8 @@ public class AddAdress extends HttpServlet {
                 long id2 = address.getId();
                 UserAddress ua = new UserAddress(id1,id2);
                 userAddressIO.insert(ua);
-                url = "/addaddress.jsp";
-
             }
+            url = "/addaddress.jsp";
             request.setAttribute("address", address);
             request.setAttribute("message", message);
             request.setAttribute("message1", message1);

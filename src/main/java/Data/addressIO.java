@@ -10,7 +10,8 @@ public class addressIO {
 
 
     public static void insert (Address address)
-    {EntityManager em = emf.createEntityManager();
+    {
+        EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         try {
@@ -26,7 +27,8 @@ public class addressIO {
     }
 
     public void update (Address address)
-    {EntityManager em = emf.createEntityManager();
+    {
+        EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
@@ -41,7 +43,8 @@ public class addressIO {
         }
     }
     public void delete (Address address)
-    {EntityManager em = emf.createEntityManager();
+    {
+        EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
@@ -59,15 +62,13 @@ public class addressIO {
     {
         EntityManager em = emf.createEntityManager();
         try {
-            List acc = em.createQuery("SELECT p.username as username, g.streetName as streetName" +
+            return em.createQuery("SELECT p.username as username, g.streetName as streetName" +
                     ",g.district as district ,g.city as city , g.phone as phone  FROM Account p ," +
                     " UserAddress n , Address g WHERE p.id = n.accountId AND " +
                     "g.id = n.addressId AND  p.id =?1").setParameter(1,ID).getResultList();
-            return acc;
-
         } catch (Exception e)
         {
-            System.out.println(e);
+            System.out.println(e.getMessage());
             return null;
         }finally {
             em.close();
