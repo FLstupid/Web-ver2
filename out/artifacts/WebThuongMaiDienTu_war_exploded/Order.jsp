@@ -5,6 +5,7 @@
 <head>
     <title>UserCenter</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" href="css/usercenter.css"/>
     <link rel="stylesheet" href="css/newcss.css" />
     <link rel="stylesheet" href="Home/homePage.css"/>
 </head>
@@ -12,13 +13,17 @@
 <!---------------------------------------------------header-------------------------------------------->
 <header class="style__Header">
     <section class="Container">
-        <a style="color: white" href="${pageContext.request.contextPath}/summary">Kênh Người Bán</a>
+        <a
+                style="color: white"
+                href="${pageContext.request.contextPath}/summary"
+        >Kênh Người Bán</a
+        >
         <div class="Middle__Wrap">
             <div class="Middle__LeftContainer">
                 <div class="logo-menu">
                     <div class="style_Logo">
                         <a href="home" class="dhs-logo">
-                            <img src="Home/img/logo.svg" alt=""/>
+                            <img src="Home/img/logo.svg" alt="" />
                         </a>
                     </div>
                 </div>
@@ -26,77 +31,131 @@
                 <div class="Category__Root">
                     <div class="Category">
                         <div>
-                            <img class="Category-icon" src="https://icon-library.com/images/hamburger-icon-white/hamburger-icon-white-16.jpg"  alt="">
+                            <img
+                                    class="Category-icon"
+                                    src="https://icon-library.com/images/hamburger-icon-white/hamburger-icon-white-16.jpg"
+                                    alt=""
+                            />
                         </div>
                         <div class="Category-info">
-                            <div class="Category-text">Danh mục
+                            <div class="Category-text">
+                                Danh mục
                                 <p>Sản phẩm</p>
                             </div>
-
                         </div>
-                        <img class="arrowIcon" src="Home/img/dropdownArrow.png" alt=""/>
+                        <img
+                                class="arrowIcon"
+                                src="Home/img/dropdownArrow.png"
+                                alt=""
+                        />
                     </div>
                 </div>
 
                 <div class="FormSearch__Root">
                     <div class="FormSearch__Form">
-                        <input type="text" placeholder="Find somethings v............... ?" class="FormSearch__Input" value="" />
+                        <input
+                                type="text"
+                                placeholder="Find somethings v............... ?"
+                                class="FormSearch__Input"
+                                value=""
+                        />
                         <button class="FormSearch__Button">
-                            <img class="icon-search"
-                                 src="https://salt.tikicdn.com/ts/upload/ed/5e/b8/8538366274240326978318348ea8af7c.png"  alt=""/>
+                            <img
+                                    class="icon-search"
+                                    src="https://salt.tikicdn.com/ts/upload/ed/5e/b8/8538366274240326978318348ea8af7c.png"
+                                    alt=""
+                            />
                             Search
                         </button>
                     </div>
                 </div>
-
+                <% session = request.getSession(false);
+                    if (session == null || session.getAttribute("loggedInUser") == null) {%>
+                <a href="login" style="text-decoration: none; color: whitesmoke;"> Đăng nhập | Đăng ký</a>
+                <%} else {%>
                 <div class="Userstyle__Root">
                     <div class="Userstyle__Item">
-                        <img class="profile-icon" src="Home/img/user.png" alt=""/>
-                        <a class="Userstyle__ItemText" >
+                        <img class="profile-icon" src="Home/img/user.png" alt="" />
+                        <a class="Userstyle__ItemText">
                             <span class="Userstyle__NoWrap">Tài khoản</span>
                             <span class="account_laber">
-                <div style="display: flex" class="buttonDropdown">
-                <span>user-name</span>
-                <img class="arrowIcon" src="Home/img/down.png" alt=""/>
-                </div>
-                <div style="margin-top: 20px;" class="UserHeader_UserDropDown disableForm">
-                  <a rel="nofollow" href="${pageContext.request.contextPath}/customerorder">
-                    <p title="Order history" class="UserHeader_UserDropDownItem">
-                      Order history
-                    </p>
-                  </a>
+										<div style="display: flex" class="buttonDropdown">
+                                            <%
+                                                if(session.getAttribute("username") == null ||session.getAttribute("username") == "" ||session == null || session.getAttribute("loggedInUser") == null){%>
+											<span>user-name</span>
+                                            <%}else {
+                                            %>
+                                            <span>${account.username}</span>
+                                            <%}%>
+											<img class="arrowIcon" src="Home/img/down.png" alt="" />
+										</div>
+										<div
+                                                style="margin-top: 20px"
+                                                class="UserHeader_UserDropDown disableForm"
+                                        >
+											<a
+                                                    rel="nofollow"
+                                                    href="${pageContext.request.contextPath}/customerorder"
+                                            >
+												<p
+                                                        title="Order history"
+                                                        class="UserHeader_UserDropDownItem"
+                                                >
+													Order history
+												</p>
+											</a>
 
-                  <a rel="nofollow" href="${pageContext.request.contextPath}/customer">
-                    <p title="My account" class="UserHeader_UserDropDownItem">
-                      My account
-                    </p>
-                  </a>
-                   <a rel="nofollow" href="${pageContext.request.contextPath}/changingpassword">
-                    <p title="Notification" class="UserHeader_UserDropDownItem">
-                      Changing password
-                    </p>
-                  </a>
-                  <a rel="nofollow" href="${pageContext.request.contextPath}/customerReview">
-                    <p title="Reviews" class="UserHeader_UserDropDownItem">
-                      "Reviews"
-                    </p>
-                  </a>
-                  <a rel="nofollow" href="">
-                    <p title="Log out" class="UserHeader_UserDropDownItem">
-                      Log out
-                    </p>
-                  </a>
-                </div>
-              </span>
+											<a
+                                                    rel="nofollow"
+                                                    href="${pageContext.request.contextPath}/customer"
+                                            >
+												<p
+                                                        title="My account"
+                                                        class="UserHeader_UserDropDownItem"
+                                                >
+													My account
+												</p>
+											</a>
+											<a
+                                                    rel="nofollow"
+                                                    href="${pageContext.request.contextPath}/changingpassword"
+                                            >
+												<p
+                                                        title="Notification"
+                                                        class="UserHeader_UserDropDownItem"
+                                                >
+													Changing password
+												</p>
+											</a>
+											<a
+                                                    rel="nofollow"
+                                                    href="${pageContext.request.contextPath}/customerReview"
+                                            >
+												<p title="Reviews" class="UserHeader_UserDropDownItem">
+													"Reviews"
+												</p>
+											</a>
+											<a rel="nofollow" href="logout">
+												<p title="Log out" class="UserHeader_UserDropDownItem">
+													Log out
+												</p>
+											</a>
+										</div>
+									</span>
                         </a>
                     </div>
 
                     <div class="Userstyle__CartItem">
-                        <a href="${pageContext.request.contextPath}/cart" rel="nofollow">
+                        <a
+                                href="${pageContext.request.contextPath}/cart"
+                                rel="nofollow"
+                        >
                             <div class="Userstyle__Item2">
                                 <div class="cart-wrapper">
-                                    <img class="cart-icon"
-                                         src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"  />
+                                    <img
+                                            class="cart-icon"
+                                            src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"
+                                    />
                                     <span class="Userstyle__ItemCart">3</span>
                                 </div>
 
@@ -105,7 +164,9 @@
                         </a>
                     </div>
                 </div>
+                <%}%>
             </div>
+        </div>
         </div>
     </section>
 </header>
@@ -158,25 +219,25 @@
                             </c:if>
                             <c:if test="${not empty listOrder}">
                                 <c:forEach items="${listOrder}" var="element">
-                                    <table class="bangmua">
+                                    <table class="bangmua1">
                                         <thead>
-                                        <tr>
-                                            <th width="100px">Mã đơn hàng</th>
-                                            <th>Ngày mua</th>
-                                            <th>Sản phẩm</th>
-                                            <th width="100px">Tổng tiền</th>
-                                            <th width="150px">Trạng thái đơn hàng</th>
+                                        <tr style="align-items: center">
+                                            <th width="10%">Mã đơn hàng</th>
+                                            <th width="30%">Ngày mua</th>
+                                            <th width="40%">Sản phẩm</th>
+                                            <th width="10%">Tổng tiền</th>
+                                            <th width="10%">Trạng thái đơn hàng</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <a width="100px" href="/sales/order/view/280563326">${Order_detail.id}</a>
+                                                <a width="100px" href="/sales/order/view/280563326">${element[0]}</a>
                                             </td>
-                                            <td>${element[0]}</td>
                                             <td>${element[1]}</td>
-                                            <td width="100px">${element[2]}</td>
-                                            <td>${element[3]}</td>
+                                            <td>${element[2]}</td>
+                                            <td width="100px">${element[3]}</td>
+                                            <td>${element[4]}</td>
                                         </tr>
                                         </tbody>
                                     </table>

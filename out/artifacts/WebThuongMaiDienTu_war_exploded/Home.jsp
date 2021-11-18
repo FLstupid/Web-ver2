@@ -1,4 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
@@ -16,7 +18,7 @@
         >Kênh Người Bán</a
         >
         <div class="Middle__Wrap">
-            <c:if class="Middle__LeftContainer">
+            <div class="Middle__LeftContainer">
                 <div class="logo-menu">
                     <div class="style_Logo">
                         <a href="home" class="dhs-logo">
@@ -77,7 +79,13 @@
                             <span class="Userstyle__NoWrap">Tài khoản</span>
                             <span class="account_laber">
 										<div style="display: flex" class="buttonDropdown">
+                                            <%
+                                                if(session.getAttribute("username") == null || session.getAttribute("loggedInUser") == null){%>
 											<span>user-name</span>
+                                            <%}else {
+                                            %>
+                                            <span>${account.username}</span>
+                                            <%}%>
 											<img class="arrowIcon" src="Home/img/down.png" alt="" />
 										</div>
 										<div
@@ -126,7 +134,7 @@
 													"Reviews"
 												</p>
 											</a>
-											<a rel="nofollow" href="">
+											<a rel="nofollow" href="logout">
 												<p title="Log out" class="UserHeader_UserDropDownItem">
 													Log out
 												</p>
@@ -156,8 +164,8 @@
                     </div>
                 </div>
                 <%}%>
-            </c:if>
             </div>
+        </div>
         </div>
     </section>
 </header>

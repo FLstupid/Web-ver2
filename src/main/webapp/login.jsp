@@ -13,12 +13,6 @@
 		<form method="post" action="login">
 			<input type="hidden" name="action" value="add">
 			<h1>Đăng Ký</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>Hoặc tiếp tục bằng</span>
 			<input type="email" name="email" placeholder="Email"/>
 			<input type="password" name="password" placeholder="Mật Khẩu"/>
 				<button type="submit" class="btn1" class="btn-submit">Đăng Ký</button>
@@ -30,7 +24,8 @@
 			<h1>Đăng Nhập</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/WebThuongMaiDienTu_war/login-google&response_type=code
+   				 &client_id=579923879861-cjm4qj8tjtpun3nfdpol4n95ta3phouh.apps.googleusercontent.com&approval_prompt=force" class="social"><i class="fab fa-google-plus-g"></i></a>
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>Hoặc tiếp tục bằng</span>

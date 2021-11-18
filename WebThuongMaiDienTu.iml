@@ -59,13 +59,85 @@
     <orderEntry type="library" exported="" name="popper.js" level="application" />
     <orderEntry type="library" exported="" name="jquery" level="application" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/javax.jms.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/jena-arq-2.10.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/httpclient-4.5.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/commons-logging-1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/fluent-hc-4.5.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/gson-2.8.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/httpcore-4.4.9.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:4.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-api:5.7.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.apiguardian:apiguardian-api:1.1.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-commons:1.7.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.1.2.Final" level="project" />
@@ -95,32 +167,25 @@
     <orderEntry type="library" name="Maven: com.sun.istack:istack-commons-runtime:3.0.7" level="project" />
     <orderEntry type="library" name="Maven: org.jvnet.staxex:stax-ex:1.8" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.15" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/javax.jms.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/jena-arq-2.10.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="Maven: au.id.tmm.http-constants:http-constants-circe_2.13:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.13.0" level="project" />
+    <orderEntry type="library" name="Maven: io.circe:circe-core_2.13:0.12.2" level="project" />
+    <orderEntry type="library" name="Maven: io.circe:circe-numbers_2.13:0.12.2" level="project" />
+    <orderEntry type="library" name="Maven: org.typelevel:cats-core_2.13:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.typelevel:cats-macros_2.13:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.typelevel:cats-kernel_2.13:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: au.id.tmm.http-constants:http-constants-core_2.13:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: au.id.tmm.http-constants:http-constants-core_2.12:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: au.id.tmm.http-constants:http-constants-argonaut_2.13:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.argonaut:argonaut_2.13:6.2.3" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-reflect:2.13.0" level="project" />
+    <orderEntry type="library" name="Maven: au.id.tmm.http-constants:http-constants-argonaut_2.12:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.argonaut:argonaut_2.12:6.2.3" level="project" />
+    <orderEntry type="library" name="Maven: au.id.tmm.http-constants:http-constants-circe_2.12:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.circe:circe-core_2.12:0.12.2" level="project" />
+    <orderEntry type="library" name="Maven: io.circe:circe-numbers_2.12:0.12.2" level="project" />
+    <orderEntry type="library" name="Maven: org.typelevel:cats-core_2.12:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.typelevel:cats-macros_2.12:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.typelevel:cats-kernel_2.12:2.0.0" level="project" />
   </component>
 </module>

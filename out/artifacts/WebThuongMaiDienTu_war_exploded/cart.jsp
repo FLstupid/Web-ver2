@@ -5,20 +5,26 @@
 <head>
     <title>UserCenter</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" href="css/usercenter.css" />
     <link rel="stylesheet" href="css/newcss.css" />
     <link rel="stylesheet" href="Home/homePage.css"/>
+
 </head>
 <body>
 <!---------------------------------------------------header-------------------------------------------->
 <header class="style__Header">
     <section class="Container">
-        <a style="color: white" href="${pageContext.request.contextPath}/summary">Kênh Người Bán</a>
+        <a
+                style="color: white"
+                href="${pageContext.request.contextPath}/summary"
+        >Kênh Người Bán</a
+        >
         <div class="Middle__Wrap">
             <div class="Middle__LeftContainer">
                 <div class="logo-menu">
                     <div class="style_Logo">
                         <a href="home" class="dhs-logo">
-                            <img src="Home/img/logo.svg" alt=""/>
+                            <img src="Home/img/logo.svg" alt="" />
                         </a>
                     </div>
                 </div>
@@ -26,77 +32,131 @@
                 <div class="Category__Root">
                     <div class="Category">
                         <div>
-                            <img class="Category-icon" src="https://icon-library.com/images/hamburger-icon-white/hamburger-icon-white-16.jpg"  alt="">
+                            <img
+                                    class="Category-icon"
+                                    src="https://icon-library.com/images/hamburger-icon-white/hamburger-icon-white-16.jpg"
+                                    alt=""
+                            />
                         </div>
                         <div class="Category-info">
-                            <div class="Category-text">Danh mục
+                            <div class="Category-text">
+                                Danh mục
                                 <p>Sản phẩm</p>
                             </div>
-
                         </div>
-                        <img class="arrowIcon" src="Home/img/dropdownArrow.png" alt=""/>
+                        <img
+                                class="arrowIcon"
+                                src="Home/img/dropdownArrow.png"
+                                alt=""
+                        />
                     </div>
                 </div>
 
                 <div class="FormSearch__Root">
                     <div class="FormSearch__Form">
-                        <input type="text" placeholder="Find somethings v............... ?" class="FormSearch__Input" value="" />
+                        <input
+                                type="text"
+                                placeholder="Find somethings v............... ?"
+                                class="FormSearch__Input"
+                                value=""
+                        />
                         <button class="FormSearch__Button">
-                            <img class="icon-search"
-                                 src="https://salt.tikicdn.com/ts/upload/ed/5e/b8/8538366274240326978318348ea8af7c.png"  alt=""/>
+                            <img
+                                    class="icon-search"
+                                    src="https://salt.tikicdn.com/ts/upload/ed/5e/b8/8538366274240326978318348ea8af7c.png"
+                                    alt=""
+                            />
                             Search
                         </button>
                     </div>
                 </div>
-
+                <% session = request.getSession(false);
+                    if (session == null || session.getAttribute("loggedInUser") == null) {%>
+                <a href="login" style="text-decoration: none; color: whitesmoke;"> Đăng nhập | Đăng ký</a>
+                <%} else {%>
                 <div class="Userstyle__Root">
                     <div class="Userstyle__Item">
-                        <img class="profile-icon" src="Home/img/user.png" alt=""/>
-                        <a class="Userstyle__ItemText" >
+                        <img class="profile-icon" src="Home/img/user.png" alt="" />
+                        <a class="Userstyle__ItemText">
                             <span class="Userstyle__NoWrap">Tài khoản</span>
                             <span class="account_laber">
-                <div style="display: flex" class="buttonDropdown">
-                <span>user-name</span>
-                <img class="arrowIcon" src="Home/img/down.png" alt=""/>
-                </div>
-                <div style="margin-top: 20px;" class="UserHeader_UserDropDown disableForm">
-                  <a rel="nofollow" href="${pageContext.request.contextPath}/customerorder">
-                    <p title="Order history" class="UserHeader_UserDropDownItem">
-                      Order history
-                    </p>
-                  </a>
+										<div style="display: flex" class="buttonDropdown">
+                                            <%
+                                                if(session.getAttribute("username") == null ||session.getAttribute("username") == "" ||session == null || session.getAttribute("loggedInUser") == null){%>
+											<span>user-name</span>
+                                            <%}else {
+                                            %>
+                                            <span>${account.username}</span>
+                                            <%}%>
+											<img class="arrowIcon" src="Home/img/down.png" alt="" />
+										</div>
+										<div
+                                                style="margin-top: 20px"
+                                                class="UserHeader_UserDropDown disableForm"
+                                        >
+											<a
+                                                    rel="nofollow"
+                                                    href="${pageContext.request.contextPath}/customerorder"
+                                            >
+												<p
+                                                        title="Order history"
+                                                        class="UserHeader_UserDropDownItem"
+                                                >
+													Order history
+												</p>
+											</a>
 
-                  <a rel="nofollow" href="${pageContext.request.contextPath}/customer">
-                    <p title="My account" class="UserHeader_UserDropDownItem">
-                      My account
-                    </p>
-                  </a>
-                   <a rel="nofollow" href="${pageContext.request.contextPath}/changingpassword">
-                    <p title="Notification" class="UserHeader_UserDropDownItem">
-                      Changing password
-                    </p>
-                  </a>
-                  <a rel="nofollow" href="${pageContext.request.contextPath}/customerReview">
-                    <p title="Reviews" class="UserHeader_UserDropDownItem">
-                      "Reviews"
-                    </p>
-                  </a>
-                  <a rel="nofollow" href="">
-                    <p title="Log out" class="UserHeader_UserDropDownItem">
-                      Log out
-                    </p>
-                  </a>
-                </div>
-              </span>
+											<a
+                                                    rel="nofollow"
+                                                    href="${pageContext.request.contextPath}/customer"
+                                            >
+												<p
+                                                        title="My account"
+                                                        class="UserHeader_UserDropDownItem"
+                                                >
+													My account
+												</p>
+											</a>
+											<a
+                                                    rel="nofollow"
+                                                    href="${pageContext.request.contextPath}/changingpassword"
+                                            >
+												<p
+                                                        title="Notification"
+                                                        class="UserHeader_UserDropDownItem"
+                                                >
+													Changing password
+												</p>
+											</a>
+											<a
+                                                    rel="nofollow"
+                                                    href="${pageContext.request.contextPath}/customerReview"
+                                            >
+												<p title="Reviews" class="UserHeader_UserDropDownItem">
+													"Reviews"
+												</p>
+											</a>
+											<a rel="nofollow" href="logout">
+												<p title="Log out" class="UserHeader_UserDropDownItem">
+													Log out
+												</p>
+											</a>
+										</div>
+									</span>
                         </a>
                     </div>
 
                     <div class="Userstyle__CartItem">
-                        <a href="${pageContext.request.contextPath}/cart" rel="nofollow">
+                        <a
+                                href="${pageContext.request.contextPath}/cart"
+                                rel="nofollow"
+                        >
                             <div class="Userstyle__Item2">
                                 <div class="cart-wrapper">
-                                    <img class="cart-icon"
-                                         src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"  />
+                                    <img
+                                            class="cart-icon"
+                                            src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"
+                                    />
                                     <span class="Userstyle__ItemCart">3</span>
                                 </div>
 
@@ -105,7 +165,9 @@
                         </a>
                     </div>
                 </div>
+                <%}%>
             </div>
+        </div>
         </div>
     </section>
 </header>
@@ -141,49 +203,72 @@
             <div class="Account_StylesAccountLayoutInner">
                 <div class="buying-Later formresult  ">
                     <h3 class="HeadingContent">Giỏ Hàng</h3>
+                    <div style="margin-right: auto;">
+                        <span style="margin-left: 600px;">Chọn địa chỉ: </span>
+                        <select class="form-select" name="listaddress" aria-label="Default select example">
+                            <c:forEach items="${listaddress}" var="element" varStatus="loop">
+                                <option value="${loop.index}"/> <c:out value="${element[1]}"/>, <c:out value="${element[2]}"/>, <c:out value="${element[3]}"/></option>
+                            </c:forEach>
+                        </select>
+                    </div>
                     <div class="Content_StylesNav">
                         <form method="post" action="cart" >
-                            <c:if test="${empty cart}">
+                            <c:if test="${empty listcart}">
                                 <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
                                 <a href="home" class="back">Tiếp tục mua sắm</a>
                             </c:if>
-                            <c:if test="${not empty cart}">
-                                <c:forEach items="${buyinglater}" var="element">
-                                    <table class="comment">
+                            <c:if test="${not empty listcart}">
+                                <div>
+                                    <table class="cart">
                                         <thead>
                                         <tr>
                                             <th >Số Lượng</th>
-                                            <th width="200px">Mã giỏ hàng</th>
-                                            <th width="200px">Mã người dùng</th>
-                                            <th >phone</th>
-                                            <th >Địa chỉ</th>
-                                            <th >Quận/Huyện</th>
-                                            <th >Tỉnh/ Thành Phố</th>
-                                            <th>deli</th>
-                                            <th>thời gian tạo</th>
-                                            <th>cập nhật</th>
-                                            <th width="200px">Chi tiết</th>
+                                            <th >Mã giỏ hàng</th>
+                                            <th >Mã người dùng</th>
+                                            <th> Tên sản phẩm</th>
+                                            <th> Giá</th>
+                                            <th>Ưu đãi</th>
+                                            <th>Đơn vị vận chuyển</th>
+                                            <th>Chi tiết</th>
+                                            <th></th>
                                         </tr>
                                         </thead>
+                                        <c:forEach items="${listcart}" var="element">
                                         <tbody>
                                         <tr>
-                                            <input type="text" name="amount" value="${cart_item.amount}" id="quantity" >
-                                            <td>${cart.id}</td>
-                                            <td>${cart.acountId}</td>
-                                            <td style="text-align: center" width="100px">
-                                                <input type="checkbox" id="vehicle1" ></td>
+                                            <form action="cart" method="post">
+                                                <td > <input type="hidden" name="productCode"
+                                                             value="<c:out value='${cartitem.id}'/>">
+                                                    <input style="width: 50px;" type="text" name="amount" value="${element[0]}" id="amount" >
+                                                    <input type="submit" onclick="updateAmount()" value="Update"></td>
+                                            </form>
+                                            <td>${element[1]}</td>
+                                            <td>${element[2]}</td>
+                                            <td>${element[3]}</td>
+                                            <td>${element[4]}</td>
+                                            <td>${element[5]}</td>
+                                            <td>${element[7]}</td>
+                                            <td>${element[8]}</td>
+                                            <td>
+                                                <form action="cart" method="post">
+                                                    <input type="hidden" name="productCode"
+                                                           value="<c:out value='${cartitem.id}'/>">
+                                                    <input type="hidden" name="amount" value="0">
+                                                    <input type="submit"  value="Remove">
+                                                </form>
+                                            </td>
                                         </tr>
                                         </tbody>
+                                        </c:forEach>
                                     </table>
                                     <a href="/" class="back">Mua</a>
-                                </c:forEach>
+                                </div>
                             </c:if>
                         </form>
                     </div>
                 </div>
             </div>
             </div>
-        </div>
         </div>
     </section>
 </main>
