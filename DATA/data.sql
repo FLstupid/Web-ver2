@@ -25,12 +25,12 @@ use dhs;
 -- insert into Shop values (19,3,'DuongSo6','TPHoChiMinh','TPThuDuc','54369527','EveryDay',1256489,1,'10/11/2021');
 -- insert into Shop values (20,3,'HaiBaTrung','TPHaNoi','Quan4','54369527','EveryDay',4562358,1,'10/12/20s
 --  xóa database
-DELETE FROM User_address
-WHERE id >= 0;
-DELETE FROM address
-WHERE id >= 0;
-DELETE FROM account
-WHERE id > 90;
+-- DELETE FROM User_address
+-- WHERE id >= 0;
+-- DELETE FROM address
+-- WHERE id >= 0;
+-- DELETE FROM account
+-- WHERE id > 90; 
 
 --  DELETE FROM address
 -- WHERE id = 0;
@@ -39,4 +39,4 @@ WHERE id > 90;
 -- select * from address
 -- ALTER TABLE Review MODIFY COLUMN  title nvarchar(255) not null;
 
--- select * from account
+select * from account;

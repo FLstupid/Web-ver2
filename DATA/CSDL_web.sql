@@ -11,7 +11,7 @@ create table Account (
     shopName nvarchar(255),
     birthday date,
     role int default 0 ,
-    lastUpdate datetime(0)
+    lastUpdate datetime(0) 
 );
 
 create table Shop (
