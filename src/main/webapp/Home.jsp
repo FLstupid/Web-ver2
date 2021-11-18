@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -11,6 +12,7 @@
 <body>
 <!---------------------------------------------------header-------------------------------------------->
 <header class="style__Header">
+
     <section class="Container">
         <a
                 style="color: white"
@@ -171,6 +173,7 @@
 </header>
 
 <!---------------------------------------------------main-------------------------------------------->
+
 <main style="margin-top: 130px">
     <div class="Container">
         <div class="Tag-root">
@@ -227,346 +230,32 @@
             <section class="wrapper">
                 <div class="products">
                     <ul>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/sualai.jpg?v=1573720306000"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">Mũi Hàn 500</h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">25000đ</span>
+                        <c:forEach items="${listproduct}" var="elements">
+                            <li class="main-product">
+                                <div class="img-product">
+                                    <a href="">
+                                        <img
+                                                class="img-prd"
+                                                src="https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/245906105_1235826353561998_6022519217358799438_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=jterUqRxM6YAX-lxdbA&_nc_ht=scontent.fsgn5-9.fna&oh=c27aca8ceb85c6615b3e3f57a6aa1624&oe=619C3B58"
+                                                alt=""
+                                        />
+                                    </a>
+                                </div>
+                                <div  class="content-product">
+                                    <a href="">
+                                        <h3   class="content-product-h3">${elements[1]}</h3>
+                                    </a>
+                                    <span>${elements[3]}</span>
+                                    <div class="content-product-deltals">
+                                        <div class="price">
+                                            <span class="money">${elements[2]}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/sp1-57698689-e2c0-429a-bf4f-3bd0f39230d8.jpg?v=1575337954000"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Trạm Hàn Hakko 942 75W 200-480*C 220VAC Cực Nóng
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">1299000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://tinviet365.net/wp-content/uploads/2020/04/T%E1%BB%95ng-h%E1%BB%A3p-nh%E1%BB%AFng-h%C3%ACnh-%E1%BA%A3nh-anime-%C4%91%E1%BA%B9p-nh%E1%BA%A5t-th%E1%BA%BF-gi%E1%BB%9Bi-%E1%BA%A5n-t%C6%B0%E1%BB%A3ng.jpg"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Máy Bơm Chìm Hộ Gia Đình QDX 1500W 220VAC 40L/1min H=8m
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">1599000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/module-diy-sac-khong-day-5.jpg?v=1570011041000"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Module DIY Sạc Không Dây Qi IOS/Androi - Bộ phát V2
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">89000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/bo-dieu-chinh-dien-ap-sdty-200p.jpg?v=1560155769920"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Bộ Điều Chỉnh Điện Áp CHLVFU SDTY-200P 20KW 200A (BH 06
-                                    Tháng)
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">2199000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://tinviet365.net/wp-content/uploads/2020/04/T%E1%BB%95ng-h%E1%BB%A3p-nh%E1%BB%AFng-h%C3%ACnh-%E1%BA%A3nh-anime-%C4%91%E1%BA%B9p-nh%E1%BA%A5t-th%E1%BA%BF-gi%E1%BB%9Bi-%E1%BA%A5n-t%C6%B0%E1%BB%A3ng.jpg"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Module ISD1760 Thu Âm Thanh - Phát Âm Thanh 75s
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">115000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://tinviet365.net/wp-content/uploads/2020/04/T%E1%BB%95ng-h%E1%BB%A3p-nh%E1%BB%AFng-h%C3%ACnh-%E1%BA%A3nh-anime-%C4%91%E1%BA%B9p-nh%E1%BA%A5t-th%E1%BA%BF-gi%E1%BB%9Bi-%E1%BA%A5n-t%C6%B0%E1%BB%A3ng.jpg"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Raspberry Pi 3 E14 Model B Plus B+ 2.4G/5G Bluetooth
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">1295000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/module-iot-esp8266-esp-12e-ch340-3.jpg?v=1565950165000"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Module IOT ESP8266 ESP-12E CH340 V3
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">85000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/sualai.jpg?v=1573720306000"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">Mũi Hàn 500</h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">25000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/sp1-57698689-e2c0-429a-bf4f-3bd0f39230d8.jpg?v=1575337954000"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Trạm Hàn Hakko 942 75W 200-480*C 220VAC Cực Nóng
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">1299000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://tinviet365.net/wp-content/uploads/2020/04/T%E1%BB%95ng-h%E1%BB%A3p-nh%E1%BB%AFng-h%C3%ACnh-%E1%BA%A3nh-anime-%C4%91%E1%BA%B9p-nh%E1%BA%A5t-th%E1%BA%BF-gi%E1%BB%9Bi-%E1%BA%A5n-t%C6%B0%E1%BB%A3ng.jpg"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Máy Bơm Chìm Hộ Gia Đình QDX 1500W 220VAC 40L/1min H=8m
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">1599000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/module-diy-sac-khong-day-5.jpg?v=1570011041000"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Module DIY Sạc Không Dây Qi IOS/Androi - Bộ phát V2
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">89000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/bo-dieu-chinh-dien-ap-sdty-200p.jpg?v=1560155769920"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Bộ Điều Chỉnh Điện Áp CHLVFU SDTY-200P 20KW 200A (BH 06
-                                    Tháng)
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">2199000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/isd1760-thu-am-thanh-phat-am-thanh-2.jpg?v=1568951032960"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Module ISD1760 Thu Âm Thanh - Phát Âm Thanh 75s
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">115000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://tinviet365.net/wp-content/uploads/2020/04/T%E1%BB%95ng-h%E1%BB%A3p-nh%E1%BB%AFng-h%C3%ACnh-%E1%BA%A3nh-anime-%C4%91%E1%BA%B9p-nh%E1%BA%A5t-th%E1%BA%BF-gi%E1%BB%9Bi-%E1%BA%A5n-t%C6%B0%E1%BB%A3ng.jpg"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Raspberry Pi 3 E14 Model B Plus B+ 2.4G/5G Bluetooth
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">1295000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/module-iot-esp8266-esp-12e-ch340-3.jpg?v=1565950165000"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Module IOT ESP8266 ESP-12E CH340 V3
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">85000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/module-iot-esp8266-esp-12e-ch340-3.jpg?v=1565950165000"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Module IOT ESP8266 ESP-12E CH340 V3
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">85000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="main-product">
-                            <div class="img-product">
-                                <img
-                                        class="img-prd"
-                                        src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/module-iot-esp8266-esp-12e-ch340-3.jpg?v=1565950165000"
-                                        alt=""
-                                />
-                            </div>
-                            <div class="content-product">
-                                <h3 class="content-product-h3">
-                                    Module IOT ESP8266 ESP-12E CH340 V3
-                                </h3>
-                                <div class="content-product-deltals">
-                                    <div class="price">
-                                        <span class="money">85000đ</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+
+
+                        </c:forEach>
                     </ul>
                 </div>
             </section>

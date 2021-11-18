@@ -31,9 +31,9 @@ public class Product {
     private Collection<OrderItem> orderItemsById;
     @ManyToOne
     private Shop shopByShopId;
-    @OneToMany(mappedBy = "productByProductId")
+    @OneToMany(targetEntity=Review.class, mappedBy = "productByProductId",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     private Collection<Review> reviewsById;
-    @OneToMany(mappedBy = "productByProductId")
+    @OneToMany( mappedBy = "productByProductId")
     private Collection<TagProduct> tagProductsById;
 
     public long getId() {

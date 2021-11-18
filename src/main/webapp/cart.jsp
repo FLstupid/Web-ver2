@@ -238,7 +238,7 @@
                                         <tr>
                                             <form action="cart" method="post">
                                                 <td > <input type="hidden" name="productCode"
-                                                             value="<c:out value='${cartitem.id}'/>">
+                                                             value="<c:out value='${element[9]}'/>">
                                                     <input style="width: 50px;" type="text" name="amount" value="${element[0]}" id="amount" >
                                                     <input type="submit" onclick="updateAmount()" value="Update"></td>
                                             </form>
@@ -252,7 +252,7 @@
                                             <td>
                                                 <form action="cart" method="post">
                                                     <input type="hidden" name="productCode"
-                                                           value="<c:out value='${cartitem.id}'/>">
+                                                           value="<c:out value='${element[9]}'/>">
                                                     <input type="hidden" name="amount" value="0">
                                                     <input type="submit"  value="Remove">
                                                 </form>

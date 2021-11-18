@@ -83,9 +83,31 @@ public class productIO {
         try {
             List acc = em.createQuery("SELECT p.title as productname, " +
                     "p.decription as decription" +
-                    ",p.status as status ,p.price as price ," +
-                    " p.discount as discount,g.tagName as Tag  FROM Product p ," +
-                    " TagProduct n , Tag g, Shop f WHERE p.shopByShopId.id = f.id")
+                    ",p.price as price , p.shopByShopId.shopname " +
+                    "FROM Product p")
+                    .getResultList();
+            return acc;
+
+        } catch (Exception e)
+        {
+            System.out.println(e);
+            return null;
+        }finally {
+            em.close();
+        }
+    }
+    public static List selectProductByid(long idproduct)
+    {
+        EntityManager em = emf.createEntityManager();
+        try {
+            List acc = em.createQuery("SELECT p.id, p.title as productname, " +
+                            "p.decription as decription" +
+                            ",p.price as price ," +
+                            " p.discount as discount," +
+                                    "p.shopByShopId.shopname," +
+                                    "p.reviewsById FROM Product p" +
+                                    "  where p.id = ?1"
+                            ).setParameter(1,idproduct)
                     .getResultList();
             return acc;
 

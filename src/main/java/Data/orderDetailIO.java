@@ -68,7 +68,7 @@ public class orderDetailIO {
         EntityManager em = emf.createEntityManager();
         try {
             List acc = em.createQuery("SELECT p.id as MaDonHang, " +
-                    "p.createdAt as NgayMua,g.title as TenSanPham ," +
+                    "p.createdAt as NgayMua, g.title as TenSanPham ," +
                     "p.totalPrice as TongTien,l.states as TrangThai " +
                     "FROM OrderDetail p , Account ac, OrderItem  n , Product g,Trans l, Shop s\n" +
                     "WHERE n.orderDetailByOrderId.id = p.id " +

@@ -25,43 +25,36 @@ public class Cart {
 
     @ManyToOne
     private Account accountByAccountId;
-
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Collection<CartItem>  listCartItem;
-//    public Collection<CartItem> getCartItemsById() {
-//        return cartItemsById;
-//    }
-//    public int getCount() {
-//        return cartItemsById.size();
-//    }
-//    public void addItem(CartItem item) {
-//       long code = item.getProductId();
-//        int amount = item.getAmount();
-//        for (int i = 0; i < cartItemsById.size(); i++) {
-//            CartItem lineItem = cartItemsById.get(i);
-//            if (lineItem.getProductId().equals(code)) {
-//                lineItem.setAmount(amount);
-//                return;
-//            }
-//        }
-//        cartItemsById.add(item);
-//    }
-//
-//    public void removeItem(CartItem item) {
-//        long code = item.getProductId();
-//        for (int i = 0; i < cartItemsById.size(); i++) {
-//            CartItem lineItem = cartItemsById.get(i);
-//            if (lineItem.getProductId().equals(code)) {
-//                cartItemsById.remove(i);
-//                return;
-//            }
-//        }
-//    }
-//    public void setCartItemsById(ArrayList<CartItem> cartItemsById) {
-//        this.cartItemsById = cartItemsById;
-//    }
     @OneToMany(mappedBy = "cartByCartId")
     private Collection<CartItem> cartItemsById;
+
+    public int getCount() {
+        return cartItemsById.size();
+    }
+    public void addItem(CartItem item) {
+       long code = item.getProducts().getId();
+        int amount = item.getAmount();
+        for (int i = 0; i < cartItemsById.size(); i++) {
+            CartItem cartItem = (CartItem) cartItemsById.toArray()[i];
+            if (cartItem.getProducts().getId()==code) {
+                cartItem.setAmount(amount);
+                return;
+            }
+        }
+        cartItemsById.add(item);
+    }
+
+    public void removeItem(CartItem item) {
+        long code = item.getProducts().getId();
+        for (int i = 0; i < cartItemsById.size(); i++) {
+            CartItem cartItem = (CartItem) cartItemsById.toArray()[i];
+            if (cartItem.getProducts().getId()==code) {
+                cartItemsById.remove(i);
+                return;
+            }
+        }
+    }
+
 
     public long getId() {
         return id;

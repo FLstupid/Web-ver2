@@ -2,7 +2,9 @@ package Model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.text.NumberFormat;
 import java.util.Collection;
+import java.util.Locale;
 import java.util.Objects;
 
 @Entity
@@ -61,7 +63,7 @@ public class CartItem {
 
     public void setAmount(int amount) {
         this.amount = amount;
-        price = sumPrice();
+//        price = sumPrice();
     }
 
     public Timestamp getCreatedAt() {
@@ -130,5 +132,9 @@ public class CartItem {
     public Product getProducts() {
         return productByProductId;
     }
-
+    public String getTotalCurrencyFormat()
+    {       Locale localeVN = new Locale("vi", "VN");
+            NumberFormat vn = NumberFormat.getInstance(localeVN);
+            return vn.format(this.sumPrice());
+    }
 }

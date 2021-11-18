@@ -33,52 +33,48 @@ public class CartServlet extends HttpServlet{
         }
         String url = "/cart.jsp";
         if (action.equals("cart")) {
-//            String productCode = request.getParameter("productCode");
-            String amountString = request.getParameter("amount");
-//
+         String productCode = request.getParameter("productCode");
+         String amountString = request.getParameter("amount");
+
             HttpSession session = request.getSession();
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
                 cart = new Cart();
             }
-//
-//            //if the user enters a negative or invalid quantity,
-//            //the quantity is automatically reset to 1.
-            short amount;
+
+            int amount;
             try {
-                amount = Short.parseShort(amountString);
+                amount = Integer.parseInt(amountString);
                 if (amount < 0) {
                     amount = 1;
                 }
             } catch (NumberFormatException nfe) {
                 amount = 1;
             }
-//            if(amount>1)
-//            {
-//                CartItem.setAmount(amount);
-//            }
-            //get product
+
 
 //            long id = Long.parseLong(productCode);
-//            Product product = productIO.selectProduct(id);
-//
-//
+            long id =1;
+            Product product = productIO.selectProduct(id);
+
+
             CartItem cartItem = new CartItem();
-//           cartItem.setProductByProductId(product);
+            cartItem.setProductByProductId(product);
             cartItem.setAmount(amount);
-//            if (amount > 0) {
-//               cart.addCartItem(cartItem);
-//            } else if (amount == 0) {
-//                cart.removeCartItem(cartItem);
-//            }
+            if (amount > 0) {
+               cart.addCartItem(cartItem);
+            } else if (amount == 0) {
+                cart.removeCartItem(cartItem);
+            }
             Account acc = (Account) request.getSession().getAttribute("account");
             long id1 = acc.getId();
             List listcart = cartIO.selectCart(id1);
             List listaddress = addressIO.selectUserAdress(id1);
             request.getSession().setAttribute("listaddress", listaddress);
-    //           session.setAttribute("cart", cart);
-           request.setAttribute("amount", amount);
+               session.setAttribute("cart", cart);
+            request.setAttribute("amount", amount);
             request.getSession().setAttribute("listcart", listcart);
+            request.getSession().setAttribute("amount", amount);
             url = "/cart.jsp";
         }
         getServletContext()

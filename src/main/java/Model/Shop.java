@@ -9,6 +9,8 @@ import java.util.Objects;
 public class Shop {
     @Id
     private long id;
+    @Basic
+    private String shopname;
     private String streetName;
     private String city;
     private String district;
@@ -148,5 +150,15 @@ public class Shop {
     }
     public void setShopDeliveriesById(Collection<ShopDelivery> shopDeliveriesById) {
         this.shopDeliveriesById = shopDeliveriesById;
+    }
+
+
+
+    public String getShopname() {
+        return shopname;
+    }
+
+    public void setShopname(String shopname) {
+        this.shopname = shopname;
     }
 }
