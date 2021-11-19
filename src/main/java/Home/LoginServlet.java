@@ -25,26 +25,16 @@ public class LoginServlet extends HttpServlet {
         if (action == null) {
             action = "join";  // default action
         }
-<<<<<<< Updated upstream
         if (action.equals("join")) {
             action = "login";
         }
         else if(action.equals("add")) {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            if (email.equals(null) || email.equals("") || password.equals(null) || password.equals("")) {
+            if (email == null || email.equals("") || password == null || password.equals("")) {
                 message = "Xin hãy nhập tài khoản và mật khẩu";
                 url = "/login.jsp";
             } else {
-=======
-        switch (action) {
-            case "join":
-                break;
-            case "add": {
-                String email = request.getParameter("email");
-                String password = request.getParameter("password");
-                String t = null;
->>>>>>> Stashed changes
                 if (accountIO.userExist(email)) {
                     message = "Tài khoản đã tồn tại";
                 } else {
@@ -53,19 +43,19 @@ public class LoginServlet extends HttpServlet {
                     accountIO.insert(temp);
                     t = temp.getUsername();
                 }
-<<<<<<< Updated upstream
             }
         }
         if (action.equals("signin")) {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
 
-            if (email.equals(null) || email.equals("") || password.equals("")) {
+            if (email == null || email.equals("") || password.equals("")) {
                 message = "Xin hãy nhập tài khoản và mật khẩu";
                 url = "/login.jsp";
             }
             else if (accountIO.userExist(email)) {
                 temp = accountIO.selectAcc(email);
+                assert temp != null;
                 if (temp.getPasswordHash().equals(password)) {
                     message = "Đăng nhập thành công";
                     HttpSession session = request.getSession();
@@ -77,40 +67,11 @@ public class LoginServlet extends HttpServlet {
                     url = "/Home.jsp";
                 } else {
                     message = "Mật khẩu không trùng khớp";
-=======
-                request.setAttribute("loggedInUser", temp);
-                request.setAttribute("message", message);
-                request.getSession().setAttribute("username", t);
-                break;
-            }
-            case "signin": {
-                String email = request.getParameter("email");
-                String password = request.getParameter("password");
-                if (accountIO.userExist(email)) {
-                    temp = accountIO.selectAcc(email);
-                    assert temp != null;
-                    if (temp.getPasswordHash().equals(password)) {
-                        message = "Đăng nhập thành công";
-
-                        session.setAttribute("loggedInUser", temp);
-                        url = "/Home.jsp";
-                    } else {
-                        message = "Mật khẩu không trùng khớp";
-                    }
-
-                } else {
-                    message = "Tài khoản chưa tồn tại";
->>>>>>> Stashed changes
                 }
                 request.setAttribute("account", temp);
                 request.setAttribute("message", message);
-
-<<<<<<< Updated upstream
             } else {
                 message = "Tài khoản chưa tồn tại";
-=======
-                break;
->>>>>>> Stashed changes
             }
         }
         request.setAttribute("loggedInUser", temp);
