@@ -2,9 +2,11 @@ package User;
 
 import Data.addressIO;
 import Data.cartIO;
+import Data.productIO;
 import Model.Account;
 import Model.Cart;
 import Model.CartItem;
+import Model.Product;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -61,7 +63,7 @@ public class CartServlet extends HttpServlet{
             cartItem.setAmount(amount);
             if (amount > 0) {
                cart.addCartItem(cartItem);
-            } else if (amount == 0) {
+            } else {
                 cart.removeCartItem(cartItem);
             }
             Account acc = (Account) request.getSession().getAttribute("account");

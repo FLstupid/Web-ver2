@@ -85,11 +85,9 @@ public class productIO {
                     ",p.price as price , p.shopByShopId.shopname " +
                     "FROM Product p")
                     .getResultList();
-            return acc;
-
         } catch (Exception e)
         {
-            System.out.println(e);
+            System.out.println(e.getMessage());
             return null;
         }finally {
             em.close();
@@ -99,7 +97,7 @@ public class productIO {
     {
         EntityManager em = emf.createEntityManager();
         try {
-            List acc = em.createQuery("SELECT p.id, p.title as productname, " +
+            return em.createQuery("SELECT p.id, p.title as productname, " +
                             "p.decription as decription" +
                             ",p.price as price ," +
                             " p.discount as discount," +
@@ -108,7 +106,6 @@ public class productIO {
                                     "  where p.id = ?1"
                             ).setParameter(1,idproduct)
                     .getResultList();
-
         } catch (Exception e)
         {
             System.out.println(e.getMessage());
