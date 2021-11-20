@@ -233,7 +233,7 @@
                         <c:forEach items="${listproduct}" var="elements">
                             <li class="main-product">
                                 <div class="img-product">
-                                    <a href="">
+                                    <a href="productdetail?action=detail&amp;productCode=${elements[4]}">
                                         <img
                                                 class="img-prd"
                                                 src="https://scontent.fsgn5-9.fna.fbcdn.net/v/t39.30808-6/245906105_1235826353561998_6022519217358799438_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=jterUqRxM6YAX-lxdbA&_nc_ht=scontent.fsgn5-9.fna&oh=c27aca8ceb85c6615b3e3f57a6aa1624&oe=619C3B58"
@@ -242,7 +242,7 @@
                                     </a>
                                 </div>
                                 <div  class="content-product">
-                                    <a href="">
+                                    <a href="productdetail?action=detail&amp;productCode=${elements[4]}">
                                         <h3   class="content-product-h3">${elements[1]}</h3>
                                     </a>
                                     <span>${elements[3]}</span>

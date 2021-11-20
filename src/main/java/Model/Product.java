@@ -22,7 +22,7 @@ public class Product {
     private Timestamp updatedAt;
     private Timestamp createdAt;
     private Timestamp publishedAt;
-
+    public Product(){}
     @OneToMany(mappedBy = "productByProductId")
     private Collection<CartItem> cartItemsById;
     @OneToMany(mappedBy = "productByProductId")
@@ -35,6 +35,9 @@ public class Product {
     private Collection<Review> reviewsById;
     @OneToMany( mappedBy = "productByProductId")
     private Collection<TagProduct> tagProductsById;
+
+    public Product(Object product) {
+    }
 
     public long getId() {
         return id;

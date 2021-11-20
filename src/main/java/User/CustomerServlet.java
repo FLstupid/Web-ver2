@@ -3,11 +3,10 @@ package User;
 import Data.accountIO;
 import Model.Account;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -32,6 +31,10 @@ public class CustomerServlet extends HttpServlet {
         }
         if (action.equals("join")) {
             action = "customer";
+        }
+        else if(action.equals("checkUser"))
+        {
+            checkUser(request,response);
         }
         else if (action.equals("add")) {
 
@@ -100,4 +103,40 @@ public class CustomerServlet extends HttpServlet {
             throws ServletException, IOException {
         doGet(request, response);
     }
+    private String checkUser(HttpServletRequest request,
+                             HttpServletResponse response) {
+
+        String productCode = request.getParameter("productCode");
+        HttpSession session = request.getSession();
+        session.setAttribute("productCode", productCode);
+        Account user = (Account) session.getAttribute("email");
+
+        String url;
+        // if User object doesn't exist, check email cookie
+        if (user == null) {
+//            Cookie[] cookies = request.getCookies();
+//            String emailAddress =CookieUtil.getCookieValue(cookies, "emailCookie");
+            String email =  request.getParameter("email");
+            String password =  request.getParameter("password");
+            // if cookie doesn't exist, go to Registration page
+            if (email == null || email.equals("")) {
+                url = "/register.jsp";
+            }
+            // if cookie exists, create User object and go to Downloads page
+            else {
+                ServletContext sc = getServletContext();
+                Account  account = (Account) request.getSession().getAttribute("account");
+                long id = account.getId();
+                Account   account1 = accountIO.getAccountById(id);
+                session.setAttribute("account", account1);
+                url = "/" + productCode + "/cart.jsp";
+            }
+        }
+        // if User object exists, go to Downloads page
+        else {
+            url = "/" + productCode + "/cart.jsp";
+        }
+        return url;
+    }
+
 }

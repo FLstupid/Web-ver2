@@ -57,16 +57,20 @@ public class productIO {
             emf.close();
         }
     }
-    public static Product selectProduct(long ID)
+    public static Object[] selectProduct(long ID)
     {
         EntityManager em = emf.createEntityManager();
-        String q = "Select i from Product i " +
-                        "Where i.id = :id";
-        TypedQuery<Product> x = em.createQuery(q,Product.class);
-        x.setParameter("id",ID);
+
         Product product = null;
         try {
-            product = x.getSingleResult();
+            Object[] acc = em.createQuery("SELECT p.id, p.title as productname," +
+                            " p.decription as decription" +
+                            ",p.price as price ," +
+                            " p.discount as discount ," +
+                            "p.shopByShopId.id," +
+                            "p.content FROM Product p where p.id =:id",Object[].class).setParameter("id",ID)
+                    .getSingleResult();
+            return acc;
         } catch (Exception e)
         {
             System.out.println(e);
@@ -74,7 +78,7 @@ public class productIO {
         }finally {
             em.close();
         }
-        return product;
+
     }
     //xem lại
     public static List selectListProduct()
@@ -83,7 +87,7 @@ public class productIO {
         try {
             List acc = em.createQuery("SELECT p.title as productname, " +
                     "p.decription as decription" +
-                    ",p.price as price , p.shopByShopId.shopname " +
+                    ",p.price as price , p.shopByShopId.shopname ,p.id " +
                     "FROM Product p")
                     .getResultList();
             return acc;
@@ -96,21 +100,16 @@ public class productIO {
             em.close();
         }
     }
-    public static List selectProductByid(long idproduct)
+    public static Product selectProductByid(long idproduct)
     {
         EntityManager em = emf.createEntityManager();
+       TypedQuery<Product>  acc;
         try {
-            List acc = em.createQuery("SELECT p.id, p.title as productname, " +
-                            "p.decription as decription" +
-                            ",p.price as price ," +
-                            " p.discount as discount," +
-                                    "p.shopByShopId.shopname," +
-                                    "p.reviewsById FROM Product p" +
-                                    "  where p.id = ?1"
-                            ).setParameter(1,idproduct)
-                    .getResultList();
-            return acc;
-
+             acc = em.createQuery("SELECT p FROM Product p where p.id = :id"
+                            ,Product.class);
+             acc.setParameter("id",idproduct);
+             Product pd = acc.getSingleResult();
+            return pd;
         } catch (Exception e)
         {
             System.out.println(e);
@@ -118,5 +117,6 @@ public class productIO {
         }finally {
             em.close();
         }
+
     }
 }

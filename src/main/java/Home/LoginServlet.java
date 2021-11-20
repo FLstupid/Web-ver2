@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
         else if(action.equals("add")) {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            if (email.equals(null) || email.equals("") || password.equals(null) || password.equals("")) {
+            if (email == null || email.equals("") || password == null || password.equals("")) {
                 message = "Xin hãy nhập tài khoản và mật khẩu";
                 url = "/login.jsp";
             } else {
@@ -49,12 +49,13 @@ public class LoginServlet extends HttpServlet {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
 
-            if (email.equals(null) || email.equals("") || password.equals("")) {
+            if (email == null || email.equals("") || password.equals("")) {
                 message = "Xin hãy nhập tài khoản và mật khẩu";
                 url = "/login.jsp";
             }
             else if (accountIO.userExist(email)) {
                 temp = accountIO.selectAcc(email);
+                assert temp != null;
                 if (temp.getPasswordHash().equals(password)) {
                     message = "Đăng nhập thành công";
                     HttpSession session = request.getSession();
@@ -67,7 +68,8 @@ public class LoginServlet extends HttpServlet {
                 } else {
                     message = "Mật khẩu không trùng khớp";
                 }
-
+                request.setAttribute("account", temp);
+                request.setAttribute("message", message);
             } else {
                 message = "Tài khoản chưa tồn tại";
             }

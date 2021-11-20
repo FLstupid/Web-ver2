@@ -12,6 +12,14 @@
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>ProductDetailServlet</servlet-name>
+        <servlet-class>User.ProductDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductDetailServlet</servlet-name>
+        <url-pattern>/productdetail</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <display-name>LogoutServlet</display-name>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>Home.LogoutServlet</servlet-class>

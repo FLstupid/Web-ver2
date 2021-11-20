@@ -60,6 +60,21 @@ public class reviewIO {
             emf.close();
         }
     }
+    public static List selectReviewList(long masanpham){
+        EntityManager em = emf.createEntityManager();
+        try {
+            List acc = em.createQuery("SELECT p.id, p.title as TieuDe" +
+                    ",p.content as NhanXet, p.rating FROM Review p  WHERE p.productByProductId.id =?1").setParameter(1,masanpham).getResultList();
+            return acc;
+
+        } catch (Exception e)
+        {
+            System.out.println(e);
+            return null;
+        }finally {
+            em.close();
+        }
+    }
     public static List selectOrderReviewList(long ID)
     {
         EntityManager em = emf.createEntityManager();

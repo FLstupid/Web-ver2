@@ -28,21 +28,30 @@ public class CartServlet extends HttpServlet{
         }
         ServletContext sc = getServletContext();
         String action = request.getParameter("action");
+        Account acc = (Account) request.getSession().getAttribute("account");
+        long id1 = acc.getId();
+        List listcart = cartIO.selectCart(id1);
+        List listaddress = addressIO.selectUserAdress(id1);
+        request.getSession().setAttribute("listaddress", listaddress);
+        String productCode;
+        String amountString;
+        Cart cart = null;
+        int amount = 0;
+        HttpSession session = request.getSession();
         if (action == null) {
-            action = "cart"; // default action
+            action = "watchcart"; // default action
         }
-        String url = "/cart.jsp";
-        if (action.equals("cart")) {
-         String productCode = request.getParameter("productCode");
-         String amountString = request.getParameter("amount");
+        String url;
+         if (action.equals("cart")) {
+         productCode = request.getParameter("productCode");
+         amountString = request.getParameter("amount");
 
-            HttpSession session = request.getSession();
-            Cart cart = (Cart) session.getAttribute("cart");
+
+            cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
                 cart = new Cart();
             }
 
-            int amount;
             try {
                 amount = Integer.parseInt(amountString);
                 if (amount < 0) {
@@ -51,13 +60,8 @@ public class CartServlet extends HttpServlet{
             } catch (NumberFormatException nfe) {
                 amount = 1;
             }
-
-
-//            long id = Long.parseLong(productCode);
-            long id =1;
-            Product product = productIO.selectProduct(id);
-
-
+            long id = Long.parseLong(productCode);
+            Product product = productIO.selectProductByid(id);
             CartItem cartItem = new CartItem();
             cartItem.setProductByProductId(product);
             cartItem.setAmount(amount);
@@ -66,17 +70,13 @@ public class CartServlet extends HttpServlet{
             } else if (amount == 0) {
                 cart.removeCartItem(cartItem);
             }
-            Account acc = (Account) request.getSession().getAttribute("account");
-            long id1 = acc.getId();
-            List listcart = cartIO.selectCart(id1);
-            List listaddress = addressIO.selectUserAdress(id1);
-            request.getSession().setAttribute("listaddress", listaddress);
-               session.setAttribute("cart", cart);
-            request.setAttribute("amount", amount);
-            request.getSession().setAttribute("listcart", listcart);
-            request.getSession().setAttribute("amount", amount);
-            url = "/cart.jsp";
+
         }
+        session.setAttribute("cart", cart);
+        request.setAttribute("amount", amount);
+        request.getSession().setAttribute("listcart", listcart);
+        request.getSession().setAttribute("amount", amount);
+        url = "/cart.jsp";
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
