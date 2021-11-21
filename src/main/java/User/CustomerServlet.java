@@ -32,10 +32,7 @@ public class CustomerServlet extends HttpServlet {
         if (action.equals("join")) {
             action = "customer";
         }
-        else if(action.equals("checkUser"))
-        {
-            checkUser(request,response);
-        }
+
         else if (action.equals("add")) {
 
             String username;
@@ -98,40 +95,6 @@ public class CustomerServlet extends HttpServlet {
             throws ServletException, IOException {
         doGet(request, response);
     }
-    private String checkUser(HttpServletRequest request,
-                             HttpServletResponse response) {
 
-        String productCode = request.getParameter("productCode");
-        HttpSession session = request.getSession();
-        session.setAttribute("productCode", productCode);
-        Account user = (Account) session.getAttribute("email");
-
-        String url;
-        // if User object doesn't exist, check email cookie
-        if (user == null) {
-//            Cookie[] cookies = request.getCookies();
-//            String emailAddress =CookieUtil.getCookieValue(cookies, "emailCookie");
-            String email =  request.getParameter("email");
-            String password =  request.getParameter("password");
-            // if cookie doesn't exist, go to Registration page
-            if (email == null || email.equals("")) {
-                url = "/register.jsp";
-            }
-            // if cookie exists, create User object and go to Downloads page
-            else {
-                ServletContext sc = getServletContext();
-                Account  account = (Account) request.getSession().getAttribute("account");
-                long id = account.getId();
-                Account   account1 = accountIO.getAccountById(id);
-                session.setAttribute("account", account1);
-                url = "/" + productCode + "/cart.jsp";
-            }
-        }
-        // if User object exists, go to Downloads page
-        else {
-            url = "/" + productCode + "/cart.jsp";
-        }
-        return url;
-    }
 
 }
