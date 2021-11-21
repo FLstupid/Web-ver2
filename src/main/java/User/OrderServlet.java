@@ -27,7 +27,7 @@ public class OrderServlet extends HttpServlet {
         Account acc = (Account) request.getSession().getAttribute("account");
         long id1 = acc.getId();
         HttpSession session = request.getSession();
-        List listorder = orderDetailIO.selectOrderList(id1);
+        List<?> listorder = orderDetailIO.selectOrderList(id1);
         session.setAttribute("listOrder", listorder);
         String url = "/Order.jsp";
         getServletContext()

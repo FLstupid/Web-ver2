@@ -39,7 +39,7 @@ public class CustomerServlet extends HttpServlet {
         else if (action.equals("add")) {
 
             String username;
-            Boolean Gender;
+            boolean Gender;
             String phone;
             String message;
             Timestamp lastUpdate;
@@ -49,12 +49,7 @@ public class CustomerServlet extends HttpServlet {
             String email =  request.getParameter("email");
             String sex = request.getParameter("gender");
 
-            if(sex.equals("male")){
-                Gender = true;
-            }
-            else {
-                Gender = false;
-            }
+            Gender = sex.equals("male");
             String   day=request.getParameter("day");
             String   month=request.getParameter("month");
             String   year=request.getParameter("year");
@@ -68,6 +63,7 @@ public class CustomerServlet extends HttpServlet {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+            assert birthday1 != null;
             java.sql.Date birthday = new java.sql.Date(birthday1.getTime());
             boolean role = true;
             //last update
@@ -75,7 +71,6 @@ public class CustomerServlet extends HttpServlet {
             Account  account = (Account) request.getSession().getAttribute("account");
             if ( email == null || email.isEmpty() || phone == null || phone.isEmpty()) {
                 message = "Xin hãy điền tất cả các giá trị";
-                url = "/usercenter.jsp";
             }
             else {
                 message = "Cập nhật tài khoản thành công";
@@ -87,8 +82,8 @@ public class CustomerServlet extends HttpServlet {
                 account.setShopName("");
                 account.setUsername(username);
                 accountIO.update(account);
-                url = "/usercenter.jsp";
             }
+            url = "/usercenter.jsp";
             request.setAttribute("account", account);
             request.setAttribute("message", message);
             request.setAttribute("username", username);

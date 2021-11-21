@@ -43,7 +43,7 @@ public  class accountIO {
             em.merge(account);
             transaction.commit();
         }catch (Exception e){
-            System.out.println(e);
+            System.out.println(e.getMessage());
             transaction.rollback();
         } finally
         {
@@ -70,9 +70,7 @@ public  class accountIO {
         TypedQuery<Account> q = em.createQuery(query,Account.class);
         q.setParameter("email",email);
         try {
-            Account acc = q.getSingleResult();
-            return acc;
-
+            return q.getSingleResult();
         } catch (NoResultException e)
         {
             return null;
@@ -87,11 +85,9 @@ public  class accountIO {
         return u!= null;
     }
     public static Account getAccountById (long Id){
-
         EntityManager em = emf.createEntityManager();
         try{
-            Account acc = em.find(Account.class, Id);
-            return  acc;
+            return em.find(Account.class, Id);
         }finally {
             em.close();
         }

@@ -67,7 +67,7 @@ public class CartServlet extends HttpServlet{
             cartItem.setAmount(amount);
             if (amount > 0) {
                cart.addCartItem(cartItem);
-            } else if (amount == 0) {
+            } else {
                 cart.removeCartItem(cartItem);
             }
 

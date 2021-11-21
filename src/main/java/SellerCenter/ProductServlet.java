@@ -1,7 +1,7 @@
 package SellerCenter;
 
-import Data.productIO;
-import Model.Product;
+import Data.orderDetailIO;
+import Model.Account;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,10 +17,11 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Account acc = (Account) request.getSession().getAttribute("account");
+        long id1 = acc.getId();
         HttpSession session = request.getSession();
-        List<Product> products = productIO.selectListProduct();
-        session.setAttribute("products", products);
-
+        List<?> listorder = orderDetailIO.selectOrderList(id1);
+        session.setAttribute("listOrder", listorder);
         String url = "/product.jsp";
         getServletContext()
                 .getRequestDispatcher(url)
