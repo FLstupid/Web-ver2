@@ -97,35 +97,21 @@ public class CartServlet extends HttpServlet{
     }
     private String checkUser(HttpServletRequest request,
                              HttpServletResponse response) {
-
         String productCode = request.getParameter("productCode");
         HttpSession session = request.getSession();
         session.setAttribute("productCode", productCode);
-        Account user = (Account) session.getAttribute("email");
 
         String url;
-        // if User object doesn't exist, check email cookie
-        if (user == null) {
-            Cookie[] cookies = request.getCookies();
-            String emailAddress = CookieUtil.getCookieValue(cookies, "emailCookie");
-            String email =  request.getParameter("email");
-            String password =  request.getParameter("password");
-            // if cookie doesn't exist, go to Registration page
-            if (email == null || email.equals("")) {
+        if (productCode.equals(null) || productCode.equals("")) {
+
                 url = "/login.jsp";
-            }
-            // if cookie exists, create User object and go to Downloads page
-            else {
-                ServletContext sc = getServletContext();
-                Account  account = (Account) request.getSession().getAttribute("account");
-                long id = account.getId();
-                Account   account1 = accountIO.getAccountById(id);
-                session.setAttribute("account", account1);
-                url = "/cart.jsp";
-            }
         }
-        // if User object exists, go to Downloads page
         else {
+            ServletContext sc = getServletContext();
+            Account  account = (Account) request.getSession().getAttribute("account");
+            long id = account.getId();
+            Account   account1 = accountIO.getAccountById(id);
+            session.setAttribute("account", account1);
             url = "/cart.jsp";
         }
         return url;
