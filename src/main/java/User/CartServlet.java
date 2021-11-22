@@ -29,12 +29,14 @@ public class CartServlet extends HttpServlet{
         String amountString;
         ServletContext sc = getServletContext();
         String action = request.getParameter("action");
-        String url = null;
+        String url;
+        if (action == null) {
+            action = "watchcart"; // default action
+        }
          if(action.equals("checkUser"))
         {
           url =  checkUser(request,response);
-        }
-         else {
+        } else{
              Account acc = (Account) request.getSession().getAttribute("account");
              long id1 = acc.getId();
              List listcart = cartIO.selectCart(id1);
@@ -44,9 +46,7 @@ public class CartServlet extends HttpServlet{
              Cart cart = null;
              int amount = 0;
              HttpSession session = request.getSession();
-             if (action == null) {
-                 action = "watchcart"; // default action
-             }
+
 
              if (action.equals("cart")) {
                  productCode = request.getParameter("productCode");
@@ -84,6 +84,7 @@ public class CartServlet extends HttpServlet{
              request.getSession().setAttribute("amount", amount);
              url = "/cart.jsp";
          }
+
 
 
         getServletContext()

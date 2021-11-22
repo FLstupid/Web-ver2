@@ -162,7 +162,7 @@
                     <input class="cart__body-quantity-total" type="numbe" value="1" />
                     <input class="cart__body-quantity-plus" type="button" value="+" />
                     <button type="button" class="btn btn-kx">
-                     <a style="color: white; text-decoration: none" href="cart?action=checkUser&amp;productCode=${product[0]}" >
+                     <a style="color: white; text-decoration: none"  href="cart?action=checkUser&amp;productCode=${product[0]}" >
                          Cập nhật giỏ hàng
                      </a>
                     </button>

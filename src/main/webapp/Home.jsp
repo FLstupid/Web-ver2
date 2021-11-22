@@ -137,7 +137,7 @@
 													"Reviews"
 												</p>
 											</a>
-											<a rel="nofollow" href="logout">
+											<a rel="nofollow" href="/home">
 												<p title="Log out" class="UserHeader_UserDropDownItem">
 													Log out
 												</p>
@@ -234,7 +234,7 @@
                         <c:forEach items="${listproduct}" var="elements">
                             <li class="main-product">
                                 <div class="img-product">
-                                    <%if(session.getAttribute("username") == null || session.getAttribute("loggedInUser") == null){%>
+                                    <%if( session.getAttribute("loggedInUser") == null){%>
                                     <a href="productdetail?action=watch">
                                         <img
                                                 class="img-prd"
@@ -254,8 +254,8 @@
 
                                 </div>
                                 <div  class="content-product">
-                                    <%if(session.getAttribute("username") == null || session.getAttribute("loggedInUser") == null){%>
-                                        <a href="productdetail">
+                                    <%if(session.getAttribute("loggedInUser") == null){%>
+                                        <a href="productdetail?action=watch">
                                             <h3   class="content-product-h3">${elements[1]}</h3>
                                         </a>
                                     <%}else{%>

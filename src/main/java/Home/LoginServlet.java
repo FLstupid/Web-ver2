@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
 
         String url = "/login.jsp";
         String action = request.getParameter("action");
-        String message = null;
+        String message=null;
         String t=null;
         Account temp = null;
         if (action == null) {
@@ -31,10 +31,14 @@ public class LoginServlet extends HttpServlet {
         else if(action.equals("add")) {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
+            String confirmpassword = request.getParameter("confirmpassword");
             if (email == null || email.equals("") || password == null || password.equals("")) {
                 message = "Xin hãy nhập tài khoản và mật khẩu";
-                url = "/login.jsp";
-            } else {
+            }else if(!password.equals(confirmpassword))
+            {
+                message = "Mật khẩu xác nhận không đúng";
+            }
+            else {
                 if (accountIO.userExist(email)) {
                     message = "Tài khoản đã tồn tại";
                 } else {
@@ -44,12 +48,13 @@ public class LoginServlet extends HttpServlet {
                     t = temp.getUsername();
                 }
             }
+            url = "/login.jsp";
         }
         if (action.equals("signin")) {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
 
-            if (email == null || email.equals("") || password.equals("")) {
+            if (email==null || email.equals("") || password==null || password.equals("")) {
                 message = "Xin hãy nhập tài khoản và mật khẩu";
                 url = "/login.jsp";
             }
@@ -74,8 +79,8 @@ public class LoginServlet extends HttpServlet {
                 message = "Tài khoản chưa tồn tại";
             }
         }
-        request.setAttribute("loggedInUser", temp);
-        request.setAttribute("message", message);
+        request.getSession().setAttribute("loggedInUser", temp);
+        request.getSession().setAttribute("message", message);
         request.getSession().setAttribute("username", t);
         getServletContext()
                 .getRequestDispatcher(url).forward(request, response);

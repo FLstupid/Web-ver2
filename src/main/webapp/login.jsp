@@ -15,7 +15,8 @@
 			<h1>Đăng Ký</h1>
 			<input type="email" name="email" placeholder="Email"/>
 			<input type="password" name="password" placeholder="Mật Khẩu"/>
-				<button type="submit" class="btn1" class="btn-submit">Đăng Ký</button>
+			<input type="password" name="confirmpassword" placeholder="Xác Nhận Mật Khẩu"/>
+				<button type="submit"  class=" btn1 btn-submit">Đăng Ký</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
@@ -32,14 +33,7 @@
 			<input type="email" name="email" placeholder="Email"/>
 			<input type="password" name="password" placeholder="Mật khẩu"/>
 			<a href="#">Quên mật khẩu ?</a>
-			<button type="submit" class="btn1" class="btn-submit">Đăng Nhập</button>
-			<c:if test="${not empty message}">
-				<script>
-				window.addEventListener("load",function(){
-				alert("${message}");
-				})
-				</script>
-			</c:if>
+			<button type="submit"  class="btn2 btn-submit">Đăng Nhập</button>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -61,10 +55,12 @@
 <!-- partial -->
 <script src="Registration/script.js"></script>
 <script>
-	// function Showmessage(message)
-	// {
-	// 	alert(message);
-	// }
+	window.addEventListener("load",function(){
+		if("${message}" !== "")
+		{
+			alert("${message}");
+		}
+	})
 </script>
 </body>
 </html>
