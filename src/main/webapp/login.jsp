@@ -33,7 +33,12 @@
 			<input type="email" name="email" placeholder="Email"/>
 			<input type="password" name="password" placeholder="Mật khẩu"/>
 			<a href="#">Quên mật khẩu ?</a>
-			<button type="submit"  class="btn2 btn-submit">Đăng Nhập</button>
+			<button type="submit"   id="btn2"  class="btn2 btn-submit">Đăng Nhập</button>
+			<script>
+				window.addEventListener("load",function(){
+						alert("${message}");
+				})
+			</script>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -55,12 +60,12 @@
 <!-- partial -->
 <script src="Registration/script.js"></script>
 <script>
-	window.addEventListener("load",function(){
-		if("${message}" !== "")
-		{
-			alert("${message}");
-		}
-	})
+	<%--window.addEventListener("load",function(){--%>
+	<%--	if("${message}" !== "")--%>
+	<%--	{--%>
+	<%--		alert("${message}");--%>
+	<%--	}--%>
+	<%--})--%>
 </script>
 </body>
 </html>

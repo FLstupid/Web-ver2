@@ -159,12 +159,19 @@
                             type="button"
                             value="-"
                     />
-                    <input class="cart__body-quantity-total" type="numbe" value="1" />
+                    <input class="cart__body-quantity-total" type="number" value="1" />
                     <input class="cart__body-quantity-plus" type="button" value="+" />
                     <button type="button" class="btn btn-kx">
+                        <%
+                            if(session.getAttribute("loggedInUser") == null){%>
                      <a style="color: white; text-decoration: none"  href="cart?action=checkUser&amp;productCode=${product[0]}" >
                          Cập nhật giỏ hàng
                      </a>
+                        <%}else {
+                        %>
+                        <a style="color: white; text-decoration: none"  href="cart?action=cart&amp;productCode=${product[0]}" >
+                            Cập nhật giỏ hàng
+                        </a><%}%>
                     </button>
                     <div class="product__main-info-contact">
                         <div class="product__main-info-contact-phone-icon">

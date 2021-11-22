@@ -137,8 +137,8 @@
 													"Reviews"
 												</p>
 											</a>
-											<a rel="nofollow" href="/home">
-												<p title="Log out" class="UserHeader_UserDropDownItem">
+											<a rel="nofollow" href="${pageContext.request.contextPath}/logout">
+												<p title="Logout" class="UserHeader_UserDropDownItem">
 													Log out
 												</p>
 											</a>

@@ -54,7 +54,6 @@ public class AddAdress extends HttpServlet {
                 userAddressIO.insert(ua);
             }
             url = "/addaddress.jsp";
-            request.setAttribute("address", address);
             request.setAttribute("message", message);
             request.setAttribute("message1", message1);
             request.getSession().setAttribute("address", address);

@@ -187,5 +187,6 @@
     <orderEntry type="library" name="Maven: org.typelevel:cats-core_2.12:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.typelevel:cats-macros_2.12:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.typelevel:cats-kernel_2.12:2.0.0" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6 (2)" level="project" />
   </component>
 </module>

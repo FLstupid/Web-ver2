@@ -23,6 +23,7 @@ public class HomeServlet extends HttpServlet {
        List listproduct = productIO.selectListProduct();
         session.setAttribute("listproduct", listproduct);
         String url = "/Home.jsp";
+
             getServletContext()
                     .getRequestDispatcher(url)
                     .forward(request, response);

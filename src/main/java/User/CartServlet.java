@@ -29,35 +29,30 @@ public class CartServlet extends HttpServlet{
         String amountString;
         ServletContext sc = getServletContext();
         String action = request.getParameter("action");
-        String url;
+        String url = null;
         if (action == null) {
             action = "watchcart"; // default action
         }
          if(action.equals("checkUser"))
         {
           url =  checkUser(request,response);
-        } else{
+        }
+         else if(action.equals("cart")) {
              Account acc = (Account) request.getSession().getAttribute("account");
              long id1 = acc.getId();
              List listcart = cartIO.selectCart(id1);
              List listaddress = addressIO.selectUserAdress(id1);
              request.getSession().setAttribute("listaddress", listaddress);
-
              Cart cart = null;
              int amount = 0;
              HttpSession session = request.getSession();
-
-
              if (action.equals("cart")) {
                  productCode = request.getParameter("productCode");
                  amountString = request.getParameter("amount");
-
-
                  cart = (Cart) session.getAttribute("cart");
                  if (cart == null) {
                      cart = new Cart();
                  }
-
                  try {
                      amount = Integer.parseInt(amountString);
                      if (amount < 0) {
@@ -84,9 +79,6 @@ public class CartServlet extends HttpServlet{
              request.getSession().setAttribute("amount", amount);
              url = "/cart.jsp";
          }
-
-
-
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
@@ -101,10 +93,8 @@ public class CartServlet extends HttpServlet{
         String productCode = request.getParameter("productCode");
         HttpSession session = request.getSession();
         session.setAttribute("productCode", productCode);
-
         String url;
         if (productCode.equals(null) || productCode.equals("")) {
-
                 url = "/login.jsp";
         }
         else {

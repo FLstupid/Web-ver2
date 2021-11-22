@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
 
         String url = "/login.jsp";
         String action = request.getParameter("action");
-        String message=null;
+        String message= "Chào mừng bạn tới với DHS";
         String t=null;
         Account temp = null;
         if (action == null) {
@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
 
-            if (email==null || email.equals("") || password==null || password.equals("")) {
+            if (email == null || email.equals("") || password==null || password.equals("")) {
                 message = "Xin hãy nhập tài khoản và mật khẩu";
                 url = "/login.jsp";
             }
