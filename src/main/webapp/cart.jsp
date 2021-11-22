@@ -1,4 +1,4 @@
-
+<%--@elvariable id="account" type="com.sun.webkit.dom.HTMLAreaElementImpl"--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -82,7 +82,7 @@
                             <span class="account_laber">
 										<div style="display: flex" class="buttonDropdown">
                                             <%
-                                                if(session.getAttribute("username") == null ||session.getAttribute("username") == "" ||session == null || session.getAttribute("loggedInUser") == null){%>
+                                                if(session.getAttribute("username") == null || session.getAttribute("username") == "" || session.getAttribute("loggedInUser") == null){%>
 											<span>user-name</span>
                                             <%}else {
                                             %>
@@ -156,7 +156,7 @@
                                     <img
                                             class="cart-icon"
                                             src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"
-                                    />
+                                     alt=""/>
                                     <span class="Userstyle__ItemCart">3</span>
                                 </div>
 
@@ -167,7 +167,6 @@
                 </div>
                 <%}%>
             </div>
-        </div>
         </div>
     </section>
 </header>
@@ -180,7 +179,7 @@
                 <div class="Account_StylesAvatar">
 
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <img class="avt"  id="photo" src="img/logo_ico.png">
+                        <img class="avt"  id="photo" src="img/logo_ico.png" alt="">
                         <div class="Btnclick">
                             <input type="file" id="file" name="img" >
                             <label  for="file" id="uploadBtn">Choose Avatar</label>
@@ -206,8 +205,9 @@
                     <div style="margin-right: auto;">
                         <span style="margin-left: 600px;">Chọn địa chỉ: </span>
                         <select class="form-select" name="listaddress" aria-label="Default select example">
+                            <%--@elvariable id="listaddress" type="java.util.List"--%>
                             <c:forEach items="${listaddress}" var="element" varStatus="loop">
-                                <option value="${loop.index}"/> <c:out value="${element[1]}"/>, <c:out value="${element[2]}"/>, <c:out value="${element[3]}"/></option>
+                                <option value="${loop.index}"></option> <c:out value="${element[1]}"/>, <c:out value="${element[2]}"/>, <c:out value="${element[3]}"/>
                             </c:forEach>
                         </select>
                     </div>
@@ -233,6 +233,7 @@
                                             <th></th>
                                         </tr>
                                         </thead>
+                                        <%--@elvariable id="listcart" type="java.util.List"--%>
                                         <c:forEach items="${listcart}" var="element">
                                         <tbody>
                                         <tr>
@@ -261,13 +262,12 @@
                                         </tbody>
                                         </c:forEach>
                                     </table>
-                                    <a href="/" class="back">Mua</a>
+                                    <a href="${pageContext.request.contextPath}/" class="back">Mua</a>
                                 </div>
                             </c:if>
                         </form>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </section>

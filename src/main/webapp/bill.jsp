@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--@elvariable id="account" type="javax.xml.stream.util.StreamReaderDelegate"--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html lang="en">
 <head>
@@ -11,11 +13,17 @@
         <a href="${pageContext.request.contextPath}/summary" class="style-content">
             <span>Seller Center</span>
         </a>
-
+        <% if(session == null || session.getAttribute("account") == null) {%>
         <div class="account-avatar">
             <img class="avt" src="SellerCenter/img/avatar.jfif" alt="">
-            <span>Lê Trần Minh Nhựt</span>
+            <span>Signup/Login</span>
         </div>
+        <%} else {%>
+        <<div class="account-avatar">
+        <img class="avt" src="SellerCenter/img/avatar.jfif" alt="">
+        <span>${account.name}</span>
+        <%}%>
+    </div>
     </section>
 </header>
 <main>
@@ -64,6 +72,12 @@
                     <div class="content">
                         <h3 class="title">Thông tin đơn hàng</h3>
                         <div class="inner">
+                            <%--@elvariable id="listBill" type="java.util.List"--%>
+                            <c:if test="${empty listBill}">
+                                    <span>Load Faile</span>
+                            </c:if>
+                            <c:if test="${not empty listBill}">
+                                <c:forEach items="${listBill}" var="element">
                             <table>
                                 <thead>
                                 <tr>
@@ -76,14 +90,16 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
+                                    <td>${element[0]}</td>
+                                    <td>${element[0]}</td>
+                                    <td>${element[0]}</td>
+                                    <td>${element[0]}</td>
+                                    <td>${element[0]}</td>
                                 </tr>
                                 </tbody>
                             </table>
+                                </c:forEach>
+                            </c:if>
                         </div>
                     </div>
                 </div>
