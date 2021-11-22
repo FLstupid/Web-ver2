@@ -7,6 +7,8 @@ import java.util.List;
 
 public class productIO {
     public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
+
+
     public void insert (Product product)
     {
         EntityManager em = emf.createEntityManager();
@@ -60,22 +62,18 @@ public class productIO {
     {
         EntityManager em = emf.createEntityManager();
 
-
-        Product product = null;
-
         String q = "Select i from Product i " +
                         "Where i.id = :id";
         TypedQuery<Product> x = em.createQuery(q,Product.class);
         x.setParameter("id",ID);
         try {
-            Object[] acc = em.createQuery("SELECT p.id, p.title as productname," +
+            return em.createQuery("SELECT p.id, p.title as productname," +
                             " p.decription as decription" +
                             ",p.price as price ," +
                             " p.discount as discount ," +
                             "p.shopByShopId.id," +
                             "p.content FROM Product p where p.id =:id",Object[].class).setParameter("id",ID)
                     .getSingleResult();
-            return acc;
         } catch (Exception e)
         {
             System.out.println(e.getMessage());
@@ -112,10 +110,9 @@ public class productIO {
              acc = em.createQuery("SELECT p FROM Product p where p.id = :id"
                             ,Product.class);
              acc.setParameter("id",idproduct);
-             Product pd = acc.getSingleResult();
 
 
-            return pd;
+            return acc.getSingleResult();
 
         } catch (Exception e)
         {

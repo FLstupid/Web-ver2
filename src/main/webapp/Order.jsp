@@ -1,5 +1,5 @@
 <%--@elvariable id="account" type="com.sun.webkit.dom.HTMLAreaElementImpl"--%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -81,7 +81,7 @@
                             <span class="account_laber">
 										<div style="display: flex" class="buttonDropdown">
                                             <%
-                                                if(session.getAttribute("username") == null ||session.getAttribute("username") == "" ||session == null || session.getAttribute("loggedInUser") == null){%>
+                                                if(session.getAttribute("username") == null || session.getAttribute("username") == "" || session.getAttribute("loggedInUser") == null){%>
 											<span>user-name</span>
                                             <%}else {
                                             %>
@@ -155,7 +155,7 @@
                                     <img
                                             class="cart-icon"
                                             src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"
-                                    />
+                                     alt=""/>
                                     <span class="Userstyle__ItemCart">3</span>
                                 </div>
 
@@ -166,7 +166,6 @@
                 </div>
                 <%}%>
             </div>
-        </div>
         </div>
     </section>
 </header>
@@ -179,7 +178,7 @@
                 <div class="Account_StylesAvatar">
 
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <img class="avt"  id="photo" src="img/logo_ico.png">
+                        <img class="avt"  id="photo" src="img/logo_ico.png" alt="">
                         <div class="Btnclick">
                             <input type="file" id="file" name="img" >
                             <label  for="file" id="uploadBtn">Choose Avatar</label>
@@ -213,6 +212,7 @@
                     </div>
                     <div class="Content_StylesNav">
                         <form method="get" >
+                            <%--@elvariable id="listOrder" type=""--%>
                             <c:if test="${empty listOrder}">
                                 <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
                                 <a href="home" class="back">Tiếp tục mua sắm</a>
@@ -222,21 +222,21 @@
                                     <table class="bangmua1">
                                         <thead>
                                         <tr style="align-items: center">
-                                            <th width="10%">Mã đơn hàng</th>
-                                            <th width="30%">Ngày mua</th>
-                                            <th width="40%">Sản phẩm</th>
-                                            <th width="10%">Tổng tiền</th>
-                                            <th width="10%">Trạng thái đơn hàng</th>
+                                            <th>Mã đơn hàng</th>
+                                            <th>Ngày mua</th>
+                                            <th>Sản phẩm</th>
+                                            <th>Tổng tiền</th>
+                                            <th>Trạng thái đơn hàng</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <a width="100px" href="/sales/order/view/280563326">${element[0]}</a>
+                                                <a href="${pageContext.request.contextPath}/sales/order/view/280563326">${element[0]}</a>
                                             </td>
                                             <td>${element[1]}</td>
                                             <td>${element[2]}</td>
-                                            <td width="100px">${element[3]}</td>
+                                            <td>${element[3]}</td>
                                             <td>${element[4]}</td>
                                         </tr>
                                         </tbody>
@@ -247,7 +247,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 </main>

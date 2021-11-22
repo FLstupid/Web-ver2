@@ -1,4 +1,4 @@
-<%@ page import="Model.Account" %>
+<%--@elvariable id="account" type="com.sun.webkit.dom.HTMLAreaElementImpl"--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -157,7 +157,7 @@
                                     <img
                                             class="cart-icon"
                                             src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"
-                                    />
+                                     alt=""/>
                                     <span class="Userstyle__ItemCart">3</span>
                                 </div>
 
@@ -168,7 +168,6 @@
                 </div>
                 <%}%>
             </div>
-        </div>
         </div>
     </section>
 </header>
@@ -231,10 +230,13 @@
             <section class="wrapper">
                 <div class="products">
                     <ul>
+                        <%--@elvariable id="listproduct" type="java.util.List"--%>
                         <c:forEach items="${listproduct}" var="elements">
                             <li class="main-product">
                                 <div class="img-product">
-                                    <%if( session.getAttribute("loggedInUser") == null){%>
+                                    <%
+                                        assert session != null;
+                                        if( session.getAttribute("loggedInUser") == null){%>
                                     <a href="productdetail?action=watch">
                                         <img
                                                 class="img-prd"

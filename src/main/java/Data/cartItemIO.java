@@ -12,7 +12,7 @@ public class cartItemIO {
     public static final EntityManager em = emf.createEntityManager();
     public static final EntityTransaction transaction = em.getTransaction();
 
-    public void insert (CartItem cartItem)
+    public static void insert(CartItem cartItem)
     {
         try {
             transaction.begin();
@@ -27,7 +27,7 @@ public class cartItemIO {
         }
     }
 
-    public void update (CartItem cartItem)
+    public static void update (CartItem cartItem)
     {
         try {
             transaction.begin();
@@ -42,7 +42,7 @@ public class cartItemIO {
             emf.close();
         }
     }
-    public void delete (CartItem cartItem)
+    public static void delete (CartItem cartItem)
     {
         try {
             transaction.begin();

@@ -49,7 +49,7 @@ public class Cart {
         for (int i = 0; i < cartItemsById.size(); i++) {
             CartItem cartItem = (CartItem) cartItemsById.toArray()[i];
             if (cartItem.getProducts().getId()==code) {
-                cartItemsById.remove(i);
+                cartItemsById.remove(cartItem);
                 return;
             }
         }

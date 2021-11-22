@@ -91,7 +91,7 @@
                                     <%  boolean gender;
                                         if (session == null || session.getAttribute("gender")==null) gender = true;
                                         else gender = ((boolean) session.getAttribute("gender"));
-                                        if(gender){%>
+                                        if (gender){%>
                                     <label class="Radio_StylesRadio">
                                         <input type="radio" name="gender" value="male" checked>
                                         <span class="radio-fake"></span>

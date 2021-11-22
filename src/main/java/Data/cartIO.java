@@ -55,11 +55,11 @@ public class cartIO {
             em.close();
         }
     }
-    public static List selectCart (long ID)
+    public static List<?> selectCart (long ID)
     {
         EntityManager em = emf.createEntityManager();
         try {
-            List acc = em.createQuery("SELECT g.amount, n.id,n.accountByAccountId.id, f.title, g.price," +
+            return em.createQuery("SELECT g.amount, n.id,n.accountByAccountId.id, f.title, g.price," +
                     "f.discount, c.categoryName, n.delivery, " +
                     " n.content,g.productByProductId.id as productCode FROM Account p," +
                     " Cart n , CartItem g,Product f, Category c, CategoryProduct cp " +
@@ -69,11 +69,10 @@ public class cartIO {
                     "AND f.id = cp.productByProductId.id " +
                     "AND cp.categoryByCategoryId.id = c.id " +
                     " AND p.id =?1").setParameter(1,ID).getResultList();
-            return acc;
 
         } catch (Exception e)
         {
-            System.out.println(e);
+            System.out.println(e.getMessage());
             return null;
         }finally {
             em.close();

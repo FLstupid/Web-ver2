@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--@elvariable id="product" type="java.util.List"--%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -84,7 +85,7 @@
             </div>
         </div>
         <div class="col-md-1 header__cart">
-            <a href="cart.html">
+            <a href="cart.jsp">
                 <span class="header__notice">4</span>
                 <i class="fas fa-shopping-cart header__nav-cart-icon"></i>
             </a>
@@ -99,7 +100,7 @@
         <div class="col-md-9 header__nav">
             <ul class="header__nav-list">
                 <li class="header__nav-item">
-                    <a href="index.html" class="header__nav-link">Trang chủ</a>
+                    <a href="Home.jsp" class="header__nav-link">Trang chủ</a>
                 </li>
                 <li class="header__nav-item">
                     <a href="#" class="header__nav-link">Giới thiệu</a>
@@ -108,13 +109,13 @@
                     <a href="#" class="header__nav-link">Sản phẩm</a>
                 </li>
                 <li class="header__nav-item">
-                    <a href="post.html" class="header__nav-link">Bài viết</a>
+                    <a href="#" class="header__nav-link">Bài viết</a>
                 </li>
                 <li class="header__nav-item">
                     <a href="#" class="header__nav-link">Tuyển cộng tác viên</a>
                 </li>
                 <li class="header__nav-item">
-                    <a href="contact.html" class="header__nav-link">Liên hệ</a>
+                    <a href="#" class="header__nav-link">Liên hệ</a>
                 </li>
             </ul>
         </div>
@@ -125,11 +126,11 @@
         <div class="col-md-9">
             <div class="row">
                 <div class="col-md-4">
-                    <img class="product-img-primary" src="images/product_13.png" />
-                    <img class="product-img-list" src="images/product_13.png" />
-                    <img class="product-img-list" src="images/product_15.jpg" />
-                    <img class="product-img-list" src="images/product_16.jpg" />
-                    <img class="product-img-list" src="images/product_17.jpg" />
+                    <img class="product-img-primary" src="images/product_13.png"  alt=""/>
+                    <img class="product-img-list" src="images/product_13.png"  alt=""/>
+                    <img class="product-img-list" src="images/product_15.jpg"  alt=""/>
+                    <img class="product-img-list" src="images/product_16.jpg"  alt=""/>
+                    <img class="product-img-list" src="images/product_17.jpg"  alt=""/>
                 </div>
 
                 <div class="col-md-8">
@@ -161,7 +162,7 @@
                     />
                     <input class="cart__body-quantity-total" type="number" value="1" />
                     <input class="cart__body-quantity-plus" type="button" value="+" />
-                    <button type="button" class="btn btn-kx">
+                    <button type="button" class="btn btn-kx" formmethod="post" formaction="checkUser">
                         <%
                             if(session.getAttribute("loggedInUser") == null){%>
                      <a style="color: white; text-decoration: none"  href="cart?action=checkUser&amp;productCode=${product[0]}" >
@@ -267,21 +268,21 @@
         </div>
         <div class="col-md-3 tl-border">
             <div class="product__aside">
-                <img class="product-img" src="images/shipper.png" />
+                <img class="product-img" src="images/shipper.png"  alt=""/>
                 <p class="product__aside-link-heading">
                     Giao hàng nhanh chóng
                     <span class="text-2"> Chỉ trong vòng 24h </span>
                 </p>
             </div>
             <div class="product__aside">
-                <img class="product-img" src="images/brand.png" />
+                <img class="product-img" src="images/brand.png"  alt=""/>
                 <p class="product__aside-link-heading">
                     Sản phẩm chính hãng
                     <span class="text-2"> Sản phẩm nhập khẩu 100% </span>
                 </p>
             </div>
             <div class="product__aside">
-                <img class="product-img" src="images/less.png" />
+                <img class="product-img" src="images/less.png"  alt=""/>
                 <p class="product__aside-link-heading">
                     Mua hàng tiết kiệm
                     <span class="text-2"> Rẻ hơn từ 10% đến 30% </span>
@@ -294,7 +295,6 @@
 <script>
     const slide = document.getElementsByClassName("review");
     const review = document.getElementById("danhgia");
-
 </script>
 </body>
 </html>

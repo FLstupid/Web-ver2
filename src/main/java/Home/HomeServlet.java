@@ -1,10 +1,8 @@
 package Home;
 
 import Data.productIO;
-import Model.Product;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,8 +18,10 @@ public class HomeServlet extends HttpServlet {
             request.setCharacterEncoding("UTF-8");
         }
         HttpSession session = request.getSession();
-       List listproduct = productIO.selectListProduct();
-        session.setAttribute("listproduct", listproduct);
+       List<?> listproduct = productIO.selectListProduct();
+       if (listproduct != null) {
+           session.setAttribute("listproduct", listproduct);
+       }
         String url = "/Home.jsp";
 
             getServletContext()
