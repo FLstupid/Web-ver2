@@ -155,13 +155,7 @@
                     <p class="Shopname">
                         Shop: ${product[5]}
                     </p>
-                    <input
-                            class="cart__body-quantity-minus"
-                            type="button"
-                            value="-"
-                    />
-                    <input class="cart__body-quantity-total" type="number" value="1" />
-                    <input class="cart__body-quantity-plus" type="button" value="+" />
+                    <input class="cart__body-quantity-total" name="amount" type="number" value="${product[7]}" />
                     <button type="button" class="btn btn-kx" formmethod="post" formaction="add">
                         <%
                             if(session.getAttribute("loggedInUser") == null){%>
@@ -170,7 +164,7 @@
                      </a>
                         <%}else {
                         %>
-                        <a style="color: white; text-decoration: none"  href="cart?action=add&amp;productCode=${product[0]}" >Cập nhật giỏ hàng <%-- --%>
+                        <a style="color: white; text-decoration: none"  href="productdetail?action=add&amp;productCode=${product[0]}" >Cập nhật giỏ hàng <%-- --%>
                         </a><%}%>
                     </button>
                     <div class="product__main-info-contact">

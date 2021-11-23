@@ -30,7 +30,7 @@ public class ProductDetailServlet extends HttpServlet {
         {
 
         }
-        if(action.equals("detail"))
+        else if(action.equals("detail"))
         {
             String productid = request.getParameter("productCode");
             long id = Long.parseLong(productid);
@@ -42,7 +42,7 @@ public class ProductDetailServlet extends HttpServlet {
         {
             checkUser(request);
         }
-        if (action.equals("add")){
+        else if (action.equals("add")){
             AddItem(request);
         }
         request.getSession().setAttribute("product",product);

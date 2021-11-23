@@ -71,7 +71,7 @@ public class productIO {
                             " p.decription as decription" +
                             ",p.price as price ," +
                             "p.shopByShopId.id," +
-                            "p.content FROM Product p where p.id =:id",Object[].class).setParameter("id",ID)
+                            "p.content, ca.amount FROM Product p join p.cartItemsById as ca where p.id =:id",Object[].class).setParameter("id",ID)
                     .getSingleResult();
         } catch (Exception e)
         {
