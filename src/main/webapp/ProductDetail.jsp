@@ -170,7 +170,7 @@
                      </a>
                         <%}else {
                         %>
-                        <a style="color: white; text-decoration: none"  href="#" >Cập nhật giỏ hàng <%-- cart?action=cart&amp;productCode=${product[0]}--%>
+                        <a style="color: white; text-decoration: none"  href="cart?action=add&amp;productCode=${product[0]}" >Cập nhật giỏ hàng <%-- --%>
                         </a><%}%>
                     </button>
                     <div class="product__main-info-contact">
