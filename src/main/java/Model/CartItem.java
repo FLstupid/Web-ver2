@@ -1,22 +1,17 @@
 package Model;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.text.NumberFormat;
-import java.util.Collection;
-import java.util.Locale;
 import java.util.Objects;
 
 @Entity
 public class CartItem {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private short quality;
     private double price = sumPrice();
     private double discount;
     private int amount;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
     private String content;
 
     @ManyToOne
@@ -66,22 +61,6 @@ public class CartItem {
 //        price = sumPrice();
     }
 
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Timestamp getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Timestamp updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
     public String getContent() {
         return content;
     }
@@ -102,8 +81,6 @@ public class CartItem {
         if (Double.compare(cartItem.price, price) != 0) return false;
         if (Double.compare(cartItem.discount, discount) != 0) return false;
         if (amount != cartItem.amount) return false;
-        if (!Objects.equals(createdAt, cartItem.createdAt)) return false;
-        if (!Objects.equals(updatedAt, cartItem.updatedAt)) return false;
         return Objects.equals(content, cartItem.content);
     }
 
@@ -118,8 +95,6 @@ public class CartItem {
         temp = Double.doubleToLongBits(discount);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + amount;
-        result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
-        result = 31 * result + (updatedAt != null ? updatedAt.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         return result;
     }
@@ -131,10 +106,5 @@ public class CartItem {
     }
     public Product getProducts() {
         return productByProductId;
-    }
-    public String getTotalCurrencyFormat()
-    {       Locale localeVN = new Locale("vi", "VN");
-            NumberFormat vn = NumberFormat.getInstance(localeVN);
-            return vn.format(this.sumPrice());
     }
 }

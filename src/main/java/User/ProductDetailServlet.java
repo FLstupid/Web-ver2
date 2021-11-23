@@ -1,14 +1,13 @@
 package User;
 
-import Data.accountIO;
-import Data.productIO;
-import Data.reviewIO;
+import Data.*;
 import Model.Account;
-
+import Model.Cart;
+import Model.CartItem;
+import Model.Product;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,7 +25,7 @@ public class ProductDetailServlet extends HttpServlet {
         String action = request.getParameter("action");
         String url ;
         Object product = null;
-        List nhanxet = null;
+        List<?> nhanxet = null;
         if(action.equals("watch"))
         {
 
@@ -35,13 +34,16 @@ public class ProductDetailServlet extends HttpServlet {
         {
             String productid = request.getParameter("productCode");
             long id = Long.parseLong(productid);
-            HttpSession session = request.getSession();
+            request.getSession();
             product = productIO.selectProduct(id);
             nhanxet = reviewIO.selectReviewList(id);
         }
         else  if(action.equals("checkUser"))
         {
-            checkUser(request,response);
+            checkUser(request);
+        }
+        if (action.equals("add")){
+            AddItem(request);
         }
         request.getSession().setAttribute("product",product);
         request.getSession().setAttribute("nhanxet",nhanxet);
@@ -55,24 +57,55 @@ public class ProductDetailServlet extends HttpServlet {
             throws ServletException, IOException {
         doPost(request, response);
     }
-    private String checkUser(HttpServletRequest request,
-                             HttpServletResponse response) {
+
+    private void AddItem (HttpServletRequest request) {
+        Account acc = (Account) request.getSession().getAttribute("account");
+        long id1 = acc.getId();
+        cartIO.selectCart(id1);
+        List<?> listaddress = addressIO.selectUserAdress(id1);
+        request.getSession().setAttribute("listaddress", listaddress);
+        Cart cart;
+        int amount;
+        HttpSession session = request.getSession();
+        String productCode = request.getParameter("productCode");
+        String amountString = request.getParameter("amount");
+        cart = (Cart) session.getAttribute("cart");
+        if (cart == null) {
+            new Cart();
+        }
+        try {
+            amount = Integer.parseInt(amountString);
+            if (amount < 0) {
+                amount = 1;
+            }
+        } catch (NumberFormatException nfe) {
+            amount = 1;
+        }
+        long id = Long.parseLong(productCode);
+        Product product = productIO.selectProductByid(id);
+        CartItem cartItem = new CartItem();
+        cartItem.setProductByProductId(product);
+        cartItem.setAmount(amount);
+        if (amount > 0) {
+            cartItemIO.insert(cartItem);
+        } else {
+            cartItemIO.delete(cartItem);
+        }
+    }
+
+    private void checkUser(HttpServletRequest request) {
 
         String productCode = request.getParameter("productCode");
         HttpSession session = request.getSession();
         session.setAttribute("productCode", productCode);
         Account user = (Account) session.getAttribute("email");
 
-        String url;
         // if User object doesn't exist, check email cookie
         if (user == null) {
-//            Cookie[] cookies = request.getCookies();
-//            String emailAddress =CookieUtil.getCookieValue(cookies, "emailCookie");
             String email =  request.getParameter("email");
             String password =  request.getParameter("password");
             // if cookie doesn't exist, go to Registration page
             if (email == null || email.equals("")) {
-                url = "/register.jsp";
             }
             // if cookie exists, create User object and go to Downloads page
             else {
@@ -81,13 +114,8 @@ public class ProductDetailServlet extends HttpServlet {
                 long id = account.getId();
                 Account   account1 = accountIO.getAccountById(id);
                 session.setAttribute("account", account1);
-                url = "/" + productCode + "/cart.jsp";
             }
         }
         // if User object exists, go to Downloads page
-        else {
-            url = "/" + productCode + "/cart.jsp";
-        }
-        return url;
     }
 }

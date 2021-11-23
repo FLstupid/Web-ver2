@@ -6,14 +6,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class cartItemIO {
-    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
-    public static final EntityManager em = emf.createEntityManager();
-    public static final EntityTransaction transaction = em.getTransaction();
-
     public static void insert(CartItem cartItem)
     {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
             em.persist(cartItem);
@@ -29,9 +29,11 @@ public class cartItemIO {
 
     public static void update (CartItem cartItem)
     {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
-
             em.merge(cartItem);
             transaction.commit();
         } finally {
@@ -44,11 +46,34 @@ public class cartItemIO {
     }
     public static void delete (CartItem cartItem)
     {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
-
             em.remove(cartItem);
             transaction.commit();
+        } finally {
+            if (transaction.isActive()){
+                transaction.rollback();
+            }
+            em.close();
+            emf.close();
+        }
+    }
+    public static List<?> selectItems ()
+    {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        try {
+            em.getTransaction().begin();
+            return em.createQuery("SELECT c.id as id, c.content as content FROM" +
+                    " CartItem c ").getResultList();
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return null;
         } finally {
             if (transaction.isActive()){
                 transaction.rollback();

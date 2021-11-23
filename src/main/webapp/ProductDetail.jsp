@@ -162,7 +162,7 @@
                     />
                     <input class="cart__body-quantity-total" type="number" value="1" />
                     <input class="cart__body-quantity-plus" type="button" value="+" />
-                    <button type="button" class="btn btn-kx" formmethod="post" formaction="checkUser">
+                    <button type="button" class="btn btn-kx" formmethod="post" formaction="add">
                         <%
                             if(session.getAttribute("loggedInUser") == null){%>
                      <a style="color: white; text-decoration: none"  href="cart?action=checkUser&amp;productCode=${product[0]}" >
@@ -170,8 +170,7 @@
                      </a>
                         <%}else {
                         %>
-                        <a style="color: white; text-decoration: none"  href="cart?action=cart&amp;productCode=${product[0]}" >
-                            Cập nhật giỏ hàng
+                        <a style="color: white; text-decoration: none"  href="#" >Cập nhật giỏ hàng <%-- cart?action=cart&amp;productCode=${product[0]}--%>
                         </a><%}%>
                     </button>
                     <div class="product__main-info-contact">

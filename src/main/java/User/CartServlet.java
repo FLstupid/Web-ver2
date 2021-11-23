@@ -1,10 +1,9 @@
 package User;
 
-import Data.*;
+import Data.accountIO;
+import Data.cartItemIO;
 import Model.Account;
 import Model.Cart;
-import Model.CartItem;
-import Model.Product;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -22,60 +21,39 @@ public class CartServlet extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.getCharacterEncoding() == null) {
-            request.setCharacterEncoding("UTF-8");
-        }
-        String productCode;
-        String amountString;
+            request.setCharacterEncoding("UTF-8");}
         ServletContext sc = getServletContext();
         String action = request.getParameter("action");
-        String url = null;
+        String url;
         if (action == null) {
-            action = "watchcart"; // default action
+            action = "cart"; // default action
         }
-        if(action.equals("checkUser"))
-        {
-          url =  checkUser(request,response);
-        }
-         else if(action.equals("cart")) {
-             Account acc = (Account) request.getSession().getAttribute("account");
-             long id1 = acc.getId();
-             List<?> listcart = cartIO.selectCart(id1);
-             List<?> listaddress = addressIO.selectUserAdress(id1);
-             request.getSession().setAttribute("listaddress", listaddress);
-             Cart cart = null;
-             int amount = 0;
-             HttpSession session = request.getSession();
-            productCode = request.getParameter("productCode");
-            amountString = request.getParameter("amount");
+        if (sc != null) {
+//            List<?> listaddress = addressIO.selectUserAdress();
+//            request.getSession().setAttribute("listaddress", listaddress);
+            Cart cart;
+            HttpSession session = request.getSession();
+            request.getParameter("productCode");
+            List<?> listcart = cartItemIO.selectItems();
             cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
-                cart = new Cart();
+                new Cart();
             }
-            try {
-                amount = Integer.parseInt(amountString);
-                if (amount < 0) {
-                    amount = 1;
-                }
-            } catch (NumberFormatException nfe) {
-                amount = 1;
-            }
-            long id = Long.parseLong(productCode);
-            Product product = productIO.selectProductByid(id);
-            CartItem cartItem = new CartItem();
-            cartItem.setProductByProductId(product);
-            cartItem.setAmount(amount);
-            if (amount > 0) {
-                cartItemIO.insert(cartItem);
-            } else {
-                cartItemIO.delete(cartItem);
-            }
+//            long id = Long.parseLong(productCode);
+//            Product product = productIO.selectProductByid(id);
+//            CartItem cartItem = new CartItem();
+//            cartItem.setProductByProductId(product);
+//            cartItem.setAmount(amount);
+//            if (amount > 0) {
+//                cartItemIO.insert(cartItem);
+//            } else {
+//                cartItemIO.delete(cartItem);
+//            }
 
             session.setAttribute("cart", cart);
-             request.setAttribute("amount", amount);
-             request.getSession().setAttribute("listcart", listcart);
-             request.getSession().setAttribute("amount", amount);
-             url = "/cart.jsp";
-         }
+            session.setAttribute("listcart",listcart);
+        }
+        url = "/cart.jsp";
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);

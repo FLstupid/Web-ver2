@@ -17,7 +17,6 @@ public class OrderDetail {
     private Timestamp createdAt;
     private double shipPrice;
     private double totalPrice;
-    private Timestamp updatedAt;
     private String note;
 
     @OneToMany(mappedBy = "orderDetailByOrderId")
@@ -90,14 +89,6 @@ public class OrderDetail {
         this.totalPrice = totalPrice;
     }
 
-    public Timestamp getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Timestamp updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
     public String getNote() {
         return note;
     }
@@ -111,12 +102,16 @@ public class OrderDetail {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrderDetail that = (OrderDetail) o;
-        return id == that.id && phone == that.phone && Double.compare(that.shipPrice, shipPrice) == 0 && Double.compare(that.totalPrice, totalPrice) == 0 && Objects.equals(streetName, that.streetName) && Objects.equals(city, that.city) && Objects.equals(district, that.district) && Objects.equals(delivery, that.delivery) && Objects.equals(createdAt, that.createdAt) && Objects.equals(updatedAt, that.updatedAt) && Objects.equals(note, that.note);
+        return id == that.id && phone == that.phone && Double.compare(that.shipPrice, shipPrice) == 0 &&
+                Double.compare(that.totalPrice, totalPrice) == 0 && Objects.equals(streetName, that.streetName) &&
+                Objects.equals(city, that.city) && Objects.equals(district, that.district) &&
+                Objects.equals(delivery, that.delivery) && Objects.equals(createdAt, that.createdAt) &&
+                Objects.equals(note, that.note);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, phone, streetName, city, district, delivery, createdAt, shipPrice, totalPrice, updatedAt, note);
+        return Objects.hash(id, phone, streetName, city, district, delivery, createdAt, shipPrice, totalPrice, note);
     }
 
     public Collection<Trans> getTransById() {

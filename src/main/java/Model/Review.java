@@ -10,7 +10,6 @@ public class Review {
     private long id;
     private String title;
     private short rating;
-    private Timestamp publishedAt;
     private Timestamp createdAt;
     private String content;
 
@@ -43,14 +42,6 @@ public class Review {
         this.rating = rating;
     }
 
-    public Timestamp getPublishedAt() {
-        return publishedAt;
-    }
-
-    public void setPublishedAt(Timestamp publishedAt) {
-        this.publishedAt = publishedAt;
-    }
-
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -77,7 +68,6 @@ public class Review {
         if (id != review.id) return false;
         if (rating != review.rating) return false;
         if (!Objects.equals(title, review.title)) return false;
-        if (!Objects.equals(publishedAt, review.publishedAt)) return false;
         if (!Objects.equals(createdAt, review.createdAt)) return false;
         return Objects.equals(content, review.content);
     }
@@ -87,7 +77,6 @@ public class Review {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (int) rating;
-        result = 31 * result + (publishedAt != null ? publishedAt.hashCode() : 0);
         result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         return result;

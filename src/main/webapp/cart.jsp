@@ -213,6 +213,8 @@
                     </div>
                     <div class="Content_StylesNav">
                         <form method="post" action="cart" >
+                            <%--@elvariable id="listcart" type="java.util.List"--%>
+                            <c:set var = "listcart" scope="page" value="${listcart}"/>
                             <c:if test="${empty listcart}">
                                 <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
                                 <a href="home" class="back">Tiếp tục mua sắm</a>

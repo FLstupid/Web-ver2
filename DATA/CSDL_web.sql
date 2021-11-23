@@ -21,7 +21,6 @@ create table Shop (
     city nvarchar(255),
     district nvarchar(255),
     bank_id	int not null,
-    active_day int default 0 not null,
     number_product bigint not null,
     status smallint not null default 0,
     LAST_UPDATE datetime(0),
@@ -39,16 +38,13 @@ create table Address (
 
 create table Cart (
 	id bigint primary key,
-    sessionId	char(100),
-    tokenId 	char(100),
     status		smallint(6),
     accountId 	bigint,
     phone 		int(10) not null,
     streetName nvarchar(255) not null,
     city		nvarchar(255) not null,
     district 	nvarchar(255) not null,
-    delivery	nvarchar(255) not null,
-    createdAt	datetime(0),
+    delivery	nvarchar(255) not null,	
     updatedAt	datetime(0),
     content 	text,
     
@@ -62,14 +58,10 @@ create table Product (
     title nvarchar(255) not null,
     quality	smallint not null,
     price	float not null,
-    discount	float default 0 not null,
-    startAt	datetime(0),
-    endsAt	datetime(0),
     decription	tinytext,
     content	text,
     updatedAt	datetime(0),
     createdAt	datetime(0),
-    publishedAt	datetime(0),
     
     foreign key (shopId) references Shop(id)
 );
@@ -94,11 +86,8 @@ create table Order_detail (
     createdAt	datetime(0) not null,
 	shipPrice	float not null,
     totalPrice	float not null,
-    updatedAt	datetime(0) not null,
     note	text
 );
-
-
 
 create table Delivery (
 	id bigint primary key,
@@ -114,8 +103,6 @@ create table Cart_item (
     price	float not null,
     discount	float default 0 not null,
     amount	int default 1 not null,
-    createdAt	datetime(0) not null,
-    updatedAt	datetime(0),
     content text,
     
     foreign key (cartId) references Cart(id),
@@ -159,7 +146,6 @@ create table Review (
     userId	bigint,
     title	nvarchar(255) not null,
     rating	smallint not null,
-    publishedAt	datetime(0) not null,
     createdAt	datetime(0) not null,
     content	text,
     
@@ -193,7 +179,6 @@ create table Trans (
     detailstates nvarchar(255),
     payment nvarchar(255) not null,
     detailpayment char(255),  #phone or bank id
-    updatedAt datetime(0),
     
     foreign key (AccountId) references Account(id),
     foreign key (orderId) references Order_Detail(id)

@@ -15,7 +15,6 @@ public class Shop {
     private String city;
     private String district;
     private int bankId;
-    private int activeDay;
     private long numberProduct;
     private short status;
     private Timestamp lastUpdate;
@@ -67,14 +66,6 @@ public class Shop {
         this.bankId = bankId;
     }
 
-    public int getActiveDay() {
-        return activeDay;
-    }
-
-    public void setActiveDay(int activeDay) {
-        this.activeDay = activeDay;
-    }
-
     public long getNumberProduct() {
         return numberProduct;
     }
@@ -108,7 +99,6 @@ public class Shop {
 
         if (id != shop.id) return false;
         if (bankId != shop.bankId) return false;
-        if (activeDay != shop.activeDay) return false;
         if (numberProduct != shop.numberProduct) return false;
         if (status != shop.status) return false;
         if (!Objects.equals(streetName, shop.streetName)) return false;
@@ -124,7 +114,6 @@ public class Shop {
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (district != null ? district.hashCode() : 0);
         result = 31 * result + bankId;
-        result = 31 * result + activeDay;
         result = 31 * result + (int) (numberProduct ^ (numberProduct >>> 32));
         result = 31 * result + (int) status;
         result = 31 * result + (lastUpdate != null ? lastUpdate.hashCode() : 0);

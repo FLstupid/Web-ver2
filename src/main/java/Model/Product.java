@@ -14,14 +14,10 @@ public class Product {
     private String title;
     private short quality;
     private double price;
-    private double discount;
-    private Timestamp startAt;
-    private Timestamp endsAt;
     private String decription;
     private String content;
     private Timestamp updatedAt;
     private Timestamp createdAt;
-    private Timestamp publishedAt;
     public Product(){}
     @OneToMany(mappedBy = "productByProductId")
     private Collection<CartItem> cartItemsById;
@@ -35,9 +31,6 @@ public class Product {
     private Collection<Review> reviewsById;
     @OneToMany( mappedBy = "productByProductId")
     private Collection<TagProduct> tagProductsById;
-
-    public Product(Object product) {
-    }
 
     public long getId() {
         return id;
@@ -79,30 +72,6 @@ public class Product {
         this.price = price;
     }
 
-    public double getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(double discount) {
-        this.discount = discount;
-    }
-
-    public Timestamp getStartAt() {
-        return startAt;
-    }
-
-    public void setStartAt(Timestamp startAt) {
-        this.startAt = startAt;
-    }
-
-    public Timestamp getEndsAt() {
-        return endsAt;
-    }
-
-    public void setEndsAt(Timestamp endsAt) {
-        this.endsAt = endsAt;
-    }
-
     public String getDecription() {
         return decription;
     }
@@ -136,14 +105,6 @@ public class Product {
         this.createdAt = createdAt;
     }
 
-    public Timestamp getPublishedAt() {
-        return publishedAt;
-    }
-
-    public void setPublishedAt(Timestamp publishedAt) {
-        this.publishedAt = publishedAt;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -154,16 +115,12 @@ public class Product {
         if (id != product.id) return false;
         if (quality != product.quality) return false;
         if (Double.compare(product.price, price) != 0) return false;
-        if (Double.compare(product.discount, discount) != 0) return false;
         if (!Objects.equals(status, product.status)) return false;
         if (!Objects.equals(title, product.title)) return false;
-        if (!Objects.equals(startAt, product.startAt)) return false;
-        if (!Objects.equals(endsAt, product.endsAt)) return false;
         if (!Objects.equals(decription, product.decription)) return false;
         if (!Objects.equals(content, product.content)) return false;
         if (!Objects.equals(updatedAt, product.updatedAt)) return false;
-        if (!Objects.equals(createdAt, product.createdAt)) return false;
-        return Objects.equals(publishedAt, product.publishedAt);
+        return Objects.equals(createdAt, product.createdAt);
     }
 
     @Override
@@ -176,15 +133,11 @@ public class Product {
         result = 31 * result + (int) quality;
         temp = Double.doubleToLongBits(price);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(discount);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (startAt != null ? startAt.hashCode() : 0);
-        result = 31 * result + (endsAt != null ? endsAt.hashCode() : 0);
         result = 31 * result + (decription != null ? decription.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         result = 31 * result + (updatedAt != null ? updatedAt.hashCode() : 0);
         result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
-        result = 31 * result + (publishedAt != null ? publishedAt.hashCode() : 0);
         return result;
     }
 

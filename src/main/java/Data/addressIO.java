@@ -58,7 +58,7 @@ public class addressIO {
             em.close();
         }
     }
-    public static List selectUserAdress (long ID)
+    public static List<?> selectUserAdress (long ID)
     {
         EntityManager em = emf.createEntityManager();
         try {

@@ -1,7 +1,8 @@
 package Model;
 
-import javax.persistence.*;
-import java.sql.Timestamp;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Trans {
@@ -11,7 +12,6 @@ public class Trans {
     private String detailstates;
     private String payment;
     private String detailpayment;
-    private Timestamp updatedAt;
 
     @ManyToOne
     private Account accountByAccountId;
@@ -90,13 +90,5 @@ public class Trans {
 
     public void setDetailpayment(String detailpayment) {
         this.detailpayment = detailpayment;
-    }
-
-    public Timestamp getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Timestamp updatedAt) {
-        this.updatedAt = updatedAt;
     }
 }

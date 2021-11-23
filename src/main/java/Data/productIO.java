@@ -70,7 +70,6 @@ public class productIO {
             return em.createQuery("SELECT p.id, p.title as productname," +
                             " p.decription as decription" +
                             ",p.price as price ," +
-                            " p.discount as discount ," +
                             "p.shopByShopId.id," +
                             "p.content FROM Product p where p.id =:id",Object[].class).setParameter("id",ID)
                     .getSingleResult();

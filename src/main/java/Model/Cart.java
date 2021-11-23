@@ -8,17 +8,14 @@ import java.util.Objects;
 @Entity
 public class Cart {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String sessionId;
-    private String tokenId;
     private Short status;
     private int phone;
     private String streetName;
     private String city;
     private String district;
     private String delivery;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
     private String content;
@@ -44,17 +41,6 @@ public class Cart {
         cartItemsById.add(item);
     }
 
-    public void removeItem(CartItem item) {
-        long code = item.getProducts().getId();
-        for (int i = 0; i < cartItemsById.size(); i++) {
-            CartItem cartItem = (CartItem) cartItemsById.toArray()[i];
-            if (cartItem.getProducts().getId()==code) {
-                cartItemsById.remove(cartItem);
-                return;
-            }
-        }
-    }
-
 
     public long getId() {
         return id;
@@ -62,22 +48,6 @@ public class Cart {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getSessionId() {
-        return sessionId;
-    }
-
-    public void setSessionId(String sessionId) {
-        this.sessionId = sessionId;
-    }
-
-    public String getTokenId() {
-        return tokenId;
-    }
-
-    public void setTokenId(String tokenId) {
-        this.tokenId = tokenId;
     }
 
     public Short getStatus() {
@@ -128,14 +98,6 @@ public class Cart {
         this.delivery = delivery;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
     public Date getUpdatedAt() {
         return updatedAt;
     }
@@ -161,14 +123,11 @@ public class Cart {
 
         if (id != cart.id) return false;
         if (phone != cart.phone) return false;
-        if (!Objects.equals(sessionId, cart.sessionId)) return false;
-        if (!Objects.equals(tokenId, cart.tokenId)) return false;
         if (!Objects.equals(status, cart.status)) return false;
         if (!Objects.equals(streetName, cart.streetName)) return false;
         if (!Objects.equals(city, cart.city)) return false;
         if (!Objects.equals(district, cart.district)) return false;
         if (!Objects.equals(delivery, cart.delivery)) return false;
-        if (!Objects.equals(createdAt, cart.createdAt)) return false;
         if (!Objects.equals(updatedAt, cart.updatedAt)) return false;
         return Objects.equals(content, cart.content);
     }
@@ -176,15 +135,12 @@ public class Cart {
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (sessionId != null ? sessionId.hashCode() : 0);
-        result = 31 * result + (tokenId != null ? tokenId.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + phone;
         result = 31 * result + (streetName != null ? streetName.hashCode() : 0);
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (district != null ? district.hashCode() : 0);
         result = 31 * result + (delivery != null ? delivery.hashCode() : 0);
-        result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
         result = 31 * result + (updatedAt != null ? updatedAt.hashCode() : 0);
         result = 31 * result + (content != null ? content.hashCode() : 0);
         return result;
@@ -193,12 +149,7 @@ public class Cart {
     public Collection<CartItem> getCartItemsById() {
         return cartItemsById;
     }
-    public void addCartItem(CartItem cartItemsById) {
-        this.cartItemsById.add(cartItemsById);
-    }
-    public void removeCartItem(CartItem cartItemsById) {
-        this.cartItemsById.remove(cartItemsById);
-    }
+
     public void setCartItemsById(Collection<CartItem> cartItemsById) {
         this.cartItemsById = cartItemsById;
     }

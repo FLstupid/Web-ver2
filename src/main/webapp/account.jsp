@@ -1,4 +1,4 @@
-<%--@elvariable id="shop" type="Model.shop"--%>
+<%--@elvariable id="shop" type="Model.account"--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html lang="en">
 <head>

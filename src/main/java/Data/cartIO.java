@@ -10,10 +10,11 @@ import java.util.List;
 
 public class cartIO {
     public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
+    public static final EntityManager em = emf.createEntityManager();
+    public static final EntityTransaction transaction = em.getTransaction();
+
     public void insert (Cart cart)
     {
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
             em.persist(cart);
@@ -60,7 +61,6 @@ public class cartIO {
         EntityManager em = emf.createEntityManager();
         try {
             return em.createQuery("SELECT g.amount, n.id,n.accountByAccountId.id, f.title, g.price," +
-                    "f.discount, c.categoryName, n.delivery, " +
                     " n.content,g.productByProductId.id as productCode FROM Account p," +
                     " Cart n , CartItem g,Product f, Category c, CategoryProduct cp " +
                     "WHERE p.id= n.accountByAccountId.id " +

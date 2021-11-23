@@ -19,7 +19,7 @@ public class userAddressIO {
             em.persist(Ua);
             transaction.commit();
         }catch (Exception e){
-            System.out.println(e);
+            System.out.println(e.getMessage());
             transaction.rollback();
         } finally
         {
@@ -37,7 +37,7 @@ public class userAddressIO {
             em.merge(account);
             transaction.commit();
         }catch (Exception e){
-            System.out.println(e);
+            System.out.println(e.getMessage());
             transaction.rollback();
         } finally
         {
@@ -54,7 +54,7 @@ public class userAddressIO {
             em.merge(account);
             transaction.commit();
         }catch (Exception e){
-            System.out.println(e);
+            System.out.println(e.getMessage());
             transaction.rollback();
         } finally
         {

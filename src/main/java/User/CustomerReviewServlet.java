@@ -2,7 +2,6 @@ package User;
 
 import Data.reviewIO;
 import Model.Account;
-import Model.Review;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,13 +22,11 @@ public class CustomerReviewServlet  extends HttpServlet {
             request.setCharacterEncoding("UTF-8");
         }
         String action = request.getParameter("action");
-        if (action == null) {
-            action = "customerreview"; // default action
-        }
+        if (action == null) {}
         Account acc = (Account) request.getSession().getAttribute("account");
         HttpSession session = request.getSession();
         long id1 = acc.getId();
-        List<Review> reviewlist = reviewIO.selectOrderReviewList(id1);
+        List<?> reviewlist = reviewIO.selectOrderReviewList(id1);
         session.setAttribute("reviewlist", reviewlist);
         String url = "/customerreview.jsp";
         getServletContext()
