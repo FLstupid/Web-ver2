@@ -3,23 +3,23 @@ use dhs;
 
 create table Account (
 	id bigint primary key,
-	username nvarchar(255),
+	username char(100) not null,
     passwordHash char(255) not null,
-    phone char(10) ,
-    gender int default 0,
-    email char(255) not null,
-    shopName nvarchar(255),
+    phone int(10) not null,
+    gender bit default 0 not null,
+    email char(255),
+    shop_name char(255),
     birthday date,
-    role int default 0 ,
-    lastUpdate datetime(0) 
+    role bit default 0 not null,
+    LAST_UPDATE datetime(0)
 );
 
 create table Shop (
 	id bigint primary key,
     accountId bigint not null,
-    street_name nvarchar(255) not null,
-    city nvarchar(255),
-    district nvarchar(255),
+    street_name char(255) not null,
+    city char(150),
+    district char(100),
     bank_id	int not null,
     number_product bigint not null,
     status smallint not null default 0,
@@ -30,8 +30,8 @@ create table Shop (
 
 create table Address (
 	id bigint primary key,
-    phone char(10) not null,
-    streetName nvarchar(255) default "" not null,
+    phone int(10) not null,
+    street_name char(255) not null,
     city char(150),
     district char(100)
 );
@@ -41,11 +41,10 @@ create table Cart (
     status		smallint(6),
     accountId 	bigint,
     phone 		int(10) not null,
-    streetName nvarchar(255) not null,
-    city		nvarchar(255) not null,
-    district 	nvarchar(255) not null,
-    delivery	nvarchar(255) not null,	
-    updatedAt	datetime(0),
+    street_name char(255) not null,
+    city		char(150) not null,
+    district 	char(100) not null,
+    delivery	char(100) not null,
     content 	text,
     
     foreign key (accountId) references Account(id)
@@ -55,13 +54,14 @@ create table Product (
 	id bigint primary key,
     status smallint, #have permission form admin <1> : have permission <0> : don't have permission <3> had deleted
     shopId bigint not null,
-    title nvarchar(255) not null,
+    title char(255) not null,
     quality	smallint not null,
     price	float not null,
     decription	tinytext,
     content	text,
     updatedAt	datetime(0),
     createdAt	datetime(0),
+    publishedAt	datetime(0),
     
     foreign key (shopId) references Shop(id)
 );
@@ -79,19 +79,34 @@ create table Tag (
 create table Order_detail (
 	id	bigint primary key,
     phone 		int(10) not null,
-    street_name nvarchar(255) not null,
-    city		nvarchar(255) not null,
-    district 	nvarchar(255) not null,
-    delivery	nvarchar(255) not null,
+    street_name char(255) not null,
+    city		char(150) not null,
+    district 	char(100) not null,
+    delivery	char(100) not null,
     createdAt	datetime(0) not null,
 	shipPrice	float not null,
     totalPrice	float not null,
+    updatedAt	datetime(0) not null,
     note	text
+);
+
+create table Transistion (
+	id bigint primary key,
+    customerId bigint,
+    orderId bigint,
+    states int(1) default 0,
+    detailstates char(255),
+    payment char(255) not null,
+    detailpayment char(255),  #phone or bank id
+    updatedAt datetime(0),
+    
+    foreign key (customerId) references Account(id),
+    foreign key (orderId) references Order_Detail(id)
 );
 
 create table Delivery (
 	id bigint primary key,
-    methodName	nvarchar(255) not null,
+    methodName	char(100) not null,
     price	int		#This is shipping cost per km
 );
 
@@ -144,8 +159,8 @@ create table Review (
 	id bigint primary key,
     productId	bigint,
     userId	bigint,
-    title	nvarchar(255) not null,
-    rating	smallint not null,
+    title	char(255) not null,
+    rating	smallint not null
     createdAt	datetime(0) not null,
     content	text,
     
@@ -173,13 +188,9 @@ create table Shop_delivery (
 
 create table Trans (
 	id bigint primary key,
-    AccountId bigint,
+    accountId bigint,
     orderId bigint,
-    states int(1) default 0,
-    detailstates nvarchar(255),
-    payment nvarchar(255) not null,
-    detailpayment char(255),  #phone or bank id
     
-    foreign key (AccountId) references Account(id),
+    foreign key (accountId) references Account(id),
     foreign key (orderId) references Order_Detail(id)
-);
+)
