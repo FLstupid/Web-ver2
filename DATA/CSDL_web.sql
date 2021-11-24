@@ -160,7 +160,7 @@ create table Review (
     productId	bigint,
     userId	bigint,
     title	char(255) not null,
-    rating	smallint not null
+    rating	smallint not null,
     createdAt	datetime(0) not null,
     content	text,
     
