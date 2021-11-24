@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
 public class cartIO {
     public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
@@ -56,20 +55,11 @@ public class cartIO {
             em.close();
         }
     }
-    public static List<?> selectCart (long ID)
+    public static Object selectCart (long AccountId)
     {
         EntityManager em = emf.createEntityManager();
         try {
-            return em.createQuery("SELECT g.amount, n.id,n.accountByAccountId.id, f.title, g.price," +
-                    " n.content,g.productByProductId.id as productCode FROM Account p," +
-                    " Cart n , CartItem g,Product f, Category c, CategoryProduct cp " +
-                    "WHERE p.id= n.accountByAccountId.id " +
-                    "AND n.id = g.cartByCartId.id " +
-                    "AND  g.productByProductId.id = f.id " +
-                    "AND f.id = cp.productByProductId.id " +
-                    "AND cp.categoryByCategoryId.id = c.id " +
-                    " AND p.id =?1").setParameter(1,ID).getResultList();
-
+            return em.createQuery("SELECT p FROM Cart p WHERE p.accountByAccountId.id =?1").setParameter(1,AccountId).getSingleResult();
         } catch (Exception e)
         {
             System.out.println(e.getMessage());

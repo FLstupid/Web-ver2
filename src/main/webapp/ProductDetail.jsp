@@ -1,4 +1,5 @@
-<%--@elvariable id="product" type="java.util.List"--%>
+<%--@elvariable id="amount" type="java"--%>
+<%--@elvariable id="product" type="java.Model.Product"--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -136,7 +137,7 @@
                 <div class="col-md-8">
                     <div class="product-breadcrumb">Trang chủ / Sản phẩm</div>
                         <h4 class="product-info">
-                        ${product[1]}
+                        ${product.title}
                     </h4>
                     <div class="product-star">
                         <i class="fas fa-star product__main-info-rate"></i>
@@ -145,26 +146,26 @@
                         <i class="fas fa-star product__main-info-rate"></i>
                         <i class="fas fa-star product__main-info-rate"></i>
                     </div>
-                    <p class="product-current">${product[3]}</p>
+                    <p class="product-current">${product.content}</p>
                     <p class="product-description">
-                        ${product[2]}
+                        ${product.decription}
                     </p>
                     <p class="discount">
-                      Discount: ${product[4]}
+                      Discount: 3
                     </p>
                     <p class="Shopname">
-                        Shop: ${product[5]}
+                        Shop: ${product.shopByShopId}
                     </p>
-                    <input class="cart__body-quantity-total" name="amount" type="number" value="${product[7]}" />
+                    <input class="cart__body-quantity-total" name="amount" type="number" value="1"/>
                     <button type="button" class="btn btn-kx" formmethod="post" formaction="add">
                         <%
                             if(session.getAttribute("loggedInUser") == null){%>
-                     <a style="color: white; text-decoration: none"  href="cart?action=checkUser&amp;productCode=${product[0]}" >
+                     <a style="color: white; text-decoration: none"  href="cart?action=checkUser&amp;productCode=${product.id}" >
                          Cập nhật giỏ hàng
                      </a>
                         <%}else {
                         %>
-                        <a style="color: white; text-decoration: none"  href="productdetail?action=add&amp;productCode=${product[0]}" >Cập nhật giỏ hàng <%-- --%>
+                        <a style="color: white; text-decoration: none"  href="productdetail?action=add&amp;productCode=${product.id}" >Cập nhật giỏ hàng <%-- --%>
                         </a><%}%>
                     </button>
                     <div class="product__main-info-contact">

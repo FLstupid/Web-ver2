@@ -153,4 +153,12 @@ public class Cart {
     public void setCartItemsById(Collection<CartItem> cartItemsById) {
         this.cartItemsById = cartItemsById;
     }
+
+    public void setAccountByAccountId(Account accountByAccountId) {
+        this.accountByAccountId = accountByAccountId;
+    }
+
+    public Account getAccountByAccountId(long id) {
+        return accountByAccountId;
+    }
 }

@@ -107,4 +107,12 @@ public class CartItem {
     public Product getProducts() {
         return productByProductId;
     }
+
+    public void setCartByCartId(Cart cartByCartId) {
+        this.cartByCartId = cartByCartId;
+    }
+
+    public Cart getCartByCartId() {
+        return cartByCartId;
+    }
 }

@@ -1,6 +1,9 @@
 package User;
 
-import Data.*;
+import Data.accountIO;
+import Data.cartIO;
+import Data.cartItemIO;
+import Data.productIO;
 import Model.Account;
 import Model.Cart;
 import Model.CartItem;
@@ -13,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 public class ProductDetailServlet extends HttpServlet {
     @Override
@@ -24,8 +26,8 @@ public class ProductDetailServlet extends HttpServlet {
         }
         String action = request.getParameter("action");
         String url ;
-        Object product = null;
-        List<?> nhanxet = null;
+        Product product = null;
+        int amount = 1;
         if(action.equals("watch"))
         {
 
@@ -35,8 +37,7 @@ public class ProductDetailServlet extends HttpServlet {
             String productid = request.getParameter("productCode");
             long id = Long.parseLong(productid);
             request.getSession();
-            product = productIO.selectProduct(id);
-            nhanxet = reviewIO.selectReviewList(id);
+            product = productIO.selectProductByid(id);
         }
         else  if(action.equals("checkUser"))
         {
@@ -46,7 +47,7 @@ public class ProductDetailServlet extends HttpServlet {
             AddItem(request);
         }
         request.getSession().setAttribute("product",product);
-        request.getSession().setAttribute("nhanxet",nhanxet);
+        request.getSession().setAttribute("amount",amount);
         url = "/ProductDetail.jsp";
         getServletContext()
                 .getRequestDispatcher(url)
@@ -59,37 +60,28 @@ public class ProductDetailServlet extends HttpServlet {
     }
 
     private void AddItem (HttpServletRequest request) {
-        Account acc = (Account) request.getSession().getAttribute("account");
-        long id1 = acc.getId();
-        cartIO.selectCart(id1);
-        List<?> listaddress = addressIO.selectUserAdress(id1);
-        request.getSession().setAttribute("listaddress", listaddress);
-        Cart cart;
-        int amount;
         HttpSession session = request.getSession();
-        String productCode = request.getParameter("productCode");
-        String amountString = request.getParameter("amount");
-        cart = (Cart) session.getAttribute("cart");
-        if (cart == null) {
-            new Cart();
+        Account acc = (Account) request.getSession().getAttribute("account");
+        int amount = (int) session.getAttribute("amount");
+        long productCode = Long.parseLong(request.getParameter("productCode"));
+        Cart cart = (Cart) cartIO.selectCart(acc.getId());
+        Product product = productIO.selectProductByid(productCode);
+        CartItem cartItem = null;
+        if (cart != null) {
+            cartItem = cartItemIO.selectItem(productCode,cart.getId());
         }
-        try {
-            amount = Integer.parseInt(amountString);
-            if (amount < 0) {
-                amount = 1;
-            }
-        } catch (NumberFormatException nfe) {
-            amount = 1;
-        }
-        long id = Long.parseLong(productCode);
-        Product product = productIO.selectProductByid(id);
-        CartItem cartItem = new CartItem();
-        cartItem.setProductByProductId(product);
-        cartItem.setAmount(amount);
-        if (amount > 0) {
-            cartItemIO.insert(cartItem);
-        } else {
+        if (cartItem == null) {
+            CartItem Item = new CartItem();
+            Item.setAmount(amount);
+            Item.setCartByCartId(cart);
+            Item.setProductByProductId(product);
+            cartItemIO.insert(Item);
+        } else if (amount == 0) {
             cartItemIO.delete(cartItem);
+        }
+        else {
+            cartItem.setAmount(amount);
+            cartItemIO.update(cartItem);
         }
     }
 
