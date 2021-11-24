@@ -224,26 +224,25 @@
                                     <table class="cart">
                                         <thead>
                                         <tr>
-                                            <th >Số Lượng</th>
-                                            <th >Mã giỏ hàng</th>
-                                            <th >Mã người dùng</th>
-                                            <th> Tên sản phẩm</th>
-                                            <th> Giá</th>
+                                            <th>Số Lượng</th>
+                                            <th>Mã giỏ hàng</th>
+                                            <th>Mã người dùng</th>
+                                            <th>Tên sản phẩm</th>
+                                            <th>Giá</th>
                                             <th>Ưu đãi</th>
                                             <th>Đơn vị vận chuyển</th>
                                             <th>Chi tiết</th>
-                                            <th></th>
                                         </tr>
                                         </thead>
                                         <%--@elvariable id="listcart" type="java.util.List"--%>
                                         <c:forEach items="${listcart}" var="element">
                                         <tbody>
                                         <tr>
-                                            <form action="cart" method="post">
+                                            <form action="update_cart" method="post">
                                                 <td > <input type="hidden" name="productCode"
                                                              value="<c:out value='${element[9]}'/>">
                                                     <input style="width: 50px;" type="text" name="amount" value="${element[0]}" id="amount" >
-                                                    <input type="submit" onclick="updateAmount()" value="Update"></td>
+                                                    <input type="submit" value="Update"></td>
                                             </form>
                                             <td>${element[1]}</td>
                                             <td>${element[2]}</td>
