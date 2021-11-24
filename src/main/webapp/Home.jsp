@@ -391,7 +391,6 @@
                         <%--@elvariable id="listproduct" type="java.util.List" --%>
                         <div class="row sm-gutter">
                             <!-- Product item -->
-                            <c:forEach items="${listproduct}" var="elements">
                             <div class="col l-2-4 m-4 c-6">
                                 <a class="home-product-item" href="#">
                                     <div class="home-product-item__img"
@@ -893,7 +892,6 @@
                                     </div>
                                 </a>
                             </div>
-                            </c:forEach>
                         </div>
                     </div>
 
