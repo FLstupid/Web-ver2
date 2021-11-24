@@ -66,8 +66,16 @@ public class CustomerServlet extends HttpServlet {
             //last update
             lastUpdate = new Timestamp(System.currentTimeMillis());
             Account  account = (Account) request.getSession().getAttribute("account");
-            if ( email == null || email.isEmpty() || phone == null || phone.isEmpty()) {
+            if ( username == null || username.isEmpty() || phone == null || phone.isEmpty()) {
                 message = "Xin hãy điền tất cả các giá trị";
+                account.setBirthday(birthday);
+                account.setGender(Gender);
+                account.setLastUpdate(lastUpdate);
+                account.setPhone(phone);
+                account.setRole(role);
+                account.setShopName("");
+                account.setUsername(username);
+                accountIO.update(account);
             }
             else {
                 message = "Cập nhật tài khoản thành công";
@@ -81,8 +89,9 @@ public class CustomerServlet extends HttpServlet {
                 accountIO.update(account);
             }
             url = "/usercenter.jsp";
-            request.setAttribute("account", account);
+            request.getSession().setAttribute("account", account);
             request.setAttribute("message", message);
+            request.setAttribute("account", account);
             request.setAttribute("username", username);
             request.getSession().setAttribute("username", account.getUsername());
         }

@@ -374,14 +374,7 @@
 
                             <div class="form-control">
                                 <label class="input-label">&nbsp;</label>
-                                <button type="submit" onclick="Showmessage(message)" class="btn-submit">Cập nhật</button>
-                                <c:if test="${not empty message}">
-                                    <script>
-                                        window.addEventListener("load",function(){
-                                            alert("${message}");
-                                        })
-                                    </script>
-                                </c:if>
+                                <button type="submit" onclick="alert('${message}')" class="btn-submit">Cập nhật</button>
                             </div>
                         </form>
 

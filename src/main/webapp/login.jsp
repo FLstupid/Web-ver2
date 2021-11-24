@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
 <head>
 	<title>DHS</title>
@@ -33,12 +34,14 @@
 			<input type="email" name="email" placeholder="Email"/>
 			<input type="password" name="password" placeholder="Mật khẩu"/>
 			<a href="#">Quên mật khẩu ?</a>
-			<button type="submit"   id="btn2"  class="btn2 btn-submit">Đăng Nhập</button>
-			<script>
-				window.addEventListener("load",function(){
+			<button type="submit"  id="btn2"  class="btn2 btn-submit">Đăng Nhập</button>
+			<c:if test="${not empty message}">
+				<script>
+					window.addEventListener("load",function(){
 						alert("${message}");
-				})
-			</script>
+					})
+				</script>
+			</c:if>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -59,13 +62,5 @@
 
 <!-- partial -->
 <script src="Registration/script.js"></script>
-<script>
-	<%--window.addEventListener("load",function(){--%>
-	<%--	if("${message}" !== "")--%>
-	<%--	{--%>
-	<%--		alert("${message}");--%>
-	<%--	}--%>
-	<%--})--%>
-</script>
 </body>
 </html>

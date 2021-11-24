@@ -224,14 +224,7 @@
 
                             <div class="form-control">
                                 <label class="input-label">&nbsp;</label>
-                                <button type="submit" class="btn-submit">Thay Đổi Mật Khẩu</button>
-                                <c:if test="${not empty message}">
-                                    <script>
-                                        window.addEventListener("load",function(){
-                                            alert("${message}");
-                                        })
-                                    </script>
-                                </c:if>
+                                <button type="submit" onclick="alert('${message}')" class="btn-submit">Thay Đổi Mật Khẩu</button>
                             </div>
                         </form>
                     </div>

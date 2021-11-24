@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "login" , value = "/login")
 public class LoginServlet extends HttpServlet {
@@ -19,7 +20,7 @@ public class LoginServlet extends HttpServlet {
 
         String url = "/login.jsp";
         String action = request.getParameter("action");
-        String message= "Chào mừng bạn tới với DHS";
+        String message = null;
         String t=null;
         Account temp = null;
         if (action == null) {
@@ -66,21 +67,20 @@ public class LoginServlet extends HttpServlet {
                     HttpSession session = request.getSession();
                     session.setAttribute("loggedInUser", temp);
                     request.setAttribute("account", temp);
-                    request.setAttribute("message", message);
                     request.getSession().setAttribute("account", temp);
                     t = temp.getUsername();
                     url = "/Home.jsp";
                 } else {
                     message = "Mật khẩu không trùng khớp";
                 }
-                request.setAttribute("account", temp);
-                request.setAttribute("message", message);
             } else {
                 message = "Tài khoản chưa tồn tại";
             }
         }
         request.getSession().setAttribute("loggedInUser", temp);
-        request.getSession().setAttribute("message", message);
+        if(request.getParameter("message")!=null)
+        {request.getSession().setAttribute("message", message);
+        }
         request.getSession().setAttribute("username", t);
         getServletContext()
                 .getRequestDispatcher(url).forward(request, response);
