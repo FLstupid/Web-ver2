@@ -189,5 +189,6 @@
     <orderEntry type="library" name="Maven: org.typelevel:cats-core_2.12:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.typelevel:cats-macros_2.12:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.typelevel:cats-kernel_2.12:2.0.0" level="project" />
+    <orderEntry type="library" name="normalize" level="application" />
   </component>
 </module>

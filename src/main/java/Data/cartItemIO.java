@@ -83,13 +83,13 @@ public class cartItemIO {
         }
     }
 
-    public static CartItem selectItem(long productCode, long id) {
+    public static Object selectItem(long productCode, long id) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
             em.getTransaction().begin();
-            return (CartItem) em.createQuery("SELECT q FROM CartItem q WHERE q.productByProductId.id =?1 AND q.cartByCartId.id =?2").setParameter(1,productCode).setParameter(2,id);
+            return em.createQuery("SELECT q FROM CartItem q WHERE q.productByProductId.id =?1 AND q.cartByCartId.id =?2").setParameter(1,productCode).setParameter(2,id).getSingleResult();
         } catch (Exception e)
         {
             System.out.println(e.getMessage());

@@ -68,7 +68,7 @@ public class ProductDetailServlet extends HttpServlet {
         Product product = productIO.selectProductByid(productCode);
         CartItem cartItem = null;
         if (cart != null) {
-            cartItem = cartItemIO.selectItem(productCode,cart.getId());
+            cartItem = (CartItem) cartItemIO.selectItem(productCode,cart.getId());
         }
         if (cartItem == null) {
             CartItem Item = new CartItem();
