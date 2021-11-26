@@ -209,7 +209,7 @@
                                 <a href="home" class="back">Tiếp tục mua sắm</a>
                             </c:if>
                             <c:if test="${not empty reviewlist}">
-                                <c:forEach items="${reviewlist}" var="element">
+
                                     <table class="comment1">
                                         <thead>
                                             <tr>
@@ -219,6 +219,7 @@
                                                 <th >Nhận xét</th>
                                             </tr>
                                         </thead>
+                                <c:forEach items="${reviewlist}" var="element">
                                         <tbody>
                                           <tr>
                                             <td > ${element[0]}</td>
@@ -227,8 +228,9 @@
                                               <td >${element[3]}</td>
                                           </tr>
                                         </tbody>
-                                    </table>
                                 </c:forEach>
+                                    </table>
+
                             </c:if>
                         </form>
                     </div>

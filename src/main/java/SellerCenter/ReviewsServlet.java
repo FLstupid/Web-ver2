@@ -1,6 +1,7 @@
 package SellerCenter;
 
 import Data.orderDetailIO;
+import Data.reviewIO;
 import Model.Account;
 
 import javax.servlet.ServletException;
@@ -20,8 +21,8 @@ public class ReviewsServlet extends HttpServlet {
         Account acc = (Account) request.getSession().getAttribute("account");
         long id1 = acc.getId();
         HttpSession session = request.getSession();
-        List<?> listorder = orderDetailIO.selectOrderList(id1);
-        session.setAttribute("listOrder", listorder);
+        List listreview = reviewIO.selectProductReviewListforSeller(id1);
+        session.setAttribute("listreview", listreview);
         String url = "/reviews.jsp";
         getServletContext()
                 .getRequestDispatcher(url)

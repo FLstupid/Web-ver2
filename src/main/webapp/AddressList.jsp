@@ -218,23 +218,30 @@
                                 <p style="margin-left: 420px">Chưa có địa chỉ nào</p>
                             </c:if>
                             <c:if test="${not empty listaddress}">
-                                <c:forEach items="${listaddress}" var="elements">
+
                                     <div class = "_1address">
                                             <div style="display: flex; margin-bottom: 10px;" class="addresslist">
-                                                    <div class="info">
-                                                        <div class="name"><c:out value="${elements[0]}"/>
-                                                            <span>
+                                                    <div style="margin-right: auto;" class="info">
+                                                     <c:forEach items="${listaddress}" var="elements">
+                                                        <form style="width: 100%; margin-top: 10px;" action="addresslist" >
+                                                            <input type="hidden" name="madiachi" value="${elements[5]}">
+                                                            <div class="name"><c:out value="${elements[0]}"/>
+                                                                <span>
                                                             <svg style="color: greenyellow;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                                             </svg>
                                                         </span>
-                                                        </div>
-                                                        <div class="address">
-                                                            <span>Địa chỉ: </span><c:out value="${elements[1]}"/>, <c:out value="${elements[2]}"/>, <c:out value="${elements[3]}"/></div>
-                                                        <div class="phone"> <span>Điện thoại:</span><c:out value="${elements[4]}"/></div>
+                                                            </div>
+                                                            <div class="address">
+                                                                <span>Địa chỉ: </span><c:out value="${elements[1]}"/>, <c:out value="${elements[2]}"/>, <c:out value="${elements[3]}"/></div>
+                                                            <div class="phone"> <span>Điện thoại:</span><c:out value="${elements[4]}"/></div>
+
+                                                        </form>
+
+                                                     </c:forEach>
                                                     </div>
                                             </div>
                                     </div>
-                                </c:forEach>
+
                             </c:if>
                         </form>
                     </div>

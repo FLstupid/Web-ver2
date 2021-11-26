@@ -218,8 +218,8 @@
                                 <a href="home" class="back">Tiếp tục mua sắm</a>
                             </c:if>
                             <c:if test="${not empty listOrder}">
-                                <c:forEach items="${listOrder}" var="element">
-                                    <table class="bangmua1">
+
+                                    <table style="width: 100%;" class="bangmua1">
                                         <thead>
                                         <tr style="align-items: center">
                                             <th>Mã đơn hàng</th>
@@ -229,6 +229,7 @@
                                             <th>Trạng thái đơn hàng</th>
                                         </tr>
                                         </thead>
+                                <c:forEach items="${listOrder}" var="element">
                                         <tbody>
                                         <tr>
                                             <td>
@@ -240,8 +241,9 @@
                                             <td>${element[4]}</td>
                                         </tr>
                                         </tbody>
-                                    </table>
                                 </c:forEach>
+                                    </table>
+
                             </c:if>
                         </form>
                     </div>

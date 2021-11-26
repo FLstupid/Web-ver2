@@ -21,7 +21,7 @@
         <%} else {%>
         <<div class="account-avatar">
         <img class="avt" src="SellerCenter/img/avatar.jfif" alt="">
-        <span>${account.name}</span>
+        <span>${account.username}</span>
         <%}%>
     </div>
     </section>
@@ -74,7 +74,7 @@
                         <div class="inner">
                             <%--@elvariable id="listBill" type="java.util.List"--%>
                             <c:if test="${empty listBill}">
-                                    <span>Load Faile</span>
+                                    <span>Load Failed</span>
                             </c:if>
                             <c:if test="${not empty listBill}">
                                 <c:forEach items="${listBill}" var="element">
@@ -82,8 +82,8 @@
                                 <thead>
                                 <tr>
                                     <th>Mã thanh toán</th>
-                                    <th>Loại</th>
-                                    <th>Tag</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Ngày mua</th>
                                     <th>Giá</th>
                                     <th>Số lượng</th>
                                 </tr>
@@ -91,10 +91,10 @@
                                 <tbody>
                                 <tr>
                                     <td>${element[0]}</td>
-                                    <td>${element[1]}</td>
-                                    <td>${element[2]}</td>
+                                    <td>${element[6]}</td>
+                                    <td>${element[5]}</td>
                                     <td>${element[3]}</td>
-                                    <td>${element[4]}</td>
+                                    <td>${element[7]}</td>
                                 </tr>
                                 </tbody>
                             </table>

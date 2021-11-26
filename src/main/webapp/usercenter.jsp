@@ -1,4 +1,4 @@
-<%--@elvariable id="account" type="com.sun.webkit.dom.HTMLAreaElementImpl"--%>
+<%@ page import="java.nio.file.Paths" %><%--@elvariable id="account" type="com.sun.webkit.dom.HTMLAreaElementImpl"--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -57,7 +57,7 @@
                                 placeholder="Find somethings v............... ?"
                                 class="FormSearch__Input"
                                 value=""
-                        />
+                        >
                         <button class="FormSearch__Button">
                             <img
                                     class="icon-search"
@@ -177,11 +177,15 @@
                 <div class="Account_StylesAvatar">
 
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <img class="avt"  id="photo" src="img/logo_ico.png" alt="">
-                        <div class="Btnclick">
-                            <input type="file" id="file" name="img" >
-                            <label  for="file" id="uploadBtn">Choose Avatar</label>
-                        </div>
+                        <form method="post" action="customer" enctype="multipart/form-data">
+                            <input type="hidden" name="action" value="upimage">
+<%--                            <%Part part = request.getPart("photo");--%>
+<%--                                String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();%>--%>
+                        <img class="avt" id="photo" src="" alt="">
+                            <input type="file"  name="photo" />
+<%--                        <label  for="file" id="uploadBtn">Choose Avatar</label>--%>
+                            <button type="submit" class="btn-submit" >upload</button>
+                        </form>
                     </div>
                     <div style="margin-left: 100px" class="info">
                         Tài Khoản
@@ -377,7 +381,6 @@
                                 <button type="submit" onclick="alert('${message}')" class="btn-submit">Cập nhật</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -392,6 +395,18 @@
     function Showmessage(message)
     {
         alert(message);
+    }
+
+</script>
+<script>
+    async function uploadFile() {
+        let formData = new FormData();
+        formData.append("file", ajaxfile.files[0]);
+        await fetch('fileuploadservlet', {
+            method: "POST",
+            body: formData
+        });
+        alert('The file upload with Ajax and Java was a success!');
     }
 </script>
 </body>

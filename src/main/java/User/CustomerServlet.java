@@ -3,11 +3,16 @@ package User;
 import Data.accountIO;
 import Model.Account;
 
-import javax.servlet.ServletContext;
+
+
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -15,8 +20,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
+@MultipartConfig
 @WebServlet(name = "customer", value = "/customer")
 public class CustomerServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+    private static final String SAVE_DIR = "webapp\\hinhanh";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -26,13 +34,30 @@ public class CustomerServlet extends HttpServlet {
         String url="/usercenter.jsp";
         String action = request.getParameter("action");
 
+        Account  account = (Account) request.getSession().getAttribute("account");
         if (action == null) {
             action = "join";
         }
         if (action.equals("join")) {
             action = "customer";
         }
+        else if(action.equals("upimage"))
+        {
+            Part part = request.getPart("photo");
 
+            String realPath =  getServletContext().getRealPath("/hinhanh");
+            String fileName = Paths.get(part.getSubmittedFileName()).getFileName()
+                    .toString();
+            if(!Files.exists(Paths.get(realPath)))
+            {
+                Files.createDirectory(Paths.get(realPath));
+            }
+            part.write((realPath+"/"+fileName));
+           //part.write(("../../webapp/hinhanh/"+fileName));
+//            account.setAvatar(fileName);
+//            accountIO.update(account);
+//            request.setAttribute("avatar", account.getAvatar());
+        }
         else if (action.equals("add")) {
 
             String username;
@@ -65,7 +90,7 @@ public class CustomerServlet extends HttpServlet {
             boolean role = true;
             //last update
             lastUpdate = new Timestamp(System.currentTimeMillis());
-            Account  account = (Account) request.getSession().getAttribute("account");
+
             if ( username == null || username.isEmpty() || phone == null || phone.isEmpty()) {
                 message = "Xin hãy điền tất cả các giá trị";
                 account.setBirthday(birthday);
@@ -77,8 +102,8 @@ public class CustomerServlet extends HttpServlet {
                 account.setUsername(username);
                 accountIO.update(account);
             }
+
             else {
-                message = "Cập nhật tài khoản thành công";
                 account.setBirthday(birthday);
                 account.setGender(Gender);
                 account.setLastUpdate(lastUpdate);
@@ -90,8 +115,8 @@ public class CustomerServlet extends HttpServlet {
             }
             url = "/usercenter.jsp";
             request.getSession().setAttribute("account", account);
-            request.setAttribute("message", message);
             request.setAttribute("account", account);
+            request.setAttribute("avatar", account.getAvatar());
             request.setAttribute("username", username);
             request.getSession().setAttribute("username", account.getUsername());
         }

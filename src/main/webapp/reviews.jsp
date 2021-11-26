@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html lang="en">
 <head>
@@ -58,13 +59,38 @@
             <div class="layout-menu">
                 <div class="main-content">
                     <h3 class="title">Đánh giá của khách hàng</h3>
-                    <table>
-                        <tr>
-                            <div class="product"></div>
-                            <div class="bill-id"></div>
-                            <p></p>
-                        </tr>
-                    </table>
+                    <div class="inner">
+                        <c:if test="${empty listreview}">
+                            <span>Load Failed</span>
+                        </c:if>
+                        <c:if test="${not empty listreview}">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Mã sản phẩm</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Tiêu đề nhận xét</th>
+                                        <th>Nhận xét</th>
+                                        <th>Tên khách hàng</th>
+                                        <th>Ngày tạo</th>
+                                    </tr>
+                                    </thead>
+                            <c:forEach items="${listreview}" var="element">
+                                    <tbody>
+                                    <tr>
+                                        <td>${element[0]}</td>
+                                        <td>${element[2]}</td>
+                                        <td>${element[1]}</td>
+                                        <td>${element[5]}</td>
+                                        <td>${element[7]}</td>
+                                        <td>${element[6]}</td>
+                                    </tr>
+                                    </tbody>
+                            </c:forEach>
+                            </table>
+
+                        </c:if>
+                    </div>
                 </div>
             </div>
         </section>

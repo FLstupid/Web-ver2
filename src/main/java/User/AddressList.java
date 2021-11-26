@@ -2,6 +2,7 @@ package User;
 
 import Data.addressIO;
 import Model.Account;
+import Model.Address;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

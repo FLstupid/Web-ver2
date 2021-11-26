@@ -69,7 +69,8 @@ public class orderDetailIO {
         try {
             return em.createQuery("SELECT p.id as MaDonHang, " +
                     "p.createdAt as NgayMua, g.title as TenSanPham ," +
-                    "p.totalPrice as TongTien,l.states as TrangThai " +
+                    "p.totalPrice as TongTien,l.states as TrangThai, p.createdAt, p.phone," +
+                    "n.amount " +
                     "FROM OrderDetail p , Account ac, OrderItem  n , Product g,Trans l, Shop s\n" +
                     "WHERE n.orderDetailByOrderId.id = p.id " +
                     "AND g.id=n.productByProductId.id AND ac.id = l.accountByAccountId.id " +

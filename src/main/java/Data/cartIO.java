@@ -9,11 +9,11 @@ import javax.persistence.Persistence;
 
 public class cartIO {
     public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
-    public static final EntityManager em = emf.createEntityManager();
-    public static final EntityTransaction transaction = em.getTransaction();
+
 
     public void insert (Cart cart)
-    {
+    { EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
             em.persist(cart);
