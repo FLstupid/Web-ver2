@@ -136,6 +136,7 @@
     <orderEntry type="library" name="commons-fileupload-1.4" level="project" />
     <orderEntry type="library" name="commons-io-2.6" level="project" />
     <orderEntry type="library" name="nio" level="project" />
+    <orderEntry type="library" name="normalize" level="application" />
     <orderEntry type="library" name="Maven: commons-fileupload:commons-fileupload:1.4" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
     <orderEntry type="library" name="Maven: jboss:jboss-logging-spi:2.0.2.GA" level="project" />
@@ -144,8 +145,6 @@
     <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.1.2.Final" level="project" />
@@ -175,6 +174,8 @@
     <orderEntry type="library" name="Maven: com.sun.istack:istack-commons-runtime:3.0.7" level="project" />
     <orderEntry type="library" name="Maven: org.jvnet.staxex:stax-ex:1.8" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.15" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" level="project" />
     <orderEntry type="library" name="Maven: au.id.tmm.http-constants:http-constants-circe_2.13:1.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.13.0" level="project" />
     <orderEntry type="library" name="Maven: io.circe:circe-core_2.13:0.12.2" level="project" />
@@ -195,6 +196,5 @@
     <orderEntry type="library" name="Maven: org.typelevel:cats-core_2.12:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.typelevel:cats-macros_2.12:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.typelevel:cats-kernel_2.12:2.0.0" level="project" />
-    <orderEntry type="library" name="normalize" level="application" />
   </component>
 </module>

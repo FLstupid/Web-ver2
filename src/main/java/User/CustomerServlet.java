@@ -2,7 +2,7 @@ package User;
 
 import Data.accountIO;
 import Model.Account;
-
+import org.hibernate.Session;
 
 
 import javax.servlet.ServletException;
@@ -12,6 +12,7 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -33,7 +34,7 @@ public class CustomerServlet extends HttpServlet {
         }
         String url="/usercenter.jsp";
         String action = request.getParameter("action");
-
+        HttpSession session = request.getSession();
         Account  account = (Account) request.getSession().getAttribute("account");
         if (action == null) {
             action = "join";
@@ -43,20 +44,26 @@ public class CustomerServlet extends HttpServlet {
         }
         else if(action.equals("upimage"))
         {
-            Part part = request.getPart("photo");
+            String uploadfolder =  getServletContext().getRealPath("/hinhanh");
+            Path uploadPath =Paths.get(uploadfolder);
 
-            String realPath =  getServletContext().getRealPath("/hinhanh");
-            String fileName = Paths.get(part.getSubmittedFileName()).getFileName()
-                    .toString();
-            if(!Files.exists(Paths.get(realPath)))
+            if(!Files.exists(uploadPath))
             {
-                Files.createDirectory(Paths.get(realPath));
+                Files.createDirectory(uploadPath);
             }
-            part.write((realPath+"/"+fileName));
-           //part.write(("../../webapp/hinhanh/"+fileName));
-//            account.setAvatar(fileName);
-//            accountIO.update(account);
-//            request.setAttribute("avatar", account.getAvatar());
+            Part imagePart = request.getPart("photo");
+
+            String imageFileName = Paths.get(imagePart.getSubmittedFileName()).getFileName().toString();
+
+            imagePart.write(Paths.get(uploadPath.toString(),imageFileName).toString());
+
+
+            account.setAvatar(imageFileName);
+            accountIO.update(account);
+            session.setAttribute("avatar",imageFileName);
+            request.getSession().setAttribute("avatar", account.getAvatar());
+            session.setAttribute("avatar",account.getAvatar());
+            request.getSession().setAttribute("avatar", imageFileName);
         }
         else if (action.equals("add")) {
 

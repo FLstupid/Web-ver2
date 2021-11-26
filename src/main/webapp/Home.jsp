@@ -187,7 +187,7 @@
                     <%} else {%>
                     <!-- Đã đăng nhập -->
                     <li class="header__navbar-item header__navbar-user">
-                        <img src="assets/img/user_avatar.jpg" class="header__navbar-user-img" alt="">
+                        <img src="<%=request.getServletContext().getRealPath("/")%>hinhanh/<c:out value='${account.avatar}'/>" class="header__navbar-user-img" alt="">
                         <% if(session.getAttribute("username")==null || session.getAttribute("loggedInUser")==null){%>
                         <span class="header__navbar-item--strong header__navbar-user-name">
                             User name</span>

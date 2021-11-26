@@ -178,10 +178,10 @@
                 <div class="Account_StylesAvatar">
 
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <img class="avt"  id="photo" src="img/logo_ico.png" alt="">
+                        <img class="avt"  id="photo" src="hinhanh/<c:out value='${account.avatar}'/>" alt="">
                         <div class="Btnclick">
-                            <input type="file" id="file" name="img" >
-                            <label  for="file" id="uploadBtn">Choose Avatar</label>
+                            <input type="file" name="photo" >
+                            <label  for="photo" id="uploadBtn">Choose Avatar</label>
                         </div>
                     </div>
                     <div style="margin-left: 100px" class="info">

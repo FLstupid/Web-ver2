@@ -177,11 +177,14 @@
                 <div class="Account_StylesAvatar">
 
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <img class="avt"  id="photo" src="img/logo_ico.png" alt="">
-                        <div class="Btnclick">
+                        <form method="post" action="customer" enctype="multipart/form-data">
+                            <input type="hidden" name="action" value="upimage">
+                            <img class="avt" name="photo" id="photo" src="<%=request.getServletContext().getRealPath("/")%>hinhanh/<c:out value='${account.avatar}'/>" alt="">
+                            <div class="Btnclick">
                             <input type="file" id="file" name="img" >
-                            <label  for="file" id="uploadBtn">Choose Avatar</label>
-                        </div>
+                            <label type="submit"  for="file" id="uploadBtn">Choose Avatar</label>
+                            </div>
+                        </form>
                     </div>
                     <div style="margin-left: 100px" class="info">
                         Tài Khoản

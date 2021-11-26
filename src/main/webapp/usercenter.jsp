@@ -179,10 +179,8 @@
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
                         <form method="post" action="customer" enctype="multipart/form-data">
                             <input type="hidden" name="action" value="upimage">
-<%--                            <%Part part = request.getPart("photo");--%>
-<%--                                String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();%>--%>
-                        <img class="avt" id="photo" src="" alt="">
-                            <input type="file"  name="photo" />
+                            <img class="avt" id="photo" src="hinhanh/<c:out value='${account.avatar}'/>" alt="">
+                             <input type="file"  name="photo" />
 <%--                        <label  for="file" id="uploadBtn">Choose Avatar</label>--%>
                             <button type="submit" class="btn-submit" >upload</button>
                         </form>
