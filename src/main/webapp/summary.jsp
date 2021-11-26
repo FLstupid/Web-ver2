@@ -1,3 +1,4 @@
+<%--@elvariable id="account" type="Model.Account"--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +15,14 @@
         </a>
 
         <div class="account-avatar">
-            <img class="avt" src="SellerCenter/img/avatar.jfif" alt="">
-            <span>Lê Trần Minh Nhựt</span>
+            <img class="avt" src="SellerCenter/img/default_avt.png" alt="">
+            <%
+                if(session.getAttribute("username") == null || session.getAttribute("username") == "" || session.getAttribute("loggedInUser") == null){%>
+            <span>Admin</span>
+            <%}else {
+            %>
+            <span>${account.username}</span>
+            <%}%>
         </div>
     </section>
 </header>

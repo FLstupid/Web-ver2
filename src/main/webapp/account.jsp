@@ -1,8 +1,8 @@
-<%--@elvariable id="shop" type="Model.account"--%>
+<%--@elvariable id="loggedInUser" type="Model.Account"--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/sellercenter.css"/>
+    <link rel="stylesheet" href="css/sellercenter.css">
     <title>DHS Account</title>
 </head>
 <body>
@@ -14,8 +14,14 @@
         </a>
 
         <div class="account-avatar">
-            <img class="avt" src="SellerCenter/img/avatar.jfif" alt="">
-            <span>Lê Trần Minh Nhựt</span>
+            <img class="avt" src="SellerCenter/img/" alt="">
+            <%
+                if(session.getAttribute("loggedInUser") == null){%>
+            <span>Admin</span>
+            <%}else {
+            %>
+            <span>${loggedInUser.username}</span>
+            <%}%>
         </div>
     </section>
 </header>
@@ -66,7 +72,7 @@
                                     <label class="input-label">Shop</label>
                                     <div>
                                         <label>
-                                            <input type="text" name="fullName" maxlength="128" class="Input-styles" value="${shop.username}">
+                                            <input type="text" name="fullName" maxlength="128" class="Input-styles" value="${loggedInUser.shopName}">
                                         </label>
                                     </div>
                                 </div>
@@ -74,7 +80,7 @@
                                     <label class="input-label">Số điện thoại</label>
                                     <div>
                                         <label>
-                                            <input type="tel" disabled name="phoneNumber" placeholder="Nhập SĐT" class="Input-styles" value="${shop.phone}">
+                                            <input type="tel" disabled name="phoneNumber" placeholder="Nhập SĐT" class="Input-styles" value="${loggedInUser.phone}">
                                         </label>
                                     </div>
                                 </div>
@@ -82,14 +88,14 @@
                                     <label class="input-label">Email</label>
                                     <div>
                                         <label>
-                                            <input type="email" disabled name="email" class="Input-styles" value="${shop.email}">
+                                            <input type="email" disabled name="email" class="Input-styles" value="${loggedInUser.email}">
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-control">
                                     <label class="input-label">Giới tính</label>
                                     <%  boolean gender;
-                                        if (session == null || session.getAttribute("gender")==null) gender = true;
+                                        if (session.getAttribute("gender") == null) gender = true;
                                         else gender = ((boolean) session.getAttribute("gender"));
                                         if (gender){%>
                                     <label class="Radio_StylesRadio">

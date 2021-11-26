@@ -1,4 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--@elvariable id="address" type="Model.Address"--%>
+<%--@elvariable id="account" type="com.sun.webkit.dom.HTMLAreaElementImpl"--%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -79,7 +81,7 @@
                             <span class="account_laber">
 										<div style="display: flex" class="buttonDropdown">
                                             <%
-                                                if(session.getAttribute("username") == null ||session.getAttribute("username") == "" ||session == null || session.getAttribute("loggedInUser") == null){%>
+                                                if(session.getAttribute("username") == null || session.getAttribute("username") == "" || session.getAttribute("loggedInUser") == null){%>
 											<span>user-name</span>
                                             <%}else {
                                             %>
@@ -153,7 +155,7 @@
                                     <img
                                             class="cart-icon"
                                             src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"
-                                    />
+                                     alt=""/>
                                     <span class="Userstyle__ItemCart">3</span>
                                 </div>
 
@@ -164,7 +166,6 @@
                 </div>
                 <%}%>
             </div>
-        </div>
         </div>
     </section>
 </header>
@@ -177,7 +178,7 @@
                 <div class="Account_StylesAvatar">
 
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <img class="avt"  id="photo" src="img/logo_ico.png">
+                        <img class="avt"  id="photo" src="img/logo_ico.png" alt="">
                         <div class="Btnclick">
                             <input type="file" id="file" name="img" >
                             <label  for="file" id="uploadBtn">Choose Avatar</label>
@@ -208,11 +209,12 @@
                             <div class="form-control ">
                                 <label  class="input-label">Họ và tên:</label>
                                 <div>
-                                    <input class="inputdiachi" type="text" required="" name="fullName" placeholder="Nhập họ và tên" maxlength="50" class="Input-sc-17i9bto-0 girQwT" value="${account.username}">
+                                    <input class="inputdiachi Input-sc-17i9bto-0 girQwT" type="text" required="" name="fullName" placeholder="Nhập họ và tên" maxlength="50"
+                                           value="${account.username}">
                                 </div>
                             </div>
                             <div class="form-control "><label name="telephone" class="input-label">Số điện thoại:</label>
-                                <div><input class="inputdiachi" type="text" required="" name="telephone" placeholder="Nhập số điện thoại" class="Input-sc-17i9bto-0 girQwT" value="${account.phone}"></div>
+                                <div><input class="inputdiachi Input-sc-17i9bto-0 girQwT" type="text" required="" name="telephone" placeholder="Nhập số điện thoại"  value="${account.phone}"></div>
                             </div>
                             <div class="form-control">
                                 <label name="region" class="input-label">Tỉnh/Thành phố:</label>
@@ -284,7 +286,7 @@
                             </div>
                             <div class="form-control">
                                 <label name="district"  class="input-label">Quận huyện:</label>
-                                <input class="inputdiachi" type="text" required="" name="district" placeholder="Nhập huyện" maxlength="50" class="Input-sc-17i9bto-0 girQwT"  value="${address.district}">
+                                <input type="text" required="" name="district" placeholder="Nhập huyện" maxlength="50" class="inputdiachi Input-sc-17i9bto-0 girQwT"  value="${address.district}">
                             </div>
                             <div class="form-control ">
                                 <label name="address" class="input-label">
@@ -311,7 +313,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 </main>
