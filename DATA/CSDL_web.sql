@@ -11,7 +11,8 @@ create table Account (
     shop_name char(255),
     birthday date,
     role bit default 0 not null,
-    LAST_UPDATE datetime(0)
+    LAST_UPDATE datetime(0),
+    avatar char(255)
 );
 
 create table Shop (
