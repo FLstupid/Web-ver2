@@ -6,23 +6,34 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ DHS</title>
 
+    <!-- Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo.ico">
+
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/base.css"/>
-    <link rel="stylesheet" href="assets/css/main.css"/>
-    <link rel="stylesheet" href="assets/css/grid.css"/>
-    <link rel="stylesheet" href="assets/css/responsive.css"/>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"/>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"/>
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css"/>
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/grid.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap">
 
     <!-- Script -->
-    <script src="js/main.js"></script>
+    <script src="assets/js/jquery-3.3.1.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/owlcarousel/owl.carousel.min.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
@@ -312,9 +323,9 @@
 
     <div class="app__container">
         <div class="grid wide">
-            <div class="row sm-gutter app__content">
+            <div class="row1 sm-gutter1 app__content">
                 <!-- Category -->
-                <div class="col l-2 m-0 c-0">
+                <div class="col1 l-2 m-0 c-0">
                     <nav class="category">
                         <h3 class="category__heading">
                             <i class="fas fa-list-ul category__heading-icon"></i>
@@ -346,14 +357,14 @@
                 </div>
 
                 <!-- Filter -->
-                <div class="col l-10 m-12 c-12">
-                    <div class="home-filter hide-on-mobile-tablet">
+                <div class="col1 l-10 m-12 c-12">
+                    <div class="home-filter">
                         <span class="home-filter__label">Sắp xếp theo</span>
-                        <button class="home-filter__btn btn">Phổ biến</button>
-                        <button class="home-filter__btn btn btn--primary">
+                        <button class="home-filter__btn btn1">Phổ biến</button>
+                        <button class="home-filter__btn btn1 btn--primary">
                             Mới nhất
                         </button>
-                        <button class="home-filter__btn btn">Bán chạy</button>
+                        <button class="home-filter__btn btn1">Bán chạy</button>
                         <div class="select-input">
                             <span class="select-input__label">Giá</span>
                             <i class="select-input__icon fas fa-angle-down"></i>
@@ -374,11 +385,11 @@
 									<span class="home-filter__page-total">14</span>
 								</span>
                             <div class="home-filter__page-control">
-                                <a href="#" class="
-												home-filter__page-btn home-filter__page-btn--disable">
+                                <a href="#"
+                                   class="home-filter__page-btn home-filter__page-btn--disable non-underline-link">
                                     <i class="fas fa-angle-left home-filter__page-icon"></i>
                                 </a>
-                                <a href="#" class="home-filter__page-btn">
+                                <a href="#" class="home-filter__page-btn non-underline-link">
                                     <i class="fas fa-angle-right home-filter__page-icon"></i>
                                 </a>
                             </div>
@@ -388,10 +399,9 @@
 
                     <!-- Product -->
                     <div class="home-product">
-                        <%--@elvariable id="listproduct" type="java.util.List" --%>
-                        <div class="row sm-gutter">
+                        <div class="row1 sm-gutter1">
                             <!-- Product item -->
-                            <div class="col l-2-4 m-4 c-6">
+                            <div class="col1 l-2-4 m1-4 c-6">
                                 <a class="home-product-item" href="#">
                                     <div class="home-product-item__img"
                                          style="background-image: url(assets/img/prd/prd_img_3.jpg)"></div>
@@ -441,7 +451,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col l-2-4 m-4 c-6">
+                            <div class="col1 l-2-4 m1-4 c-6">
                                 <a class="home-product-item" href="#">
                                     <div class="home-product-item__img"
                                          style="background-image: url(assets/img/prd/prd_img_2.jpg)"></div>
@@ -491,7 +501,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col l-2-4 m-4 c-6">
+                            <div class="col1 l-2-4 m1-4 c-6">
                                 <a class="home-product-item" href="#">
                                     <div class="home-product-item__img"
                                          style="background-image: url(assets/img/prd/prd_img_4.jpg)"></div>
@@ -541,7 +551,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col l-2-4 m-4 c-6">
+                            <div class="col1 l-2-4 m1-4 c-6">
                                 <a class="home-product-item" href="#">
                                     <div class="home-product-item__img"
                                          style="background-image: url(assets/img/prd/prd_img_5.jpg)"></div>
@@ -591,7 +601,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col l-2-4 m-4 c-6">
+                            <div class="col1 l-2-4 m1-4 c-6">
                                 <a class="home-product-item" href="#">
                                     <div class="home-product-item__img"
                                          style="background-image: url(assets/img/prd/prd_img_6.jpg)"></div>
@@ -641,7 +651,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col l-2-4 m-4 c-6">
+                            <div class="col1 l-2-4 m1-4 c-6">
                                 <a class="home-product-item" href="#">
                                     <div class="home-product-item__img"
                                          style="background-image: url(assets/img/prd/prd_img_1.jpg)"></div>
@@ -691,7 +701,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col l-2-4 m-4 c-6">
+                            <div class="col1 l-2-4 m1-4 c-6">
                                 <a class="home-product-item" href="#">
                                     <div class="home-product-item__img"
                                          style="background-image: url(assets/img/prd/prd_img_8.jpg)"></div>
@@ -742,7 +752,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col l-2-4 m-4 c-6">
+                            <div class="col1 l-2-4 m1-4 c-6">
                                 <a class="home-product-item" href="#">
                                     <div class="home-product-item__img"
                                          style="background-image: url(assets/img/prd/prd_img_7.jpg)"></div>
@@ -792,7 +802,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col l-2-4 m-4 c-6">
+                            <div class="col1 l-2-4 m1-4 c-6">
                                 <a class="home-product-item" href="#">
                                     <div class="home-product-item__img"
                                          style="background-image: url(assets/img/prd/prd_img_9.jpg)"></div>
@@ -842,7 +852,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col l-2-4 m-4 c-6">
+                            <div class="col1 l-2-4 m1-4 c-6">
                                 <a class="home-product-item" href="#">
                                     <div class="home-product-item__img"
                                          style="background-image: url(assets/img/prd/prd_img_10.png)"></div>
@@ -894,8 +904,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Pagination -->
                     <ul class="pagination home-product__pagination">
                         <li class="pagination-item">
                             <a href="" class="pagination-item__link">
