@@ -257,6 +257,54 @@
                                 ${elements[1]}
                         </h4>
                     </c:forEach>
+                    <h3>Đánh giá của bạn về sản phẩm</h3>
+                    <form action="productdetail"  >
+                        <input type="hidden" name="action" value="comment">
+                        <div class="rating">
+                            <label>
+                                <input type="radio" name="stars" value="1" />
+                                <span class="icon">★</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="stars" value="2" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="stars" value="3" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="stars" value="4" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="stars" value="5" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                            </label>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+
+
+                        <form action="comment"  method="post">
+                            <span>Chủ đề bình luận: </span><input type="text" style="width: 1000px; margin-bottom: 2px;" name="topiccomment"><br>
+                            <textarea rows="5"  name="comment" id="comment" style="font-family:sans-serif;font-size:1.2em; width: 1000px">Cảm nhận của bạn về sản phẩm...
+                        </textarea><br>
+                            <input type="submit" value="Bình luận">
+                        </form>
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -287,6 +335,9 @@
 </div>
     <!-- end product love -->
 <script>
+    $(':radio').change(function() {
+        console.log('New star rating: ' + this.value);
+    });
     const slide = document.getElementsByClassName("review");
     const review = document.getElementById("danhgia");
 </script>

@@ -175,11 +175,10 @@
             <div class="breadcrumb_Container"></div>
             <aside class="Account_StylesSideBar">
                 <div class="Account_StylesAvatar">
-
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
                         <form method="post" action="customer" enctype="multipart/form-data">
                             <input type="hidden" name="action" value="upimage">
-                            <img class="avt" id="photo" src="hinhanh/<c:out value='${account.avatar}'/>" alt="">
+                            <img class="avt" id="photo" src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
                              <input type="file"  name="photo" />
 <%--                        <label  for="file" id="uploadBtn">Choose Avatar</label>--%>
                             <button type="submit" class="btn-submit" >upload</button>

@@ -12,7 +12,7 @@ public class reviewIO {
     public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
 
 
-    public void insert (Review review)
+    public static void insert(Review review)
     {EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {

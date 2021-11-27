@@ -1,15 +1,14 @@
 package Model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
 public class Account {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private Date birthday;
     private String email;

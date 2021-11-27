@@ -1,13 +1,7 @@
 package User;
 
-import Data.accountIO;
-import Data.cartIO;
-import Data.cartItemIO;
-import Data.productIO;
-import Model.Account;
-import Model.Cart;
-import Model.CartItem;
-import Model.Product;
+import Data.*;
+import Model.*;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -16,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Timestamp;
 
 public class ProductDetailServlet extends HttpServlet {
     @Override
@@ -38,6 +33,28 @@ public class ProductDetailServlet extends HttpServlet {
             long id = Long.parseLong(productid);
             request.getSession();
             product = productIO.selectProductByid(id);
+        }
+        else if(action.equals("comment"))
+        {
+            String productid = request.getParameter("productCode");
+            long id = Long.parseLong(productid);
+            request.getSession();
+            product = productIO.selectProductByid(id);
+            String topic = request.getParameter("topiccomment");
+            String comment = request.getParameter("comment");
+            String rating1 = request.getParameter("stars");
+            Account acc = (Account) request.getSession().getAttribute("account");
+            Timestamp commenttime = new Timestamp(System.currentTimeMillis());
+            short rating;
+            if(rating1 == null)
+            {
+                rating = 0;
+            }
+            else {
+                rating = Short.parseShort(rating1);
+            }
+            Review a = new Review(product,acc,rating,topic,comment, commenttime);
+            reviewIO.insert(a);
         }
         else  if(action.equals("checkUser"))
         {

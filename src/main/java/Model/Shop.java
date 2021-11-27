@@ -8,6 +8,7 @@ import java.util.Objects;
 @Entity
 public class Shop {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Basic
     private String shopname;

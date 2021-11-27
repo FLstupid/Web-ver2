@@ -7,6 +7,7 @@ import java.util.Objects;
 @Entity
 public class Review {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String title;
     private short rating;
@@ -17,6 +18,20 @@ public class Review {
     private Product productByProductId;
     @ManyToOne
     private Account accountByAccountId;
+
+    public Review( Product p,Account ac,short rating, String topic, String comment , Timestamp commenttime) {
+       this.productByProductId = p;
+        this.accountByAccountId =ac;
+        this.rating= rating;
+        this.title = topic;
+        this.content = comment;
+        this.createdAt = commenttime;
+    }
+
+    public Review() {
+
+    }
+
 
     public long getId() {
         return id;
