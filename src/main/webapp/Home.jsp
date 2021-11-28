@@ -49,137 +49,12 @@
                         <a class="header__navbar-item header__navbar-item--separate"
                            href="${pageContext.request.contextPath}/summary">Kênh người bán</a>
                     </li>
-                    <li class="
-									header__navbar-item
-									header__navbar-item--has-qr
-									header__navbar-item--separate
-								">
-                        Tải ứng dụng
-                        <!-- Header QR Code -->
-                        <div class="header__qr">
-                            <img src="./assets/img/qrcode.png" alt="QR Code" class="header__qr-img"/>
-                            <div class="header__qr-apps">
-                                <a href="" class="header__qr-link">
-                                    <img src="./assets/img/ch_play.png" alt="Google Play"
-                                         class="header__qr-download-img"/>
-                                </a>
-                                <a href="" class="header__qr-link">
-                                    <img src="./assets/img/appstore.png" alt="App Store"
-                                         class="header__qr-download-img"/>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="header__navbar-item">
-                        <div class="header__navbar-title--no-pointer">Kết nối</div>
-                        <a href="" class="header__navbar-icon-link">
-                            <i class="header__navbar-icon fab fa-facebook"></i>
-                        </a>
-                        <a href="" class="header__navbar-icon-link">
-                            <i class="header__navbar-icon fab fa-instagram"></i>
-                        </a>
-                    </li>
                 </ul>
                 <!--rnd header navbar left -->
 
                 <!-- header navbar right -->
                 <!-- Thông báo -->
                 <ul class="header__navbar-list">
-                    <li class="header__navbar-item header__navbar-item--has-notify">
-                        <a href="#" class="header__navbar-item-link">
-                            <i class="header__navbar-icon far fa-bell"></i>
-                            Thông báo
-                        </a>
-                        <% session=request.getSession(false); if (session==null || session.getAttribute("loggedInUser")==null) {%>
-                        <div class="header__notify">
-                            <ul class="header__notify-list">
-                                <li class="header__notify-item1">
-                                    <a href="#" class="header__notify-link1">
-                                        <img src="assets/img/register_notify.png"
-                                             alt=""
-                                             class="header__notify-img_registration"
-                                        />
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="header__notify-footer">
-                                <a href="#" class="header__notify-caption">Đăng nhập để xem Thông báo</a>
-                            </div>
-                            <div class="header__notify-footer">
-                                <a href="login" class="header__notify-footer-registration">Đăng nhập</a>
-                                <a href="login" class="header__notify-footer-registration">Đăng ký</a>
-                            </div>
-                        </div>
-                        <%} else { %>
-                        <div class="header__notify">
-                            <header class="header__notify-header">
-                                <h3>Thông báo mới nhận</h3>
-                            </header>
-                            <ul class="header__notify-list">
-                                <li class="header__notify-item header__notify-item--viewed">
-                                    <a href="#" class="header__notify-link">
-                                        <img src="assets/img/prd/prd_img_3.jpg" alt="" class="header__notify-img">
-                                        <div class="header__notify-info">
-                                            <div class="header__notify-name">4 ký do bạn phải sử dụng kem chống nắng
-                                                thường xuyên</div>
-                                            <div class="header__notify-description">Nhiều người vẫn cho rằng kem
-                                                chống nắng chỉ sử dụng khi có ánh nắng mặt trời, còn khi thời tiết
-                                                lạnh, râm</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="header__notify-item">
-                                    <a href="#" class="header__notify-link">
-                                        <img src="assets/img/prd/prd_img_2.jpg" alt="" class="header__notify-img">
-                                        <div class="header__notify-info">
-                                            <div class="header__notify-name">4 ký do bạn phải sử dụng kem chống nắng
-                                                thường xuyên</div>
-                                            <div class="header__notify-description">Nhiều người vẫn cho rằng kem
-                                                chống nắng chỉ sử dụng khi có ánh nắng mặt trời, còn khi thời tiết
-                                                lạnh, râm</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="header__notify-item header__notify-item--viewed">
-                                    <a href="#" class="header__notify-link">
-                                        <img src="assets/img/prd/prd_img_4.jpg" alt="" class="header__notify-img">
-                                        <div class="header__notify-info">
-                                            <div class="header__notify-name">4 ký do bạn phải sử dụng kem chống nắng
-                                                thường xuyên</div>
-                                            <div class="header__notify-description">Nhiều người vẫn cho rằng kem
-                                                chống nắng chỉ sử dụng khi có ánh nắng mặt trời, còn khi thời tiết
-                                                lạnh, râm</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="header__notify-item">
-                                    <a href="#" class="header__notify-link">
-                                        <img src="assets/img/prd/prd_img_8.jpg" alt="" class="header__notify-img">
-                                        <div class="header__notify-info">
-                                            <div class="header__notify-name">4 ký do bạn phải sử dụng kem chống nắng
-                                                thường xuyên</div>
-                                            <div class="header__notify-description">Nhiều người vẫn cho rằng kem
-                                                chống nắng chỉ sử dụng khi có ánh nắng mặt trời, còn khi thời tiết
-                                                lạnh, râm</div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="header__notify-footer">
-                                <a href="#" class="header__notify-footer-link">Xem tất cả</a>
-                            </div>
-                        </div>
-                        <%}%>
-                    </li>
-
-                    <!-- Trợ giúp -->
-                    <li class="header__navbar-item">
-                        <a href="" class="header__navbar-item-link">
-                            <i class="header__navbar-icon far fa-question-circle"></i>
-                            Trợ giúp
-                        </a>
-                    </li>
-
                     <% session=request.getSession(false); if (session==null || session.getAttribute("loggedInUser")==null) {%>
                     <!-- Chưa đăng nhập -->
                     <li>
@@ -359,25 +234,9 @@
                 <!-- Filter -->
                 <div class="col1 l-10 m-12 c-12">
                     <div class="home-filter">
-                        <span class="home-filter__label">Sắp xếp theo</span>
-                        <button class="home-filter__btn btn1">Phổ biến</button>
                         <button class="home-filter__btn btn1 btn--primary">
-                            Mới nhất
+                            Sản Phẩm
                         </button>
-                        <button class="home-filter__btn btn1">Bán chạy</button>
-                        <div class="select-input">
-                            <span class="select-input__label">Giá</span>
-                            <i class="select-input__icon fas fa-angle-down"></i>
-                            <!-- List option -->
-                            <ul class="select-input__list">
-                                <li class="select-input__item">
-                                    <a href="#" class="select-input__link">Giá: Thấp đến cao</a>
-                                </li>
-                                <li class="select-input__item">
-                                    <a href="#" class="select-input__link">Giá: Cao đến thấp</a>
-                                </li>
-                            </ul>
-                        </div>
 
                         <div class="home-filter__page">
 								<span class="home-filter__page-num">
