@@ -51,14 +51,11 @@ public class CustomerServlet extends HttpServlet {
             Part imagePart = request.getPart("photo");
 
             String imageFileName = Paths.get(imagePart.getSubmittedFileName()).getFileName().toString();
-            //imagePart.write("../../webapp/hinhanh"+imageFileName);
             imagePart.write(Paths.get(uploadPath.toString(),imageFileName).toString());
 
             account.setAvatar(imageFileName);
             accountIO.update(account);
             session.setAttribute("avatar",account.getAvatar());
-
-
 
         }
         else if (action.equals("add")) {

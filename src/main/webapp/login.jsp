@@ -11,7 +11,7 @@
 <!-- partial:index.partial.html -->
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form method="post" action="login">
+		<form id="singup" method="post" action="login">
 			<input type="hidden" name="action" value="add">
 			<h1>Đăng Ký</h1>
 			<input type="email" name="email" placeholder="Email"/>
