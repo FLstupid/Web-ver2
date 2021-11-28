@@ -17,7 +17,7 @@ public class Account {
     private String passwordHash;
     private String phone;
     private boolean role;
-    private String shopName;
+    private long shopId;
     private String username;
     private String avatar;
 
@@ -117,13 +117,13 @@ public class Account {
     }
 
     @Basic
-    @Column(name = "shopName")
-    public String getShopName() {
-        return shopName;
+    @Column(name = "shopid")
+    public long getShopId() {
+        return shopId;
     }
 
-    public void setShopName(String shopName) {
-        this.shopName = shopName;
+    public void setShopId(long shopId) {
+        this.shopId = shopId;
     }
 
     @Basic
@@ -151,11 +151,11 @@ public class Account {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return id == account.id && gender == account.gender && role == account.role && Objects.equals(birthday, account.birthday) && Objects.equals(email, account.email) && Objects.equals(lastUpdate, account.lastUpdate) && Objects.equals(passwordHash, account.passwordHash) && Objects.equals(phone, account.phone) && Objects.equals(shopName, account.shopName) && Objects.equals(username, account.username) && Objects.equals(avatar, account.avatar);
+        return id == account.id && gender == account.gender && role == account.role && Objects.equals(birthday, account.birthday) && Objects.equals(email, account.email) && Objects.equals(lastUpdate, account.lastUpdate) && Objects.equals(passwordHash, account.passwordHash) && Objects.equals(phone, account.phone) && shopId == account.shopId && Objects.equals(username, account.username) && Objects.equals(avatar, account.avatar);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, birthday, email, gender, lastUpdate, passwordHash, phone, role, shopName, username, avatar);
+        return Objects.hash(id, birthday, email, gender, lastUpdate, passwordHash, phone, role, shopId, username, avatar);
     }
 }

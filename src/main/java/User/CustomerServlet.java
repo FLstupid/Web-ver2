@@ -101,7 +101,7 @@ public class CustomerServlet extends HttpServlet {
                 account.setLastUpdate(lastUpdate);
                 account.setPhone(phone);
                 account.setRole(role);
-                account.setShopName("");
+                account.setShopId(0);
                 account.setUsername(username);
                 accountIO.update(account);
             }
@@ -112,7 +112,7 @@ public class CustomerServlet extends HttpServlet {
                 account.setLastUpdate(lastUpdate);
                 account.setPhone(phone);
                 account.setRole(role);
-                account.setShopName("");
+                account.setShopId(0);
                 account.setUsername(username);
                 accountIO.update(account);
             }

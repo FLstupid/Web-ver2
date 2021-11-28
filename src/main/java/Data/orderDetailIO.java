@@ -84,4 +84,25 @@ public class orderDetailIO {
             em.close();
         }
     }
+    public static List<?> selectOrderListforSeller (long ID)
+    {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createQuery("SELECT p.id as MaDonHang, " +
+                    "p.createdAt as NgayMua, g.title as TenSanPham ," +
+                    "p.totalPrice as TongTien,l.states as TrangThai, p.createdAt, p.phone," +
+                    "n.amount " +
+                    "FROM OrderDetail p , Account ac, OrderItem  n , Product g,Trans l, Shop s\n" +
+                    "WHERE n.orderDetailByOrderId.id = p.id " +
+                    "AND g.id=n.productByProductId.id AND ac.id = l.accountByAccountId.id " +
+                    " AND s.accountByAccountId.id = ac.id and g.shopByShopId.id = s.id AND g.shopByShopId.id = ac.shopId AND  ac.id = ?1").setParameter(1,ID).getResultList();
+
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }finally {
+            em.close();
+        }
+    }
 }
