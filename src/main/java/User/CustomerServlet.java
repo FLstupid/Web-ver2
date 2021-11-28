@@ -2,22 +2,12 @@ package User;
 
 import Data.accountIO;
 import Model.Account;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.hibernate.Session;
 
-
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -51,22 +41,22 @@ public class CustomerServlet extends HttpServlet {
         }
         else if(action.equals("upimage"))
         {
-//            String uploadfolder =  getServletContext().getRealPath("/images");
-//            Path uploadPath =Paths.get(uploadfolder);
-//
-//            if(!Files.exists(uploadPath))
-//            {
-//                Files.createDirectory(uploadPath);
-//            }
-//            Part imagePart = request.getPart("photo");
-//
-//            String imageFileName = Paths.get(imagePart.getSubmittedFileName()).getFileName().toString();
-//            imagePart.write("../../webapp/hinhanh"+imageFileName);
-//            //imagePart.write(Paths.get(uploadPath.toString(),imageFileName).toString());
-//
-//            account.setAvatar(imageFileName);
-//            accountIO.update(account);
-//            session.setAttribute("avatar",account.getAvatar());
+            String uploadfolder =  getServletContext().getRealPath("./images");
+            Path uploadPath = Paths.get(uploadfolder);
+
+            if(!Files.exists(uploadPath))
+            {
+                Files.createDirectory(uploadPath);
+            }
+            Part imagePart = request.getPart("photo");
+
+            String imageFileName = Paths.get(imagePart.getSubmittedFileName()).getFileName().toString();
+            //imagePart.write("../../webapp/hinhanh"+imageFileName);
+            imagePart.write(Paths.get(uploadPath.toString(),imageFileName).toString());
+
+            account.setAvatar(imageFileName);
+            accountIO.update(account);
+            session.setAttribute("avatar",account.getAvatar());
 
 
 

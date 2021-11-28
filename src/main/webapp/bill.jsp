@@ -77,7 +77,7 @@
                                     <span>Load Failed</span>
                             </c:if>
                             <c:if test="${not empty listBill}">
-                                <c:forEach items="${listBill}" var="element">
+
                             <table>
                                 <thead>
                                 <tr>
@@ -88,6 +88,7 @@
                                     <th>Số lượng</th>
                                 </tr>
                                 </thead>
+                                <c:forEach items="${listBill}" var="element">
                                 <tbody>
                                 <tr>
                                     <td>${element[0]}</td>
@@ -97,8 +98,9 @@
                                     <td>${element[7]}</td>
                                 </tr>
                                 </tbody>
-                            </table>
                                 </c:forEach>
+                            </table>
+
                             </c:if>
                         </div>
                     </div>
