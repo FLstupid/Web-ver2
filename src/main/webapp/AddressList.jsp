@@ -178,11 +178,9 @@
                 <div class="Account_StylesAvatar">
 
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <img class="avt"  id="photo" src="hinhanh/<c:out value='${account.avatar}'/>" alt="">
-                        <div class="Btnclick">
-                            <input type="file" name="photo" >
-                            <label  for="photo" id="uploadBtn">Choose Avatar</label>
-                        </div>
+                        <form >
+                            <img class="avt"  style="width: 60px; height: 60px" src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
+                        </form>
                     </div>
                     <div style="margin-left: 100px" class="info">
                         Tài Khoản

@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded",function (){
     })
 
 })
+
 document.addEventListener("DOMContentLoaded",function (){
     let showForm = document.querySelectorAll(".formresult");
     let showadd = document.querySelector("#a");
@@ -29,29 +30,23 @@ const showdropdown = document.querySelector(".UserHeader_UserDropDown");
 buttonshowDropdown.addEventListener("click", function (){
     showdropdown.classList.toggle('disableForm');
 })
-//avatar
-// const imgDiv=document.querySelector('.file1 ');
-// const img=document.querySelector('#photo');
-// const file=document.querySelector('#file');
-// const uploadBtn=document.querySelector('#uploadBtn');
-//
-// imgDiv.addEventListener("mouseenter",function (){
-//     uploadBtn.style.display = "block";
-//
-// })
-// imgDiv.addEventListener("mouseleave",function (){
-//     uploadBtn.style.display = "none";
-//
-// })
-//
-// file.addEventListener("change",function (){
-//     const choosedFile = this.files[0];
-//     if(choosedFile){
-//         const reader =new FileReader();
-//         reader.addEventListener("load",function (){
-//             img.setAttribute("src",reader.result);
-//         })
-//         reader.readAsDataURL(choosedFile);
-//
-//     }
-// })
+var btnCust = '<button type="button" class="btn btn-secondary" title="Add picture tags" ' +
+    'onclick="alert(\'Call your custom code here.\')">' +
+    '<i class="bi-tag"></i>' +
+    '</button>';
+$("#avatar-1").fileinput({
+    overwriteInitial: true,
+    maxFileSize: 1500,
+    showClose: false,
+    showCaption: false,
+    browseLabel: '',
+    removeLabel: '',
+    browseIcon: '<i class="bi-folder2-open"></i>',
+    removeIcon: '<i class="bi-x-lg"></i>',
+    removeTitle: 'Cancel or reset changes',
+    elErrorContainer: '#kv-avatar-errors-1',
+    msgErrorClass: 'alert alert-block alert-danger',
+    defaultPreviewContent: '<img src="/samples/default-avatar-male.png" alt="Your Avatar">',
+    layoutTemplates: {main2: '{preview} ' +  btnCust + ' {remove} {browse}'},
+    allowedFileExtensions: ["jpg", "png", "gif"]
+});

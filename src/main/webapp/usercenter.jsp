@@ -176,12 +176,8 @@
             <aside class="Account_StylesSideBar">
                 <div class="Account_StylesAvatar">
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <form method="post" action="customer" enctype="multipart/form-data">
-                            <input type="hidden" name="action" value="upimage">
-                            <img class="avt" id="photo" src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
-                             <input type="file"  name="photo" />
-<%--                        <label  for="file" id="uploadBtn">Choose Avatar</label>--%>
-                            <button type="submit" class="btn-submit" >upload</button>
+                        <form>
+                            <img class="avt"  style="width: 60px; height: 60px" src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
                         </form>
                     </div>
                     <div style="margin-left: 100px" class="info">
@@ -202,7 +198,22 @@
                 <div class="account formresult ">
                     <h3 class="HeadingContent">Thông Tin Tài Khoản</h3>
                     <div class="Content_StylesNav">
-                        <form method="post" action="customer">
+                        <form method="post" style="display:inline-grid; width: 30% " action="customer" enctype="multipart/form-data">
+                            <input type="hidden" name="action" value="upimage">
+                            <img class="avt" id="photo" src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
+                            <div class="col-sm-4 text-center">
+                                <div class="kv-avatar">
+                                    <div class="file-loading">
+                                        <input id="avatar-1" name="avatar-1 photo" type="file" required>
+                                    </div>
+                                </div>
+                                <div class="kv-avatar-hint">
+                                    <small>Select file < 1500 KB</small>
+                                </div>
+                            </div>
+                            <button type="submit" style="width: 100px" class="btn-submit" >upload</button>
+                        </form>
+                        <form method="post" style="margin-left: -100px; width: 70%;" action="customer">
                             <input type="hidden" name="action" value="add">
                             <div class="form-control">
                                 <label class="input-label">Họ tên</label>

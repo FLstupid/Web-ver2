@@ -177,13 +177,8 @@
                 <div class="Account_StylesAvatar">
 
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <form method="post" action="customer" enctype="multipart/form-data">
-                            <input type="hidden" name="action" value="upimage">
-                            <img class="avt" name="photo" id="photo" src="<%=request.getServletContext().getRealPath("/")%>hinhanh/<c:out value='${account.avatar}'/>" alt="">
-                            <div class="Btnclick">
-                            <input type="file" id="file" name="img" >
-                            <label type="submit"  for="file" id="uploadBtn">Choose Avatar</label>
-                            </div>
+                        <form >
+                            <img class="avt"  style="width: 60px; height: 60px" src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
                         </form>
                     </div>
                     <div style="margin-left: 100px" class="info">
@@ -240,5 +235,30 @@
 </main>
 <!---------------------------------------------------footer-------------------------------------------->
 <script src="js/main.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function() {
+
+        var readURL = function(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.profile-pic').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $(".file-upload").on('change', function(){
+            readURL(this);
+        });
+
+        $(".upload-button").on('click', function() {
+            $(".file-upload").click();
+        });
+    });
+</script>
 </body>
 </html>
