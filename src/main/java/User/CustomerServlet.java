@@ -2,6 +2,7 @@ package User;
 
 import Data.accountIO;
 import Model.Account;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;

@@ -33,7 +33,7 @@
 			<span>Hoặc tiếp tục bằng</span>
 			<input type="email" name="email" placeholder="Email"/>
 			<input type="password" minlength="6" name="password" placeholder="Mật khẩu"/>
-			<a href="#">Quên mật khẩu ?</a>
+			<a href="reset_password">Quên mật khẩu ?</a>
 			<button type="submit"  id="btn2"  class="btn2 btn-submit">Đăng Nhập</button>
 			<c:if test="${not empty message}">
 				<script>

@@ -1,8 +1,11 @@
 package Data;
 
 import Model.Account;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import javax.persistence.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public  class accountIO {
   public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
@@ -11,6 +14,10 @@ public  class accountIO {
     public accountIO (){
 
     }
+
+    public accountIO(HttpServletRequest request, HttpServletResponse response) {
+    }
+
     public static long insert (Account account)
     {    EntityManager em = emf.createEntityManager();
          EntityTransaction transaction = em.getTransaction();
@@ -29,6 +36,8 @@ public  class accountIO {
         }
         return 1;
     }
+
+
 
     public long getID (Account a)
     {
@@ -63,6 +72,7 @@ public  class accountIO {
             em.close();
         }
     }
+
     public static Account selectAcc (String email)
     {EntityManager em = emf.createEntityManager();
         String query = "SELECT u FROM Account u " +
@@ -92,4 +102,5 @@ public  class accountIO {
             em.close();
         }
     }
+
 }
