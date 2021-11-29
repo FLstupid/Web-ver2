@@ -63,7 +63,7 @@ public class CustomerServlet extends HttpServlet {
             String username;
             boolean Gender;
             String phone;
-            String message;
+            String message = null;
             Timestamp lastUpdate;
             username =  request.getParameter("fullName");
             String password =  request.getParameter("password");
@@ -118,6 +118,7 @@ public class CustomerServlet extends HttpServlet {
             request.setAttribute("account", account);
             request.setAttribute("avatar", account.getAvatar());
             request.setAttribute("username", username);
+            request.getSession().setAttribute("message", message);
             request.getSession().setAttribute("username", account.getUsername());
         }
         getServletContext()

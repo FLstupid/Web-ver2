@@ -80,11 +80,6 @@
                         <c:if test="${not empty account.avatar}">
                         <img class="profile-icon" src="${pageContext.request.contextPath}/images/${account.avatar}" alt="" />
                         </c:if>
-<%--                        <%String password = request.getParameter("password1");--%>
-<%--                            if(password.equals("khongcanthiet"))--%>
-<%--                            {%>--%>
-<%--                        <img class="profile-icon" src="${account.avatar}" alt="" />--%>
-<%--                        <%}%>--%>
                             <a class="Userstyle__ItemText">
                             <span class="Userstyle__NoWrap">Tài khoản</span>
                             <span class="account_laber">
