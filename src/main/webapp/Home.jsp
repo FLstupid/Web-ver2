@@ -27,13 +27,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap">
-
-    <!-- Script -->
-    <script src="assets/js/jquery-3.3.1.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/owlcarousel/owl.carousel.min.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
@@ -46,7 +39,7 @@
                 <!-- header navbar left -->
                 <ul class="header__navbar-list">
                     <li>
-                        <a class="header__navbar-item header__navbar-item--separate"
+                        <a class="header__navbar-item "
                            href="${pageContext.request.contextPath}/summary">Kênh người bán</a>
                     </li>
                 </ul>
@@ -240,7 +233,7 @@
 
                         <div class="home-filter__page">
 								<span class="home-filter__page-num">
-									<span class="home-filter__page-current">1</span>/
+									<span class="home-filter__page-current">1</span>
 									<span class="home-filter__page-total">14</span>
 								</span>
                             <div class="home-filter__page-control">
@@ -260,18 +253,18 @@
                     <div class="home-product">
                         <div class="row1 sm-gutter1">
                             <!-- Product item -->
-                            <div class="col1 l-2-4 m1-4 c-6">
-                                <a class="home-product-item" href="#">
-                                    <div class="home-product-item__img"
-                                         style="background-image: url(assets/img/prd/prd_img_3.jpg)"></div>
-                                    <h4 class="home-product-item__name">
-                                        Mũ 3/4 YOHE 878 2 Kính Thời Thượng
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-product-item__price-old">1.400.000đ</span>
-                                        <span class="home-product-item__price-current">1.300.000₫</span>
-                                    </div>
-                                    <div class="home-product-item__action">
+                            <c:forEach items="${listproduct}" var="element">
+                                <div class="col1 l-2-4 m1-4 c-6">
+                                    <a class="home-product-item" href="productdetail?action=detail&amp;productCode=${element[4]}">
+                                        <div class="home-product-item__img"
+                                             style="background-image: url(assets/img/prd/prd_img_3.jpg)"></div></a>
+                                        <h4 class="home-product-item__name">
+                                            <a href="productdetail?action=detail&amp;productCode=${element[4]}">${element[0]}</a>
+                                        </h4>
+                                        <div class="home-product-item__price">
+                                            <span class=""><a href="productdetail?action=detail&amp;productCode=${element[4]}">${element[2]}</a> </span>
+                                        </div>
+                                        <div class="home-product-item__action">
 											<span class="
 														home-product-item__like
 														home-product-item__like--liked
@@ -287,480 +280,13 @@
 															fa-heart
 														"></i>
 											</span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
                                         </div>
-                                        <span class="home-product-item__sold">22 đã bán</span>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">Yohe</span>
-                                        <span class="home-product-item__origin-name">Thái Lan</span>
-                                    </div>
-                                    <div class="home-product-item__favourite">
-                                        <i class="fas fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">10%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col1 l-2-4 m1-4 c-6">
-                                <a class="home-product-item" href="#">
-                                    <div class="home-product-item__img"
-                                         style="background-image: url(assets/img/prd/prd_img_2.jpg)"></div>
-                                    <h4 class="home-product-item__name">
-                                        Mũ 3/4 YOHE 878 2 Kính Thời Thượng
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-product-item__price-old">1.200.000đ</span>
-                                        <span class="home-product-item__price-current">900.000đ</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-											<span class="
-														home-product-item__like
-														home-product-item__like--liked
-													">
-												<i class="
-															home-product-item__like-icon-empty
-															far
-															fa-heart
-														"></i>
-												<i class="
-															home-product-item__like-icon-fill
-															fas
-															fa-heart
-														"></i>
-											</span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                        <div class="home-product-item__origin">
+                                            <span class="home-product-item__origin-name">${element[3]}</span>
                                         </div>
-                                        <span class="home-product-item__sold">22 đã bán</span>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">Yohe</span>
-                                        <span class="home-product-item__origin-name">Thái Lan</span>
-                                    </div>
-                                    <div class="home-product-item__favourite">
-                                        <i class="fas fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">10%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col1 l-2-4 m1-4 c-6">
-                                <a class="home-product-item" href="#">
-                                    <div class="home-product-item__img"
-                                         style="background-image: url(assets/img/prd/prd_img_4.jpg)"></div>
-                                    <h4 class="home-product-item__name">
-                                        Mũ Fullface LS2 Rapid FF353
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-product-item__price-old">1.700.000đ</span>
-                                        <span class="home-product-item__price-current">1.500.000₫</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-											<span class="
-														home-product-item__like
-														home-product-item__like--liked
-													">
-												<i class="
-															home-product-item__like-icon-empty
-															far
-															fa-heart
-														"></i>
-												<i class="
-															home-product-item__like-icon-fill
-															fas
-															fa-heart
-														"></i>
-											</span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                        </div>
-                                        <span class="home-product-item__sold">22 đã bán</span>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">LS2</span>
-                                        <span class="home-product-item__origin-name">Trung Quốc</span>
-                                    </div>
-                                    <div class="home-product-item__favourite">
-                                        <i class="fas fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">10%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col1 l-2-4 m1-4 c-6">
-                                <a class="home-product-item" href="#">
-                                    <div class="home-product-item__img"
-                                         style="background-image: url(assets/img/prd/prd_img_5.jpg)"></div>
-                                    <h4 class="home-product-item__name">
-                                        Áo khoác giáp bảo hộ cho nữ HJS303F đẹp bền dễ chịu
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-product-item__price-old">3.500.000đ</span>
-                                        <span class="home-product-item__price-current">3.300.000₫</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-											<span class="
-														home-product-item__like
-														home-product-item__like--liked
-													">
-												<i class="
-															home-product-item__like-icon-empty
-															far
-															fa-heart
-														"></i>
-												<i class="
-															home-product-item__like-icon-fill
-															fas
-															fa-heart
-														"></i>
-											</span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                        </div>
-                                        <span class="home-product-item__sold">22 đã bán</span>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">QC</span>
-                                        <span class="home-product-item__origin-name">Việt Nam</span>
-                                    </div>
-                                    <div class="home-product-item__favourite">
-                                        <i class="fas fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">12%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col1 l-2-4 m1-4 c-6">
-                                <a class="home-product-item" href="#">
-                                    <div class="home-product-item__img"
-                                         style="background-image: url(assets/img/prd/prd_img_6.jpg)"></div>
-                                    <h4 class="home-product-item__name">
-                                        Áo khoác giáp phượt cho Nam
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-product-item__price-old">4.200.000đ</span>
-                                        <span class="home-product-item__price-current">3.850.000₫</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-											<span class="
-														home-product-item__like
-														home-product-item__like--liked
-													">
-												<i class="
-															home-product-item__like-icon-empty
-															far
-															fa-heart
-														"></i>
-												<i class="
-															home-product-item__like-icon-fill
-															fas
-															fa-heart
-														"></i>
-											</span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                        </div>
-                                        <span class="home-product-item__sold">22 đã bán</span>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">Whoo</span>
-                                        <span class="home-product-item__origin-name">Nhật Bản</span>
-                                    </div>
-                                    <div class="home-product-item__favourite">
-                                        <i class="fas fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">15%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col1 l-2-4 m1-4 c-6">
-                                <a class="home-product-item" href="#">
-                                    <div class="home-product-item__img"
-                                         style="background-image: url(assets/img/prd/prd_img_1.jpg)"></div>
-                                    <h4 class="home-product-item__name">
-                                        Mũ bảo hiểm Roc R01 Màu Xanh Lá | Tặng Pinlock
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-product-item__price-old">1.800.000đ</span>
-                                        <span class="home-product-item__price-current">1.730.000₫</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-											<span class="
-														home-product-item__like
-														home-product-item__like--liked
-													">
-												<i class="
-															home-product-item__like-icon-empty
-															far
-															fa-heart
-														"></i>
-												<i class="
-															home-product-item__like-icon-fill
-															fas
-															fa-heart
-														"></i>
-											</span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                        </div>
-                                        <span class="home-product-item__sold">22 đã bán</span>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">Yamaha</span>
-                                        <span class="home-product-item__origin-name">Mỹ</span>
-                                    </div>
-                                    <div class="home-product-item__favourite">
-                                        <i class="fas fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">4%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col1 l-2-4 m1-4 c-6">
-                                <a class="home-product-item" href="#">
-                                    <div class="home-product-item__img"
-                                         style="background-image: url(assets/img/prd/prd_img_8.jpg)"></div>
-                                    <h4 class="home-product-item__name">
-                                        Quần giáp Jeans bảo hộ đi motor,phượt Komine
-                                        (Đen) Quần giáp Jeans bảo hộ đi motor, phượt Komine (Đen)
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-product-item__price-old">1.200.000đ</span>
-                                        <span class="home-product-item__price-current">900.000</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-											<span class="
-														home-product-item__like
-														home-product-item__like--liked
-													">
-												<i class="
-															home-product-item__like-icon-empty
-															far
-															fa-heart
-														"></i>
-												<i class="
-															home-product-item__like-icon-fill
-															fas
-															fa-heart
-														"></i>
-											</span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                        </div>
-                                        <span class="home-product-item__sold">22 đã bán</span>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">Whoo</span>
-                                        <span class="home-product-item__origin-name">Nhật Bản</span>
-                                    </div>
-                                    <div class="home-product-item__favourite">
-                                        <i class="fas fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">10%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col1 l-2-4 m1-4 c-6">
-                                <a class="home-product-item" href="#">
-                                    <div class="home-product-item__img"
-                                         style="background-image: url(assets/img/prd/prd_img_7.jpg)"></div>
-                                    <h4 class="home-product-item__name">
-                                        Găng tay da cao cấp HGL200M Full ngón
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-product-item__price-old">1.800.000đ</span>
-                                        <span class="home-product-item__price-current">1.730.000₫</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-											<span class="
-														home-product-item__like
-														home-product-item__like--liked
-													">
-												<i class="
-															home-product-item__like-icon-empty
-															far
-															fa-heart
-														"></i>
-												<i class="
-															home-product-item__like-icon-fill
-															fas
-															fa-heart
-														"></i>
-											</span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                        </div>
-                                        <span class="home-product-item__sold">22 đã bán</span>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">Yamaha</span>
-                                        <span class="home-product-item__origin-name">Mỹ</span>
-                                    </div>
-                                    <div class="home-product-item__favourite">
-                                        <i class="fas fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">10%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col1 l-2-4 m1-4 c-6">
-                                <a class="home-product-item" href="#">
-                                    <div class="home-product-item__img"
-                                         style="background-image: url(assets/img/prd/prd_img_9.jpg)"></div>
-                                    <h4 class="home-product-item__name">
-                                        Găng tay moto,xe máy gù carbon Komine GK160
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-product-item__price-old">1.400.000đ</span>
-                                        <span class="home-product-item__price-current">1.300.000₫</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-											<span class="
-														home-product-item__like
-														home-product-item__like--liked
-													">
-												<i class="
-															home-product-item__like-icon-empty
-															far
-															fa-heart
-														"></i>
-												<i class="
-															home-product-item__like-icon-fill
-															fas
-															fa-heart
-														"></i>
-											</span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                        </div>
-                                        <span class="home-product-item__sold">22 đã bán</span>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">Whoo</span>
-                                        <span class="home-product-item__origin-name">Nhật Bản</span>
-                                    </div>
-                                    <div class="home-product-item__favourite">
-                                        <i class="fas fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">10%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col1 l-2-4 m1-4 c-6">
-                                <a class="home-product-item" href="#">
-                                    <div class="home-product-item__img"
-                                         style="background-image: url(assets/img/prd/prd_img_10.png)"></div>
-                                    <h4 class="home-product-item__name">
-                                        Mũ fullface Ls2 Stream FF320 Axis Matt Black Yellow
-                                    </h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-product-item__price-old">3.200.000đ</span>
-                                        <span class="home-product-item__price-current">2.599.000đ</span>
-                                    </div>
-                                    <div class="home-product-item__action">
-											<span class="
-														home-product-item__like
-														home-product-item__like--liked
-													">
-												<i class="
-															home-product-item__like-icon-empty
-															far
-															fa-heart
-														"></i>
-												<i class="
-															home-product-item__like-icon-fill
-															fas
-															fa-heart
-														"></i>
-											</span>
-                                        <div class="home-product-item__rating">
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                            <i class="fas fa-star home-product-item__star--gold"></i>
-                                        </div>
-                                        <span class="home-product-item__sold">22 đã bán</span>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">Whoo</span>
-                                        <span class="home-product-item__origin-name">Nhật Bản</span>
-                                    </div>
-                                    <div class="home-product-item__favourite">
-                                        <i class="fas fa-check"></i>
-                                        <span>Yêu thích</span>
-                                    </div>
-                                    <div class="home-product-item__sale-off">
-                                        <span class="home-product-item__sale-off-percent">20%</span>
-                                        <span class="home-product-item__sale-off-label">GIẢM</span>
-                                    </div>
-                                </a>
-                            </div>
+                                    </a>
+                                </div>
+                            </c:forEach>
                         </div>
                     </div>
                     <ul class="pagination home-product__pagination">
@@ -914,5 +440,10 @@
     </footer>
     <!--End footer -->
 </div>
+<script src="assets/js/jquery-3.3.1.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/owlcarousel/owl.carousel.min.js"></script>
+<script src="assets/js/owl.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </body>
 </html>

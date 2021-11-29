@@ -23,7 +23,6 @@
     <class>Model.TagProduct</class>
     <class>Model.Trans</class>
     <class>Model.UserAddress</class>
-    <class>Model.UserAddress</class>
 
     <properties>
       <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/dhs"/>
