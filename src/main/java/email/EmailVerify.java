@@ -23,19 +23,12 @@ public class EmailVerify extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getCharacterEncoding() == null) {
             request.setCharacterEncoding("UTF-8");
         }
         response.getWriter().append("Served at: ").append(request.getContextPath());
     }
-
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
             if (request.getCharacterEncoding() == null) {
@@ -43,15 +36,18 @@ public class EmailVerify extends HttpServlet {
             }
             HttpSession session = request.getSession();
             Account user= (Account) session.getAttribute("account");
-
+            String message;
             String code = request.getParameter("authcode");
             String verifycode = (String)request.getSession().getAttribute("code");;
             if(code.equals(verifycode)){
                 accountIO.insert(user);
                 session.setAttribute("account", user);
+                message="Xác nhận thành công! Hãy tiến hành đăng nhập!";
                 response.sendRedirect("login.jsp");
             }else{
-                out.println("Mã xác thực không đúng");
+                message="Mã xác thực không đúng";
+                session.setAttribute("message", message);
+                response.sendRedirect("verify.jsp");
             }
         }
     }

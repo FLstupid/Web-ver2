@@ -8,7 +8,7 @@ import java.util.Objects;
 @Entity
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
     private Date birthday;
     private String email;
@@ -36,8 +36,7 @@ public class Account {
         this.passwordHash = password;
     }
 
-    @Id
-    @Column(name = "id")
+
     public long getId() {
         return id;
     }

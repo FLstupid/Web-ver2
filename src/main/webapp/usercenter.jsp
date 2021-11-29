@@ -74,8 +74,13 @@
                 <%} else {%>
                 <div class="Userstyle__Root">
                     <div class="Userstyle__Item">
-                        <img class="profile-icon" src="Home/img/user.png" alt="" />
-                        <a class="Userstyle__ItemText">
+                        <c:if test="${empty account.avatar}">
+                            <img class="profile-icon" src="Home/img/user.png" alt="" />
+                        </c:if>
+                        <c:if test="${not empty account.avatar}">
+                        <img class="profile-icon" src="${pageContext.request.contextPath}/images/${account.avatar}" alt="" />
+                        </c:if>
+                            <a class="Userstyle__ItemText">
                             <span class="Userstyle__NoWrap">Tài khoản</span>
                             <span class="account_laber">
 										<div style="display: flex" class="buttonDropdown">
