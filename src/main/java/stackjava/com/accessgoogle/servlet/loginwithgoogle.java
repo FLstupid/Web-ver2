@@ -37,7 +37,7 @@ public class loginwithgoogle extends HttpServlet {
             temp.setPasswordHash("khongcanthiet");
             request.setAttribute("account", temp);
             request.getSession().setAttribute("loggedInUser", temp);
-            request.getSession().setAttribute("username", username);
+            request.setAttribute("password1", temp.getPasswordHash());
             if(!accountIO.userExist(mail))
             {
                 accountIO.insert(temp);
