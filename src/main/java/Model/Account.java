@@ -20,7 +20,7 @@ public class Account {
     private long shopId;
     private String username;
     private String avatar;
-
+    private static String code;
     public Account(String username, String mail, String avatar) {
         this.username = username;
         this.email=mail;
@@ -64,6 +64,17 @@ public class Account {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+
+    @Basic
+    @Column(name = "code")
+    public static String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     @Basic

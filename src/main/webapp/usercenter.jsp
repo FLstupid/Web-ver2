@@ -204,7 +204,7 @@
                             <div class="col-sm-4 text-center">
                                 <div class="kv-avatar">
                                     <div class="file-loading">
-                                        <input id="avatar-1" name="avatar-1 photo" type="file" required>
+                                        <input id="avatar-1" name="photo" type="file" required>
                                     </div>
                                 </div>
                                 <div class="kv-avatar-hint">

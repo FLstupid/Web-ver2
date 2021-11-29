@@ -2,7 +2,10 @@ package Home;
 
 import Data.accountIO;
 import Model.Account;
+import email.Utility;
 
+import javax.mail.MessagingException;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +16,19 @@ import java.io.IOException;
 
 @WebServlet(name = "login" , value = "/login")
 public class LoginServlet extends HttpServlet {
+    private String host;
+    private String port;
+    private String username;
+    private String pass;
+
+    public void init() {
+        // reads SMTP server setting from web.xml file
+        ServletContext context = getServletContext();
+        host = context.getInitParameter("host");
+        port = context.getInitParameter("port");
+        username = context.getInitParameter("username");
+        pass = context.getInitParameter("pass");
+    }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,6 +48,10 @@ public class LoginServlet extends HttpServlet {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String confirmpassword = request.getParameter("confirmpassword");
+            String resultMessage = "";
+
+            String code = Utility.getRandom();
+            request.getSession().setAttribute("code", code);
             if (email == null || email.equals("") || password == null || password.equals("")) {
                 message = "Xin hãy nhập tài khoản và mật khẩu";
             }else if(!password.equals(confirmpassword))
@@ -39,13 +59,32 @@ public class LoginServlet extends HttpServlet {
                 message = "Mật khẩu xác nhận không đúng";
             }
             else {
+
                 if (accountIO.userExist(email)) {
                     message = "Tài khoản đã tồn tại";
                 } else {
-                    message = "Đăng kí tài khoản thành công";
-                    temp = new Account(email, password);
-                    accountIO.insert(temp);
-                    t = temp.getUsername();
+                    boolean test;
+                    try {
+                        test = Utility.sendEmail(host, port, username, pass, email, "Email Verification",
+                                "Registered successfully.Please verify your account using this code: " +code);
+                    } catch (MessagingException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                        test = false;
+                    }
+
+                    if(test){
+                        HttpSession session  = request.getSession();
+                        temp = new Account(email, password);
+                        session.setAttribute("account", temp);
+                        url="/verify.jsp";
+                        message = "We already send a verification  code to your email.";
+                        getServletContext()
+                                .getRequestDispatcher(url).forward(request, response);
+                    } else{
+                        message = "There were an error. Please try again!";
+                    }
+
                 }
             }
             url = "/login.jsp";
@@ -77,8 +116,10 @@ public class LoginServlet extends HttpServlet {
             }
         }
         request.getSession().setAttribute("loggedInUser", temp);
+        request.setAttribute("message", message);
         if(request.getParameter("message")!=null)
-        {request.getSession().setAttribute("message", message);
+        {request.setAttribute("message", message);
+            //request.getSession().setAttribute("message", message);
         }
         request.getSession().setAttribute("username", t);
         getServletContext()

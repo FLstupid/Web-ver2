@@ -10,6 +10,9 @@ public class GooglePojo {
     private String link;
     private String picture;
 
+    public String getPicture() {
+        return  picture;
+    }
     public Object getId() {
         return  id;
     }

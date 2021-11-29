@@ -15,8 +15,8 @@
 			<input type="hidden" name="action" value="add">
 			<h1>Đăng Ký</h1>
 			<input type="email" name="email" placeholder="Email"/>
-			<input type="password" name="password" placeholder="Mật Khẩu"/>
-			<input type="password" name="confirmpassword" placeholder="Xác Nhận Mật Khẩu"/>
+			<input type="password" minlength="6" name="password" placeholder="Mật Khẩu"/>
+			<input type="password" min="6" name="confirmpassword" placeholder="Xác Nhận Mật Khẩu"/>
 				<button type="submit"  class=" btn1 btn-submit">Đăng Ký</button>
 		</form>
 	</div>
@@ -26,13 +26,13 @@
 			<h1>Đăng Nhập</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/WebThuongMaiDienTu_war/login-google&response_type=code
-   				 &client_id=579923879861-cjm4qj8tjtpun3nfdpol4n95ta3phouh.apps.googleusercontent.com&approval_prompt=force" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/WebThuongMaiDienTu_war_exploded/login-google&response_type=code
+   				 &client_id=579923879861-606p232mfsvpib1kan7o9d5fq8b93g07.apps.googleusercontent.com&approval_prompt=force" class="social"><i class="fab fa-google-plus-g"></i></a>
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>Hoặc tiếp tục bằng</span>
 			<input type="email" name="email" placeholder="Email"/>
-			<input type="password" name="password" placeholder="Mật khẩu"/>
+			<input type="password" minlength="6" name="password" placeholder="Mật khẩu"/>
 			<a href="#">Quên mật khẩu ?</a>
 			<button type="submit"  id="btn2"  class="btn2 btn-submit">Đăng Nhập</button>
 			<c:if test="${not empty message}">

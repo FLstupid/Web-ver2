@@ -30,7 +30,8 @@ public class loginwithgoogle extends HttpServlet {
             GooglePojo googlePojo = GoogleUtils.getUserInfo(accessToken);
             String username = googlePojo.getName();
             String mail = googlePojo.getEmail();
-            Account temp = new Account(username,mail,"hinhanh");
+            String picture = googlePojo.getPicture();
+            Account temp = new Account(username,mail,picture);
             temp.setEmail(mail);
             temp.setUsername(username);
             temp.setPasswordHash("khongcanthiet");

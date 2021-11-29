@@ -137,8 +137,19 @@
     <orderEntry type="library" name="commons-io-2.6" level="project" />
     <orderEntry type="library" name="nio" level="project" />
     <orderEntry type="library" name="normalize" level="application" />
+    <orderEntry type="library" name="activation-1.1" level="project" />
+    <orderEntry type="library" name="javax.mail-1.6.1" level="project" />
+    <orderEntry type="library" name="commons-logging-1.2" level="project" />
+    <orderEntry type="library" name="fluent-hc-4.5.5" level="project" />
+    <orderEntry type="library" name="gson-2.8.2" level="project" />
+    <orderEntry type="library" name="httpclient-4.5.5" level="project" />
+    <orderEntry type="library" name="httpcore-4.4.9" level="project" />
+    <orderEntry type="library" name="restfb-2.3.0" level="project" />
     <orderEntry type="library" name="Maven: commons-fileupload:commons-fileupload:1.4" level="project" />
+    <orderEntry type="library" name="Maven: com.restfb:restfb:3.23.0" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
     <orderEntry type="library" name="Maven: jboss:jboss-logging-spi:2.0.2.GA" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:4.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-api:5.7.1" level="project" />
@@ -196,5 +207,6 @@
     <orderEntry type="library" name="Maven: org.typelevel:cats-core_2.12:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.typelevel:cats-macros_2.12:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.typelevel:cats-kernel_2.12:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.mail:all:1.6.1" level="project" />
   </component>
 </module>
