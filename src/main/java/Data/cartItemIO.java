@@ -61,7 +61,7 @@ public class cartItemIO {
             emf.close();
         }
     }
-    public static List<?> selectItems ()
+    public static List<?> selectItems (long cartId)
     {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
         EntityManager em = emf.createEntityManager();
@@ -69,7 +69,7 @@ public class cartItemIO {
         try {
             em.getTransaction().begin();
             return em.createQuery("SELECT c.id as id, c.content as content FROM" +
-                    " CartItem c ").getResultList();
+                    " CartItem c WHERE c.cartByCartId.id =?1").setParameter(1,cartId).getResultList();
         } catch (Exception e)
         {
             System.out.println(e.getMessage());

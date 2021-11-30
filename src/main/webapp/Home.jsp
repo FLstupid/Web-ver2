@@ -1,4 +1,4 @@
-<%--@elvariable id="account" type="com.sun.webkit.dom.HTMLAreaElementImpl" --%>
+<%--@elvariable id="account" type="Model.Account" --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
@@ -133,7 +133,7 @@
                 <div class="header__cart">
                     <div class="header__cart-wrap">
                         <i class="header__cart-icon fas fa-shopping-cart"></i>
-                        <span class="header__cart-notice">0</span>
+                        <span class="header__cart-notice"></span>
                         <!-- No Cart -->
                         <div class="header__cart-list">
                             <% session=request.getSession(false); if (session==null || session.getAttribute("loggedInUser")==null) {%>
@@ -150,7 +150,7 @@
                                     <img
                                             src="assets/img/prd/prd_img_1.jpg"
                                             class="header__cart-img"
-                                    />
+                                     alt=""/>
                                     <div class="header__cart-item-info">
                                         <div class="header__cart-item-head">
                                             <h5 class="header__cart-item-name">
@@ -253,6 +253,7 @@
                     <div class="home-product">
                         <div class="row1 sm-gutter1">
                             <!-- Product item -->
+                            <%--@elvariable id="listproduct" type="java.util.List"--%>
                             <c:forEach items="${listproduct}" var="element">
                                 <div class="col1 l-2-4 m1-4 c-6">
                                     <a class="home-product-item" href="productdetail?action=detail&amp;productCode=${element[4]}">
@@ -284,7 +285,6 @@
                                         <div class="home-product-item__origin">
                                             <span class="home-product-item__origin-name">${element[3]}</span>
                                         </div>
-                                    </a>
                                 </div>
                             </c:forEach>
                         </div>

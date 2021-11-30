@@ -154,7 +154,7 @@
                       Discount: 3
                     </p>
                     <p class="Shopname">
-                        Shop: ${product.shopByShopId}
+                        Shop: ${product.shopByShopId.shopname}
                     </p>
                     <input class="cart__body-quantity-total" name="amount" type="number" value="1"/>
                     <button type="button" class="btn btn-kx" formmethod="post" formaction="add">
@@ -295,9 +295,7 @@
                         <br>
                         <br>
                         <br>
-
-
-                        <form action="comment"  method="post">
+                        <form action="comment" method="post">
                             <span>Chủ đề bình luận: </span><input type="text" style="width: 1000px; margin-bottom: 2px;" name="topiccomment"><br>
                             <textarea rows="5"  name="comment" id="comment" style="font-family:sans-serif;font-size:1.2em; width: 1000px">Cảm nhận của bạn về sản phẩm...
                         </textarea><br>

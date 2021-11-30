@@ -29,26 +29,11 @@ public class CartServlet extends HttpServlet{
             action = "cart"; // default action
         }
         if (sc != null) {
-//            List<?> listaddress = addressIO.selectUserAdress();
-//            request.getSession().setAttribute("listaddress", listaddress);
             Cart cart;
             HttpSession session = request.getSession();
-            request.getParameter("productCode");
-            List<?> listcart = cartItemIO.selectItems();
             cart = (Cart) session.getAttribute("cart");
-            if (cart == null) {
-                new Cart();
-            }
-//            long id = Long.parseLong(productCode);
-//            Product product = productIO.selectProductByid(id);
-//            CartItem cartItem = new CartItem();
-//            cartItem.setProductByProductId(product);
-//            cartItem.setAmount(amount);
-//            if (amount > 0) {
-//                cartItemIO.insert(cartItem);
-//            } else {
-//                cartItemIO.delete(cartItem);
-//            }
+            long cartId = cart.getId();
+            List<?> listcart = cartItemIO.selectItems(cartId);
 
             session.setAttribute("cart", cart);
             session.setAttribute("listcart",listcart);

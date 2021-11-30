@@ -1,29 +1,29 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="WebThuongMaiDienTu:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/WebThuongMaiDienTu_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/WebThuongMaiDienTu-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>WebThuongMaiDienTu</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="WebThuongMaiDienTu" />
-          <element id="library" level="application" name="popper.js" />
-          <element id="library" level="application" name="jquery" />
-          <element id="library" level="application" name="jquery-3.5.1" />
-          <element id="library" level="application" name="normalize" />
         </element>
         <element id="directory" name="lib">
-          <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/lib/javax.jms.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/jena-arq-2.10.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/httpclient-4.5.5.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/commons-logging-1.2.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/fluent-hc-4.5.5.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/gson-2.8.2.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/httpcore-4.4.9.jar" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.4" />
+          <element id="library" level="project" name="Maven: com.restfb:restfb:3.23.0" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.6" />
+          <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.6.1" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: jboss:jboss-logging-spi:2.0.2.GA" />
           <element id="library" level="project" name="Maven: org.apiguardian:apiguardian-api:1.1.0" />
           <element id="library" level="project" name="Maven: org.opentest4j:opentest4j:1.2.0" />
           <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-commons:1.7.1" />
-          <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1" />
-          <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
           <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.1.2.Final" />
@@ -31,6 +31,9 @@
           <element id="library" level="project" name="Maven: org.dom4j:dom4j:2.1.1" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.25" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
+          <element id="archive" name="WebThuongMaiDienTu-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="WebThuongMaiDienTu" />
+          </element>
           <element id="library" level="project" name="Maven: com.hp.hpl.jena:jena:2.6.4" />
           <element id="library" level="project" name="Maven: com.hp.hpl.jena:iri:0.8" />
           <element id="library" level="project" name="Maven: com.ibm.icu:icu4j:3.4.4" />
@@ -53,6 +56,8 @@
           <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:3.0.7" />
           <element id="library" level="project" name="Maven: org.jvnet.staxex:stax-ex:1.8" />
           <element id="library" level="project" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.15" />
+          <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1" />
+          <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" />
           <element id="library" level="project" name="Maven: au.id.tmm.http-constants:http-constants-circe_2.13:1.1.0" />
           <element id="library" level="project" name="Maven: org.scala-lang:scala-library:2.13.0" />
           <element id="library" level="project" name="Maven: io.circe:circe-core_2.13:0.12.2" />
@@ -73,7 +78,14 @@
           <element id="library" level="project" name="Maven: org.typelevel:cats-core_2.12:2.0.0" />
           <element id="library" level="project" name="Maven: org.typelevel:cats-macros_2.12:2.0.0" />
           <element id="library" level="project" name="Maven: org.typelevel:cats-kernel_2.12:2.0.0" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.8.1" />
+          <element id="library" level="project" name="Maven: com.sun.mail:all:1.6.1" />
+          <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.0.1" />
+          <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:0.9.5" />
         </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/WebThuongMaiDienTu-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="WebThuongMaiDienTu/web/Web" />
     </root>

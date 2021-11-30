@@ -60,6 +60,7 @@
                 <div class="main-content">
                     <h3 class="title">Đánh giá của khách hàng</h3>
                     <div class="inner">
+                        <%--@elvariable id="listreview" type="java.util.List"--%>
                         <c:if test="${empty listreview}">
                             <span>Load Failed</span>
                         </c:if>

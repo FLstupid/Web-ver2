@@ -26,7 +26,7 @@ public class AddressList extends HttpServlet {
         }
         Account acc = (Account) request.getSession().getAttribute("account");
         long id1 = acc.getId();
-        List listaddress = addressIO.selectUserAdress(id1);
+        List<?> listaddress = addressIO.selectUserAdress(id1);
         request.getSession().setAttribute("listaddress", listaddress);
         String url = "/AddressList.jsp";
         getServletContext()
