@@ -16,39 +16,47 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "Emailverify", value = "/Emailverify")
 public class EmailVerify extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
-    public EmailVerify() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getCharacterEncoding() == null) {
-            request.setCharacterEncoding("UTF-8");
-        }
-        response.getWriter().append("Served at: ").append(request.getContextPath());
+        doPost(request,response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
+        try {
             if (request.getCharacterEncoding() == null) {
                 request.setCharacterEncoding("UTF-8");
             }
-            HttpSession session = request.getSession();
-            Account user= (Account) session.getAttribute("account");
-            String message;
-            String code = request.getParameter("authcode");
-            String verifycode = (String)request.getSession().getAttribute("code");;
-            if(code.equals(verifycode)){
-                accountIO.insert(user);
-                session.setAttribute("account", user);
-                message="Xác nhận thành công! Hãy tiến hành đăng nhập!";
-                response.sendRedirect("login.jsp");
-            }else{
-                message="Mã xác thực không đúng";
-                session.setAttribute("message", message);
-                response.sendRedirect("verify.jsp");
+            String url="/verify.jsp";
+            String action = request.getParameter("action");
+
+            if (action == null) {
+                action = "join";  // default action
             }
+            else if(action.equals("confirm")){
+                HttpSession session = request.getSession();
+                Account user= (Account) session.getAttribute("account");
+                String message;
+                String code = request.getParameter("authcode1");
+                String verifycode = (String)request.getSession().getAttribute("code");;
+
+                if(code.equals(verifycode)){
+                    accountIO.insert(user);
+                    session.setAttribute("account", user);
+                    url="/login.jsp";
+                }else{
+                    message="Mã xác thực không đúng";
+                    session.setAttribute("message", message);
+                    url="/verify.jsp";
+                }
+            }
+
+            getServletContext()
+                    .getRequestDispatcher(url).forward(request, response);
+        }catch (Exception e)
+        {
+
         }
+
     }
+
 }

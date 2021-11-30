@@ -11,12 +11,11 @@
     </head>
     <body>
     <div style="width: 100%" class="form-container sign-in-container">
-        <form action="Emailverify" method="post">
-            <input type="hidden" name="action" value="confirm">
+        <form action="EmailverifyResetPass" method="post">
             <h1>Nhập Mã Xác Thực</h1>
             <span>Kiểm tra Email của bạn và nhập mã xác thực vào ô bên dưới</span>
-            <input style="width: 500px;" type="text" name="authcode1"/>
-            <button type="submit" class="btn2 btn-submit">Xác Nhận</button>
+            <input style="width: 500px;" type="text" name="authcode"/>
+            <button type="submit"  id="btn2"  value="verify" class="btn2 btn-submit">Xác Nhận</button>
             <c:if test="${not empty message}">
                 <script>
                     window.addEventListener("load",function(){

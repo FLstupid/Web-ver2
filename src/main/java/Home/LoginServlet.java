@@ -65,8 +65,8 @@ public class LoginServlet extends HttpServlet {
                 } else {
                     boolean test;
                     try {
-                        test = Utility.sendEmail(host, port, username, pass, email, "Email Verification",
-                                "Registered successfully.Please verify your account using this code: " +code);
+                        test = Utility.sendEmail(host, port, username, pass, email, "Mã Xác Thực",
+                                "Đăng ký thành công! Mời bạn nhập mã xác thực bên dưới vào trang xác thực để đăng ký tài khoản mới: " +code);
                     } catch (MessagingException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();

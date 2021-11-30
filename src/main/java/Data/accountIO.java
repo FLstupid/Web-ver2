@@ -1,7 +1,6 @@
 package Data;
 
 import Model.Account;
-import org.apache.commons.lang3.RandomStringUtils;
 
 import javax.persistence.*;
 import javax.servlet.http.HttpServletRequest;
