@@ -17,12 +17,21 @@ public class HomeServlet extends HttpServlet {
         if (request.getCharacterEncoding() == null) {
             request.setCharacterEncoding("UTF-8");
         }
-        HttpSession session = request.getSession();
-        List<?> listproduct = productIO.selectListProduct();
-        if (listproduct != null) {
-           session.setAttribute("listproduct", listproduct);
-        }
         String url = "/Home.jsp";
+        String action = request.getParameter("action");
+//        if(action.equals("search"))
+//        {
+//
+//        }
+//        else {
+            HttpSession session = request.getSession();
+            List<?> listproduct = productIO.selectListProduct();
+            if (listproduct != null) {
+                session.setAttribute("listproduct", listproduct);
+           }
+//        }
+
+         url = "/Home.jsp";
 
             getServletContext()
                     .getRequestDispatcher(url)
