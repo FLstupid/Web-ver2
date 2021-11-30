@@ -1,77 +1,175 @@
 .cart-name {
-    background: #fafafa;
-    padding: 20px;
-    margin-top: 20px;
-    border-bottom: 1px solid #e5e5e5;
+	background: #fafafa;
+	padding: 20px;
+	margin-top: 20px;
+	border-bottom: 1px solid #e5e5e5;
 }
+
+h6.cart-info {
+	font-size: large;
+	font-weight: bold;
+}
+
 img.cart-img {
-    display: flex;
-    float: left;
-    padding: 10px;
-    height: 130px;
-    width: 130px;
+	display: flex;
+	float: left;
+	padding: 10px;
+	height: 130px;
+	width: 130px;
 }
+
 img.cart-img {
-    display: flex;
-    float: left;
-    padding: 10px;
-    height: 130px;
-    width: 130px;
+	display: flex;
+	float: left;
+	padding: 10px;
+	height: 130px;
+	width: 130px;
 }
+
 p.cart-title {
-    font-size: 16px;
-    color: #000;
-    font-weight: 500;
-    padding: 30px;
+	font-size: 16px;
+	color: #000;
+	font-weight: 500;
+	padding: 30px;
 }
+
 .cart-body {
-    border-bottom: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
 }
+
 input.cart__body-quantity-total {
-    width: 30px;
-    text-align: center;
-    margin-left: -6px;
-    margin-top: 30px;
+	width: 30px;
+	text-align: center;
+	margin-left: -6px;
+	margin-top: 30px;
 }
+
 input.cart__body-quantity-plus {
-    text-align: center;
-    margin-left: -6px;
+	text-align: center;
+	margin-left: -6px;
 }
+
 input.cart__body-quantity-minus {
-    width: 28px;
+	width: 28px;
 }
+
 button.btn.btn-danger {
-    display: flex;
-    height: 30px;
-    align-items: center;
-    width: 65px;
-    justify-content: center;
+	display: inline-flex;
+	height: 30px;
+	align-items: center;
+	width: 65px;
+	justify-content: center;
+	background: indigo;
+	font-size: 14px;
 }
+
 p.money {
-    font-size: 18px;
-    color: red;
-    padding-top: 30px;
-    font-weight: 500;
+	font-size: 18px;
+	color: red;
+	padding-top: 30px;
+	font-weight: 500;
 }
+
 .cart__foot {
-    padding-top: 20px;
+	padding-top: 20px;
 }
+
 button.btn.btn-kx {
-    background: #dc3545;
-    width: 154px;
-    color: #fff;
+	background: indigo;
+	width: 154px;
+	height: 40px;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 4px;
 }
+
 p.moneys {
-    font-size: 20px;
-    font-weight: 500;
-    color: red;
+	font-size: 20px;
+	font-weight: 500;
+	color: red;
 }
+
 p.text-foot {
-    font-size: 18px;
-    font-weight: 500;
-    color: #000;
+	font-size: 18px;
+	font-weight: 500;
+	color: #000;
 }
+
 /*hover*/
 img.cart-img:hover {
-    transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.btn.btn-danger:hover,
+.btn.btn-kx:hover {
+	color: rgba(255, 255, 255, 0.7);
+	cursor: pointer;
+	text-decoration: none;
+}
+
+/* -- quantity box -- */
+
+.quantity {
+	display: inline-block;
+}
+
+.quantity .input-text.qty {
+	width: 40px;
+	height: 30px;
+	text-align: center;
+	background-color: transparent;
+	border: 1px solid #efefef;
+	font-size: 16px;
+	margin-top: 30px;
+}
+
+.quantity.buttons_added {
+	text-align: left;
+	position: relative;
+	white-space: nowrap;
+	vertical-align: top;
+}
+
+.quantity.buttons_added input {
+	display: inline-block;
+	margin: 0;
+	vertical-align: top;
+	box-shadow: none;
+}
+
+.quantity.buttons_added .minus,
+.quantity.buttons_added .plus {
+	padding: 0px 10px 8px;
+	height: 30px;
+	background-color: #efefef;
+	border: 1px solid #efefef;
+	cursor: pointer;
+	font-size: large;
+	font-weight: bold;
+	margin-top: 30px;
+}
+
+.quantity.buttons_added .minus {
+	border-right: 0;
+}
+
+.quantity.buttons_added .plus {
+	border-left: 0;
+}
+
+.quantity.buttons_added .minus:hover,
+.quantity.buttons_added .plus:hover {
+	background: #eeeeee;
+}
+
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	margin: 0;
+}
+
+.quantity.buttons_added .minus:focus,
+.quantity.buttons_added .plus:focus {
+	outline: none;
 }

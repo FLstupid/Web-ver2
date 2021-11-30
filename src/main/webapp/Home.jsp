@@ -1,4 +1,4 @@
-<%--@elvariable id="account" type="Model.Account" --%>
+<%--@elvariable id="account" type="com.sun.webkit.dom.HTMLAreaElementImpl" --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
@@ -10,23 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ DHS</title>
 
-    <!-- Icon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo.ico">
+    <!-- Logo -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/logo.ico">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/base.css" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/grid.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap">
+    <link rel="stylesheet" href="assets/css/core.css">
+    <link rel="stylesheet" href="assets/css/shortcode/shortcodes.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
+
+    <!-- Script -->
+    <script src="assets/js/jquery-3.3.1.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
@@ -39,14 +36,14 @@
                 <!-- header navbar left -->
                 <ul class="header__navbar-list">
                     <li>
-                        <a class="header__navbar-item "
+                        <i class="header__navbar-icon fas fa-store"></i>
+                        <a class="header__navbar-item"
                            href="${pageContext.request.contextPath}/summary">Kênh người bán</a>
                     </li>
                 </ul>
                 <!--rnd header navbar left -->
 
                 <!-- header navbar right -->
-                <!-- Thông báo -->
                 <ul class="header__navbar-list">
                     <% session=request.getSession(false); if (session==null || session.getAttribute("loggedInUser")==null) {%>
                     <!-- Chưa đăng nhập -->
@@ -100,7 +97,7 @@
                 <!-- Header Logo -->
                 <div class="header__logo">
                     <a href="home" class="header__logo-link">
-                        <img class="header__logo-img" src="assets/img/logo.svg" alt=""/>
+                        <img class="header__logo-img" src="assets/img/logo/logo.svg" alt=""/>
                     </a>
                 </div>
 
@@ -116,10 +113,16 @@
                             </h3>
                             <ul class="header__search-history-list">
                                 <li class="header__search-history-item">
-                                    <a href="#">Mũ bảo hiểm</a>
+                                    <a href="#">Trà sữa</a>
                                 </li>
                                 <li class="header__search-history-item">
-                                    <a href="#">Gang tay phượt</a>
+                                    <a href="#">Bánh mì</a>
+                                </li>
+                                <li class="header__search-history-item">
+                                    <a href="#">Bún đậu mắm tôm</a>
+                                </li>
+                                <li class="header__search-history-item">
+                                    <a href="#">Hoodie</a>
                                 </li>
                             </ul>
                         </div>
@@ -132,55 +135,10 @@
                 <!-- Cart layout -->
                 <div class="header__cart">
                     <div class="header__cart-wrap">
-                        <i class="header__cart-icon fas fa-shopping-cart"></i>
-                        <span class="header__cart-notice"></span>
-                        <!-- No Cart -->
-                        <div class="header__cart-list">
-                            <% session=request.getSession(false); if (session==null || session.getAttribute("loggedInUser")==null) {%>
-                            <!-- Nocart -->
-                            <img src="assets/img/no_cart.png" alt="" class="header__cart-no-cart-img"/>
-                            <span class="header__cart-no-cart-msg">
-									Chưa có sản phẩm
-                            </span>
-                            <!-- Has Cart -->
-                            <%} else {%>
-                            <h4 class="header__cart-heading">Sản phẩn đã thêm</h4>
-                            <ul class="header__cart-list-item">
-                                <li class="header__cart-item">
-                                    <img
-                                            src="assets/img/prd/prd_img_1.jpg"
-                                            class="header__cart-img"
-                                     alt=""/>
-                                    <div class="header__cart-item-info">
-                                        <div class="header__cart-item-head">
-                                            <h5 class="header__cart-item-name">
-                                                Mũ bảo hiểm fullface yohe
-                                            </h5>
-                                            <div class="header__cart-item-price-wrap">
-                                                    <span class="header__cart-item-price"
-                                                    >2.500.000</span
-                                                    >
-                                                <span class="header__cart-item-multiply">x</span>
-                                                <span class="header__cart-item-qnt">3</span>
-                                            </div>
-                                        </div>
-                                        <div class="header__cart-item-body">
-                                                <span class="header__cart-item-description">
-                                                    Phân loại:
-                                                    <span class="header__cart-item-classify"
-                                                    >Mũ bảo hiểm</span
-                                                    >
-                                                </span>
-                                            <span class="header__cart-item-remove">Xóa</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <button class="btn btn--primary header__cart-view-cart">
-                                Xem giỏ hàng
-                            </button>
-                            <%}%>
-                        </div>
+                        <span class="header__cart-notice">0</span>
+                        <a href="${pageContext.request.contextPath}/cart" rel="nofollow">
+                            <i class="header__cart-icon fas fa-shopping-cart"></i>
+                        </a>
                     </div>
                     <!--End cart -->
                 </div>
@@ -233,7 +191,7 @@
 
                         <div class="home-filter__page">
 								<span class="home-filter__page-num">
-									<span class="home-filter__page-current">1</span>
+									<span class="home-filter__page-current">1</span>/
 									<span class="home-filter__page-total">14</span>
 								</span>
                             <div class="home-filter__page-control">
@@ -253,19 +211,17 @@
                     <div class="home-product">
                         <div class="row1 sm-gutter1">
                             <!-- Product item -->
-                            <%--@elvariable id="listproduct" type="java.util.List"--%>
-                            <c:forEach items="${listproduct}" var="element">
-                                <div class="col1 l-2-4 m1-4 c-6">
-                                    <a class="home-product-item" href="productdetail?action=detail&amp;productCode=${element[4]}">
-                                        <div class="home-product-item__img"
-                                             style="background-image: url(assets/img/prd/prd_img_3.jpg)"></div></a>
-                                        <h4 class="home-product-item__name">
-                                            <a href="productdetail?action=detail&amp;productCode=${element[4]}">${element[0]}</a>
-                                        </h4>
-                                        <div class="home-product-item__price">
-                                            <span class=""><a href="productdetail?action=detail&amp;productCode=${element[4]}">${element[2]}</a> </span>
-                                        </div>
-                                        <div class="home-product-item__action">
+                            <div class="col1 l-2-4 m1-4 c-6">
+                                <%-- @elvariable id="listproduct" type="java.util.List" --%>
+                                <c:forEach items="${listproduct}" var="elements">
+                                <a class="home-product-item" href="productdetail?action=watch">
+                                    <div class="home-product-item__img"
+                                         style="background-image: url(assets/img/product/prd_img_3.jpg)"></div>
+                                    <h4 class="home-product-item__name"> ${elements[7]}</h4>
+                                    <div class="home-product-item__price">
+                                        <span class="home-product-item__price-current">${elements[4]}</span>
+                                    </div>
+                                    <div class="home-product-item__action">
 											<span class="
 														home-product-item__like
 														home-product-item__like--liked
@@ -281,14 +237,485 @@
 															fa-heart
 														"></i>
 											</span>
+                                        <div class="home-product-item__rating">
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
                                         </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__origin-name">${element[3]}</span>
+                                        <span class="home-product-item__sold">22 đã bán</span>
+                                    </div>
+                                    <div class="home-product-item__origin">
+                                        <span class="home-product-item__brand">Yohe</span>
+                                        <span class="home-product-item__origin-name">Thái Lan</span>
+                                    </div>
+                                    <div class="home-product-item__favourite">
+                                        <i class="fas fa-check"></i>
+                                        <span>Yêu thích</span>
+                                    </div>
+                                    <div class="home-product-item__sale-off">
+                                        <span class="home-product-item__sale-off-percent">10%</span>
+                                        <span class="home-product-item__sale-off-label">GIẢM</span>
+                                    </div>
+                                </a>
+                                </c:forEach>
+                            </div>
+                            <div class="col1 l-2-4 m1-4 c-6">
+                                <a class="home-product-item" href="#">
+                                    <div class="home-product-item__img"
+                                         style="background-image: url(assets/img/product/prd_img_2.jpg)"></div>
+                                    <h4 class="home-product-item__name">
+                                        Mũ 3/4 YOHE 878 2 Kính Thời Thượng
+                                    </h4>
+                                    <div class="home-product-item__price">
+                                        <span class="home-product-item__price-old">1.200.000đ</span>
+                                        <span class="home-product-item__price-current">900.000đ</span>
+                                    </div>
+                                    <div class="home-product-item__action">
+											<span class="
+														home-product-item__like
+														home-product-item__like--liked
+													">
+												<i class="
+															home-product-item__like-icon-empty
+															far
+															fa-heart
+														"></i>
+												<i class="
+															home-product-item__like-icon-fill
+															fas
+															fa-heart
+														"></i>
+											</span>
+                                        <div class="home-product-item__rating">
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
                                         </div>
-                                </div>
-                            </c:forEach>
+                                        <span class="home-product-item__sold">22 đã bán</span>
+                                    </div>
+                                    <div class="home-product-item__origin">
+                                        <span class="home-product-item__brand">Yohe</span>
+                                        <span class="home-product-item__origin-name">Thái Lan</span>
+                                    </div>
+                                    <div class="home-product-item__favourite">
+                                        <i class="fas fa-check"></i>
+                                        <span>Yêu thích</span>
+                                    </div>
+                                    <div class="home-product-item__sale-off">
+                                        <span class="home-product-item__sale-off-percent">10%</span>
+                                        <span class="home-product-item__sale-off-label">GIẢM</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col1 l-2-4 m1-4 c-6">
+                                <a class="home-product-item" href="#">
+                                    <div class="home-product-item__img"
+                                         style="background-image: url(assets/img/product/prd_img_4.jpg)"></div>
+                                    <h4 class="home-product-item__name">
+                                        Mũ Fullface LS2 Rapid FF353
+                                    </h4>
+                                    <div class="home-product-item__price">
+                                        <span class="home-product-item__price-old">1.700.000đ</span>
+                                        <span class="home-product-item__price-current">1.500.000₫</span>
+                                    </div>
+                                    <div class="home-product-item__action">
+											<span class="
+														home-product-item__like
+														home-product-item__like--liked
+													">
+												<i class="
+															home-product-item__like-icon-empty
+															far
+															fa-heart
+														"></i>
+												<i class="
+															home-product-item__like-icon-fill
+															fas
+															fa-heart
+														"></i>
+											</span>
+                                        <div class="home-product-item__rating">
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                        </div>
+                                        <span class="home-product-item__sold">22 đã bán</span>
+                                    </div>
+                                    <div class="home-product-item__origin">
+                                        <span class="home-product-item__brand">LS2</span>
+                                        <span class="home-product-item__origin-name">Trung Quốc</span>
+                                    </div>
+                                    <div class="home-product-item__favourite">
+                                        <i class="fas fa-check"></i>
+                                        <span>Yêu thích</span>
+                                    </div>
+                                    <div class="home-product-item__sale-off">
+                                        <span class="home-product-item__sale-off-percent">10%</span>
+                                        <span class="home-product-item__sale-off-label">GIẢM</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col1 l-2-4 m1-4 c-6">
+                                <a class="home-product-item" href="#">
+                                    <div class="home-product-item__img"
+                                         style="background-image: url(assets/img/product/prd_img_5.jpg)"></div>
+                                    <h4 class="home-product-item__name">
+                                        Áo khoác giáp bảo hộ cho nữ HJS303F đẹp bền dễ chịu
+                                    </h4>
+                                    <div class="home-product-item__price">
+                                        <span class="home-product-item__price-old">3.500.000đ</span>
+                                        <span class="home-product-item__price-current">3.300.000₫</span>
+                                    </div>
+                                    <div class="home-product-item__action">
+											<span class="
+														home-product-item__like
+														home-product-item__like--liked
+													">
+												<i class="
+															home-product-item__like-icon-empty
+															far
+															fa-heart
+														"></i>
+												<i class="
+															home-product-item__like-icon-fill
+															fas
+															fa-heart
+														"></i>
+											</span>
+                                        <div class="home-product-item__rating">
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                        </div>
+                                        <span class="home-product-item__sold">22 đã bán</span>
+                                    </div>
+                                    <div class="home-product-item__origin">
+                                        <span class="home-product-item__brand">QC</span>
+                                        <span class="home-product-item__origin-name">Việt Nam</span>
+                                    </div>
+                                    <div class="home-product-item__favourite">
+                                        <i class="fas fa-check"></i>
+                                        <span>Yêu thích</span>
+                                    </div>
+                                    <div class="home-product-item__sale-off">
+                                        <span class="home-product-item__sale-off-percent">12%</span>
+                                        <span class="home-product-item__sale-off-label">GIẢM</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col1 l-2-4 m1-4 c-6">
+                                <a class="home-product-item" href="#">
+                                    <div class="home-product-item__img"
+                                         style="background-image: url(assets/img/product/prd_img_6.jpg)"></div>
+                                    <h4 class="home-product-item__name">
+                                        Áo khoác giáp phượt cho Nam
+                                    </h4>
+                                    <div class="home-product-item__price">
+                                        <span class="home-product-item__price-old">4.200.000đ</span>
+                                        <span class="home-product-item__price-current">3.850.000₫</span>
+                                    </div>
+                                    <div class="home-product-item__action">
+											<span class="
+														home-product-item__like
+														home-product-item__like--liked
+													">
+												<i class="
+															home-product-item__like-icon-empty
+															far
+															fa-heart
+														"></i>
+												<i class="
+															home-product-item__like-icon-fill
+															fas
+															fa-heart
+														"></i>
+											</span>
+                                        <div class="home-product-item__rating">
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                        </div>
+                                        <span class="home-product-item__sold">22 đã bán</span>
+                                    </div>
+                                    <div class="home-product-item__origin">
+                                        <span class="home-product-item__brand">Whoo</span>
+                                        <span class="home-product-item__origin-name">Nhật Bản</span>
+                                    </div>
+                                    <div class="home-product-item__favourite">
+                                        <i class="fas fa-check"></i>
+                                        <span>Yêu thích</span>
+                                    </div>
+                                    <div class="home-product-item__sale-off">
+                                        <span class="home-product-item__sale-off-percent">15%</span>
+                                        <span class="home-product-item__sale-off-label">GIẢM</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col1 l-2-4 m1-4 c-6">
+                                <a class="home-product-item" href="#">
+                                    <div class="home-product-item__img"
+                                         style="background-image: url(assets/img/product/prd_img_1.jpg)"></div>
+                                    <h4 class="home-product-item__name">
+                                        Mũ bảo hiểm Roc R01 Màu Xanh Lá | Tặng Pinlock
+                                    </h4>
+                                    <div class="home-product-item__price">
+                                        <span class="home-product-item__price-old">1.800.000đ</span>
+                                        <span class="home-product-item__price-current">1.730.000₫</span>
+                                    </div>
+                                    <div class="home-product-item__action">
+											<span class="
+														home-product-item__like
+														home-product-item__like--liked
+													">
+												<i class="
+															home-product-item__like-icon-empty
+															far
+															fa-heart
+														"></i>
+												<i class="
+															home-product-item__like-icon-fill
+															fas
+															fa-heart
+														"></i>
+											</span>
+                                        <div class="home-product-item__rating">
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                        </div>
+                                        <span class="home-product-item__sold">22 đã bán</span>
+                                    </div>
+                                    <div class="home-product-item__origin">
+                                        <span class="home-product-item__brand">Yamaha</span>
+                                        <span class="home-product-item__origin-name">Mỹ</span>
+                                    </div>
+                                    <div class="home-product-item__favourite">
+                                        <i class="fas fa-check"></i>
+                                        <span>Yêu thích</span>
+                                    </div>
+                                    <div class="home-product-item__sale-off">
+                                        <span class="home-product-item__sale-off-percent">4%</span>
+                                        <span class="home-product-item__sale-off-label">GIẢM</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col1 l-2-4 m1-4 c-6">
+                                <a class="home-product-item" href="#">
+                                    <div class="home-product-item__img"
+                                         style="background-image: url(assets/img/product/prd_img_8.jpg)"></div>
+                                    <h4 class="home-product-item__name">
+                                        Quần giáp Jeans bảo hộ đi motor,phượt Komine
+                                        (Đen) Quần giáp Jeans bảo hộ đi motor, phượt Komine (Đen)
+                                    </h4>
+                                    <div class="home-product-item__price">
+                                        <span class="home-product-item__price-old">1.200.000đ</span>
+                                        <span class="home-product-item__price-current">900.000</span>
+                                    </div>
+                                    <div class="home-product-item__action">
+											<span class="
+														home-product-item__like
+														home-product-item__like--liked
+													">
+												<i class="
+															home-product-item__like-icon-empty
+															far
+															fa-heart
+														"></i>
+												<i class="
+															home-product-item__like-icon-fill
+															fas
+															fa-heart
+														"></i>
+											</span>
+                                        <div class="home-product-item__rating">
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                        </div>
+                                        <span class="home-product-item__sold">22 đã bán</span>
+                                    </div>
+                                    <div class="home-product-item__origin">
+                                        <span class="home-product-item__brand">Whoo</span>
+                                        <span class="home-product-item__origin-name">Nhật Bản</span>
+                                    </div>
+                                    <div class="home-product-item__favourite">
+                                        <i class="fas fa-check"></i>
+                                        <span>Yêu thích</span>
+                                    </div>
+                                    <div class="home-product-item__sale-off">
+                                        <span class="home-product-item__sale-off-percent">10%</span>
+                                        <span class="home-product-item__sale-off-label">GIẢM</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col1 l-2-4 m1-4 c-6">
+                                <a class="home-product-item" href="#">
+                                    <div class="home-product-item__img"
+                                         style="background-image: url(assets/img/product/prd_img_7.jpg)"></div>
+                                    <h4 class="home-product-item__name">
+                                        Găng tay da cao cấp HGL200M Full ngón
+                                    </h4>
+                                    <div class="home-product-item__price">
+                                        <span class="home-product-item__price-old">1.800.000đ</span>
+                                        <span class="home-product-item__price-current">1.730.000₫</span>
+                                    </div>
+                                    <div class="home-product-item__action">
+											<span class="
+														home-product-item__like
+														home-product-item__like--liked
+													">
+												<i class="
+															home-product-item__like-icon-empty
+															far
+															fa-heart
+														"></i>
+												<i class="
+															home-product-item__like-icon-fill
+															fas
+															fa-heart
+														"></i>
+											</span>
+                                        <div class="home-product-item__rating">
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                        </div>
+                                        <span class="home-product-item__sold">22 đã bán</span>
+                                    </div>
+                                    <div class="home-product-item__origin">
+                                        <span class="home-product-item__brand">Yamaha</span>
+                                        <span class="home-product-item__origin-name">Mỹ</span>
+                                    </div>
+                                    <div class="home-product-item__favourite">
+                                        <i class="fas fa-check"></i>
+                                        <span>Yêu thích</span>
+                                    </div>
+                                    <div class="home-product-item__sale-off">
+                                        <span class="home-product-item__sale-off-percent">10%</span>
+                                        <span class="home-product-item__sale-off-label">GIẢM</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col1 l-2-4 m1-4 c-6">
+                                <a class="home-product-item" href="#">
+                                    <div class="home-product-item__img"
+                                         style="background-image: url(assets/img/product/prd_img_9.jpg)"></div>
+                                    <h4 class="home-product-item__name">
+                                        Găng tay moto,xe máy gù carbon Komine GK160
+                                    </h4>
+                                    <div class="home-product-item__price">
+                                        <span class="home-product-item__price-old">1.400.000đ</span>
+                                        <span class="home-product-item__price-current">1.300.000₫</span>
+                                    </div>
+                                    <div class="home-product-item__action">
+											<span class="
+														home-product-item__like
+														home-product-item__like--liked
+													">
+												<i class="
+															home-product-item__like-icon-empty
+															far
+															fa-heart
+														"></i>
+												<i class="
+															home-product-item__like-icon-fill
+															fas
+															fa-heart
+														"></i>
+											</span>
+                                        <div class="home-product-item__rating">
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                        </div>
+                                        <span class="home-product-item__sold">22 đã bán</span>
+                                    </div>
+                                    <div class="home-product-item__origin">
+                                        <span class="home-product-item__brand">Whoo</span>
+                                        <span class="home-product-item__origin-name">Nhật Bản</span>
+                                    </div>
+                                    <div class="home-product-item__favourite">
+                                        <i class="fas fa-check"></i>
+                                        <span>Yêu thích</span>
+                                    </div>
+                                    <div class="home-product-item__sale-off">
+                                        <span class="home-product-item__sale-off-percent">10%</span>
+                                        <span class="home-product-item__sale-off-label">GIẢM</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col1 l-2-4 m1-4 c-6">
+                                <a class="home-product-item" href="#">
+                                    <div class="home-product-item__img"
+                                         style="background-image: url(assets/img/product/prd_img_10.png)"></div>
+                                    <h4 class="home-product-item__name">
+                                        Mũ fullface Ls2 Stream FF320 Axis Matt Black Yellow
+                                    </h4>
+                                    <div class="home-product-item__price">
+                                        <span class="home-product-item__price-old">3.200.000đ</span>
+                                        <span class="home-product-item__price-current">2.599.000đ</span>
+                                    </div>
+                                    <div class="home-product-item__action">
+											<span class="
+														home-product-item__like
+														home-product-item__like--liked
+													">
+												<i class="
+															home-product-item__like-icon-empty
+															far
+															fa-heart
+														"></i>
+												<i class="
+															home-product-item__like-icon-fill
+															fas
+															fa-heart
+														"></i>
+											</span>
+                                        <div class="home-product-item__rating">
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                            <i class="fas fa-star home-product-item__star--gold"></i>
+                                        </div>
+                                        <span class="home-product-item__sold">22 đã bán</span>
+                                    </div>
+                                    <div class="home-product-item__origin">
+                                        <span class="home-product-item__brand">Whoo</span>
+                                        <span class="home-product-item__origin-name">Nhật Bản</span>
+                                    </div>
+                                    <div class="home-product-item__favourite">
+                                        <i class="fas fa-check"></i>
+                                        <span>Yêu thích</span>
+                                    </div>
+                                    <div class="home-product-item__sale-off">
+                                        <span class="home-product-item__sale-off-percent">20%</span>
+                                        <span class="home-product-item__sale-off-label">GIẢM</span>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
+
+                    <%-- Page --%>
                     <ul class="pagination home-product__pagination">
                         <li class="pagination-item">
                             <a href="" class="pagination-item__link">
@@ -338,16 +765,7 @@
                             <a href="#" class="footer-item__link">Trung Tâm Trợ Giúp</a>
                         </li>
                         <li class="footer-item">
-                            <a href="#" class="footer-item__link">Hướng Dẫn Mua Hàng</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="#" class="footer-item__link">Hướng Dẫn Bán Hàng</a>
-                        </li>
-                        <li class="footer-item">
                             <a href="#" class="footer-item__link">Thanh Toán</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="#" class="footer-item__link">DHS Xu</a>
                         </li>
                         <li class="footer-item">
                             <a href="#" class="footer-item__link">Vận Chuyển</a>
@@ -367,28 +785,16 @@
                     <h3 class="footer__heading">Về DHS</h3>
                     <ul class="footer-list">
                         <li class="footer-item">
-                            <a href="#" class="footer-item__link">Giới thiệu về DHS Việt Nam</a>
+                            <a href="#" class="footer-item__link">Về chúng tôi</a>
                         </li>
                         <li class="footer-item">
-                            <a href="#" class="footer-item__link">Tuyển dụng</a>
+                            <a href="#" class="footer-item__link">Liên hệ</a>
                         </li>
                         <li class="footer-item">
                             <a href="#" class="footer-item__link">Điều khoản DHS</a>
                         </li>
                         <li class="footer-item">
-                            <a href="#" class="footer-item__link">Chính Sách Bảo Mật</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="#" class="footer-item__link">Chính Hãng</a>
-                        </li>
-                        <li class="footer-item">
                             <a href="#" class="footer-item__link">Kênh Người Bán</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="#" class="footer-item__link">Chương Trình Tiếp Thị Liên Kết DHS</a>
-                        </li>
-                        <li class="footer-item">
-                            <a href="#" class="footer-item__link">Liên Hệ Truyền Thông</a>
                         </li>
                     </ul>
                 </div>
@@ -414,22 +820,6 @@
                         </li>
                     </ul>
                 </div>
-
-                <div class="col l-2-4 m-8 c-6">
-                    <h3 class="footer__heading">Tải ứng dụng trên điện thoại</h3>
-                    <div class="footer__download">
-                        <img src="assets/img/qrcode.png" class="footer__download-qr" alt=""/>
-                        <div class="footer__download-apps">
-                            <a href="#" class="footer__download-app-link">
-                                <img src="assets/img/ch_play.png" class="footer__download-app-img" alt=""/>
-                            </a>
-
-                            <a href="#" class="footer__download-app-link">
-                                <img src="assets/img/appstore.png" class="footer__download-app-img" alt=""/>
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="footer__bottom">
@@ -440,10 +830,5 @@
     </footer>
     <!--End footer -->
 </div>
-<script src="assets/js/jquery-3.3.1.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/owlcarousel/owl.carousel.min.js"></script>
-<script src="assets/js/owl.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </body>
 </html>
