@@ -1,5 +1,5 @@
-<%--@elvariable id="account" type="com.sun.webkit.dom.HTMLAreaElementImpl"--%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--@elvariable id="account" type="Model.Account"--%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -236,7 +236,7 @@
                                         <c:forEach items="${listcart}" var="element">
                                         <tbody>
                                         <tr>
-                                            <form action="update_cart" method="post">
+                                            <form action="cart" method="post">
                                                 <td > <input type="hidden" name="productCode"
                                                              value="<c:out value='${element[9]}'/>">
                                                     <input style="width: 50px;" type="text" name="amount" value="${element[0]}" id="amount" >

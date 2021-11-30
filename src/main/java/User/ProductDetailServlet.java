@@ -20,14 +20,14 @@ public class ProductDetailServlet extends HttpServlet {
             request.setCharacterEncoding("UTF-8");
         }
         String action = request.getParameter("action");
-        String url ;
+        String url = "/ProductDetail.jsp";
         Product product = null;
         int amount = 1;
-        if(action.equals("watch"))
+        if(action == null)
         {
-
+            action = "detail";
         }
-        else if(action.equals("detail"))
+        if(action.equals("detail"))
         {
             String productid = request.getParameter("productCode");
             long id = Long.parseLong(productid);
@@ -65,7 +65,6 @@ public class ProductDetailServlet extends HttpServlet {
         }
         request.getSession().setAttribute("product",product);
         request.getSession().setAttribute("amount",amount);
-        url = "/ProductDetail.jsp";
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);
