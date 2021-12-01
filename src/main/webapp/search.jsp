@@ -8,7 +8,9 @@
     <title>Trang chủ DHS</title>
 </head>
 <body>
-<h1>Kết quả tìm kiếm của <%=request.getParameter("searchproduct")%></h1>
+
+<c:if test="${not empty ListProductByproductname}">
+    <h1>Kết quả tìm kiếm của <%=request.getParameter("searchproduct")%></h1>
 <center>
     <table border="1">
         <tr>
@@ -29,7 +31,10 @@
         </c:forEach>
     </table>
 </center>
-
+</c:if>
+<c:if test="${empty ListProductByproductname}">
+    <h1>Không tìm thấy kết quả nào cho <%=request.getParameter("searchproduct")%></h1>
+</c:if>
 
 <datalist id="listproduct">
 <option value=""></option>
