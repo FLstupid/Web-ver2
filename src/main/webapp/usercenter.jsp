@@ -6,7 +6,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Center DHS</title>
 
@@ -47,7 +47,8 @@
 
                 <!-- header navbar right -->
                 <ul class="header__navbar-list">
-                    <% session=request.getSession(false); if (session==null || session.getAttribute("loggedInUser")==null) {%>
+                    <% session = request.getSession(false);
+                        if (session == null || session.getAttribute("loggedInUser") == null) {%>
                     <!-- Chưa đăng nhập -->
                     <li>
                         <a href="login" class="
@@ -65,8 +66,9 @@
                     <%} else {%>
                     <!-- Đã đăng nhập -->
                     <li class="header__navbar-item header__navbar-user">
-                        <img src="${pageContext.request.contextPath}/images/${account.avatar}" class="header__navbar-user-img" alt="">
-                        <% if(session.getAttribute("username")==null || session.getAttribute("loggedInUser")==null){%>
+                        <img src="${pageContext.request.contextPath}/images/${account.avatar}"
+                             class="header__navbar-user-img" alt="">
+                        <% if (session.getAttribute("username") == null || session.getAttribute("loggedInUser") == null) {%>
                         <span class="header__navbar-item--strong header__navbar-user-name">
                             User name</span>
                         <%} else { %>
@@ -108,7 +110,7 @@
                     <div class="header__search-input-wrap">
                         <form action="search" method="get">
                             <input type="text" name="searchproduct" class="header__search-input"
-                                   placeholder="Nhập để tìm kiếm sản phẩm" />
+                                   placeholder="Nhập để tìm kiếm sản phẩm"/>
                         </form>
                     </div>
                     <form action="search" method="get">
@@ -300,6 +302,7 @@
         </div>
     </div>
 
+    <<<<<<< HEAD
     <!-- Footer -->
     <footer class="footer">
         <div class="grid wide">
@@ -376,5 +379,25 @@
     </footer>
     <!--End footer -->
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="js/main.js">
+</script>
+<script>
+    function Showmessage(message) {
+        alert(message);
+    }
+
+</script>
+<script>
+    async function uploadFile() {
+        let formData = new FormData();
+        formData.append("file", ajaxfile.files[0]);
+        await fetch('fileuploadservlet', {
+            method: "POST",
+            body: formData
+        });
+        alert('The file upload with Ajax and Java was a success!');
+    }
+</script>
 </body>
 </html>

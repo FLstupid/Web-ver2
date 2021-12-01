@@ -195,11 +195,12 @@
 
                     <!-- Product -->
                     <div class="home-product">
+                        <c:forEach items="${listproduct}" var="elements">
                         <div class="row1 sm-gutter1">
                             <!-- Product item -->
                             <div class="col1 l-2-4 m1-4 c-6">
                                 <%-- @elvariable id="listproduct" type="java.util.List" --%>
-                                <c:forEach items="${listproduct}" var="elements">
+
                                 <a class="home-product-item" href="productdetail?action=detail&amp;productCode=${elements[4]}">
                                     <div class="home-product-item__img"
                                          style="background-image: url(assets/img/product/prd_img_3.jpg)"></div>
@@ -228,9 +229,10 @@
                                         <span class="home-product-item__brand">${elements[3]}</span>
                                     </div>
                                 </a>
-                                </c:forEach>
+
                             </div>
                         </div>
+                        </c:forEach>
                     </div>
 
                     <%-- Page --%>
@@ -240,27 +242,9 @@
                                 <i class="pagination-item__icon fas fa-angle-left"></i>
                             </a>
                         </li>
-                        <li class="pagination-item pagination-item--active">
-                            <a href="" class="pagination-item__link">1</a>
-                        </li>
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item__link">2</a>
-                        </li>
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item__link">3</a>
-                        </li>
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item__link">4</a>
-                        </li>
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item__link">5</a>
-                        </li>
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item__link">...</a>
-                        </li>
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item__link">14</a>
-                        </li>
+                        <c:forEach begin="1" end="${end}" var="i">
+                            <a href="#">${i}</a>
+                        </c:forEach>
                         <li class="pagination-item">
                             <a href="" class="pagination-item__link">
                                 <i class="pagination-item__icon fas fa-angle-right"></i>
