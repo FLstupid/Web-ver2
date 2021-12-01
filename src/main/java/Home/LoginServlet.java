@@ -48,7 +48,6 @@ public class LoginServlet extends HttpServlet {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String confirmpassword = request.getParameter("confirmpassword");
-            String resultMessage = "";
 
             String code = Utility.getRandom();
             request.getSession().setAttribute("code", code);
@@ -68,7 +67,6 @@ public class LoginServlet extends HttpServlet {
                         test = Utility.sendEmail(host, port, username, pass, email, "Mã Xác Thực",
                                 "Đăng ký thành công! Mời bạn nhập mã xác thực bên dưới vào trang xác thực để đăng ký tài khoản mới: " +code);
                     } catch (MessagingException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                         test = false;
                     }
@@ -119,7 +117,7 @@ public class LoginServlet extends HttpServlet {
         request.setAttribute("message", message);
         if(request.getParameter("message")!=null)
         {request.setAttribute("message", message);
-            //request.getSession().setAttribute("message", message);
+
         }
         request.getSession().setAttribute("username", t);
         getServletContext()

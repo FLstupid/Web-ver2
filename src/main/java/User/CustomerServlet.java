@@ -43,7 +43,7 @@ public class CustomerServlet extends HttpServlet {
         }
         else if(action.equals("upimage"))
         {
-            String uploadfolder =  getServletContext().getRealPath("./images");
+            String uploadfolder =  getServletContext().getRealPath("/images");
             Path uploadPath = Paths.get(uploadfolder);
             if(!Files.exists(uploadPath))
             {
@@ -61,7 +61,7 @@ public class CustomerServlet extends HttpServlet {
             String username;
             boolean Gender;
             String phone;
-            String message = null;
+            String message2 = null;
             Timestamp lastUpdate;
             username =  request.getParameter("fullName");
             String password =  request.getParameter("password");
@@ -90,7 +90,7 @@ public class CustomerServlet extends HttpServlet {
             lastUpdate = new Timestamp(System.currentTimeMillis());
 
             if ( username == null || username.isEmpty() || phone == null || phone.isEmpty()) {
-                message = "Xin hãy điền tất cả các giá trị";
+                message2 = "Xin hãy điền tất cả các giá trị";
                 account.setBirthday(birthday);
                 account.setGender(Gender);
                 account.setLastUpdate(lastUpdate);
@@ -116,7 +116,10 @@ public class CustomerServlet extends HttpServlet {
             request.setAttribute("account", account);
             request.setAttribute("avatar", account.getAvatar());
             request.setAttribute("username", username);
-            request.getSession().setAttribute("message", message);
+            if(request.getParameter("message2")!=null)
+            {request.setAttribute("message2", message2);
+
+            }
             request.getSession().setAttribute("username", account.getUsername());
         }
         getServletContext()

@@ -8,6 +8,7 @@
     <title>Trang chủ DHS</title>
 </head>
 <body>
+<h1>Kết quả tìm kiếm của <%=request.getParameter("searchproduct")%></h1>
 <center>
     <table border="1">
         <tr>

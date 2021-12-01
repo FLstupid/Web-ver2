@@ -222,7 +222,7 @@
 
                             <div class="form-control">
                                 <label class="input-label">&nbsp;</label>
-                                <button type="submit" onclick="alert('${message}')" class="btn-submit">Thay Đổi Mật Khẩu</button>
+                                <button type="submit" onclick="alert('${message3}')" class="btn-submit">Thay Đổi Mật Khẩu</button>
                             </div>
                         </form>
                     </div>

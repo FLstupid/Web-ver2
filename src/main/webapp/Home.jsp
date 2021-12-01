@@ -197,10 +197,12 @@
                     <!--End home filter -->
 
                     <!-- Product -->
+
                     <div class="home-product">
-                        <c:forEach items="${listproduct}" var="elements">
+
                             <div class="row1 sm-gutter1">
                                 <!-- Product item -->
+                                <c:forEach items="${listproduct}" var="elements">
                                 <div class="col1 l-2-4 m1-4 c-6">
                                         <%-- @elvariable id="listproduct" type="java.util.List" --%>
 
@@ -235,8 +237,9 @@
                                     </a>
 
                                 </div>
+                                </c:forEach>
                             </div>
-                        </c:forEach>
+
                     </div>
 
                     <%-- Page --%>

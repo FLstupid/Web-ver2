@@ -393,7 +393,7 @@
 
                             <div class="form-control">
                                 <label class="input-label">&nbsp;</label>
-                                <button type="submit" onclick="alert('${message}')" class="btn-submit">Cập nhật</button>
+                                <button type="submit" onclick="alert('${message2}')" class="btn-submit">Cập nhật</button>
                             </div>
                         </form>
                     </div>
@@ -405,13 +405,6 @@
 <!---------------------------------------------------footer-------------------------------------------->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script src="js/main.js">
-</script>
-<script>
-    function Showmessage(message)
-    {
-        alert(message);
-    }
-
 </script>
 <script>
     async function uploadFile() {
