@@ -17,6 +17,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import com.cloudinary.Cloudinary;
 
 
 @MultipartConfig
@@ -44,20 +45,16 @@ public class CustomerServlet extends HttpServlet {
         {
             String uploadfolder =  getServletContext().getRealPath("./images");
             Path uploadPath = Paths.get(uploadfolder);
-
             if(!Files.exists(uploadPath))
             {
                 Files.createDirectory(uploadPath);
             }
             Part imagePart = request.getPart("photo");
-
             String imageFileName = Paths.get(imagePart.getSubmittedFileName()).getFileName().toString();
             imagePart.write(Paths.get(uploadPath.toString(),imageFileName).toString());
-
             account.setAvatar(imageFileName);
             accountIO.update(account);
             session.setAttribute("avatar",account.getAvatar());
-
         }
         else if (action.equals("add")) {
 

@@ -107,7 +107,7 @@ public class productIO {
             return em.createQuery("SELECT p.title as productname, " +
                             "p.decription as decription" +
                             ",p.price as price , p.shopByShopId.shopname ,p.id " +
-                            "FROM Product p where p.title = ?1").setParameter(1,ProductName)
+                            "FROM Product p where p.title like ?1").setParameter(1,"%"+ ProductName+"%")
                     .getResultList();
         } catch (Exception e)
         {

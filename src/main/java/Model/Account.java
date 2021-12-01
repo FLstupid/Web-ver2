@@ -36,7 +36,6 @@ public class Account {
         this.passwordHash = password;
     }
 
-
     public long getId() {
         return id;
     }
