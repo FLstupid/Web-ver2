@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Password DHS</title>
 
@@ -45,7 +45,8 @@
 
                 <!-- header navbar right -->
                 <ul class="header__navbar-list">
-                    <% session=request.getSession(false); if (session==null || session.getAttribute("loggedInUser")==null) {%>
+                    <% session = request.getSession(false);
+                        if (session == null || session.getAttribute("loggedInUser") == null) {%>
                     <!-- Chưa đăng nhập -->
                     <li>
                         <a href="login" class="
@@ -63,8 +64,9 @@
                     <%} else {%>
                     <!-- Đã đăng nhập -->
                     <li class="header__navbar-item header__navbar-user">
-                        <img src="${pageContext.request.contextPath}/images/${account.avatar}" class="header__navbar-user-img" alt="">
-                        <% if(session.getAttribute("username")==null || session.getAttribute("loggedInUser")==null){%>
+                        <img src="${pageContext.request.contextPath}/images/${account.avatar}"
+                             class="header__navbar-user-img" alt="">
+                        <% if (session.getAttribute("username") == null || session.getAttribute("loggedInUser") == null) {%>
                         <span class="header__navbar-item--strong header__navbar-user-name">
                             User name</span>
                         <%} else { %>
@@ -106,12 +108,12 @@
                     <div class="header__search-input-wrap">
                         <form action="search" method="get">
                             <input type="text" name="searchproduct" class="header__search-input"
-                                   placeholder="Nhập để tìm kiếm sản phẩm" />
+                                   placeholder="Nhập để tìm kiếm sản phẩm"/>
                         </form>
                     </div>
                     <form action="search" method="get">
                         <button type="submit" class="btn submit header__search-btn">
-                                <i class="header__search-btn-icon fas fa-search"></i>
+                            <i class="header__search-btn-icon fas fa-search"></i>
                         </button>
                     </form>
                 </div>
@@ -222,7 +224,8 @@
                             </div>
                             <form method="post" action="changingpassword">
                                 <button type="submit" onclick="alert('${message}')" class="btn-submit2">Thay Đổi Mật
-                                    Khẩu</button>
+                                    Khẩu
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -307,6 +310,32 @@
     </footer>
     <!--End footer -->
 
+    <script src="js/main.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+
+            var readURL = function (input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('.profile-pic').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $(".file-upload").on('change', function () {
+                readURL(this);
+            });
+
+            $(".upload-button").on('click', function () {
+                $(".file-upload").click();
+            });
+        });
+    </script>
 </div>
 </body>
 

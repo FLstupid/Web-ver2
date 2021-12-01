@@ -6,7 +6,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ DHS</title>
 
@@ -24,7 +24,8 @@
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/owl.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 </head>
 
 <body>
@@ -46,7 +47,8 @@
 
                 <!-- header navbar right -->
                 <ul class="header__navbar-list">
-                    <% session=request.getSession(false); if (session==null || session.getAttribute("loggedInUser")==null) {%>
+                    <% session = request.getSession(false);
+                        if (session == null || session.getAttribute("loggedInUser") == null) {%>
                     <!-- Chưa đăng nhập -->
                     <li>
                         <a href="login" class="
@@ -64,8 +66,9 @@
                     <%} else {%>
                     <!-- Đã đăng nhập -->
                     <li class="header__navbar-item header__navbar-user">
-                        <img src="${pageContext.request.contextPath}/images/${account.avatar}" class="header__navbar-user-img" alt="">
-                        <% if(session.getAttribute("username")==null || session.getAttribute("loggedInUser")==null){%>
+                        <img src="${pageContext.request.contextPath}/images/${account.avatar}"
+                             class="header__navbar-user-img" alt="">
+                        <% if (session.getAttribute("username") == null || session.getAttribute("loggedInUser") == null) {%>
                         <span class="header__navbar-item--strong header__navbar-user-name">
                             User name</span>
                         <%} else { %>
@@ -107,7 +110,7 @@
                     <div class="header__search-input-wrap">
                         <form action="search" method="get">
                             <input type="text" name="searchproduct" class="header__search-input"
-                                   placeholder="Nhập để tìm kiếm sản phẩm" />
+                                   placeholder="Nhập để tìm kiếm sản phẩm"/>
                         </form>
                     </div>
                     <form action="search" method="get">
@@ -196,19 +199,20 @@
                     <!-- Product -->
                     <div class="home-product">
                         <c:forEach items="${listproduct}" var="elements">
-                        <div class="row1 sm-gutter1">
-                            <!-- Product item -->
-                            <div class="col1 l-2-4 m1-4 c-6">
-                                <%-- @elvariable id="listproduct" type="java.util.List" --%>
+                            <div class="row1 sm-gutter1">
+                                <!-- Product item -->
+                                <div class="col1 l-2-4 m1-4 c-6">
+                                        <%-- @elvariable id="listproduct" type="java.util.List" --%>
 
-                                <a class="home-product-item" href="productdetail?action=detail&amp;productCode=${elements[4]}">
-                                    <div class="home-product-item__img"
-                                         style="background-image: url(assets/img/product/prd_img_3.jpg)"></div>
-                                    <h4 class="home-product-item__name"> ${elements[0]}</h4>
-                                    <div class="home-product-item__price">
-                                        <span class="home-product-item__price-current">${elements[2]}</span>
-                                    </div>
-                                    <div class="home-product-item__action">
+                                    <a class="home-product-item"
+                                       href="productdetail?action=detail&amp;productCode=${elements[4]}">
+                                        <div class="home-product-item__img"
+                                             style="background-image: url(assets/img/product/prd_img_3.jpg)"></div>
+                                        <h4 class="home-product-item__name"> ${elements[0]}</h4>
+                                        <div class="home-product-item__price">
+                                            <span class="home-product-item__price-current">${elements[2]}</span>
+                                        </div>
+                                        <div class="home-product-item__action">
 											<span class="
 														home-product-item__like
 														home-product-item__like--liked
@@ -224,14 +228,14 @@
 															fa-heart
 														"></i>
 											</span>
-                                    </div>
-                                    <div class="home-product-item__origin">
-                                        <span class="home-product-item__brand">${elements[3]}</span>
-                                    </div>
-                                </a>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <span class="home-product-item__brand">${elements[3]}</span>
+                                        </div>
+                                    </a>
 
+                                </div>
                             </div>
-                        </div>
                         </c:forEach>
                     </div>
 
