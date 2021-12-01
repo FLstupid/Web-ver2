@@ -100,6 +100,23 @@ public class productIO {
             em.close();
         }
     }
+    public static List<?> selectListProductByproductname(String ProductName)
+    {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createQuery("SELECT p.title as productname, " +
+                            "p.decription as decription" +
+                            ",p.price as price , p.shopByShopId.shopname ,p.id " +
+                            "FROM Product p where p.title = ?1").setParameter(1,ProductName)
+                    .getResultList();
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }finally {
+            em.close();
+        }
+    }
     public static Product selectProductByid(long idproduct)
     {
         EntityManager em = emf.createEntityManager();

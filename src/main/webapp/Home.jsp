@@ -110,24 +110,16 @@
                 </div>
 
                 <!-- Header Search -->
+                <form action="search" method="get">
                 <div class="header__search">
                     <div class="header__search-input-wrap">
-                        <form action="Loc" method="post">
-                            <!--mai làm-->
-                        <input type="text" list="${listproduct}" name="product" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm"/>
-                        <datalist id="listproduct">
-                            <c:forEach var="element" items="${listproduct}">
-                                <option value="${element}">${element}</option>
-                            </c:forEach>
-                        </datalist>
-                        </form>
-                        <!-- Search history -->
-
+                        <input type="text" name="searchproduct" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm"/>
                     </div>
-                    <button class="header__search-btn">
+                    <button type="submit" class="btn submit header__search-btn">
                         <i class="header__search-btn-icon fas fa-search"></i>
                     </button>
                 </div>
+                </form>
 
                 <!-- Cart layout -->
                 <div class="header__cart">
