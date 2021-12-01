@@ -106,19 +106,19 @@
                 </div>
 
                 <!-- Header Search -->
+                <form style="width: 800px" action="search" method="get">
                 <div class="header__search">
                     <div class="header__search-input-wrap">
-                        <form action="search" method="get">
+
                             <input type="text" name="searchproduct" class="header__search-input"
                                    placeholder="Nhập để tìm kiếm sản phẩm"/>
-                        </form>
                     </div>
-                    <form action="search" method="get">
                         <button type="submit" class="btn submit header__search-btn">
                             <i class="header__search-btn-icon fas fa-search"></i>
                         </button>
-                    </form>
+
                 </div>
+                </form>
 
 
                 <!-- Cart layout -->
