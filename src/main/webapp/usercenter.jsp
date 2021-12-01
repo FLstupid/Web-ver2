@@ -422,6 +422,7 @@
         });
         alert('The file upload with Ajax and Java was a success!');
     }
+
 </script>
 </body>
 </html>

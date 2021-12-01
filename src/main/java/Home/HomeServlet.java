@@ -23,6 +23,8 @@ public class HomeServlet extends HttpServlet {
             if (listproduct != null) {
                 session.setAttribute("listproduct", listproduct);
            }
+
+
             getServletContext()
                     .getRequestDispatcher(url)
                     .forward(request, response);
@@ -32,4 +34,9 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         doPost(request, response);
     }
+//    public static List<?> selectListProductpaging(List productpaging, int start, int end, int count)
+//    {
+//        end = count/
+//
+//    }
 }
