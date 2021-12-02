@@ -197,6 +197,7 @@
                                             <input id="avatar-1" name="photo" type="file" required>
                                         </div>
                                     </div>
+                                    <button type="submit" > Cập nhật ảnh đại diện </button>
                                 </div>
                             </form>
                             <form method="post" style="margin-left: -100px; width: 70%;" action="customer">
