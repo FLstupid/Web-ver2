@@ -197,7 +197,6 @@
                     <!--End home filter -->
 
                     <!-- Product -->
-
                     <div class="home-product">
 
                             <div class="row1 sm-gutter1">
