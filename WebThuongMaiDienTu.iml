@@ -138,7 +138,6 @@
     <orderEntry type="library" name="nio" level="project" />
     <orderEntry type="library" name="normalize" level="application" />
     <orderEntry type="library" name="activation-1.1" level="project" />
-    <orderEntry type="library" name="javax.mail-1.6.1" level="project" />
     <orderEntry type="library" name="commons-logging-1.2" level="project" />
     <orderEntry type="library" name="fluent-hc-4.5.5" level="project" />
     <orderEntry type="library" name="gson-2.8.2" level="project" />
@@ -220,5 +219,6 @@
     <orderEntry type="library" name="Maven: com.sun.mail:all:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:5.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:0.9.5" level="project" />
+    <orderEntry type="library" name="javax.mail-1.6.1" level="project" />
   </component>
 </module>
