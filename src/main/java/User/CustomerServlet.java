@@ -2,7 +2,6 @@ package User;
 
 import Data.accountIO;
 import Model.Account;
-import org.apache.commons.lang3.RandomStringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -17,7 +16,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import com.cloudinary.Cloudinary;
 
 
 @MultipartConfig

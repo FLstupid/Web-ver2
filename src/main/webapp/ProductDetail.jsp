@@ -25,8 +25,9 @@
     <script src="assets/js/owl.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<iframe style="display: none" src="" name="_blank"></iframe>
+
 <body>
+<iframe style="display: none" src="" name="myiframe"></iframe>
 <!-- container -->
 <div class="app">
     <!-- header -->
@@ -171,23 +172,20 @@
                             <input type="button" value="+" class="plus">
                         </div>
                         <div class="product__main-info-contact">
-                            <button type="button" class="btn btn-kx" formmethod="post" formaction="add" formtarget="_blank">
-                                <%
-                                    assert session != null;
-                                    if(session.getAttribute("loggedInUser") == null){%>
-                                <a style="color: white; text-decoration: none"  href="cart?action=checkUser&amp;productCode=${product.id}" >
-                                    Cập nhật giỏ hàng
-                                </a>
-                                <%}else {
-                                %>
-                                <a style="color: white; text-decoration: none">Thêm vào giỏ hàng <%-- --%>
-                                </a><%}%>
-                            </button>
+                            <%
+                                assert session != null;
+                                if(session.getAttribute("loggedInUser") == null){%>
                             <div>
-                                <a href="#" class="product__main-buy-now">
+                                <a class="product__main-buy-now" href="productdetail?action=checkUser" >
                                     Mua Ngay
                                 </a>
                             </div>
+                            <%}else {
+                            %>
+                            <div>
+                                <a class="product__main-buy-now" href="productdetail?add&amp;productCode=${product.id}" target="myiframe">Mua Ngay</a>
+                            </div>
+                            <%}%>
                         </div>
                     </div>
                     <div class="col-md-12 product-tab">
