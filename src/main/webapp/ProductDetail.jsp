@@ -5,7 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sản Phẩm DHS</title>
 
@@ -174,16 +174,18 @@
                         <div class="product__main-info-contact">
                             <%
                                 assert session != null;
-                                if(session.getAttribute("loggedInUser") == null){%>
+                                if (session.getAttribute("loggedInUser") == null) {%>
                             <div>
-                                <a class="product__main-buy-now" href="productdetail?action=checkUser" >
+                                <a class="product__main-buy-now" href="productdetail?action=checkUser">
                                     Mua Ngay
                                 </a>
                             </div>
-                            <%}else {
+                            <%
+                            } else {
                             %>
                             <div>
-                                <a class="product__main-buy-now" href="productdetail?add&amp;productCode=${product.id}" target="myiframe">Mua Ngay</a>
+                                <a class="product__main-buy-now" href="productdetail?add&amp;productCode=${product.id}"
+                                   target="myiframe">Mua Ngay</a>
                             </div>
                             <%}%>
                         </div>
@@ -478,7 +480,7 @@
     <!--End footer -->
 
     <script>
-        $(':radio').change(function() {
+        $(':radio').change(function () {
             console.log('New star rating: ' + this.value);
         });
         const slide = document.getElementsByClassName("review");

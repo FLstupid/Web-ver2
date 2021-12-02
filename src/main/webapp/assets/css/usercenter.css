@@ -42,7 +42,7 @@
 }
 
 .menu-item::before {
-	border-top: 1.5px solid #e1e1e1;
+	border-top: 2px solid #e1e1e1;
 	content: '';
 	position: absolute;
 	top: 0;
@@ -93,7 +93,7 @@
 
 .menu-user-item {
 	list-style: none;
-	margin: 0px 10px;
+	margin: 0 10px;
 	position: relative;
 	min-height: 26px;
 }
@@ -132,7 +132,7 @@
 }
 
 .home {
-	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 .home-interface {
@@ -175,7 +175,7 @@
 	color: var(--text-color);
 	line-height: 1.6rem;
 	margin: 10px 0 10px;
-	height: 3.6rem;
+	height: 2rem;
 	overflow: hidden;
 	display: block;
 	display: -webkit-box;
@@ -193,35 +193,13 @@
 	border-radius: 50%;
 }
 
-.form-control {
-	display: flex;
-	margin: 0px 0px 15px;
-}
-
-.Input-styles {
-	position: relative;
-	padding: 15px 0 0;
-	margin-top: 10px;
-	width: 100%;
-}
-
-.input-label {
-	width: 110px;
-	min-width: 110px;
-	font-size: 17px;
-	color: rgb(51, 51, 51);
-}
-
-.sexcheck {
-	display: flex;
-	margin-right: 100px;
-}
-
 /* Day picker */
 [type='date'] {
+	text-align: center;
+	margin: 5px 0 5px;
 	background: #fff
-		url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
-		97% 50% no-repeat;
+	url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+	97% 50% no-repeat;
 }
 
 [type='date']::-webkit-inner-spin-button {
@@ -267,7 +245,7 @@
 }
 
 .btn-submit {
-	min-width: 142px;
+	width: 150px;
 	height: 50px;
 	text-decoration: none;
 	border: none;
@@ -280,9 +258,9 @@
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0 10px;
+	padding: 0 5px;
 	text-align: center;
-	margin: 10px 30px 10px;
+	margin: 0px 90px 30px;
 	font-weight: bold;
 }
 
@@ -321,8 +299,26 @@
 	align-items: center;
 	padding: 0 10px;
 	text-align: center;
-	margin: 10px 425px 10px;
+	margin: 10px 280px 10px;
 	font-weight: bold;
+}
+
+.btn-submit3 {
+	width: 150px;
+	height: 50px;
+	text-decoration: none;
+	border: none;
+	border-radius: 2px;
+	font-size: 1.5rem;
+	cursor: pointer;
+	outline: none;
+	color: var(--text-color);
+	background: #8a2be2;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 5px;
+	text-align: center;
 }
 
 .btn-submit:hover,
@@ -337,6 +333,10 @@
 	font-size: 1.5em;
 }
 
+.avt {
+	margin-top: 0px;
+}
+
 .kv-avatar .krajee-default.file-preview-frame,
 .kv-avatar .krajee-default.file-preview-frame:hover {
 	margin: 0;
@@ -345,9 +345,11 @@
 	box-shadow: none;
 	text-align: center;
 }
+
 .kv-avatar {
 	display: inline-block;
 }
+
 .kv-avatar .file-input {
 	display: table-cell;
 	width: 213px;
@@ -359,7 +361,81 @@
 	font-weight: normal;
 }
 
-.Account_StylesAccountLayoutInner {
-	flex: 1 1 0%;
-	padding-top: 1px;
+.kv-avatar-hint {
+	display: inline-flex;
+	font-size: 1.3em;
 }
+
+.form-control {
+	display: flex;
+	margin: 0px 0px 10px;
+}
+
+.Input-styles {
+	position: relative;
+	padding: 20px 0 0;
+	width: 50%;
+	margin: auto;
+	text-align: center;
+}
+
+.input-label {
+	width: 110px;
+	min-width: 110px;
+	font-size: 17px;
+	color: rgb(51, 51, 51);
+}
+
+.sexcheck {
+	display: flex;
+	margin-right: 100px;
+}
+
+.Radio_StylesRadio {
+	text-align: center;
+	margin-left: 200px;
+}
+
+.styles_StylesBirthdayPicker {
+	margin-left: 200px;
+	display: flex;
+}
+
+.selectday,
+.selectyear,
+.selectmonth {
+	margin-right: 50px;
+	font-size: 1.4em;
+	margin-bottom: 10px;
+}
+
+#photo {
+	height: 200px;
+	width: 200px;
+	border: 1px solid gray;
+}
+
+#file {
+	display: none;
+}
+
+#uploadBtn {
+	height: 40px;
+	width: 80px;
+	position: absolute;
+	transform: translateX(-50%);
+	right: 77%;
+	bottom: -30px;
+	text-align: center;
+	line-height: 30px;
+	font-family: 'Segoe UI Light';
+	font-size: 8px;
+	cursor: pointer;
+	left: 30px;
+}
+
+.file-loading {
+	margin-top: -230px;
+	margin-left: -15px;
+}
+

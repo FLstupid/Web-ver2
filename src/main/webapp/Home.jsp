@@ -107,19 +107,18 @@
 
                 <!-- Header Search -->
                 <form style="width: 800px" action="search" method="get">
-                <div class="header__search">
-                    <div class="header__search-input-wrap">
+                    <div class="header__search">
+                        <div class="header__search-input-wrap">
 
                             <input type="text" name="searchproduct" class="header__search-input"
                                    placeholder="Nhập để tìm kiếm sản phẩm"/>
-                    </div>
+                        </div>
                         <button type="submit" class="btn submit header__search-btn">
                             <i class="header__search-btn-icon fas fa-search"></i>
                         </button>
 
-                </div>
+                    </div>
                 </form>
-
 
                 <!-- Cart layout -->
                 <div class="header__cart">
@@ -199,9 +198,9 @@
                     <!-- Product -->
                     <div class="home-product">
 
-                            <div class="row1 sm-gutter1">
-                                <!-- Product item -->
-                                <c:forEach items="${listproduct}" var="elements">
+                        <div class="row1 sm-gutter1">
+                            <!-- Product item -->
+                            <c:forEach items="${listproduct}" var="elements">
                                 <div class="col1 l-2-4 m1-4 c-6">
                                         <%-- @elvariable id="listproduct" type="java.util.List" --%>
 
@@ -236,8 +235,8 @@
                                     </a>
 
                                 </div>
-                                </c:forEach>
-                            </div>
+                            </c:forEach>
+                        </div>
 
                     </div>
 

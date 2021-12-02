@@ -130,39 +130,41 @@
 </header>
 
 <c:if test="${not empty ListProductByproductname}">
-<div class="body1">
-    <h1>Kết quả tìm kiếm của <%=request.getParameter("searchproduct")%></h1>
-    <center>
-        <table border="1">
-            <tr>
-                <th>ID</th>
-                <th>Tên sản phẩm</th>
-                <th>Giá</th>
-                <th>Mô tả</th>
-                <th>Tên shop</th>
-            </tr>
-            <c:forEach items="${ListProductByproductname}" var="elements">
-            <tr>
-                <td>${elements[4]}</td>
-                <td>${elements[0]}</td>
-                <td>${elements[2]}</td>
-                <td>${elements[1]}</td>
-                <td>${elements[3]}</td>
-            </tr>
-            </c:forEach>
-        </table>
-    </center>
-</div>
+    <div class="body1">
+        <h1>Kết quả tìm kiếm của <%=request.getParameter("searchproduct")%>
+        </h1>
+        <center>
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Mô tả</th>
+                    <th>Tên shop</th>
+                </tr>
+                <c:forEach items="${ListProductByproductname}" var="elements">
+                    <tr>
+                        <td>${elements[4]}</td>
+                        <td>${elements[0]}</td>
+                        <td>${elements[2]}</td>
+                        <td>${elements[1]}</td>
+                        <td>${elements[3]}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </center>
+    </div>
 </c:if>
 <c:if test="${empty ListProductByproductname}">
     <div class="body1">
-        <h1 class="titleNotfound">Không tìm thấy kết quả nào cho <%=request.getParameter("searchproduct")%></h1>
-        <img class="notfound-img" src="assets/img/404.png" alt="" />
+        <h1 class="titleNotfound">Không tìm thấy kết quả nào cho <%=request.getParameter("searchproduct")%>
+        </h1>
+        <img class="notfound-img" src="assets/img/404.png" alt=""/>
     </div>
 </c:if>
 
 <datalist id="listproduct">
-<option value=""></option>
+    <option value=""></option>
 </datalist>
 
 <!-- Footer -->
