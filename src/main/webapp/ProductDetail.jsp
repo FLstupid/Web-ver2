@@ -33,6 +33,7 @@
     <script src="owlcarousel/owl.carousel.min.js"></script>
     <script src="js/owl.js"></script>
 </head>
+<iframe style="display: none" src="" name="_blank"></iframe>
 <body>
 <!-- container -->
 <div class="container">
@@ -157,7 +158,7 @@
                         Shop: ${product.shopByShopId.shopname}
                     </p>
                     <input class="cart__body-quantity-total" name="amount" type="number" value="1"/>
-                    <button type="button" class="btn btn-kx" formmethod="post" formaction="add">
+                    <button type="button" class="btn btn-kx" formmethod="post" formaction="add" formtarget="_blank">
                         <%
                             if(session.getAttribute("loggedInUser") == null){%>
                      <a style="color: white; text-decoration: none"  href="cart?action=checkUser&amp;productCode=${product.id}" >
@@ -165,7 +166,7 @@
                      </a>
                         <%}else {
                         %>
-                        <a style="color: white; text-decoration: none"  href="productdetail?action=add&amp;productCode=${product.id}" >Cập nhật giỏ hàng <%-- --%>
+                        <a style="color: white; text-decoration: none">Thêm vào giỏ hàng <%-- --%>
                         </a><%}%>
                     </button>
                     <div class="product__main-info-contact">
