@@ -20,7 +20,7 @@
             <span>Admin</span>
             <%}else {
             %>
-            <span>${loggedInUser.username}</span>
+            <span>${account.username}</span>
             <%}%>
         </div>
     </section>
@@ -72,7 +72,7 @@
                                     <label class="input-label">Shop</label>
                                     <div>
                                         <label>
-                                            <input type="text" name="fullName" maxlength="128" class="Input-styles" value="${loggedInUser.shopName}">
+                                            <input type="text" name="fullName" maxlength="128" class="Input-styles" value="${account.shopName}">
                                         </label>
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                                     <label class="input-label">Số điện thoại</label>
                                     <div>
                                         <label>
-                                            <input type="tel" disabled name="phoneNumber" placeholder="Nhập SĐT" class="Input-styles" value="${loggedInUser.phone}">
+                                            <input type="tel" disabled name="phoneNumber" placeholder="Nhập SĐT" class="Input-styles" value="${account.phone}">
                                         </label>
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@
                                     <label class="input-label">Email</label>
                                     <div>
                                         <label>
-                                            <input type="email" disabled name="email" class="Input-styles" value="${loggedInUser.email}">
+                                            <input type="email" disabled name="email" class="Input-styles" value="${account.email}">
                                         </label>
                                     </div>
                                 </div>
