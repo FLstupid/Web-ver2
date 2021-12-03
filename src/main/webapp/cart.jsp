@@ -11,6 +11,7 @@
 
 </head>
 <body>
+<iframe style="display: none" src="" name="myiframe"></iframe>
 <!---------------------------------------------------header-------------------------------------------->
 <header class="style__Header">
     <section class="Container">
@@ -187,7 +188,7 @@
                     </div>
                     <div style="margin-left: 100px" class="info">
                         Tài Khoản
-                        <strong>user-name</strong>
+                        <strong>${account.username}</strong>
                     </div>
                 </div>
 
@@ -216,7 +217,6 @@
                     <div class="Content_StylesNav">
                         <form method="post" action="cart">
                             <%--@elvariable id="listcart" type="java.util.List"--%>
-                            <c:set var="listcart" scope="page" value="${listcart}"/>
                             <c:if test="${empty listcart}">
                                 <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
                                 <a href="home" class="back">Tiếp tục mua sắm</a>
@@ -240,27 +240,20 @@
                                         <c:forEach items="${listcart}" var="element">
                                             <tbody>
                                             <tr>
-                                                <form action="cart" method="post">
-                                                    <td><input type="hidden" name="productCode"
-                                                               value="<c:out value='${element[9]}'/>">
-                                                        <input style="width: 50px;" type="text" name="amount"
-                                                               value="${element[0]}" id="amount">
-                                                        <input type="submit" value="Update"></td>
-                                                </form>
+                                                <form><input type="number" value="${element[1]}" name="amount"></form>
+                                                <a href="cart?action=remove&amp;id=${element[0]}"
+                                                   target="myiframe">Update
+                                                </a>
                                                 <td>${element[1]}</td>
                                                 <td>${element[2]}</td>
                                                 <td>${element[3]}</td>
                                                 <td>${element[4]}</td>
                                                 <td>${element[5]}</td>
                                                 <td>${element[7]}</td>
-                                                <td>${element[8]}</td>
                                                 <td>
-                                                    <form action="cart" method="post">
-                                                        <input type="hidden" name="productCode"
-                                                               value="<c:out value='${element[9]}'/>">
-                                                        <input type="hidden" name="amount" value="0">
-                                                        <input type="submit" value="Remove">
-                                                    </form>
+                                                    <a href="cart?action=remove&amp;id=${element[0]}"
+                                                       target="myiframe">Remove
+                                                    </a>
                                                 </td>
                                             </tr>
                                             </tbody>

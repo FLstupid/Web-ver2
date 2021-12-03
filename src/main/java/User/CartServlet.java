@@ -1,7 +1,10 @@
 package User;
 
+import Data.cartIO;
 import Data.cartItemIO;
 import Model.Account;
+import Model.Cart;
+import Model.CartItem;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -36,13 +39,33 @@ public class CartServlet extends HttpServlet{
         else {
             Account acc = (Account) session.getAttribute("account");
             long Id = acc.getId();
-            List<?> listcart = cartItemIO.selectItems(Id);
+            Cart cart = (Cart) cartIO.selectCart(Id);
+            List<?> listcart = null;
+            if (cart != null) {
+                listcart = cartItemIO.selectItems(cart.getId());
+            }
 
             session.setAttribute("listcart", listcart);
             url = "/cart.jsp";
             getServletContext()
                     .getRequestDispatcher(url)
                     .forward(request, response);
+        }
+        if(action.equals("Update")){
+            long itemId = (long) session.getAttribute("id");
+            long productCode = (long) session.getAttribute("productCode");
+            int amount = (int) session.getAttribute("amount");
+            CartItem item = (CartItem) cartItemIO.selectItem(productCode,itemId);
+            if (item != null) {
+                item.setAmount(amount);
+                cartItemIO.update(item);
+            }
+        }
+        else if(action.equals("remove")){
+            long itemId = Long.parseLong(request.getParameter("id"));
+            long productCode = Long.parseLong(request.getParameter("productCode"));
+            CartItem item = (CartItem) cartItemIO.selectItem(productCode,itemId);
+            cartItemIO.delete(item);
         }
     }
     @Override

@@ -180,7 +180,7 @@
                         </div>
                         <% } else { %>
                         <div>
-                            <a class="product__main-buy-now" href="productdetail?action=add&amp;productCode=${product.id};amount=${amount}"
+                            <a class="product__main-buy-now" href="productdetail?action=add&amp;productCode=${product.id}&amp;amount=${amount}"
                                target="myiframe">Mua Ngay
                             </a>
                         </div>

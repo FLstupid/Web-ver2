@@ -68,7 +68,7 @@ public class cartItemIO {
         EntityTransaction transaction = em.getTransaction();
         try {
             em.getTransaction().begin();
-            return em.createQuery("SELECT c.id as id, c.content as content FROM" +
+            return em.createQuery("SELECT c FROM" +
                     " CartItem c WHERE c.cartByCartId.id =?1").setParameter(1,cartId).getResultList();
         } catch (Exception e)
         {
