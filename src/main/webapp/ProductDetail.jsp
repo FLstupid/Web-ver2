@@ -123,7 +123,7 @@
                 <!-- Cart layout -->
                 <div class="header__cart">
                     <div class="header__cart-wrap">
-                        <span class="header__cart-notice">0</span>
+                        <span class="header__cart-notice">${amount}</span>
                         <a href="${pageContext.request.contextPath}/cart" rel="nofollow">
                             <i class="header__cart-icon fas fa-shopping-cart"></i>
                         </a>
@@ -160,11 +160,11 @@
                     </div>
                     <p class="product-current">${product.content}</p>
                     <p class="product-description">${product.decription}</p>
-                    <p><h5 class="product-quantity">Shop ${product.shopByShopId.shopname}</h5></p>
+                    <p><h5 class="product-quantity">Shop ${product.shopByShopId.shopname}</h5>
                     <div class="quantity buttons_added">
                         <h5 class="product-quantity">Số lượng</h5>
                         <input type="button" value="-" class="minus">
-                        <input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty"
+                        <input type="number" step="1" min="1" max="" name="amount" value="1" title="Qty"
                                class="input-text qty text" size="4" pattern="" inputmode="">
                         <input type="button" value="+" class="plus">
                     </div>
@@ -180,7 +180,7 @@
                         </div>
                         <% } else { %>
                         <div>
-                            <a class="product__main-buy-now" href="productdetail?add&amp;productCode=${product.id}"
+                            <a class="product__main-buy-now" href="productdetail?action=add&amp;productCode=${product.id};amount=${amount}"
                                target="myiframe">Mua Ngay
                             </a>
                         </div>
@@ -257,6 +257,7 @@
                     </p>
                 </div>
                 <div id="danhgia" disabled class="col-md-12 product-content-wrap">
+                    <%--@elvariable id="nhanxet" type="java.util.List"--%>
                     <c:forEach items="${nhanxet}" var="elements">
                         <h4 class="product-content">${elements[1]}</h4>
                     </c:forEach>
@@ -298,7 +299,7 @@
                         <br>
                         <br>
                         <br>
-                        <form action="comment" method="post">
+                        <form action="productdetail" method="post">
                             <div style="margin-top: -40px;">
                                 <span style="font-size: 1.5em; font-family: sans-serif; display: block; margin-bottom: 5px;">Chủ đề bình luận: </span>
                                 <input type="text"
@@ -307,10 +308,11 @@
                                 <span style="font-size: 1.5em; font-family: sans-serif; display: block; margin-bottom: 5px;">Cảm nhận của bạn về sản phẩm: </span>
                                 <textarea rows="5" name="comment" id="comment"
                                           style="margin-bottom: 2px;font-family: sans-serif;font-size: 1.4em;width: 100%;"> </textarea><br>
-                                <input type="submit" value="Bình luận"
+                                <input type="submit" value="comment"
                                        style="width: 150px;height: 30px;border: none;border-radius: 2px;font-size: 1.5rem;cursor: pointer;outline: none;color: var(--text-color);background: #8a2be2;display: inline-flex;justify-content: center;align-items: center;padding: 0 5px;text-align: center;margin: 5px 0 30px;font-weight: bold;">
                             </div>
                         </form>
+                    </form>
                 </div>
             </div>
         </div>
@@ -432,7 +434,6 @@
         const review = document.getElementById("danhgia");
     </script>
     <script src="assets/js/quantity.js"></script>
-</div>
 </div>
 </body>
 </html>

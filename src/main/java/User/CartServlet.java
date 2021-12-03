@@ -1,9 +1,7 @@
 package User;
 
-import Data.accountIO;
 import Data.cartItemIO;
 import Model.Account;
-import Model.Cart;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -25,46 +23,31 @@ public class CartServlet extends HttpServlet{
         ServletContext sc = getServletContext();
         String action = request.getParameter("action");
         String url;
+        HttpSession session = request.getSession();
         if (action == null) {
-            action = "cart"; // default action
+            action = "cart";
         }
-        if (sc != null) {
-            Cart cart;
-            HttpSession session = request.getSession();
-            cart = (Cart) session.getAttribute("cart");
-            long cartId = cart.getId();
-            List<?> listcart = cartItemIO.selectItems(cartId);
+        if (session.getAttribute("account") == null) {
+            url = "/login.jsp";
+            getServletContext()
+                    .getRequestDispatcher(url)
+                    .forward(request, response);
+        }
+        else {
+            Account acc = (Account) session.getAttribute("account");
+            long Id = acc.getId();
+            List<?> listcart = cartItemIO.selectItems(Id);
 
-            session.setAttribute("cart", cart);
-            session.setAttribute("listcart",listcart);
+            session.setAttribute("listcart", listcart);
+            url = "/cart.jsp";
+            getServletContext()
+                    .getRequestDispatcher(url)
+                    .forward(request, response);
         }
-        url = "/cart.jsp";
-        getServletContext()
-                .getRequestDispatcher(url)
-                .forward(request, response);
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doPost(request, response);
-    }
-    private String checkUser(HttpServletRequest request,
-                             HttpServletResponse response) {
-        String productCode = request.getParameter("productCode");
-        HttpSession session = request.getSession();
-        session.setAttribute("productCode", productCode);
-        String url;
-        if (productCode == null || productCode.equals("")) {
-                url = "/login.jsp";
-        }
-        else {
-            ServletContext sc = getServletContext();
-            Account  account = (Account) request.getSession().getAttribute("account");
-            long id = account.getId();
-            Account   account1 = accountIO.getAccountById(id);
-            session.setAttribute("account", account1);
-            url = "/cart.jsp";
-        }
-        return url;
     }
 }
