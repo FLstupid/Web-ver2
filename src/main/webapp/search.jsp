@@ -131,7 +131,7 @@
 
 <c:if test="${not empty ListProductByproductname}">
     <div class="body1">
-        <h1>Kết quả tìm kiếm của <%=request.getParameter("searchproduct")%>
+        <h1 class="titleNotfound">Kết quả tìm kiếm của <%=request.getParameter("searchproduct")%>
         </h1>
         <center>
             <table border="1">
