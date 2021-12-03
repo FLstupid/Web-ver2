@@ -1,6 +1,8 @@
 package Home;
 
 import Data.productIO;
+import Data.orderDetailIO;
+import Model.Account;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,13 +19,34 @@ public class Search  extends HttpServlet {
         if (request.getCharacterEncoding() == null) {
             request.setCharacterEncoding("UTF-8");
         }
-        String pn = request.getParameter("searchproduct");
-        List<?> ListProductByproductname = productIO.selectListProductByproductname(pn);
-        if (pn!=null||ListProductByproductname != null) {
-            request.getSession().setAttribute("ListProductByproductname", ListProductByproductname);
+        String action = request.getParameter("action");
+        String url = null;
+        if (action == null) {
+            action = "search"; // default action
         }
+        else if(action.equals("searchproduct"))
+        {
+            String pn = request.getParameter("searchproduct");
+            List<?> ListProductByproductname = productIO.selectListProductByproductname(pn);
+            if (pn!=null||ListProductByproductname != null) {
+                request.getSession().setAttribute("ListProductByproductname", ListProductByproductname);
+            }
+            url ="/search.jsp";
+        }
+        else if (action.equals("searchorder"))
+        {
+            String pn = request.getParameter("searchorder");
+            Account acc = (Account) request.getSession().getAttribute("account");
+            long id1 = acc.getId();
+            List<?> Listorder = orderDetailIO.selectOrderListforSellerforSearch(id1,pn);
+            if (pn!=null||Listorder != null) {
+                request.getSession().setAttribute("Listorder", Listorder);
+            }
+            url ="/searchorder.jsp";
+        }
+
         getServletContext()
-                .getRequestDispatcher("/search.jsp")
+                .getRequestDispatcher(url)
                 .forward(request, response);
     }
 }

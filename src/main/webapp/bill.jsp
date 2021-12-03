@@ -69,7 +69,20 @@
                 <div class="main-content">
                     <div class="content">
                         <h3 class="title">Tìm kiếm đơn hàng</h3>
-                        <div class="search"></div>
+                        <form style="width: 800px" action="search" method="get">
+                            <input type="hidden" name="action" value="searchorder">
+                            <div class="header__search">
+                                <div class="header__search-input-wrap">
+                                    <input type="text" name="searchorder" class="header__search-input"
+                                           placeholder="Nhập để tìm kiếm đơn hàng"/>
+                                </div>
+                                <button type="submit" class="btn submit header__search-btn">
+                                    <i class="header__search-btn-icon fas fa-search">Tìm kiếm</i>
+                                </button>
+
+                            </div>
+                        </form>
+
                     </div>
                     <div class="content">
                         <h3 class="title">Thông tin đơn hàng</h3>
@@ -84,9 +97,11 @@
                                     <thead>
                                     <tr>
                                         <th>Mã thanh toán</th>
+                                        <th>Tên sản phẩm</th>
                                         <th>Số điện thoại</th>
                                         <th>Ngày mua</th>
                                         <th>Giá</th>
+                                        <th>Trạng thái</th>
                                         <th>Số lượng</th>
                                     </tr>
                                     </thead>
@@ -94,10 +109,12 @@
                                         <tbody>
                                         <tr>
                                             <td>${element[0]}</td>
-                                            <td>${element[6]}</td>
+                                            <td>${element[2]}</td>
                                             <td>${element[5]}</td>
+                                            <td>${element[1]}</td>
                                             <td>${element[3]}</td>
-                                            <td>${element[7]}</td>
+                                            <td>${element[4]}</td>
+                                            <td>${element[6]}</td>
                                         </tr>
                                         </tbody>
                                     </c:forEach>

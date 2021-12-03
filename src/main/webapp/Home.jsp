@@ -107,6 +107,7 @@
 
                 <!-- Header Search -->
                 <form style="width: 800px" action="search" method="get">
+                    <input type="hidden" name="action" value="searchproduct">
                     <div class="header__search">
                         <div class="header__search-input-wrap">
 
