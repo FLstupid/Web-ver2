@@ -8,12 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 
 public  class accountIO {
   public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
-
-
     public accountIO (){
 
     }
-
     public accountIO(HttpServletRequest request, HttpServletResponse response) {
     }
 

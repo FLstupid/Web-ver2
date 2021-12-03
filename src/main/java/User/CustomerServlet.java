@@ -42,6 +42,7 @@ public class CustomerServlet extends HttpServlet {
         else if(action.equals("upimage"))
         {
             String uploadfolder =  getServletContext().getRealPath("/images");
+
             Path uploadPath = Paths.get(uploadfolder);
             if(!Files.exists(uploadPath))
             {

@@ -207,11 +207,15 @@
                         <span style="margin-left: 600px;">Chọn địa chỉ: </span>
                         <select class="form-select" name="listaddress" aria-label="Default select example">
                             <%--@elvariable id="listaddress" type="java.util.List"--%>
-                            <c:forEach items="${listaddress}" var="element" varStatus="loop">
-                                <option value="${loop.index}"></option>
-                                <c:out value="${element[1]}"/>, <c:out value="${element[2]}"/>, <c:out
-                                    value="${element[3]}"/>
-                            </c:forEach>
+<%--                            <c:if test="${not empty listaddress}">--%>
+<%--                                <option value="" selected>Không có địa chỉ</option>--%>
+<%--                            </c:if>--%>
+<%--                            <c:if test="${not empty listaddress}">--%>
+                                <c:forEach items="${listaddress}" var="element" varStatus="loop">
+                                    <option value="${loop.index}" selected> <c:out value="${element[1]}"/>, <c:out value="${element[2]}"/>, <c:out value="${element[3]}"/></option>
+                                </c:forEach>
+<%--                            </c:if>--%>
+
                         </select>
                     </div>
                     <div class="Content_StylesNav">
@@ -240,15 +244,17 @@
                                         <c:forEach items="${listcart}" var="element">
                                             <tbody>
                                             <tr>
-                                                <form><input type="number" value="${element[1]}" name="amount"></form>
-                                                <a href="cart?action=remove&amp;id=${element[0]}"
+                                                <form><input type="number" value="${element[0]}" name="amount"></form>
+                                                <a href="cart?action=remove&amp;id=${element[8]}"
                                                    target="myiframe">Update
                                                 </a>
+                                                <td>${element[0]}</td>
                                                 <td>${element[1]}</td>
                                                 <td>${element[2]}</td>
                                                 <td>${element[3]}</td>
                                                 <td>${element[4]}</td>
                                                 <td>${element[5]}</td>
+                                                <td>${element[6]}</td>
                                                 <td>${element[7]}</td>
                                                 <td>
                                                     <a href="cart?action=remove&amp;id=${element[0]}"

@@ -1,5 +1,6 @@
 package User;
 
+import Data.addressIO;
 import Data.cartIO;
 import Data.cartItemIO;
 import Model.Account;
@@ -41,11 +42,14 @@ public class CartServlet extends HttpServlet{
             long Id = acc.getId();
             Cart cart = (Cart) cartIO.selectCart(Id);
             List<?> listcart = null;
+            List<?> listaddress = addressIO.selectUserAdress(Id);
+
             if (cart != null) {
                 listcart = cartItemIO.selectItems(cart.getId());
             }
 
             session.setAttribute("listcart", listcart);
+            session.setAttribute("listaddress", listaddress);
             url = "/cart.jsp";
             getServletContext()
                     .getRequestDispatcher(url)
