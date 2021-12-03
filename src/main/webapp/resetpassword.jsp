@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Reset Password</title>
-    <link rel="stylesheet" href="/css/style.css" >
+    <link rel="stylesheet" href="/css/style.css">
     <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
 </head>
@@ -34,14 +34,14 @@
 </div>
 <c:if test="${not empty message}">
     <script>
-        window.addEventListener("load",function(){
+        window.addEventListener("load", function () {
             alert("${message}");
         })
     </script>
 </c:if>
 <script type="text/javascript">
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#resetForm").validate({
             rules: {
                 email: {

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE>
 <html>
@@ -15,10 +15,10 @@
         <h1>Nhập Mật Khẩu Mới</h1>
         <input style="width: 500px;" type="text" name="newpass"/>
         <input style="width: 500px;" type="text" name="confirmnewpasss"/>
-        <button type="submit"  id="btn2"  value="verify" class="btn2 btn-submit">Xác Nhận</button>
+        <button type="submit" id="btn2" value="verify" class="btn2 btn-submit">Xác Nhận</button>
         <c:if test="${not empty message}">
             <script>
-                window.addEventListener("load",function(){
+                window.addEventListener("load", function () {
                     alert("${message}");
                 })
             </script>

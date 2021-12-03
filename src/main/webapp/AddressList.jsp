@@ -1,11 +1,10 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>UserCenter</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <link rel="stylesheet" href="css/newcss.css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <link rel="stylesheet" href="css/newcss.css"/>
     <link rel="stylesheet" href="Home/homePage.css"/>
 </head>
 <body>
@@ -22,7 +21,7 @@
                 <div class="logo-menu">
                     <div class="style_Logo">
                         <a href="home" class="dhs-logo">
-                            <img src="Home/img/logo.svg" alt="" />
+                            <img src="Home/img/logo.svg" alt=""/>
                         </a>
                     </div>
                 </div>
@@ -74,19 +73,20 @@
                 <%} else {%>
                 <div class="Userstyle__Root">
                     <div class="Userstyle__Item">
-                        <img class="profile-icon" src="Home/img/user.png" alt="" />
+                        <img class="profile-icon" src="Home/img/user.png" alt=""/>
                         <a class="Userstyle__ItemText">
                             <span class="Userstyle__NoWrap">Tài khoản</span>
                             <span class="account_laber">
 										<div style="display: flex" class="buttonDropdown">
                                             <%
-                                                if(session.getAttribute("username") == null ||session.getAttribute("username") == "" ||session == null || session.getAttribute("loggedInUser") == null){%>
+                                                if (session.getAttribute("username") == null || session.getAttribute("username") == "" || session == null || session.getAttribute("loggedInUser") == null) {%>
 											<span>user-name</span>
-                                            <%}else {
+                                            <%
+                                            } else {
                                             %>
                                             <span>${account.username}</span>
                                             <%}%>
-											<img class="arrowIcon" src="Home/img/down.png" alt="" />
+											<img class="arrowIcon" src="Home/img/down.png" alt=""/>
 										</div>
 										<div
                                                 style="margin-top: 20px"
@@ -178,8 +178,9 @@
                 <div class="Account_StylesAvatar">
 
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <form >
-                            <img class="avt"  style="width: 60px; height: 60px" src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
+                        <form>
+                            <img class="avt" style="width: 60px; height: 60px"
+                                 src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
                         </form>
                     </div>
                     <div style="margin-left: 100px" class="info">
@@ -189,20 +190,21 @@
                 </div>
 
                 <ul class="Account_NavBar">
-                    <li><a  class="is-active" href="customer"><span>Thông tin tài khoản</span></a></li>
-                    <li><a    href="changingpassword"><span>Đổi mật khẩu</span></a></li>
-                    <li><a   href="customerorder"><span>Quản lý đơn hàng</span></a></li>
-                    <li><a  href="addresslist"><span>Sổ địa chỉ</span></a></li>
-                    <li><a  href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
+                    <li><a class="is-active" href="customer"><span>Thông tin tài khoản</span></a></li>
+                    <li><a href="changingpassword"><span>Đổi mật khẩu</span></a></li>
+                    <li><a href="customerorder"><span>Quản lý đơn hàng</span></a></li>
+                    <li><a href="addresslist"><span>Sổ địa chỉ</span></a></li>
+                    <li><a href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
                 </ul>
             </aside>
             <div class="Account_StylesAccountLayoutInner">
 
-                <div  class="adressadd formresult  ">
-                    <h3  class="HeadingContent">Danh Sách Địa Chỉ</h3>
+                <div class="adressadd formresult  ">
+                    <h3 class="HeadingContent">Danh Sách Địa Chỉ</h3>
                     <div class="new addadress">
                         <a id="a" href="addaddress">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                                 height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z">
                                 </path>
                             </svg>
@@ -211,34 +213,40 @@
                         </a>
                     </div>
                     <div class="Content_StylesNav">
-                        <form method="get" >
+                        <form method="get">
                             <c:if test="${empty listaddress}">
                                 <p style="margin-left: 420px">Chưa có địa chỉ nào</p>
                             </c:if>
                             <c:if test="${not empty listaddress}">
 
-                                    <div class = "_1address">
-                                            <div style="display: flex; margin-bottom: 10px;" class="addresslist">
-                                                    <div style="margin-right: auto;" class="info">
-                                                     <c:forEach items="${listaddress}" var="elements">
-                                                        <form style="width: 100%; margin-top: 10px;" action="addresslist" >
-                                                            <input type="hidden" name="madiachi" value="${elements[5]}">
-                                                            <div class="name"><c:out value="${elements[0]}"/>
-                                                                <span>
-                                                            <svg style="color: greenyellow;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <div class="_1address">
+                                    <div style="display: flex; margin-bottom: 10px;" class="addresslist">
+                                        <div style="margin-right: auto;" class="info">
+                                            <c:forEach items="${listaddress}" var="elements">
+                                                <form style="width: 100%; margin-top: 10px;" action="addresslist">
+                                                    <input type="hidden" name="madiachi" value="${elements[5]}">
+                                                    <div class="name"><c:out value="${elements[0]}"/>
+                                                        <span>
+                                                            <svg style="color: greenyellow;" stroke="currentColor"
+                                                                 fill="currentColor" stroke-width="0"
+                                                                 viewBox="0 0 512 512" height="1em" width="1em"
+                                                                 xmlns="http://www.w3.org/2000/svg">
                                                             </svg>
                                                         </span>
-                                                            </div>
-                                                            <div class="address">
-                                                                <span>Địa chỉ: </span><c:out value="${elements[1]}"/>, <c:out value="${elements[2]}"/>, <c:out value="${elements[3]}"/></div>
-                                                            <div class="phone"> <span>Điện thoại:</span><c:out value="${elements[4]}"/></div>
-
-                                                        </form>
-
-                                                     </c:forEach>
                                                     </div>
-                                            </div>
+                                                    <div class="address">
+                                                        <span>Địa chỉ: </span><c:out value="${elements[1]}"/>, <c:out
+                                                            value="${elements[2]}"/>, <c:out value="${elements[3]}"/>
+                                                    </div>
+                                                    <div class="phone"><span>Điện thoại:</span><c:out
+                                                            value="${elements[4]}"/></div>
+
+                                                </form>
+
+                                            </c:forEach>
+                                        </div>
                                     </div>
+                                </div>
 
                             </c:if>
                         </form>

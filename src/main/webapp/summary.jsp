@@ -9,7 +9,8 @@
 <body>
 <header class="header-root">
     <section class="header-container">
-        <a href="${pageContext.request.contextPath}/home" class="content-logo"><img src="SellerCenter/img/android-chrome-192x192.png" alt=""></a>
+        <a href="${pageContext.request.contextPath}/home" class="content-logo"><img
+                src="SellerCenter/img/android-chrome-192x192.png" alt=""></a>
         <a href="${pageContext.request.contextPath}/summary" class="style-content">
             <span>Seller Center</span>
         </a>
@@ -17,9 +18,10 @@
         <div class="account-avatar">
             <img class="avt" src="SellerCenter/img/default_avt.png" alt="">
             <%
-                if(session.getAttribute("username") == null || session.getAttribute("username") == "" || session.getAttribute("loggedInUser") == null){%>
+                if (session.getAttribute("username") == null || session.getAttribute("username") == "" || session.getAttribute("loggedInUser") == null) {%>
             <span>Admin</span>
-            <%}else {
+            <%
+            } else {
             %>
             <span>${account.username}</span>
             <%}%>
@@ -68,7 +70,8 @@
                     <div class="content">
                         <h3 class="title">Tổng quan</h3>
                         <div class="content-1-wapper">
-                            <div class="to-do-box" style="max-height: 180px; overflow: hidden;transition:max-height 0.3s ease 0s;">
+                            <div class="to-do-box"
+                                 style="max-height: 180px; overflow: hidden;transition:max-height 0.3s ease 0s;">
                                 <a class="to-do-box-item" href="#">
                                     <p class="item-title">0</p>
                                     <p class="item-desc">Chờ Xác Nhận</p>
@@ -114,7 +117,8 @@
                                 </div>
                             </div>
                             <div class="content-2-detail">
-                                <div class="detail-box" style="max-height: 200px; overflow: hidden;transition:max-height 0.3s ease 0s;">
+                                <div class="detail-box"
+                                     style="max-height: 200px; overflow: hidden;transition:max-height 0.3s ease 0s;">
                                     <div class="detail-box-item">
                                         <p class="detail-title">Lượt truy cập</p>
                                         <p class="detail-data">0</p>

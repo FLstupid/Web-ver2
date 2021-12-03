@@ -12,7 +12,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/logo.ico">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/usercenter.css">
+    <link rel="stylesheet" href="assets/css/pages/usercenter.css">
     <link rel="stylesheet" href="assets/css/core.css">
     <link rel="stylesheet" href="assets/css/shortcode/shortcodes.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
@@ -143,7 +143,8 @@
                 <!-- Danh mục -->
                 <div class="col1 l-2 m-0 c-0">
                     <ul class="menu-user-item menu-user-name">
-                        <img src="assets/img/user_avatar.jpg" class="menu-user-img" alt="">
+                        <img src="${pageContext.request.contextPath}/images/${account.avatar}" class="menu-user-img"
+                             alt="">
                         <span class="menu-user-item--strong menu-user">
                                 Nguyễn Thanh Minh Đức</span>
                     </ul>
@@ -216,7 +217,8 @@
                                 </div>
                                 <label class="home-item__name">&nbsp;</label>
                                 <button type="submit" onclick="alert('${message}')" class="btn-submit2">Thay Đổi
-                                    Mật Khẩu</button>
+                                    Mật Khẩu
+                                </button>
                             </form>
                         </div>
                     </div>

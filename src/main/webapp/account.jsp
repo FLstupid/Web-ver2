@@ -8,7 +8,8 @@
 <body>
 <header class="header-root">
     <section class="header-container">
-        <a href="${pageContext.request.contextPath}/home" class="content-logo"><img src="SellerCenter/img/android-chrome-192x192.png" alt=""></a>
+        <a href="${pageContext.request.contextPath}/home" class="content-logo"><img
+                src="SellerCenter/img/android-chrome-192x192.png" alt=""></a>
         <a href="${pageContext.request.contextPath}/summary" class="style-content">
             <span>Seller Center</span>
         </a>
@@ -16,9 +17,10 @@
         <div class="account-avatar">
             <img class="avt" src="SellerCenter/img/" alt="">
             <%
-                if(session.getAttribute("loggedInUser") == null){%>
+                if (session.getAttribute("loggedInUser") == null) {%>
             <span>Admin</span>
-            <%}else {
+            <%
+            } else {
             %>
             <span>${account.username}</span>
             <%}%>
@@ -72,7 +74,8 @@
                                     <label class="input-label">Shop</label>
                                     <div>
                                         <label>
-                                            <input type="text" name="fullName" maxlength="128" class="Input-styles" value="${account.shopName}">
+                                            <input type="text" name="fullName" maxlength="128" class="Input-styles"
+                                                   value="${account.shopName}">
                                         </label>
                                     </div>
                                 </div>
@@ -80,7 +83,8 @@
                                     <label class="input-label">Số điện thoại</label>
                                     <div>
                                         <label>
-                                            <input type="tel" disabled name="phoneNumber" placeholder="Nhập SĐT" class="Input-styles" value="${account.phone}">
+                                            <input type="tel" disabled name="phoneNumber" placeholder="Nhập SĐT"
+                                                   class="Input-styles" value="${account.phone}">
                                         </label>
                                     </div>
                                 </div>
@@ -88,16 +92,17 @@
                                     <label class="input-label">Email</label>
                                     <div>
                                         <label>
-                                            <input type="email" disabled name="email" class="Input-styles" value="${account.email}">
+                                            <input type="email" disabled name="email" class="Input-styles"
+                                                   value="${account.email}">
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-control">
                                     <label class="input-label">Giới tính</label>
-                                    <%  boolean gender;
+                                    <% boolean gender;
                                         if (session.getAttribute("gender") == null) gender = true;
                                         else gender = ((boolean) session.getAttribute("gender"));
-                                        if (gender){%>
+                                        if (gender) {%>
                                     <label class="Radio_StylesRadio">
                                         <input type="radio" name="gender" value="male" checked>
                                         <span class="radio-fake"></span>
@@ -110,10 +115,10 @@
                                     </label>
                                     <%} else {%>
                                     <label class="Radio_StylesRadio">
-                                    <input type="radio" name="gender" value="male">
-                                    <span class="radio-fake"></span>
-                                    <span class="label">Nam</span>
-                                </label>
+                                        <input type="radio" name="gender" value="male">
+                                        <span class="radio-fake"></span>
+                                        <span class="label">Nam</span>
+                                    </label>
                                     <label class="Radio_StylesRadio">
                                         <input type="radio" name="gender" value="female" checked>
                                         <span class="radio-fake"></span>

@@ -7,7 +7,8 @@
 <body>
 <header class="header-root">
     <section class="header-container">
-        <a href="${pageContext.request.contextPath}/home" class="content-logo"><img src="SellerCenter/img/android-chrome-192x192.png" alt=""></a>
+        <a href="${pageContext.request.contextPath}/home" class="content-logo"><img
+                src="SellerCenter/img/android-chrome-192x192.png" alt=""></a>
         <a href="${pageContext.request.contextPath}/summary" class="style-content">
             <span>Seller Center</span>
         </a>

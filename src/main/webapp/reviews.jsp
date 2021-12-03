@@ -8,7 +8,8 @@
 <body>
 <header class="header-root">
     <section class="header-container">
-        <a href="${pageContext.request.contextPath}/home" class="content-logo"><img src="SellerCenter/img/android-chrome-192x192.png" alt=""></a>
+        <a href="${pageContext.request.contextPath}/home" class="content-logo"><img
+                src="SellerCenter/img/android-chrome-192x192.png" alt=""></a>
         <a href="${pageContext.request.contextPath}/summary" class="style-content">
             <span>Seller Center</span>
         </a>
@@ -65,18 +66,18 @@
                             <span>Load Failed</span>
                         </c:if>
                         <c:if test="${not empty listreview}">
-                                <table>
-                                    <thead>
-                                    <tr>
-                                        <th>Mã sản phẩm</th>
-                                        <th>Tên sản phẩm</th>
-                                        <th>Tiêu đề nhận xét</th>
-                                        <th>Nhận xét</th>
-                                        <th>Tên khách hàng</th>
-                                        <th>Ngày tạo</th>
-                                    </tr>
-                                    </thead>
-                            <c:forEach items="${listreview}" var="element">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Mã sản phẩm</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Tiêu đề nhận xét</th>
+                                    <th>Nhận xét</th>
+                                    <th>Tên khách hàng</th>
+                                    <th>Ngày tạo</th>
+                                </tr>
+                                </thead>
+                                <c:forEach items="${listreview}" var="element">
                                     <tbody>
                                     <tr>
                                         <td>${element[0]}</td>
@@ -87,7 +88,7 @@
                                         <td>${element[6]}</td>
                                     </tr>
                                     </tbody>
-                            </c:forEach>
+                                </c:forEach>
                             </table>
 
                         </c:if>

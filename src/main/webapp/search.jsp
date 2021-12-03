@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search DHS</title>
+    <title>DHS</title>
 
     <!-- Logo -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/logo.ico">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/search.css">
+    <link rel="stylesheet" href="assets/css/pages/search.css">
     <link rel="stylesheet" href="assets/css/core.css">
     <link rel="stylesheet" href="assets/css/shortcode/shortcodes.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">

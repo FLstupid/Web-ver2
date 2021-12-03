@@ -4,9 +4,9 @@
 <html>
 <head>
     <title>UserCenter</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
     <link rel="stylesheet" href="css/usercenter.css"/>
-    <link rel="stylesheet" href="css/newcss.css" />
+    <link rel="stylesheet" href="css/newcss.css"/>
     <link rel="stylesheet" href="Home/homePage.css"/>
 </head>
 <body>
@@ -23,7 +23,7 @@
                 <div class="logo-menu">
                     <div class="style_Logo">
                         <a href="home" class="dhs-logo">
-                            <img src="Home/img/logo.svg" alt="" />
+                            <img src="Home/img/logo.svg" alt=""/>
                         </a>
                     </div>
                 </div>
@@ -75,19 +75,20 @@
                 <%} else {%>
                 <div class="Userstyle__Root">
                     <div class="Userstyle__Item">
-                        <img class="profile-icon" src="Home/img/user.png" alt="" />
+                        <img class="profile-icon" src="Home/img/user.png" alt=""/>
                         <a class="Userstyle__ItemText">
                             <span class="Userstyle__NoWrap">Tài khoản</span>
                             <span class="account_laber">
 										<div style="display: flex" class="buttonDropdown">
                                             <%
-                                                if(session.getAttribute("username") == null || session.getAttribute("username") == "" || session.getAttribute("loggedInUser") == null){%>
+                                                if (session.getAttribute("username") == null || session.getAttribute("username") == "" || session.getAttribute("loggedInUser") == null) {%>
 											<span>user-name</span>
-                                            <%}else {
+                                            <%
+                                            } else {
                                             %>
                                             <span>${account.username}</span>
                                             <%}%>
-											<img class="arrowIcon" src="Home/img/down.png" alt="" />
+											<img class="arrowIcon" src="Home/img/down.png" alt=""/>
 										</div>
 										<div
                                                 style="margin-top: 20px"
@@ -155,7 +156,7 @@
                                     <img
                                             class="cart-icon"
                                             src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"
-                                     alt=""/>
+                                            alt=""/>
                                     <span class="Userstyle__ItemCart">3</span>
                                 </div>
 
@@ -178,8 +179,9 @@
                 <div class="Account_StylesAvatar">
 
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <form >
-                            <img class="avt"  style="width: 60px; height: 60px" src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
+                        <form>
+                            <img class="avt" style="width: 60px; height: 60px"
+                                 src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
                         </form>
                     </div>
                     <div style="margin-left: 100px" class="info">
@@ -189,11 +191,11 @@
                 </div>
 
                 <ul class="Account_NavBar">
-                    <li><a  class="is-active" href="customer"><span>Thông tin tài khoản</span></a></li>
-                    <li><a    href="changingpassword"><span>Đổi mật khẩu</span></a></li>
-                    <li><a   href="customerorder"><span>Quản lý đơn hàng</span></a></li>
-                    <li><a  href="addresslist"><span>Sổ địa chỉ</span></a></li>
-                    <li><a  href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
+                    <li><a class="is-active" href="customer"><span>Thông tin tài khoản</span></a></li>
+                    <li><a href="changingpassword"><span>Đổi mật khẩu</span></a></li>
+                    <li><a href="customerorder"><span>Quản lý đơn hàng</span></a></li>
+                    <li><a href="addresslist"><span>Sổ địa chỉ</span></a></li>
+                    <li><a href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
                 </ul>
             </aside>
             <div class="Account_StylesAccountLayoutInner">
@@ -202,14 +204,14 @@
                     <div class="container">
                         <div class="row height d-flex justify-content-center align-items-center">
                             <div class="col-md-6">
-                                <div class="form"> <i class="fab fa-search"></i>
-                                    <span  class="left-pan"><i class="fa fa-microphone"></i></span>
+                                <div class="form"><i class="fab fa-search"></i>
+                                    <span class="left-pan"><i class="fa fa-microphone"></i></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="Content_StylesNav">
-                        <form method="get" >
+                        <form method="get">
                             <%--@elvariable id="listOrder" type=""--%>
                             <c:if test="${empty listOrder}">
                                 <p style="margin-left: 420px">Chưa có sản phẩm nào</p>
@@ -217,17 +219,17 @@
                             </c:if>
                             <c:if test="${not empty listOrder}">
 
-                                    <table style="width: 100%;" class="bangmua1">
-                                        <thead>
-                                        <tr style="align-items: center">
-                                            <th>Mã đơn hàng</th>
-                                            <th>Ngày mua</th>
-                                            <th>Sản phẩm</th>
-                                            <th>Tổng tiền</th>
-                                            <th>Trạng thái đơn hàng</th>
-                                        </tr>
-                                        </thead>
-                                <c:forEach items="${listOrder}" var="element">
+                                <table style="width: 100%;" class="bangmua1">
+                                    <thead>
+                                    <tr style="align-items: center">
+                                        <th>Mã đơn hàng</th>
+                                        <th>Ngày mua</th>
+                                        <th>Sản phẩm</th>
+                                        <th>Tổng tiền</th>
+                                        <th>Trạng thái đơn hàng</th>
+                                    </tr>
+                                    </thead>
+                                    <c:forEach items="${listOrder}" var="element">
                                         <tbody>
                                         <tr>
                                             <td>
@@ -239,8 +241,8 @@
                                             <td>${element[4]}</td>
                                         </tr>
                                         </tbody>
-                                </c:forEach>
-                                    </table>
+                                    </c:forEach>
+                                </table>
 
                             </c:if>
                         </form>

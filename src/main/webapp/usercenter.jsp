@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/logo.ico">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/usercenter.css">
+    <link rel="stylesheet" href="assets/css/pages/usercenter.css">
     <link rel="stylesheet" href="assets/css/core.css">
     <link rel="stylesheet" href="assets/css/shortcode/shortcodes.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
@@ -138,7 +138,8 @@
                 <!-- Danh mục -->
                 <div class="col1 l-2 m-0 c-0">
                     <ul class="menu-user-item menu-user-name">
-                        <img src="assets/img/user_avatar.jpg" class="menu-user-img" alt="">
+                        <img src="${pageContext.request.contextPath}/images/${account.avatar}" class="menu-user-img"
+                             alt="">
                         <span class="menu-user-item--strong menu-user">
                                 Nguyễn Thanh Minh Đức</span>
                     </ul>
@@ -197,7 +198,9 @@
                                             <input id="avatar-1" name="photo" type="file" required>
                                         </div>
                                     </div>
-                                    <button type="submit" > Cập nhật ảnh đại diện </button>
+                                    <div class="block-center">
+                                        <button class="btn-submit3" type="submit"> Cập nhật ảnh đại diện</button>
+                                    </div>
                                 </div>
                             </form>
                             <form method="post" style="margin-left: -100px; width: 70%;" action="customer">
@@ -381,7 +384,8 @@
                                 <label class="home-item__name">&nbsp;</label>
                                 <button type="submit" onclick="alert('${message}')" class="btn-submit2"
                                         style="margin-top:-30px">Cập
-                                    nhật</button>
+                                    nhật
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -470,8 +474,7 @@
 
 <script src="js/main.js"></script>
 <script>
-    function Showmessage(message)
-    {
+    function Showmessage(message) {
         alert(message);
     }
 

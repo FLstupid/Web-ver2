@@ -7,13 +7,13 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sản Phẩm DHS</title>
+    <title>DHS</title>
 
     <!-- Logo -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/icon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/logo.ico">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/product.css">
+    <link rel="stylesheet" href="assets/css/pages/product.css">
     <link rel="stylesheet" href="assets/css/core.css">
     <link rel="stylesheet" href="assets/css/shortcode/shortcodes.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
@@ -134,275 +134,220 @@
             </div>
         </div>
     </header>
+</div>
 
-    <!-- Product -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img class="product-img-primary" src="assets/img/product/product_13.png" alt="">
-                        <img class="product-img-list" src="assets/img/product/product_13.png" alt="">
-                        <img class="product-img-list" src="assets/img/product/product_15.jpg" alt="">
-                        <img class="product-img-list" src="assets/img/product/product_16.jpg" alt="">
-                        <img class="product-img-list" src="assets/img/product/product_17.jpg" alt="">
+<!-- Product -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="product-img-primary" src="assets/img/product/product_13.png" alt="">
+                </div>
+                <div class="col-md-8">
+                    <div class="product-breadcrumb">
+                        Trang chủ / Sản phẩm
                     </div>
-                    <div class="col-md-8">
-                        <div class="product-breadcrumb">
-                            Trang chủ / Sản phẩm
-                        </div>
-                        <a class="non-underline-link" href="#">
-                            <h4 class="product-info">${product.title}</h4>
-                        </a>
-                        <div class="product-star">
-                            <i class="fas fa-star product__main-info-rate"></i>
-                            <i class="fas fa-star product__main-info-rate"></i>
-                            <i class="fas fa-star product__main-info-rate"></i>
-                            <i class="fas fa-star product__main-info-rate"></i>
-                            <i class="fas fa-star product__main-info-rate"></i>
-                        </div>
-                        <p class="product-current">${product.content}</p>
-                        <p class="product-description">${product.decription}</p>
-                        <h5 class="product-quantity">Shop ${product.shopByShopId.shopname}</h5>
-                        <div class="quantity buttons_added">
-                            <h5 class="product-quantity">Số lượng</h5>
-                            <input type="button" value="-" class="minus">
-                            <input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty"
-                                   class="input-text qty text" size="4" pattern="" inputmode="">
-                            <input type="button" value="+" class="plus">
-                        </div>
-                        <div class="product__main-info-contact">
-                            <%
-                                assert session != null;
-                                if (session.getAttribute("loggedInUser") == null) {%>
-                            <div>
-                                <a class="product__main-buy-now" href="productdetail?action=checkUser">
-                                    Mua Ngay
-                                </a>
-                            </div>
-                            <%
-                            } else {
-                            %>
-                            <div>
-                                <a class="product__main-buy-now" href="productdetail?add&amp;productCode=${product.id}"
-                                   target="myiframe">Mua Ngay</a>
-                            </div>
-                            <%}%>
-                        </div>
+                    <a class="non-underline-link" href="#">
+                        <h4 class="product-info">${product.title}</h4>
+                    </a>
+                    <div class="product-star">
+                        <i class="fas fa-star product__main-info-rate"></i>
+                        <i class="fas fa-star product__main-info-rate"></i>
+                        <i class="fas fa-star product__main-info-rate"></i>
+                        <i class="fas fa-star product__main-info-rate"></i>
+                        <i class="fas fa-star product__main-info-rate"></i>
                     </div>
-                    <div class="col-md-12 product-tab">
+                    <p class="product-current">${product.content}</p>
+                    <p class="product-description">${product.decription}</p>
+                    <p><h5 class="product-quantity">Shop ${product.shopByShopId.shopname}</h5></p>
+                    <div class="quantity buttons_added">
+                        <h5 class="product-quantity">Số lượng</h5>
+                        <input type="button" value="-" class="minus">
+                        <input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty"
+                               class="input-text qty text" size="4" pattern="" inputmode="">
+                        <input type="button" value="+" class="plus">
+                    </div>
+                    <div class="product__main-info-contact">
+                        <%
+                            assert session != null;
+                            if (session.getAttribute("loggedInUser") == null) {
+                        %>
                         <div>
-                            <a href="#" class="product-active non-underline-link">
-                                Mô tả
-                            </a>
-                            <a href="#" class="product-tab-link non-underline-link">
-                                Đánh giá
+                            <a class="product__main-buy-now" href="productdetail?action=checkUser">
+                                Mua Ngay
                             </a>
                         </div>
-                    </div>
-                    <div class="col-md-12 product-content-wrap">
-                        <h4 class="product-content">
-                            Mũ Fullface YOHE 967 2 Kính 2019 chất chơi
-                        </h4>
-                        <p class="text-content">
-                            <span class="text-1">Mũ fullface Yohe 967 2 kính</span> là dòng mũ mang phong cách Châu Âu
-                            mạnh mẽ. Chiếc mũ này nổi bật ở chất liệu vỏ mũ, chất liệu mặt kính mũ, kiểu dáng thời
-                            trang. Tạo nên một dòng mũ bảo hiểm Yohe đậm chất chơi.
-                        </p>
-                        <p class="text-content">
-                            <span class="text-1">Vỏ mũ bảo hiểm Yohe 967</span> được làm từ nhựa ABS nguyên sinh cao cấp
-                            nên độ an toàn và độ bền rất cao. Khả năng chịu lực, chịu được va đập mạnh, cứng cáp chống
-                            đâm xuyên và cực an toàn.Trên mặt của vỏ mũ mũ bảo hiểm Yohe 965 có lỗ thoáng khí. Bao gồm
-                            lỗ thông khí phía trước và lỗ thông khí phía sau.
-                        </p>
-                        <p class="text-content">
-                            <span class="text-1">Không khí trong và ngoài sẽ được lưu thông</span> nhằm hạn chế mùi cũng
-                            như sự tích tụ vi khuẩn. Đây là một trong những điểm cộng cho thiết kế của dòng mũ bảo hiểm
-                            Yohe mới nhất này.Hơn nữa vỏ mũ bảo hiểm Yohe chính hãng được phủ lớp sơn mỏng bền chống bám
-                            bẩn. Vì vậy mà trông mũ lúc nào cũng như mới.
-                        </p>
-                        <p class="text-content">
-                            <span class="text-1">Màu sắc của vỏ mũ bảo hiểm Yohe 965</span> cực kì đẹp. Dáng mũ trông
-                            rất thể thao, phong cách, đậm chất hầm hố Châu Âu. Khiến cho những dân chơi xe phải thích
-                            thú.
-                        </p>
-                        <p class="text-content">
-                            <span class="text-1">Kính chắn</span> là một trong những điểm vô cùng quan trọng giúp tạo ra
-                            một tầm nhìn tốt khi lái xe. Và chiếc mũ mũ bảo hiểm Yohe 965 2 kính 2019 này đã làm được
-                            điều đó.Mũ chính hãng gồm 2 kính chắn. Một kính tối ở bên trong có tác dụng làm giảm cường
-                            độ sáng, giảm sự nguy hiểm khi đi đường.
-                        </p>
-                        <p class="text-content">
-                            <span class="text-1">Và một kính trong suốt đạt chuẩn</span> ở bên ngoài giúp chắn bụi, chắn
-                            côn trùng bay vào mắt. Bảo vệ bạn một cách tốt đa khi di chuyển trên đường.Kính mũ yohe được
-                            làm bằng chất liệu PC cao cấp. Vì vậy mà nó rất là bền. Kính mũ bảo hiểm Yohe chính hãng
-                            chống trầy tốt, chống đọng sương. Khi đi mùa đông hay đi trời mưa sẽ không lo hơi thở làm
-                            đọng sương. Có thể thay thế sau thời gian dài sử dụng.
-                        </p>
-                        <h5 class="product-conten">
-                            Đại lý, cộng tác viên online sản phẩm mũ Yohe
-                        </h5>
-                        <p class="text-content">
-                            Nếu bạn đang tìm đại lý phân phối sản phẩm mũ bảo hiểm yohe chính hãng giá rẻ thì hãy đến
-                            với chúng tôi. Tại đây bạn sẽ được hỗ trợ mua hàng như sau :
-                        </p>
-                        <p class="text-content">
-                            Miễn phí vận chuyển. <br>
-                            Sản phẩm được bảo hành uy tín. <br>
-                            Giá sản phẩm cạnh tranh và rẻ hơn thị trường. <br>
-                            Cam kết nguồn gốc sản phẩm, đảm bảo chính hãng. <br>
-                        </p>
+                        <% } else { %>
+                        <div>
+                            <a class="product__main-buy-now" href="productdetail?add&amp;productCode=${product.id}"
+                               target="myiframe">Mua Ngay
+                            </a>
+                        </div>
+                        <%}%>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 tl-border">
-                <div class="product__aside">
-                    <img class="product-img" src="assets/img/shipper.png" alt="">
-                    <p class="product__aside-link-heading">
-                        Giao hàng nhanh chóng
-                        <span class="text-2">
-                            Chỉ trong vòng 24h
-                        </span>
+                <div class="col-md-12 product-tab">
+                    <div>
+                        <a href="#thongtin" class="product-active non-underline-link"> Thông Tin Chi Tiết </a>
+                        <a href="#danhgia" class="review product-tab-link non-underline-link"> Đánh giá </a>
+                    </div>
+                </div>
+                <div id="thongtin" class="col-md-12 product-content-wrap">
+                    <p class="text-content">
+                        <span class="text-1">Mũ fullface Yohe 967 2 kính</span> là dòng
+                        mũ mang phong cách Châu Âu mạnh mẽ. Chiếc mũ này nổi bật ở chất
+                        liệu vỏ mũ, chất liệu mặt kính mũ, kiểu dáng thời trang. Tạo nên
+                        một dòng mũ bảo hiểm Yohe đậm chất chơi.
+                    </p>
+                    <p class="text-content">
+                        <span class="text-1">Vỏ mũ bảo hiểm Yohe 967</span> được làm từ
+                        nhựa ABS nguyên sinh cao cấp nên độ an toàn và độ bền rất cao.
+                        Khả năng chịu lực, chịu được va đập mạnh, cứng cáp chống đâm
+                        xuyên và cực an toàn.Trên mặt của vỏ mũ mũ bảo hiểm Yohe 965 có
+                        lỗ thoáng khí. Bao gồm lỗ thông khí phía trước và lỗ thông khí
+                        phía sau.
+                    </p>
+                    <p class="text-content">
+                        <span class="text-1">Không khí trong và ngoài sẽ được lưu thông</span>
+                        nhằm hạn chế mùi cũng như sự tích tụ vi khuẩn. Đây là một trong
+                        những điểm cộng cho thiết kế của dòng mũ bảo hiểm Yohe mới nhất
+                        này.Hơn nữa vỏ mũ bảo hiểm Yohe chính hãng được phủ lớp sơn mỏng
+                        bền chống bám bẩn. Vì vậy mà trông mũ lúc nào cũng như mới.
+                    </p>
+                    <p class="text-content">
+                        <span class="text-1">Màu sắc của vỏ mũ bảo hiểm Yohe 965</span>
+                        cực kì đẹp. Dáng mũ trông rất thể thao, phong cách, đậm chất hầm
+                        hố Châu Âu. Khiến cho những dân chơi xe phải thích thú.
+                    </p>
+                    <p class="text-content">
+                        <span class="text-1">Kính chắn</span> là một trong những điểm vô
+                        cùng quan trọng giúp tạo ra một tầm nhìn tốt khi lái xe. Và
+                        chiếc mũ mũ bảo hiểm Yohe 965 2 kính 2019 này đã làm được điều
+                        đó.Mũ chính hãng gồm 2 kính chắn. Một kính tối ở bên trong có
+                        tác dụng làm giảm cường độ sáng, giảm sự nguy hiểm khi đi đường.
+                    </p>
+                    <p class="text-content">
+                        <span class="text-1">Và một kính trong suốt đạt chuẩn</span> ở
+                        bên ngoài giúp chắn bụi, chắn côn trùng bay vào mắt. Bảo vệ bạn
+                        một cách tốt đa khi di chuyển trên đường.Kính mũ yohe được làm
+                        bằng chất liệu PC cao cấp. Vì vậy mà nó rất là bền. Kính mũ bảo
+                        hiểm Yohe chính hãng chống trầy tốt, chống đọng sương. Khi đi
+                        mùa đông hay đi trời mưa sẽ không lo hơi thở làm đọng sương. Có
+                        thể thay thế sau thời gian dài sử dụng.
+                    </p>
+                    <h5 class="product-conten">
+                        Đại lý, cộng tác viên online sản phẩm mũ Yohe
+                    </h5>
+                    <p class="text-content">
+                        Nếu bạn đang tìm đại lý phân phối sản phẩm mũ bảo hiểm yohe
+                        chính hãng giá rẻ thì hãy đến với chúng tôi. Tại đây bạn sẽ được
+                        hỗ trợ mua hàng như sau :
+                    </p>
+                    <p class="text-content">
+                        Miễn phí vận chuyển. <br/>
+                        Sản phẩm được bảo hành uy tín. <br/>
+                        Giá sản phẩm cạnh tranh và rẻ hơn thị trường. <br/>
+                        Cam kết nguồn gốc sản phẩm, đảm bảo chính hãng. <br/>
+                    </p>
+                    <p class="text-content">
+                        Với kinh nghiệm lâu năm trong nghề,
+                        <span class="text-1">DHS</span> tự tin mang đến cho bạn
+                        sản phẩm chất lượng tốt nhất.
                     </p>
                 </div>
-                <div class="product__aside">
-                    <img class="product-img" src="assets/img/brand.png" alt="">
-                    <p class="product__aside-link-heading">
-                        Sản phẩm chính hãng
-                        <span class="text-2">
-                            Sản phẩm nhập khẩu 100%
-                        </span>
-                    </p>
-                </div>
-                <div class="product__aside">
-                    <img class="product-img" src="assets/img/less.png" alt="">
-                    <p class="product__aside-link-heading">
-                        Mua hàng tiết kiệm
-                        <span class="text-2">
-                            Rẻ hơn từ 10% đến 30%
-                        </span>
-                    </p>
-                </div>
-                <h5 class="product__aside-heading">
-                    Có thể bạn thích
-                </h5>
-                <div class="product__aside-list">
-                    <img class="product__aside-img" src="assets/img/product/product_1.png" alt="">
-                    <h6 class="product__aside-link-heading">Mũ bảo hiểm fullface Yoyal QC201</h6>
-                    <div class="icon-star">
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                    </div>
-                    <span class="product__aside-price-current">
-                        990.000đ
-                    </span>
-                </div>
-                <div class="product__aside-list">
-                    <img class="product__aside-img" src="assets/img/product/product_10.png" alt="">
-                    <h6 class="product__aside-link-heading">Mũ bảo hiểm fullface Yoyal 2020</h6>
-                    <div class="icon-star">
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                    </div>
-                    <span class="product__aside-price-current">
-                        1.490.000đ
-                    </span>
-                </div>
-                <div class="product__aside-list">
-                    <img class="product__aside-img" src="assets/img/product/product_3.png" alt="">
-                    <h6 class="product__aside-link-heading">Mũ bảo hiểm LS2 đẹp chính hãng</h6>
-                    <div class="icon-star">
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                    </div>
-                    <span class="product__aside-price-current">
-                        1.200.000đ
-                    </span>
-                </div>
-                <div class="product__aside-list">
-                    <img class="product__aside-img" src="assets/img/product/product_7.png" alt="">
-                    <h6 class="product__aside-link-heading">Mũ bảo hiểm mới nhất 2020</h6>
-                    <div class="icon-star">
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                    </div>
-                    <span class="product__aside-price-current">
-                        1.200.000đ
-                    </span>
-                </div>
-                <div class="product__aside-list">
-                    <img class="product__aside-img" src="assets/img/product/product_4.png" alt="">
-                    <h6 class="product__aside-link-heading">Mũ bảo hiểm LS2 chất lượng, bền</h6>
-                    <div class="icon-star">
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                    </div>
-                    <span class="product__aside-price-current">
-                        2.220.000đ
-                    </span>
-                </div>
-                <div class="product__aside-list">
-                    <img class="product__aside-img" src="assets/img/product/product_6.png" alt="">
-                    <h6 class="product__aside-link-heading">Áo Khoác Nam dành cho người đi phượt</h6>
-                    <div class="icon-star">
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                    </div>
-                    <span class="product__aside-price-current">
-                        1.120.000đ
-                    </span>
-                </div>
-                <div class="product__aside-list">
-                    <img class="product__aside-img" src="assets/img/product/product_5.png" alt="">
-                    <h6 class="product__aside-link-heading">Găng tay leo núi cho mới nhất 2020</h6>
-                    <div class="icon-star">
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                    </div>
-                    <span class="product__aside-price-current">
-                        200.000đ
-                    </span>
-                </div>
-                <div class="product__aside-list">
-                    <img class="product__aside-img" src="assets/img/product/product_12.png" alt="">
-                    <h6 class="product__aside-link-heading">Quần phượt cho Nam</h6>
-                    <div class="icon-star">
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                        <i class="fas fa-star post__aside-rate"></i>
-                    </div>
-                    <span class="product__aside-price-current">
-                        500.000đ
-                    </span>
+                <div id="danhgia" disabled class="col-md-12 product-content-wrap">
+                    <c:forEach items="${nhanxet}" var="elements">
+                        <h4 class="product-content">${elements[1]}</h4>
+                    </c:forEach>
+                    <h5 class="product-conten">Đánh giá của bạn về sản phẩm</h5>
+                    <form action="productdetail">
+                        <input type="hidden" name="action" value="comment">
+                        <div class="rating">
+                            <label>
+                                <input type="radio" name="stars" value="1"/>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                            </label>
+                            <label>
+                                <input type="radio" name="stars" value="2"/>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                            </label>
+                            <label>
+                                <input type="radio" name="stars" value="3"/>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                            </label>
+                            <label>
+                                <input type="radio" name="stars" value="4"/>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                            </label>
+                            <label>
+                                <input type="radio" name="stars" value="5"/>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                            </label>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <form action="comment" method="post">
+                            <div style="margin-top: -40px;">
+                                <span style="font-size: 1.5em; font-family: sans-serif; display: block; margin-bottom: 5px;">Chủ đề bình luận: </span>
+                                <input type="text"
+                                       style="width: 100%; height: 30px;margin-bottom: 5px;font-family: sans-serif;font-size: 1.4em;"
+                                       name="topiccomment"><br>
+                                <span style="font-size: 1.5em; font-family: sans-serif; display: block; margin-bottom: 5px;">Cảm nhận của bạn về sản phẩm: </span>
+                                <textarea rows="5" name="comment" id="comment"
+                                          style="margin-bottom: 2px;font-family: sans-serif;font-size: 1.4em;width: 100%;"> </textarea><br>
+                                <input type="submit" value="Bình luận"
+                                       style="width: 150px;height: 30px;border: none;border-radius: 2px;font-size: 1.5rem;cursor: pointer;outline: none;color: var(--text-color);background: #8a2be2;display: inline-flex;justify-content: center;align-items: center;padding: 0 5px;text-align: center;margin: 5px 0 30px;font-weight: bold;">
+                            </div>
+                        </form>
                 </div>
             </div>
         </div>
+        <div class="col-md-3 tl-border">
+            <div class="product__aside">
+                <img class="product-img" src="assets/img/shipper.png" alt="">
+                <p class="product__aside-link-heading">
+                    Giao hàng nhanh chóng
+                    <span class="text-2">
+                            Chỉ trong vòng 24h
+                        </span>
+                </p>
+            </div>
+            <div class="product__aside">
+                <img class="product-img" src="assets/img/brand.png" alt="">
+                <p class="product__aside-link-heading">
+                    Sản phẩm chính hãng
+                    <span class="text-2">
+                            Sản phẩm nhập khẩu 100%
+                        </span>
+                </p>
+            </div>
+            <div class="product__aside">
+                <img class="product-img" src="assets/img/less.png" alt="">
+                <p class="product__aside-link-heading">
+                    Mua hàng tiết kiệm
+                    <span class="text-2">
+                            Rẻ hơn từ 10% đến 30%
+                        </span>
+                </p>
+            </div>
+        </div>
     </div>
-    <!-- End product -->
+</div>
+<!-- End product -->
 
+<div class="app">
     <!-- Footer -->
     <footer class="footer">
         <div class="grid wide">
@@ -486,6 +431,8 @@
         const slide = document.getElementsByClassName("review");
         const review = document.getElementById("danhgia");
     </script>
+    <script src="assets/js/quantity.js"></script>
+</div>
 </div>
 </body>
 </html>

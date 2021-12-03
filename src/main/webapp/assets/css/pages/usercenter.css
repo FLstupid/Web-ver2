@@ -166,7 +166,6 @@
 	box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.05);
 	text-decoration: none;
 	transform: translateY(-3px);
-	text-decoration: none;
 }
 
 .home-item__name {
@@ -198,8 +197,8 @@
 	text-align: center;
 	margin: 5px 0 5px;
 	background: #fff
-	url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
-	97% 50% no-repeat;
+		url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+		97% 50% no-repeat;
 }
 
 [type='date']::-webkit-inner-spin-button {
@@ -309,7 +308,7 @@
 	text-decoration: none;
 	border: none;
 	border-radius: 2px;
-	font-size: 1.5rem;
+	font-size: 1.6rem;
 	cursor: pointer;
 	outline: none;
 	color: var(--text-color);
@@ -323,7 +322,8 @@
 
 .btn-submit:hover,
 .btn-submit1:hover,
-.btn-submit2:hover {
+.btn-submit2:hover,
+.btn-submit3:hover {
 	color: rgba(255, 255, 255, 0.7);
 	cursor: pointer;
 	text-decoration: none;
@@ -331,6 +331,10 @@
 
 .text-center {
 	font-size: 1.5em;
+}
+
+.block-center {
+	margin-top: -200px;
 }
 
 .avt {
@@ -368,7 +372,7 @@
 
 .form-control {
 	display: flex;
-	margin: 0px 0px 10px;
+	margin: 0 0 10px;
 }
 
 .Input-styles {

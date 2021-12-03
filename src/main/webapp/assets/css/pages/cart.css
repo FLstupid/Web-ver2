@@ -74,6 +74,12 @@ p.money {
 	padding-top: 20px;
 }
 
+.cart__foot2 {
+	padding-top: 20px;
+	margin-right: 220px;
+	margin-left: 20px;
+}
+
 button.btn.btn-kx {
 	background: indigo;
 	width: 154px;

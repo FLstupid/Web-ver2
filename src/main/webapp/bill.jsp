@@ -9,21 +9,23 @@
 <body>
 <header class="header-root">
     <section class="header-container">
-        <a href="${pageContext.request.contextPath}/home" class="content-logo"><img src="SellerCenter/img/android-chrome-192x192.png" alt=""></a>
+        <a href="${pageContext.request.contextPath}/home" class="content-logo"><img
+                src="SellerCenter/img/android-chrome-192x192.png" alt=""></a>
         <a href="${pageContext.request.contextPath}/summary" class="style-content">
             <span>Seller Center</span>
         </a>
-        <% if(session == null || session.getAttribute("account") == null) {%>
+        <% if (session == null || session.getAttribute("account") == null) {%>
         <div class="account-avatar">
             <img class="avt" src="SellerCenter/img/avatar.jfif" alt="">
             <span>Signup/Login</span>
         </div>
         <%} else {%>
-        <<div class="account-avatar">
-        <img class="avt" src="SellerCenter/img/avatar.jfif" alt="">
-        <span>${account.username}</span>
-        <%}%>
-    </div>
+        <
+        <div class="account-avatar">
+            <img class="avt" src="SellerCenter/img/avatar.jfif" alt="">
+            <span>${account.username}</span>
+            <%}%>
+        </div>
     </section>
 </header>
 <main>
@@ -74,32 +76,32 @@
                         <div class="inner">
                             <%--@elvariable id="listBill" type="java.util.List"--%>
                             <c:if test="${empty listBill}">
-                                    <span>Load Failed</span>
+                                <span>Load Failed</span>
                             </c:if>
                             <c:if test="${not empty listBill}">
 
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>Mã thanh toán</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Ngày mua</th>
-                                    <th>Giá</th>
-                                    <th>Số lượng</th>
-                                </tr>
-                                </thead>
-                                <c:forEach items="${listBill}" var="element">
-                                <tbody>
-                                <tr>
-                                    <td>${element[0]}</td>
-                                    <td>${element[6]}</td>
-                                    <td>${element[5]}</td>
-                                    <td>${element[3]}</td>
-                                    <td>${element[7]}</td>
-                                </tr>
-                                </tbody>
-                                </c:forEach>
-                            </table>
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Mã thanh toán</th>
+                                        <th>Số điện thoại</th>
+                                        <th>Ngày mua</th>
+                                        <th>Giá</th>
+                                        <th>Số lượng</th>
+                                    </tr>
+                                    </thead>
+                                    <c:forEach items="${listBill}" var="element">
+                                        <tbody>
+                                        <tr>
+                                            <td>${element[0]}</td>
+                                            <td>${element[6]}</td>
+                                            <td>${element[5]}</td>
+                                            <td>${element[3]}</td>
+                                            <td>${element[7]}</td>
+                                        </tr>
+                                        </tbody>
+                                    </c:forEach>
+                                </table>
 
                             </c:if>
                         </div>

@@ -5,8 +5,8 @@
 <html>
 <head>
     <title>UserCenter</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <link rel="stylesheet" href="css/newcss.css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <link rel="stylesheet" href="css/newcss.css"/>
     <link rel="stylesheet" href="Home/homePage.css"/>
 </head>
 <body>
@@ -23,7 +23,7 @@
                 <div class="logo-menu">
                     <div class="style_Logo">
                         <a href="home" class="dhs-logo">
-                            <img src="Home/img/logo.svg" alt="" />
+                            <img src="Home/img/logo.svg" alt=""/>
                         </a>
                     </div>
                 </div>
@@ -75,19 +75,20 @@
                 <%} else {%>
                 <div class="Userstyle__Root">
                     <div class="Userstyle__Item">
-                        <img class="profile-icon" src="Home/img/user.png" alt="" />
+                        <img class="profile-icon" src="Home/img/user.png" alt=""/>
                         <a class="Userstyle__ItemText">
                             <span class="Userstyle__NoWrap">Tài khoản</span>
                             <span class="account_laber">
 										<div style="display: flex" class="buttonDropdown">
                                             <%
-                                                if(session.getAttribute("username") == null || session.getAttribute("username") == "" || session.getAttribute("loggedInUser") == null){%>
+                                                if (session.getAttribute("username") == null || session.getAttribute("username") == "" || session.getAttribute("loggedInUser") == null) {%>
 											<span>user-name</span>
-                                            <%}else {
+                                            <%
+                                            } else {
                                             %>
                                             <span>${account.username}</span>
                                             <%}%>
-											<img class="arrowIcon" src="Home/img/down.png" alt="" />
+											<img class="arrowIcon" src="Home/img/down.png" alt=""/>
 										</div>
 										<div
                                                 style="margin-top: 20px"
@@ -155,7 +156,7 @@
                                     <img
                                             class="cart-icon"
                                             src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"
-                                     alt=""/>
+                                            alt=""/>
                                     <span class="Userstyle__ItemCart">3</span>
                                 </div>
 
@@ -178,8 +179,9 @@
                 <div class="Account_StylesAvatar">
 
                     <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <form >
-                            <img class="avt"  style="width: 60px; height: 60px" src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
+                        <form>
+                            <img class="avt" style="width: 60px; height: 60px"
+                                 src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
                         </form>
                     </div>
                     <div style="margin-left: 100px" class="info">
@@ -189,11 +191,11 @@
                 </div>
 
                 <ul class="Account_NavBar">
-                    <li><a  class="is-active" href="customer"><span>Thông tin tài khoản</span></a></li>
-                    <li><a    href="changingpassword"><span>Đổi mật khẩu</span></a></li>
-                    <li><a   href="customerorder"><span>Quản lý đơn hàng</span></a></li>
-                    <li><a  href="addresslist"><span>Sổ địa chỉ</span></a></li>
-                    <li><a  href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
+                    <li><a class="is-active" href="customer"><span>Thông tin tài khoản</span></a></li>
+                    <li><a href="changingpassword"><span>Đổi mật khẩu</span></a></li>
+                    <li><a href="customerorder"><span>Quản lý đơn hàng</span></a></li>
+                    <li><a href="addresslist"><span>Sổ địa chỉ</span></a></li>
+                    <li><a href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
                 </ul>
             </aside>
             <div class="Account_StylesAccountLayoutInner">
@@ -202,21 +204,26 @@
 
                     <div class="Content_StylesNav">
 
-                        <form class="formthemdiachi" method="post" action="addaddress" >
+                        <form class="formthemdiachi" method="post" action="addaddress">
                             <input type="hidden" name="action" value="add">
                             <div class="form-control ">
-                                <label  class="input-label">Họ và tên:</label>
+                                <label class="input-label">Họ và tên:</label>
                                 <div>
-                                    <input class="inputdiachi Input-sc-17i9bto-0 girQwT" type="text" required="" name="fullName" placeholder="Nhập họ và tên" maxlength="50"
+                                    <input class="inputdiachi Input-sc-17i9bto-0 girQwT" type="text" required=""
+                                           name="fullName" placeholder="Nhập họ và tên" maxlength="50"
                                            value="${account.username}">
                                 </div>
                             </div>
-                            <div class="form-control "><label name="telephone" class="input-label">Số điện thoại:</label>
-                                <div><input class="inputdiachi Input-sc-17i9bto-0 girQwT" type="text" required="" name="telephone" placeholder="Nhập số điện thoại"  value="${account.phone}"></div>
+                            <div class="form-control "><label name="telephone" class="input-label">Số điện
+                                thoại:</label>
+                                <div><input class="inputdiachi Input-sc-17i9bto-0 girQwT" type="text" required=""
+                                            name="telephone" placeholder="Nhập số điện thoại" value="${account.phone}">
+                                </div>
                             </div>
                             <div class="form-control">
                                 <label name="region" class="input-label">Tỉnh/Thành phố:</label>
-                                <select id="nameprovince" name="province"  class="inputdiachi" required=""><option value="">Chọn Tỉnh/Thành phố</option>
+                                <select id="nameprovince" name="province" class="inputdiachi" required="">
+                                    <option value="">Chọn Tỉnh/Thành phố</option>
                                     <option>Hồ Chí Minh</option>
                                     <option>Hà Nội</option>
                                     <option>Đà Nẵng</option>
@@ -224,88 +231,91 @@
                                     <option>Bà Rịa - Vũng Tàu</option>
                                     <option>Bắc Giang</option>
                                     <option>Bắc Kạn</option>
-                                    <option >Bạc Liêu</option>
-                                    <option >Bắc Ninh</option>
-                                    <option >Bến Tre</option>
-                                    <option >Bình Dương</option>
-                                    <option >Bình Phước</option>
-                                    <option >Bình Thuận</option>
-                                    <option >Bình Định</option>
-                                    <option >Cà Mau</option>
-                                    <option >Cần Thơ</option>
-                                    <option >Cao Bằng</option>
-                                    <option >Gia Lai</option>
-                                    <option >Hà Giang</option>
-                                    <option >Hà Nam</option>
-                                    <option >Hà Tĩnh</option>
-                                    <option >Hải Dương</option>
-                                    <option >Hải Phòng</option>
-                                    <option >Hậu Giang</option>
-                                    <option >Hoà Bình</option>
-                                    <option >Hưng Yên</option>
-                                    <option >Khánh Hòa</option>
-                                    <option >Kiên Giang</option>
-                                    <option >Kon Tum</option>
-                                    <option >Lai Châu</option>
-                                    <option >Lâm Đồng</option>
-                                    <option >Lạng Sơn</option>
-                                    <option >Lào Cai</option>
-                                    <option >Long An</option>
-                                    <option >Nam Định</option>
-                                    <option >Nghệ An</option>
-                                    <option >Ninh Bình</option>
-                                    <option >Ninh Thuận</option>
-                                    <option >Phú Thọ</option>
-                                    <option >Phú Yên</option>
-                                    <option >Quảng Bình</option>
-                                    <option >Quảng Nam</option>
-                                    <option >Quảng Ngãi</option>
-                                    <option >Quảng Ninh</option>
-                                    <option >Quảng Trị</option>
-                                    <option >Sóc Trăng</option>
-                                    <option >Sơn La</option>
-                                    <option >Tây Ninh</option>
-                                    <option >Thái Bình</option>
-                                    <option >Thái Nguyên</option>
-                                    <option >Thanh Hóa</option>
-                                    <option >Thừa Thiên Huế</option>
-                                    <option >Tiền Giang</option>
-                                    <option >Trà Vinh</option>
-                                    <option >Tuyên Quang</option>
-                                    <option >Vĩnh Long</option>
-                                    <option >Vĩnh Phúc</option>
-                                    <option >Yên Bái</option>
-                                    <option >Đắk Lắk</option>
-                                    <option >Đắk Nông</option>
-                                    <option >Điện Biên</option>
-                                    <option >Đồng Nai</option>
-                                    <option >Đồng Tháp</option>
+                                    <option>Bạc Liêu</option>
+                                    <option>Bắc Ninh</option>
+                                    <option>Bến Tre</option>
+                                    <option>Bình Dương</option>
+                                    <option>Bình Phước</option>
+                                    <option>Bình Thuận</option>
+                                    <option>Bình Định</option>
+                                    <option>Cà Mau</option>
+                                    <option>Cần Thơ</option>
+                                    <option>Cao Bằng</option>
+                                    <option>Gia Lai</option>
+                                    <option>Hà Giang</option>
+                                    <option>Hà Nam</option>
+                                    <option>Hà Tĩnh</option>
+                                    <option>Hải Dương</option>
+                                    <option>Hải Phòng</option>
+                                    <option>Hậu Giang</option>
+                                    <option>Hoà Bình</option>
+                                    <option>Hưng Yên</option>
+                                    <option>Khánh Hòa</option>
+                                    <option>Kiên Giang</option>
+                                    <option>Kon Tum</option>
+                                    <option>Lai Châu</option>
+                                    <option>Lâm Đồng</option>
+                                    <option>Lạng Sơn</option>
+                                    <option>Lào Cai</option>
+                                    <option>Long An</option>
+                                    <option>Nam Định</option>
+                                    <option>Nghệ An</option>
+                                    <option>Ninh Bình</option>
+                                    <option>Ninh Thuận</option>
+                                    <option>Phú Thọ</option>
+                                    <option>Phú Yên</option>
+                                    <option>Quảng Bình</option>
+                                    <option>Quảng Nam</option>
+                                    <option>Quảng Ngãi</option>
+                                    <option>Quảng Ninh</option>
+                                    <option>Quảng Trị</option>
+                                    <option>Sóc Trăng</option>
+                                    <option>Sơn La</option>
+                                    <option>Tây Ninh</option>
+                                    <option>Thái Bình</option>
+                                    <option>Thái Nguyên</option>
+                                    <option>Thanh Hóa</option>
+                                    <option>Thừa Thiên Huế</option>
+                                    <option>Tiền Giang</option>
+                                    <option>Trà Vinh</option>
+                                    <option>Tuyên Quang</option>
+                                    <option>Vĩnh Long</option>
+                                    <option>Vĩnh Phúc</option>
+                                    <option>Yên Bái</option>
+                                    <option>Đắk Lắk</option>
+                                    <option>Đắk Nông</option>
+                                    <option>Điện Biên</option>
+                                    <option>Đồng Nai</option>
+                                    <option>Đồng Tháp</option>
                                 </select>
                             </div>
                             <div class="form-control">
-                                <label name="district"  class="input-label">Quận huyện:</label>
-                                <input type="text" required="" name="district" placeholder="Nhập huyện" maxlength="50" class="inputdiachi Input-sc-17i9bto-0 girQwT"  value="${address.district}">
+                                <label name="district" class="input-label">Quận huyện:</label>
+                                <input type="text" required="" name="district" placeholder="Nhập huyện" maxlength="50"
+                                       class="inputdiachi Input-sc-17i9bto-0 girQwT" value="${address.district}">
                             </div>
                             <div class="form-control ">
                                 <label name="address" class="input-label">
                                     Địa chỉ:</label>
                                 <div>
-                                    <textarea class="inputdiachi" required="" name="street" rows="5" placeholder="Nhập địa chỉ, phường/ xã"></textarea>
+                                    <textarea class="inputdiachi" required="" name="street" rows="5"
+                                              placeholder="Nhập địa chỉ, phường/ xã"></textarea>
                                 </div>
                             </div>
 
-                           <div class="form-control">
-                            <label class="input-label">&nbsp;</label>
-                            <button type="submit" class="btn-submit">
-                                Cập nhật</button>
-                               <c:if test="${not empty message1}">
-                                   <script>
-                                       window.addEventListener("load",function(){
-                                           alert("${message1}");
-                                       })
-                                   </script>
-                               </c:if>
-                        </div>
+                            <div class="form-control">
+                                <label class="input-label">&nbsp;</label>
+                                <button type="submit" class="btn-submit">
+                                    Cập nhật
+                                </button>
+                                <c:if test="${not empty message1}">
+                                    <script>
+                                        window.addEventListener("load", function () {
+                                            alert("${message1}");
+                                        })
+                                    </script>
+                                </c:if>
+                            </div>
                         </form>
 
                     </div>
