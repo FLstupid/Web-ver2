@@ -144,7 +144,6 @@
                                 <tr>
                                     <th>Tên sản phẩm</th>
                                     <th>Mô tả</th>
-                                    <th>Tag</th>
                                     <th>Giá</th>
                                     <th>Link ảnh</th>
                                 </tr>
@@ -154,9 +153,8 @@
                                     <tr>
                                         <td>${element[0]}</td>
                                         <td>${element[1]}</td>
-                                        <td>${element[6]}</td>
                                         <td>${element[2]}</td>
-                                        <td>${element[5]}</td>
+                                        <td>${element[3]}</td>
                                     </tr>
                                     </tbody>
                                 </c:forEach>

@@ -103,7 +103,8 @@ public class productIO {
     {
         EntityManager em = emf.createEntityManager();
         try {
-            return em.createQuery("SELECT p.title as productname,p.decription as decription,p.price as price , p.shopByShopId.shopname , p.image \n" +
+            return em.createQuery("SELECT p.title as productname,p.decription as decription," +
+                            "p.price as price , p.image \n" +
                             "FROM Product p where p.shopByShopId.accountByAccountId.id = ?1").setParameter(1,id)
                     .getResultList();
         } catch (Exception e)
