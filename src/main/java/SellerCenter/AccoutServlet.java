@@ -29,6 +29,13 @@ public class AccoutServlet extends HttpServlet {
         if (action == null) {
             action = "account"; // default action
         }
+        String url = "/account.jsp";
+        if (session.getAttribute("account") == null) {
+            url = "/login.jsp";
+            getServletContext()
+                    .getRequestDispatcher(url)
+                    .forward(request, response);
+        }
         else if (action.equals("shopinfor"))
         {
             String shopName = request.getParameter("shopName");
@@ -50,7 +57,7 @@ public class AccoutServlet extends HttpServlet {
         }
 
 
-        String url = "/account.jsp";
+
         getServletContext()
                 .getRequestDispatcher(url)
                 .forward(request, response);

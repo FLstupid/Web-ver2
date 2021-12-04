@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Timestamp;
 
@@ -22,15 +23,21 @@ public class ProductDetailServlet extends HttpServlet {
         }
         String action = request.getParameter("action");
         String url = "/ProductDetail.jsp";
-        Product product;
-        String productid = request.getParameter("productCode");
-        long id = Long.parseLong(productid);
-        product = productIO.selectProductByid(id);
-        int amount = 1;
         if(action == null)
         {
             action = "detail";
         }
+        HttpSession session = request.getSession();
+
+        Product product=null;
+        String productid = request.getParameter("productCode");
+        if(productid!=null)
+        {
+            long id = Long.parseLong(productid);
+            product = productIO.selectProductByid(id);
+        }
+        int amount = 1;
+
         switch (action) {
             case "detail": {
                 request.getSession().setAttribute("product", product);
