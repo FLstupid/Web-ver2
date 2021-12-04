@@ -34,7 +34,7 @@
                     <li>
                         <i class="header__navbar-icon fas fa-store"></i>
                         <a class="header__navbar-item"
-                           href="${pageContext.request.contextPath}/summary">Kênh người bán</a>
+                           href="${pageContext.request.contextPath}/account">Kênh người bán</a>
                     </li>
                 </ul>
                 <!--rnd header navbar left -->

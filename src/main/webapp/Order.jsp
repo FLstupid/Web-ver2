@@ -15,7 +15,7 @@
     <section class="Container">
         <a
                 style="color: white"
-                href="${pageContext.request.contextPath}/summary"
+                href="${pageContext.request.contextPath}/account"
         >Kênh Người Bán</a
         >
         <div class="Middle__Wrap">

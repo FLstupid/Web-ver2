@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--@elvariable id="account" type="Model.Account"--%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -37,7 +38,7 @@
                     <li>
                         <i class="header__navbar-icon fas fa-store"></i>
                         <a class="header__navbar-item"
-                           href="${pageContext.request.contextPath}/summary">Kênh người bán</a>
+                           href="${pageContext.request.contextPath}/account">Kênh người bán</a>
                     </li>
                 </ul>
                 <!--rnd header navbar left -->
@@ -201,6 +202,7 @@
                                 </div>
                                 <div class="Content_StylesNav">
                                     <form method="get">
+                                        <%--@elvariable id="listaddress" type="java.util.List"--%>
                                         <c:if test="${empty listaddress}">
                                             <p class="noaddress-title">Chưa có địa chỉ nào</p>
                                         </c:if>

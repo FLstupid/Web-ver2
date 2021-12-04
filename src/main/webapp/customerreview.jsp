@@ -1,4 +1,4 @@
-<%--@elvariable id="account" type="com.sun.webkit.dom.HTMLAreaElementImpl"--%>
+<%--@elvariable id="account" type="Model.Account"--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -35,7 +35,7 @@
                     <li>
                         <i class="header__navbar-icon fas fa-store"></i>
                         <a class="header__navbar-item"
-                           href="${pageContext.request.contextPath}/summary">Kênh người bán</a>
+                           href="${pageContext.request.contextPath}/account">Kênh người bán</a>
                     </li>
                 </ul>
                 <!--rnd header navbar left -->

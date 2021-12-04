@@ -11,7 +11,7 @@
     <section class="header-container">
         <a href="${pageContext.request.contextPath}/home" class="content-logo"><img
                 src="SellerCenter/img/android-chrome-192x192.png" alt=""></a>
-        <a href="${pageContext.request.contextPath}/summary" class="style-content">
+        <a href="${pageContext.request.contextPath}/account" class="style-content">
             <span>Seller Center</span>
         </a>
         <% if (session == null || session.getAttribute("account") == null) {%>
@@ -33,11 +33,6 @@
         <aside class="styles-left-SideBar">
             <ul class="nav-bar-account">
                 <li>
-                    <a href="${pageContext.request.contextPath}/summary">
-                        <span>Doanh Thu</span>
-                    </a>
-                </li>
-                <li>
                     <a href="${pageContext.request.contextPath}/product">
                         <span>Sản Phẩm</span>
                     </a>
@@ -45,16 +40,6 @@
                 <li>
                     <a href="${pageContext.request.contextPath}/bill" class="is-active">
                         <span>Đơn hàng</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="${pageContext.request.contextPath}/delivery">
-                        <span>Vận chuyển</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="${pageContext.request.contextPath}/reviews">
-                        <span>Đánh giá</span>
                     </a>
                 </li>
                 <li>
