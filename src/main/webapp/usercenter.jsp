@@ -60,8 +60,6 @@
                     <%} else {%>
                     <!-- Đã đăng nhập -->
                     <li class="header__navbar-item header__navbar-user">
-                        <img src="${pageContext.request.contextPath}/images/${account.avatar}"
-                             class="header__navbar-user-img" alt="">
                         <% if (session.getAttribute("username") == null || session.getAttribute("loggedInUser") == null) {%>
                         <span class="header__navbar-item--strong header__navbar-user-name">
                             User name</span>
@@ -137,12 +135,6 @@
             <div class="row1 sm-gutter1 app__content">
                 <!-- Danh mục -->
                 <div class="col1 l-2 m-0 c-0">
-                    <ul class="menu-user-item menu-user-name">
-                        <img src="${pageContext.request.contextPath}/images/${account.avatar}" class="menu-user-img"
-                             alt="">
-                        <span class="menu-user-item--strong menu-user">
-                                Nguyễn Thanh Minh Đức</span>
-                    </ul>
                     <nav class="menu">
                         <h3 class="menu__heading">
                             <i class="fas fa-list-ul menu__heading-icon"></i>
@@ -187,23 +179,7 @@
                     <!-- Nội dung -->
                     <div class="home">
                         <div class="row1 sm-gutter1">
-                            <form method="post" style="display:inline-grid  ; width: 50% " action="customer"
-                                  enctype="multipart/form-data" class="col1 l-4 m1-4 c-6">
-                                <input type="hidden" name="action" value="upimage">
-                                <img class="avt" id="photo"
-                                     src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
-                                <div class="col-sm-3 text-center">
-                                    <div class="kv-avatar">
-                                        <div class="file-loading">
-                                            <input id="avatar-1" name="photo" type="file" required>
-                                        </div>
-                                    </div>
-                                    <div class="block-center">
-                                        <button class="btn-submit3" type="submit"> Cập nhật ảnh đại diện</button>
-                                    </div>
-                                </div>
-                            </form>
-                            <form method="post" style="margin-left: -100px; width: 70%;" action="customer">
+                            <form method="post" style="display:inline-grid; margin-left: 5px; width: 70%;">
                                 <input type="hidden" name="action" value="add">
                                 <div class="form-control">
                                     <label class="home-item__name">Họ tên</label>

@@ -2,12 +2,12 @@ function wcqib_refresh_quantity_increments() {
 	jQuery(
 		'div.quantity:not(.buttons_added), td.quantity:not(.buttons_added)'
 	).each(function (a, b) {
-		var c = jQuery(b);
-		c.addClass('buttons_added'),
+		const c = jQuery(b);
+		c.addClass('buttons_added');
 			c
 				.children()
 				.first()
-				.before('<input type="button" value="-" class="minus" />'),
+				.before('<input type="button" value="-" class="minus" />');
 			c
 				.children()
 				.last()
@@ -27,7 +27,7 @@ String.prototype.getDecimals ||
 		wcqib_refresh_quantity_increments();
 	}),
 	jQuery(document).on('click', '.plus, .minus', function () {
-		var a = jQuery(this).closest('.quantity').find('.qty'),
+		let a = jQuery(this).closest('.quantity').find('.qty'),
 			b = parseFloat(a.val()),
 			c = parseFloat(a.attr('max')),
 			d = parseFloat(a.attr('min')),

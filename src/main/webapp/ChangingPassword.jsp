@@ -65,8 +65,6 @@
                     <%} else {%>
                     <!-- Đã đăng nhập -->
                     <li class="header__navbar-item header__navbar-user">
-                        <img src="${pageContext.request.contextPath}/images/${account.avatar}"
-                             class="header__navbar-user-img" alt="">
                         <% if (session.getAttribute("username") == null || session.getAttribute("loggedInUser") == null) {%>
                         <span class="header__navbar-item--strong header__navbar-user-name">
                             User name</span>
@@ -142,12 +140,6 @@
             <div class="row1 sm-gutter1 app__content">
                 <!-- Danh mục -->
                 <div class="col1 l-2 m-0 c-0">
-                    <ul class="menu-user-item menu-user-name">
-                        <img src="${pageContext.request.contextPath}/images/${account.avatar}" class="menu-user-img"
-                             alt="">
-                        <span class="menu-user-item--strong menu-user">
-                                Nguyễn Thanh Minh Đức</span>
-                    </ul>
                     <nav class="menu">
                         <h3 class="menu__heading">
                             <i class="fas fa-list-ul menu__heading-icon"></i>

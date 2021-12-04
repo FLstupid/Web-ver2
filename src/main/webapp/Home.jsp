@@ -66,8 +66,6 @@
                     <%} else {%>
                     <!-- Đã đăng nhập -->
                     <li class="header__navbar-item header__navbar-user">
-                        <img src="${pageContext.request.contextPath}/images/${account.avatar}"
-                             class="header__navbar-user-img" alt="">
                         <% if (session.getAttribute("username") == null || session.getAttribute("loggedInUser") == null) {%>
                         <span class="header__navbar-item--strong header__navbar-user-name">
                             User name</span>
@@ -205,14 +203,13 @@
                             <c:forEach items="${listproduct}" var="elements">
                                 <div class="col1 l-2-4 m1-4 c-6">
                                         <%-- @elvariable id="listproduct" type="java.util.List" --%>
-
                                     <a class="home-product-item"
                                        href="productdetail?action=detail&amp;productCode=${elements[4]}">
                                         <div class="home-product-item__img"
                                              style="background-image: url(assets/img/product/prd_img_3.jpg)"></div>
                                         <h4 class="home-product-item__name"> ${elements[0]}</h4>
                                         <div class="home-product-item__price">
-                                            <span class="home-product-item__price-current">${elements[2]}</span>
+                                            <span class="home-product-item__price-current">${elements[2]}đ</span>
                                         </div>
                                         <div class="home-product-item__action">
 											<span class="
@@ -234,8 +231,11 @@
                                         <div class="home-product-item__origin">
                                             <span class="home-product-item__brand">${elements[3]}</span>
                                         </div>
+                                        <div class="home-product-item__favourite">
+                                            <i class="fas fa-check"></i>
+                                            <span>Yêu thích</span>
+                                        </div>
                                     </a>
-
                                 </div>
                             </c:forEach>
                         </div>

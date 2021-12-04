@@ -123,7 +123,7 @@
                 <!-- Cart layout -->
                 <div class="header__cart">
                     <div class="header__cart-wrap">
-                        <span class="header__cart-notice">3</span>
+                        <span class="header__cart-notice">0</span>
                         <a href="${pageContext.request.contextPath}/cart" rel="nofollow">
                             <i class="header__cart-icon fas fa-shopping-cart"></i>
                         </a>
@@ -143,14 +143,17 @@
             <div class="row">
                 <div class="col-md-4">
                     <img class="product-img-primary" src="assets/img/product/product_13.png" alt="">
+                    <img class="product-img-list" src="assets/img/product/product_14.jpg" alt="">
+                    <img class="product-img-list" src="assets/img/product/product_15.jpg" alt="">
+                    <img class="product-img-list" src="assets/img/product/product_16.jpg" alt="">
                 </div>
                 <div class="col-md-8">
                     <div class="product-breadcrumb">
                         Trang chủ / Sản phẩm
+                        <a class="non-underline-link" href="#">
+                            <h4 class="product-info">${product.title}</h4>
+                        </a>
                     </div>
-                    <a class="non-underline-link" href="#">
-                        <h4 class="product-info">${product.title}</h4>
-                    </a>
                     <div class="product-star">
                         <i class="fas fa-star product__main-info-rate"></i>
                         <i class="fas fa-star product__main-info-rate"></i>
@@ -158,32 +161,37 @@
                         <i class="fas fa-star product__main-info-rate"></i>
                         <i class="fas fa-star product__main-info-rate"></i>
                     </div>
-                    <p class="product-current">${product.content}</p>
+                    <p class="product-current">${product.price}</p>
                     <p class="product-description">${product.decription}</p>
-                    <p><h5 class="product-quantity">Shop ${product.shopByShopId.shopname}</h5>
-                    <div class="quantity buttons_added">
-                        <h5 class="product-quantity">Số lượng</h5>
-                    </div>
+                    <p class="product-quantity">Shop ${product.shopByShopId.shopname}</p>
                     <div class="product__main-info-contact">
                         <%
                             assert session != null;
                             if (session.getAttribute("loggedInUser") == null) {
                         %>
+                        <div class="quantity buttons_added">
+                            <h5 class="product-quantity">Số lượng</h5>
+                        </div>
                         <form action="productdetail?action=checkUser" method="post">
-                            <input type="submit" value="-" class="minus">
                             <input type="number" step="1" min="1" max="" name="sl" value="${amount}"
-                                   class="input-text qty text" size="4" pattern="" inputmode="">
-                            <input type="submit" value="+" class="plus">
-                            <input type="submit" class="product__main-buy-now" value="Mua Ngay">
+                                   style="width: 80px;height: 30px;text-align: center;background-color: transparent;border: 1px solid #efefef;font-size: 16px;margin-top: 5px;"
+                                   size="4" pattern="" inputmode="">
+                            <input type="submit"
+                                   style="font-size: 16px;background: #4b0082;color: white;height: 45px;border-radius: 4px;width: 200px;font-weight: 500;margin-left: -75px;display: flex;justify-content: center;align-items: center;margin-top: 10px;"
+                                   value="Mua Ngay">
                         </form>
                         <% } else { %>
+                        <div class="quantity buttons_added">
+                            <h5 class="product-quantity">Số lượng</h5>
+                        </div>
                         <form action="productdetail?action=add" method="post">
-                            <input type="submit" value="-" class="minus">
                             <input type="number" step="1" min="1" max="" name="sl" value="${amount}"
-                                   class="input-text qty text" size="4" pattern="" inputmode="">
-                            <input type="submit" value="+" class="plus">
+                                   style="width: 80px;height: 30px;text-align: center;background-color: transparent;border: 1px solid #efefef;font-size: 16px;margin-top: 5px;"
+                                   size="4" pattern="" inputmode="">
                             <input type="hidden" value="${product.id}" name="productCode">
-                            <input type="submit" class="product__main-buy-now" value="Mua Ngay">
+                            <input type="submit"
+                                   style="font-size: 16px;background: #4b0082;color: white;height: 45px;border-radius: 4px;width: 200px;font-weight: 500;margin-left: -75px;display: flex;justify-content: center;align-items: center;margin-top: 10px;"
+                                   value="Mua Ngay">
                         </form>
                         <%}%>
                     </div>
@@ -267,49 +275,53 @@
                         <input type="hidden" name="action" value="comment">
                         <div class="rating">
                             <label>
-                                <input type="radio" name="stars" value="1"/>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <input type="radio" name="stars" value="1" />
+                                <span class="icon">★</span>
                             </label>
                             <label>
-                                <input type="radio" name="stars" value="2"/>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <input type="radio" name="stars" value="2" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
                             </label>
                             <label>
-                                <input type="radio" name="stars" value="3"/>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <input type="radio" name="stars" value="3" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
                             </label>
                             <label>
-                                <input type="radio" name="stars" value="4"/>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <input type="radio" name="stars" value="4" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
                             </label>
                             <label>
-                                <input type="radio" name="stars" value="5"/>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
-                                <span class="icon-star1"><i class="fas fa-star post__aside-rate"></i></span>
+                                <input type="radio" name="stars" value="5" />
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
+                                <span class="icon">★</span>
                             </label>
                         </div>
                         <br>
                         <br>
                         <br>
                         <form action="productdetail" method="post">
-                            <div style="margin-top: -20px;">
-                                <span style="font-size: 1.5em; font-family: sans-serif; display: block; margin-bottom: 5px;">Chủ đề bình luận: </span>
+                            <div style="margin-top: 25px;">
+                                        <span
+                                                style="font-size: 1.5em; font-family: sans-serif; display: block; margin-bottom: 5px;">Chủ
+                                            đề bình luận: </span>
                                 <input type="text"
                                        style="width: 100%; height: 30px;margin-bottom: 5px;font-family: sans-serif;font-size: 1.4em;"
                                        name="topiccomment"><br>
-                                <span style="font-size: 1.5em; font-family: sans-serif; display: block; margin-bottom: 5px;">Cảm nhận của bạn về sản phẩm: </span>
+                                <span
+                                        style="font-size: 1.5em; font-family: sans-serif; display: block; margin-bottom: 5px;">Cảm
+                                            nhận của bạn về sản phẩm: </span>
                                 <textarea rows="5" name="comment" id="comment"
                                           style="margin-bottom: 2px;font-family: sans-serif;font-size: 1.4em;width: 100%;"> </textarea><br>
-                                <input type="submit" value="comment"
+                                <input type="submit" value="Bình luận"
                                        style="width: 150px;height: 30px;border: none;border-radius: 2px;font-size: 1.5rem;cursor: pointer;outline: none;color: var(--text-color);background: #8a2be2;display: inline-flex;justify-content: center;align-items: center;padding: 0 5px;text-align: center;margin: 5px 0 30px;font-weight: bold;">
                             </div>
                         </form>
