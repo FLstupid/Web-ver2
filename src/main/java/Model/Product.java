@@ -33,6 +33,18 @@ public class Product {
     @OneToMany( mappedBy = "productByProductId")
     private Collection<TagProduct> tagProductsById;
 
+    public Product(String productimage, String productcontent, String productDecription, Short productQuality, long productprice, String productName, Short productstatus, Shop s, Timestamp createAt) {
+    this.image = productimage;
+    this.createdAt = createAt;
+    this.decription = productDecription;
+    this.title = productName;
+    this.status = productstatus;
+    this.quality = productQuality;
+    this.price = productprice;
+    this.shopByShopId = s;
+    this.content = productcontent;
+    }
+
     public void setId(long id) {
         this.id = id;
     }

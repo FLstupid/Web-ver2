@@ -3,6 +3,7 @@ package SellerCenter;
 import Data.productIO;
 import Data.shopIO;
 import Model.Account;
+import Model.Product;
 import Model.Shop;
 
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 
 @WebServlet(name = "product", value = "/product")
@@ -19,12 +21,35 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         String url = "/product.jsp";
         Account acc = (Account) request.getSession().getAttribute("account");
         HttpSession session = request.getSession();
+
+        String action = request.getParameter("action");
+        if(action==null)
+        {
+            action = "product";
+        }
+         if (action.equals("addproduct"))
+        {
+            String productcontent = request.getParameter("productcontent");
+            String productName = request.getParameter("productName");
+            String productprice1 = request.getParameter("productprice");
+            String productDecription = request.getParameter("productDecription");
+            String productstatus1 = request.getParameter("productstatus");
+            String productQuality1 = request.getParameter("productQuality");
+            String productimage = request.getParameter("productimage");
+            Shop s = shopIO.getShopbyUserID(acc.getId());
+            Timestamp createAt =  new Timestamp(System.currentTimeMillis());
+            Short productQuality =  Short.parseShort(productQuality1);
+            Short productstatus = Short.parseShort(productstatus1);
+            long productprice = Long.parseLong(productprice1);
+            Product  p = new Product(productimage,productcontent,productDecription,productQuality,productprice,productName,productstatus,s,createAt);
+            productIO.insert(p);
+        }
         long id = acc.getId();
-        Shop shop = shopIO.getShopbyUserID(id);
-        List  listproductbyshop = productIO.selectListProductbyshop(shop.getId());
+        List  listproductbyshop = productIO.selectListProductbyshop(acc.getId());
         session.setAttribute("listproductbyshop", listproductbyshop);
         getServletContext()
                 .getRequestDispatcher(url)

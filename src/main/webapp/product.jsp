@@ -59,16 +59,81 @@
         <section class="styles-middle-container has-sidebar">
             <div class="layout-menu">
                 <div class="main-content">
-                    <div class="content">
-                        <h3 class="title">Thêm sản phẩm</h3>
-                        <form>
-                            <div class="form-control"></div>
-                            <div class="form-control"></div>
-                            <div class="form-control"></div>
-                            <div class="form-control"></div>
-                            <div class="form-control"></div>
-                            <div class="form-control"></div>
-                        </form>
+                    <div class="Account_StylesAccountLayoutInner">
+                        <h3 class="HeadingContent">Thêm sản phẩm</h3>
+                        <div class="Content_StylesNav">
+                            <form action="product" method="post">
+                                <input type="hidden" name="action" value="addproduct">
+                                <div class="form-control">
+                                    <label class="input-label">Tên sản phẩm</label>
+                                    <div>
+                                        <label>
+                                            <input type="text" name="productName" maxlength="128" class="Input-styles"
+                                                   value="">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">Giá sản phẩm</label>
+                                    <div>
+                                        <label>
+                                            <input type="text" name="productprice"
+                                                   class="Input-styles" value="">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">Chất lượng</label>
+                                    <div>
+                                        <label>
+                                            <input type="text" name="productQuality"
+                                                   class="Input-styles" value="">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">Trạng thái</label>
+                                    <div>
+                                        <label>
+                                            <input type="text" name="productstatus"
+                                                   class="Input-styles" value="">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">Chi tiết sản phẩm</label>
+                                    <div>
+                                        <label>
+                                            <input type="text"  name="productcontent" class="Input-styles"
+                                                   value="">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">Thông tin sản phẩm</label>
+                                    <div>
+                                        <label>
+                                            <input type="text" name="productDecription"
+                                                   class="Input-styles" value="">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">Link Hình ảnh sản phẩm</label>
+                                    <div>
+                                        <label>
+                                            <input type="text" name="productimage"
+                                                   class="Input-styles" value="">
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-control">
+                                    <label class="input-label">&nbsp;</label>
+                                    <button type="submit" class="btn-submit">Cập nhật</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                     <div class="content">
                         <h3 class="title">Thông tin sản phẩm</h3>

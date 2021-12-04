@@ -59,8 +59,7 @@ public class shopIO {
     {
         EntityManager em = emf.createEntityManager();
         try {
-            return em.createQuery("SELECT p.id , p.shopname,p.streetName,p.district,p.city, " +
-                            "p.numberProduct,p.status from Shop p where p.accountByAccountId.id =?1",Shop.class)
+            return em.createQuery("SELECT p from Shop p where p.accountByAccountId.id =?1",Shop.class)
                     .setParameter(1,userid).getSingleResult();
 
         } catch (Exception e)

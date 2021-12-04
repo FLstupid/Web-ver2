@@ -9,7 +9,7 @@ public class productIO {
     public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
 
 
-    public void insert (Product product)
+    public static void insert(Product product)
     {
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
@@ -103,11 +103,8 @@ public class productIO {
     {
         EntityManager em = emf.createEntityManager();
         try {
-            return em.createQuery("SELECT p.title as productname, " +
-                            "p.decription as decription" +
-                            ",p.price as price , p.shopByShopId.shopname ," +
-                            "p.id ,p.image, t.tagName " +
-                            "FROM Product p, p.tagProductsById tp, tp.tagByTagId t where p.shopByShopId.id = ?1").setParameter(1,id)
+            return em.createQuery("SELECT p.title as productname,p.decription as decription,p.price as price , p.shopByShopId.shopname , p.image \n" +
+                            "FROM Product p where p.shopByShopId.accountByAccountId.id = ?1").setParameter(1,id)
                     .getResultList();
         } catch (Exception e)
         {
