@@ -186,7 +186,7 @@
                 <div class="col1 l-10 m-12 c-12">
                     <!-- Tiêu đề -->
                     <div class="breadcrump-filter">
-                        <span class="breadcrump-filter__label">Thay đổi mật khẩu</span>
+                        <span class="breadcrump-filter__label">Thay Đổi Mật Khẩu</span>
                     </div>
 
                     <!-- Nội dung -->

@@ -1,311 +1,295 @@
 <%--@elvariable id="address" type="Model.Address"--%>
 <%--@elvariable id="account" type="com.sun.webkit.dom.HTMLAreaElementImpl"--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>UserCenter</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
-    <link rel="stylesheet" href="css/newcss.css"/>
-    <link rel="stylesheet" href="Home/homePage.css"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHS</title>
+
+    <!-- Logo -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/logo.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/pages/usercenter.css">
+    <link rel="stylesheet" href="assets/css/pages/address.css">
+    <link rel="stylesheet" href="assets/css/core.css">
+    <link rel="stylesheet" href="assets/css/shortcode/shortcodes.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
+
+    <!-- Script -->
+    <script src="assets/js/jquery-3.3.1.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </head>
 <body>
-<!---------------------------------------------------header-------------------------------------------->
-<header class="style__Header">
-    <section class="Container">
-        <a
-                style="color: white"
-                href="${pageContext.request.contextPath}/summary"
-        >Kênh Người Bán</a
-        >
-        <div class="Middle__Wrap">
-            <div class="Middle__LeftContainer">
-                <div class="logo-menu">
-                    <div class="style_Logo">
-                        <a href="home" class="dhs-logo">
-                            <img src="Home/img/logo.svg" alt=""/>
-                        </a>
-                    </div>
+
+<div class="app">
+    <header class="header">
+        <div class="grid wide">
+            <!-- header navbar -->
+            <nav class="header__navbar hide-on-mobile-tablet">
+                <!-- header navbar left -->
+                <ul class="header__navbar-list">
+                    <li>
+                        <i class="header__navbar-icon fas fa-store"></i>
+                        <a class="header__navbar-item"
+                           href="${pageContext.request.contextPath}/summary">Kênh người bán</a>
+                    </li>
+                </ul>
+                <!--rnd header navbar left -->
+
+                <!-- header navbar right -->
+                <ul class="header__navbar-list">
+                    <% session = request.getSession(false);
+                        if (session == null || session.getAttribute("loggedInUser") == null) {%>
+                    <!-- Chưa đăng nhập -->
+                    <li>
+                        <a href="login" class="
+									header__navbar-item
+									header__navbar-item--strong
+									header__navbar-item--separate"
+                        > Đăng ký</a>
+                    </li>
+                    <li>
+                        <a href="login" class="
+									header__navbar-item
+									header__navbar-item--strong"
+                        > Đăng Nhập</a>
+                    </li>
+                    <%} else {%>
+                    <!-- Đã đăng nhập -->
+                    <li class="header__navbar-item header__navbar-user">
+                        <img src="${pageContext.request.contextPath}/images/${account.avatar}"
+                             class="header__navbar-user-img" alt="">
+                        <% if (session.getAttribute("username") == null || session.getAttribute("loggedInUser") == null) {%>
+                        <span class="header__navbar-item--strong header__navbar-user-name">
+                            User name</span>
+                        <%} else { %>
+                        <span>${account.username}</span>
+                        <%}%>
+                        <ul class="header__navbar-user-menu">
+                            <li class="header__navbar-user-item">
+                                <a rel="nofollow"
+                                   href="${pageContext.request.contextPath}/customer"
+                                >Tài khoản của tôi</a>
+                            </li>
+                            <li class="header__navbar-user-item">
+                                <a rel="nofollow"
+                                   href="${pageContext.request.contextPath}/customerorder"
+                                >Đơn mua</a>
+                            </li>
+                            <li class="header__navbar-user-item header__navbar-user-item--separate">
+                                <a rel="nofollow"
+                                   href="${pageContext.request.contextPath}/logout"
+                                >Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <%}%>
+                </ul>
+            </nav>
+
+            <!-- Header with Search -->
+            <div class="header-with-search">
+                <!-- Header Logo -->
+                <div class="header__logo">
+                    <a href="home" class="header__logo-link">
+                        <img class="header__logo-img" src="assets/img/logo/logo.svg" alt=""/>
+                    </a>
                 </div>
 
-                <div class="Category__Root">
-                    <div class="Category">
-                        <div>
-                            <img
-                                    class="Category-icon"
-                                    src="https://icon-library.com/images/hamburger-icon-white/hamburger-icon-white-16.jpg"
-                                    alt=""
-                            />
-                        </div>
-                        <div class="Category-info">
-                            <div class="Category-text">
-                                Danh mục
-                                <p>Sản phẩm</p>
-                            </div>
-                        </div>
-                        <img
-                                class="arrowIcon"
-                                src="Home/img/dropdownArrow.png"
-                                alt=""
-                        />
-                    </div>
-                </div>
+                <!-- Header Search -->
+                <form style="width: 800px" action="search" method="get">
+                    <div class="header__search">
+                        <div class="header__search-input-wrap">
 
-                <div class="FormSearch__Root">
-                    <div class="FormSearch__Form">
-                        <input
-                                type="text"
-                                placeholder="Find somethings v............... ?"
-                                class="FormSearch__Input"
-                                value=""
-                        />
-                        <button class="FormSearch__Button">
-                            <img
-                                    class="icon-search"
-                                    src="https://salt.tikicdn.com/ts/upload/ed/5e/b8/8538366274240326978318348ea8af7c.png"
-                                    alt=""
-                            />
-                            Search
+                            <input type="text" name="searchproduct" class="header__search-input"
+                                   placeholder="Nhập để tìm kiếm sản phẩm"/>
+                        </div>
+                        <button type="submit" class="btn submit header__search-btn">
+                            <i class="header__search-btn-icon fas fa-search"></i>
                         </button>
-                    </div>
-                </div>
-                <% session = request.getSession(false);
-                    if (session == null || session.getAttribute("loggedInUser") == null) {%>
-                <a href="login" style="text-decoration: none; color: whitesmoke;"> Đăng nhập | Đăng ký</a>
-                <%} else {%>
-                <div class="Userstyle__Root">
-                    <div class="Userstyle__Item">
-                        <img class="profile-icon" src="Home/img/user.png" alt=""/>
-                        <a class="Userstyle__ItemText">
-                            <span class="Userstyle__NoWrap">Tài khoản</span>
-                            <span class="account_laber">
-										<div style="display: flex" class="buttonDropdown">
-                                            <%
-                                                if (session.getAttribute("username") == null || session.getAttribute("username") == "" || session.getAttribute("loggedInUser") == null) {%>
-											<span>user-name</span>
-                                            <%
-                                            } else {
-                                            %>
-                                            <span>${account.username}</span>
-                                            <%}%>
-											<img class="arrowIcon" src="Home/img/down.png" alt=""/>
-										</div>
-										<div
-                                                style="margin-top: 20px"
-                                                class="UserHeader_UserDropDown disableForm"
-                                        >
-											<a
-                                                    rel="nofollow"
-                                                    href="${pageContext.request.contextPath}/customerorder"
-                                            >
-												<p
-                                                        title="Order history"
-                                                        class="UserHeader_UserDropDownItem"
-                                                >
-													Order history
-												</p>
-											</a>
 
-											<a
-                                                    rel="nofollow"
-                                                    href="${pageContext.request.contextPath}/customer"
-                                            >
-												<p
-                                                        title="My account"
-                                                        class="UserHeader_UserDropDownItem"
-                                                >
-													My account
-												</p>
-											</a>
-											<a
-                                                    rel="nofollow"
-                                                    href="${pageContext.request.contextPath}/changingpassword"
-                                            >
-												<p
-                                                        title="Notification"
-                                                        class="UserHeader_UserDropDownItem"
-                                                >
-													Changing password
-												</p>
-											</a>
-											<a
-                                                    rel="nofollow"
-                                                    href="${pageContext.request.contextPath}/customerReview"
-                                            >
-												<p title="Reviews" class="UserHeader_UserDropDownItem">
-													"Reviews"
-												</p>
-											</a>
-											<a rel="nofollow" href="logout">
-												<p title="Log out" class="UserHeader_UserDropDownItem">
-													Log out
-												</p>
-											</a>
-										</div>
-									</span>
+                    </div>
+                </form>
+
+
+                <!-- Cart layout -->
+                <div class="header__cart">
+                    <div class="header__cart-wrap">
+                        <span class="header__cart-notice">0</span>
+                        <a href="${pageContext.request.contextPath}/cart" rel="nofollow">
+                            <i class="header__cart-icon fas fa-shopping-cart"></i>
                         </a>
                     </div>
-
-                    <div class="Userstyle__CartItem">
-                        <a
-                                href="${pageContext.request.contextPath}/cart"
-                                rel="nofollow"
-                        >
-                            <div class="Userstyle__Item2">
-                                <div class="cart-wrapper">
-                                    <img
-                                            class="cart-icon"
-                                            src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"
-                                            alt=""/>
-                                    <span class="Userstyle__ItemCart">3</span>
-                                </div>
-
-                                <span class="cart-text">Giỏ Hàng</span>
-                            </div>
-                        </a>
-                    </div>
+                    <!--End cart -->
                 </div>
-                <%}%>
+                <!--End header-search -->
             </div>
         </div>
-    </section>
-</header>
-<!---------------------------------------------------main-------------------------------------------->
-<main>
-    <section class="Container">
-        <div class="Account_Layout">
-            <div class="breadcrumb_Container"></div>
-            <aside class="Account_StylesSideBar">
-                <div class="Account_StylesAvatar">
+    </header>
+    <!--End header -->
 
-                    <div class=" file1 temp" style="width: 10%; margin-top: 10px">
-                        <form>
-                            <img class="avt" style="width: 60px; height: 60px"
-                                 src="${pageContext.request.contextPath}/images/${account.avatar}" alt="">
-                        </form>
-                    </div>
-                    <div style="margin-left: 100px" class="info">
-                        Tài Khoản
-                        <strong>user-name</strong>
-                    </div>
+    <div class="app__container">
+        <div class="grid wide">
+            <div class="row1 sm-gutter1 app__content">
+                <!-- Danh mục -->
+                <div class="col1 l-2 m-0 c-0">
+                    <ul class="menu-user-item menu-user-name">
+                        <img src="assets/img/user_avatar.jpg" class="menu-user-img">
+                        <span class="menu-user-item--strong menu-user">
+                                Nguyễn Thanh Minh Đức</span>
+                    </ul>
+                    <nav class="menu">
+                        <h3 class="menu__heading">
+                            <i class="fas fa-list-ul menu__heading-icon"></i>
+                            Danh mục
+                        </h3>
+                        <ul class="menu-list">
+                            <li class="menu-item catgory-item--active">
+                                <a href="customer" class="menu-item__link">
+                                    <i class="fas fa-users menu__item-icon"></i>
+                                    Thông tin tài khoản</a>
+                            </li>
+                            <li class="menu-item catgory-item--active">
+                                <a href="changingpassword" class="menu-item__link">
+                                    <i class="fas fa-key menu__item-icon"></i>
+                                    Đổi mật khẩu</a>
+                            </li>
+                            <li class="menu-item catgory-item--active">
+                                <a href="customerorder" class="menu-item__link">
+                                    <i class="fas fa-cart-arrow-down menu__item-icon"></i>
+                                    Quản lý đơn hàng</a>
+                            </li>
+                            <li class="menu-item catgory-item--active">
+                                <a href="addresslist" class="menu-item__link">
+                                    <i class="fas fa-map-marked menu__item-icon"></i>
+                                    Sổ địa chỉ</a>
+                            </li>
+                            <li class="menu-item catgory-item--active">
+                                <a href="customerReview" class="menu-item__link">
+                                    <i class="far fa-address-card menu__item-icon"></i>
+                                    Nhận xét của khách hàng</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
 
-                <ul class="Account_NavBar">
-                    <li><a class="is-active" href="customer"><span>Thông tin tài khoản</span></a></li>
-                    <li><a href="changingpassword"><span>Đổi mật khẩu</span></a></li>
-                    <li><a href="customerorder"><span>Quản lý đơn hàng</span></a></li>
-                    <li><a href="addresslist"><span>Sổ địa chỉ</span></a></li>
-                    <li><a href="customerReview"><span>Nhận xét sản phẩm đã mua</span></a></li>
-                </ul>
-            </aside>
-            <div class="Account_StylesAccountLayoutInner">
-                <div style="width: 970px;" id="addadress" class="themdiachi ">
-                    <h3 class="HeadingContent">Thêm địa chỉ</h3>
+                <div class="col1 l-10 m-12 c-12">
+                    <!-- Tiêu đề -->
+                    <div class="breadcrump-filter">
+                        <span class="breadcrump-filter__label">Thêm Địa Chỉ</span>
+                    </div>
 
-                    <div class="Content_StylesNav">
-
-                        <form class="formthemdiachi" method="post" action="addaddress">
-                            <input type="hidden" name="action" value="add">
-                            <div class="form-control ">
-                                <label class="input-label">Họ và tên:</label>
-                                <div>
-                                    <input class="inputdiachi Input-sc-17i9bto-0 girQwT" type="text" required=""
-                                           name="fullName" placeholder="Nhập họ và tên" maxlength="50"
-                                           value="${account.username}">
+                    <!-- Nội dung -->
+                    <div class="home">
+                        <div class="row1 sm-gutter1">
+                            <form style="margin-left: 5px; width: 50%;" method="post" action="addaddress">
+                                <input type="hidden" name="action" value="add">
+                                <div class="form-control ">
+                                    <label class="home-item__name">Họ tên</label>
+                                    <div>
+                                        <input type="text" class="Input-styles" required="" name="fullName"
+                                               placeholder="Nhập họ và tên" maxlength="50" value="${account.username}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-control "><label name="telephone" class="input-label">Số điện
-                                thoại:</label>
-                                <div><input class="inputdiachi Input-sc-17i9bto-0 girQwT" type="text" required=""
-                                            name="telephone" placeholder="Nhập số điện thoại" value="${account.phone}">
+                                <div class="form-control">
+                                    <label name="telephone" class="home-item__name">Số điện thoại</label>
+                                    <div><input class="Input-styles" type="text" required="" name="telephone"
+                                                placeholder="Nhập số điện thoại" value="${account.phone}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-control">
-                                <label name="region" class="input-label">Tỉnh/Thành phố:</label>
-                                <select id="nameprovince" name="province" class="inputdiachi" required="">
-                                    <option value="">Chọn Tỉnh/Thành phố</option>
-                                    <option>Hồ Chí Minh</option>
-                                    <option>Hà Nội</option>
-                                    <option>Đà Nẵng</option>
-                                    <option>An Giang</option>
-                                    <option>Bà Rịa - Vũng Tàu</option>
-                                    <option>Bắc Giang</option>
-                                    <option>Bắc Kạn</option>
-                                    <option>Bạc Liêu</option>
-                                    <option>Bắc Ninh</option>
-                                    <option>Bến Tre</option>
-                                    <option>Bình Dương</option>
-                                    <option>Bình Phước</option>
-                                    <option>Bình Thuận</option>
-                                    <option>Bình Định</option>
-                                    <option>Cà Mau</option>
-                                    <option>Cần Thơ</option>
-                                    <option>Cao Bằng</option>
-                                    <option>Gia Lai</option>
-                                    <option>Hà Giang</option>
-                                    <option>Hà Nam</option>
-                                    <option>Hà Tĩnh</option>
-                                    <option>Hải Dương</option>
-                                    <option>Hải Phòng</option>
-                                    <option>Hậu Giang</option>
-                                    <option>Hoà Bình</option>
-                                    <option>Hưng Yên</option>
-                                    <option>Khánh Hòa</option>
-                                    <option>Kiên Giang</option>
-                                    <option>Kon Tum</option>
-                                    <option>Lai Châu</option>
-                                    <option>Lâm Đồng</option>
-                                    <option>Lạng Sơn</option>
-                                    <option>Lào Cai</option>
-                                    <option>Long An</option>
-                                    <option>Nam Định</option>
-                                    <option>Nghệ An</option>
-                                    <option>Ninh Bình</option>
-                                    <option>Ninh Thuận</option>
-                                    <option>Phú Thọ</option>
-                                    <option>Phú Yên</option>
-                                    <option>Quảng Bình</option>
-                                    <option>Quảng Nam</option>
-                                    <option>Quảng Ngãi</option>
-                                    <option>Quảng Ninh</option>
-                                    <option>Quảng Trị</option>
-                                    <option>Sóc Trăng</option>
-                                    <option>Sơn La</option>
-                                    <option>Tây Ninh</option>
-                                    <option>Thái Bình</option>
-                                    <option>Thái Nguyên</option>
-                                    <option>Thanh Hóa</option>
-                                    <option>Thừa Thiên Huế</option>
-                                    <option>Tiền Giang</option>
-                                    <option>Trà Vinh</option>
-                                    <option>Tuyên Quang</option>
-                                    <option>Vĩnh Long</option>
-                                    <option>Vĩnh Phúc</option>
-                                    <option>Yên Bái</option>
-                                    <option>Đắk Lắk</option>
-                                    <option>Đắk Nông</option>
-                                    <option>Điện Biên</option>
-                                    <option>Đồng Nai</option>
-                                    <option>Đồng Tháp</option>
-                                </select>
-                            </div>
-                            <div class="form-control">
-                                <label name="district" class="input-label">Quận huyện:</label>
-                                <input type="text" required="" name="district" placeholder="Nhập huyện" maxlength="50"
-                                       class="inputdiachi Input-sc-17i9bto-0 girQwT" value="${address.district}">
-                            </div>
-                            <div class="form-control ">
-                                <label name="address" class="input-label">
-                                    Địa chỉ:</label>
-                                <div>
-                                    <textarea class="inputdiachi" required="" name="street" rows="5"
-                                              placeholder="Nhập địa chỉ, phường/ xã"></textarea>
+                                <div class="form-control">
+                                    <label name="region" class="home-item__name">Tỉnh / Thành phố</label>
+                                    <select id="nameprovince" name="province" class="inputdiachi" required="">
+                                        <option value="">Chọn Tỉnh/Thành phố</option>
+                                        <option>Hồ Chí Minh</option>
+                                        <option>Hà Nội</option>
+                                        <option>Đà Nẵng</option>
+                                        <option>An Giang</option>
+                                        <option>Bà Rịa - Vũng Tàu</option>
+                                        <option>Bắc Giang</option>
+                                        <option>Bắc Kạn</option>
+                                        <option>Bạc Liêu</option>
+                                        <option>Bắc Ninh</option>
+                                        <option>Bến Tre</option>
+                                        <option>Bình Dương</option>
+                                        <option>Bình Phước</option>
+                                        <option>Bình Thuận</option>
+                                        <option>Bình Định</option>
+                                        <option>Cà Mau</option>
+                                        <option>Cần Thơ</option>
+                                        <option>Cao Bằng</option>
+                                        <option>Gia Lai</option>
+                                        <option>Hà Giang</option>
+                                        <option>Hà Nam</option>
+                                        <option>Hà Tĩnh</option>
+                                        <option>Hải Dương</option>
+                                        <option>Hải Phòng</option>
+                                        <option>Hậu Giang</option>
+                                        <option>Hoà Bình</option>
+                                        <option>Hưng Yên</option>
+                                        <option>Khánh Hòa</option>
+                                        <option>Kiên Giang</option>
+                                        <option>Kon Tum</option>
+                                        <option>Lai Châu</option>
+                                        <option>Lâm Đồng</option>
+                                        <option>Lạng Sơn</option>
+                                        <option>Lào Cai</option>
+                                        <option>Long An</option>
+                                        <option>Nam Định</option>
+                                        <option>Nghệ An</option>
+                                        <option>Ninh Bình</option>
+                                        <option>Ninh Thuận</option>
+                                        <option>Phú Thọ</option>
+                                        <option>Phú Yên</option>
+                                        <option>Quảng Bình</option>
+                                        <option>Quảng Nam</option>
+                                        <option>Quảng Ngãi</option>
+                                        <option>Quảng Ninh</option>
+                                        <option>Quảng Trị</option>
+                                        <option>Sóc Trăng</option>
+                                        <option>Sơn La</option>
+                                        <option>Tây Ninh</option>
+                                        <option>Thái Bình</option>
+                                        <option>Thái Nguyên</option>
+                                        <option>Thanh Hóa</option>
+                                        <option>Thừa Thiên Huế</option>
+                                        <option>Tiền Giang</option>
+                                        <option>Trà Vinh</option>
+                                        <option>Tuyên Quang</option>
+                                        <option>Vĩnh Long</option>
+                                        <option>Vĩnh Phúc</option>
+                                        <option>Yên Bái</option>
+                                        <option>Đắk Lắk</option>
+                                        <option>Đắk Nông</option>
+                                        <option>Điện Biên</option>
+                                        <option>Đồng Nai</option>
+                                        <option>Đồng Tháp</option>
+                                    </select>
                                 </div>
-                            </div>
-
-                            <div class="form-control">
-                                <label class="input-label">&nbsp;</label>
-                                <button type="submit" class="btn-submit">
+                                <div class="form-control">
+                                    <label name="district" class="home-item__name">Quận huyện</label>
+                                    <input type="text" required="" name="district" placeholder="Nhập huyện"
+                                           maxlength="50" class="Input-styles" value="${address.district}">
+                                </div>
+                                <div class="form-control ">
+                                    <label name="address" class="home-item__name">Địa chỉ</label>
+                                    <div>
+                                            <textarea class="Input-styles1" required="" name="street" rows="5"
+                                                      placeholder="Nhập địa chỉ, phường/ xã"></textarea>
+                                    </div>
+                                </div>
+                                <a href="addresslist" class="btn-submitt">
+                                    Trở về
+                                </a>
+                                <button type="submit" class="btn-submitt">
                                     Cập nhật
                                 </button>
                                 <c:if test="${not empty message1}">
@@ -315,16 +299,91 @@
                                         })
                                     </script>
                                 </c:if>
-                            </div>
-                        </form>
-
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-</main>
-<!---------------------------------------------------footer-------------------------------------------->
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="grid wide">
+            <div class="grid__row">
+                <div class="col l-2-4 m-4 c-6">
+                    <h3 class="footer__heading">Chăm sóc khách hàng</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item">
+                            <a href="#" class="footer-item__link">Trung Tâm Trợ Giúp</a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="#" class="footer-item__link">Thanh Toán</a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="#" class="footer-item__link">Vận Chuyển</a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="#" class="footer-item__link">Trả hàng & Hoàn Tiền</a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="#" class="footer-item__link">Chăm Sóc Khách Hàng</a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="#" class="footer-item__link">Chính Sách Bảo Hành</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l-2-4 m-4 c-6">
+                    <h3 class="footer__heading">Về DHS</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item">
+                            <a href="#" class="footer-item__link">Về chúng tôi</a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="#" class="footer-item__link">Liên hệ</a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="#" class="footer-item__link">Điều khoản DHS</a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="#" class="footer-item__link">Kênh Người Bán</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l-2-4 m-4 c-6">
+                    <h3 class="footer__heading">Kết nối với chúng tôi</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item">
+                            <a href="#" class="footer-item__link">
+                                <i class="fab fa-facebook footer-item__icon"></i>
+                                Facebook
+                            </a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="#" class="footer-item__link">
+                                <i class="fab fa-instagram footer-item__icon"></i>
+                                Instagram
+                            </a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="#" class="footer-item__link">
+                                <i class="fab fa-linkedin footer-item__icon"></i>
+                                Linkedin</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="grid wide">
+                <p class="footer__text">@2021 - Bản quyền thuộc về Nhóm 3 - Designed by Nguyễn Thanh Minh Đức</p>
+            </div>
+        </div>
+    </footer>
+    <!--End footer -->
+</div>
+
 <script src="js/main.js"></script>
 </body>
 </html>
