@@ -23,6 +23,9 @@ public class ProductDetailServlet extends HttpServlet {
         String action = request.getParameter("action");
         String url = "/ProductDetail.jsp";
         Product product;
+        String productid = request.getParameter("productCode");
+        long id = Long.parseLong(productid);
+        product = productIO.selectProductByid(id);
         int amount = 1;
         if(action == null)
         {
@@ -30,11 +33,6 @@ public class ProductDetailServlet extends HttpServlet {
         }
         switch (action) {
             case "detail": {
-                String productid = request.getParameter("productCode");
-                long id = Long.parseLong(productid);
-
-                request.getSession();
-                product = productIO.selectProductByid(id);
                 request.getSession().setAttribute("product", product);
                 request.getSession().setAttribute("amount",amount);
                 getServletContext()
@@ -43,9 +41,6 @@ public class ProductDetailServlet extends HttpServlet {
                 break;
             }
             case "comment": {
-                String productid = request.getParameter("productCode");
-                long id = Long.parseLong(productid);
-                product = productIO.selectProductByid(id);
                 String topic = request.getParameter("topiccomment");
                 String comment = request.getParameter("comment");
                 String rating1 = request.getParameter("stars");

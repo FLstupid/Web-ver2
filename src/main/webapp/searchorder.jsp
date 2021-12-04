@@ -8,7 +8,9 @@
     <title>DHS</title>
 
     <!-- Logo -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/logo.ico">
+    <link rel="shortcut icon"
+          type="image/x-icon"
+          href="assets/img/logo/favicon.ico">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/pages/search.css">

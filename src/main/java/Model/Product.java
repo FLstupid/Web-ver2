@@ -45,6 +45,10 @@ public class Product {
     this.content = productcontent;
     }
 
+    public Product() {
+
+    }
+
     public void setId(long id) {
         this.id = id;
     }

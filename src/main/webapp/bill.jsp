@@ -5,6 +5,11 @@
 <head>
     <link rel="stylesheet" href="css/sellercenter.css"/>
     <title>DHS Bill Seller</title>
+
+    <!-- Logo -->
+    <link rel="shortcut icon"
+          type="image/x-icon"
+          href="assets/img/logo/favicon.ico">
 </head>
 <body>
 <header class="header-root">

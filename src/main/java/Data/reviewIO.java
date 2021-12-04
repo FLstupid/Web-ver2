@@ -24,7 +24,7 @@ public class reviewIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
+
         }
     }
 
@@ -41,7 +41,7 @@ public class reviewIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
+
         }
     }
     public void delete (Review review)
@@ -57,7 +57,7 @@ public class reviewIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
+
         }
     }
     public static List<?> selectReviewList(long masanpham){

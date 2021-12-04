@@ -1,6 +1,6 @@
 .cart-name {
 	background: #fafafa;
-	padding: 20px;
+	padding: 15px;
 	margin-top: 20px;
 	border-bottom: 1px solid #e5e5e5;
 }
@@ -80,7 +80,16 @@ p.money {
 	margin-left: 20px;
 }
 
-button.btn.btn-kx {
+.btn.btn-kx1 {
+	background: indigo;
+	width: 154px;
+	height: 40px;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 4px;
+}
+
+a.btn-kx2 {
 	background: indigo;
 	width: 154px;
 	height: 40px;
@@ -107,7 +116,8 @@ img.cart-img:hover {
 }
 
 .btn.btn-danger:hover,
-.btn.btn-kx:hover {
+.btn.btn-kx1:hover,
+.btn-kx2:hover {
 	color: rgba(255, 255, 255, 0.7);
 	cursor: pointer;
 	text-decoration: none;
@@ -178,4 +188,33 @@ img.cart-img:hover {
 .quantity.buttons_added .minus:focus,
 .quantity.buttons_added .plus:focus {
 	outline: none;
+}
+
+table {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 12px;
+}
+
+th {
+	background-color: indigo;
+	color: white;
+	text-align: center;
+}
+
+th,
+td {
+	padding: 10px;
+}
+
+tr:hover {
+	background-color: #e6e6fa;
+}
+
+.nocartyet {
+	background-color: white;
+	height: 100px;
+	margin: auto;
+	padding: 20px 0;
 }

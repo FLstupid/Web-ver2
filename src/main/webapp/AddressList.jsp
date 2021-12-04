@@ -9,7 +9,9 @@
     <title>DHS</title>
 
     <!-- Logo -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/logo.ico">
+    <link rel="shortcut icon"
+          type="image/x-icon"
+          href="assets/img/logo/favicon.ico">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/pages/usercenter.css">
@@ -103,6 +105,7 @@
 
                 <!-- Header Search -->
                 <form style="width: 800px" action="search" method="get">
+                    <input type="hidden" name="action" value="searchproduct">
                     <div class="header__search">
                         <div class="header__search-input-wrap">
 
@@ -115,7 +118,6 @@
 
                     </div>
                 </form>
-
 
                 <!-- Cart layout -->
                 <div class="header__cart">

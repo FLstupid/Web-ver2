@@ -10,7 +10,9 @@
     <title>DHS</title>
 
     <!-- Logo -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/logo.ico">
+    <link rel="shortcut icon"
+          type="image/x-icon"
+          href="assets/img/logo/favicon.ico">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/pages/product.css">
@@ -150,10 +152,10 @@
                 <div class="col-md-8">
                     <div class="product-breadcrumb">
                         Trang chủ / Sản phẩm
-                        <a class="non-underline-link" href="#">
-                            <h4 class="product-info">${product.title}</h4>
-                        </a>
                     </div>
+                    <a class="non-underline-link" href="#">
+                        <h4 class="product-info">${product.title}</h4>
+                    </a>
                     <div class="product-star">
                         <i class="fas fa-star product__main-info-rate"></i>
                         <i class="fas fa-star product__main-info-rate"></i>
@@ -161,7 +163,7 @@
                         <i class="fas fa-star product__main-info-rate"></i>
                         <i class="fas fa-star product__main-info-rate"></i>
                     </div>
-                    <p class="product-current">${product.price}</p>
+                    <p class="product-current">${product.content}</p>
                     <p class="product-description">${product.decription}</p>
                     <p class="product-quantity">Shop ${product.shopByShopId.shopname}</p>
                     <div class="product__main-info-contact">
@@ -174,7 +176,7 @@
                         </div>
                         <form action="productdetail?action=checkUser" method="post">
                             <input type="number" step="1" min="1" max="" name="sl" value="${amount}"
-                                   style="width: 80px;height: 30px;text-align: center;background-color: transparent;border: 1px solid #efefef;font-size: 16px;margin-top: 5px;"
+                                   style="width: 80px;height: 30px;text-align: center;background-color: transparent;border: 1px solid #efefef;font-size: 16px;margin-bottom: 5px;"
                                    size="4" pattern="" inputmode="">
                             <input type="submit"
                                    style="font-size: 16px;background: #4b0082;color: white;height: 45px;border-radius: 4px;width: 200px;font-weight: 500;margin-left: -75px;display: flex;justify-content: center;align-items: center;margin-top: 10px;"
@@ -186,7 +188,7 @@
                         </div>
                         <form action="productdetail?action=add" method="post">
                             <input type="number" step="1" min="1" max="" name="sl" value="${amount}"
-                                   style="width: 80px;height: 30px;text-align: center;background-color: transparent;border: 1px solid #efefef;font-size: 16px;margin-top: 5px;"
+                                   style="width: 80px;height: 30px;text-align: center;background-color: transparent;border: 1px solid #efefef;font-size: 16px;margin-bottom: 5px;"
                                    size="4" pattern="" inputmode="">
                             <input type="hidden" value="${product.id}" name="productCode">
                             <input type="submit"
@@ -273,6 +275,7 @@
                     <h5 class="product-conten">Đánh giá của bạn về sản phẩm</h5>
                     <form action="productdetail">
                         <input type="hidden" name="action" value="comment">
+                        <input type="hidden" value="${product.id}" name="productCode">
                         <div class="rating">
                             <label>
                                 <input type="radio" name="stars" value="1" />
@@ -308,7 +311,6 @@
                         <br>
                         <br>
                         <br>
-                        <form action="productdetail" method="post">
                             <div style="margin-top: 25px;">
                                         <span
                                                 style="font-size: 1.5em; font-family: sans-serif; display: block; margin-bottom: 5px;">Chủ
@@ -321,10 +323,10 @@
                                             nhận của bạn về sản phẩm: </span>
                                 <textarea rows="5" name="comment" id="comment"
                                           style="margin-bottom: 2px;font-family: sans-serif;font-size: 1.4em;width: 100%;"> </textarea><br>
-                                <input type="submit" value="Bình luận"
-                                       style="width: 150px;height: 30px;border: none;border-radius: 2px;font-size: 1.5rem;cursor: pointer;outline: none;color: var(--text-color);background: #8a2be2;display: inline-flex;justify-content: center;align-items: center;padding: 0 5px;text-align: center;margin: 5px 0 30px;font-weight: bold;">
+
                             </div>
-                        </form>
+                        <input type="submit" value="Bình luận"
+                               style="width: 150px;height: 30px;border: none;border-radius: 2px;font-size: 1.5rem;cursor: pointer;outline: none;color: var(--text-color);background: #8a2be2;display: inline-flex;justify-content: center;align-items: center;padding: 0 5px;text-align: center;margin: 5px 0 30px;font-weight: bold;">
                     </form>
                 </div>
             </div>

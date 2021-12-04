@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="/css/style.css">
     <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <!-- Logo -->
+    <link rel="shortcut icon"
+          type="image/x-icon"
+          href="assets/img/logo/favicon.ico">
 </head>
 <body>
 

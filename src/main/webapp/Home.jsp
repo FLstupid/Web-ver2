@@ -11,7 +11,9 @@
     <title>DHS</title>
 
     <!-- Logo -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/logo.ico">
+    <link rel="shortcut icon"
+          type="image/x-icon"
+          href="assets/img/logo/favicon.ico">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/core.css">
@@ -175,7 +177,6 @@
                         <button class="home-filter__btn btn1 btn--primary">
                             Sản Phẩm
                         </button>
-
                         <div class="home-filter__page">
 								<span class="home-filter__page-num">
 									<span class="home-filter__page-current">1</span>/

@@ -8,6 +8,10 @@
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="css/all.min.css"/>
     <link rel="stylesheet" href="Registration/style.css"/>
+    <!-- Logo -->
+    <link rel="shortcut icon"
+          type="image/x-icon"
+          href="assets/img/logo/favicon.ico">
 </head>
 <body>
 <div style="width: 100%" class="form-container sign-in-container">

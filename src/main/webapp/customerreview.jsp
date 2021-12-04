@@ -8,7 +8,9 @@
     <title>DHS</title>
 
     <!-- Logo -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/logo.ico">
+    <link rel="shortcut icon"
+          type="image/x-icon"
+          href="assets/img/logo/favicon.ico">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/pages/usercenter.css">
@@ -100,6 +102,7 @@
 
                 <!-- Header Search -->
                 <form style="width: 800px" action="search" method="get">
+                    <input type="hidden" name="action" value="searchproduct">
                     <div class="header__search">
                         <div class="header__search-input-wrap">
 
@@ -112,7 +115,6 @@
 
                     </div>
                 </form>
-
 
                 <!-- Cart layout -->
                 <div class="header__cart">
@@ -187,9 +189,9 @@
                                     <a href="home" style="font-family: Roboto, Helvetica, Arial, sans-serif;line-height: 1.5;text-size-adjust: 100%;text-align: center;box-sizing: border-box;text-decoration: none;width: 190px;border-radius: 4px;color: rgb(74, 74, 74);font-size: 14px;background-color: rgb(253, 216, 53);display: block;margin-left: 420px;">Tiếp tục mua sắm</a>
                                 </c:if>
                                 <c:if test="${not empty reviewlist}">
-                                    <table class="comment1">
+                                    <table style="width: 100%;" class="bangmua1">
                                         <thead>
-                                        <tr>
+                                        <tr style="align-items: center">
                                             <th>Mã đơn hàng</th>
                                             <th>Tiêu Đề</th>
                                             <th>Tên Sản Phẩm</th>
