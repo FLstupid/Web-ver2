@@ -300,7 +300,7 @@
                         <br>
                         <br>
                         <form action="productdetail" method="post">
-                            <div style="margin-top: -40px;">
+                            <div style="margin-top: -20px;">
                                 <span style="font-size: 1.5em; font-family: sans-serif; display: block; margin-bottom: 5px;">Chủ đề bình luận: </span>
                                 <input type="text"
                                        style="width: 100%; height: 30px;margin-bottom: 5px;font-family: sans-serif;font-size: 1.4em;"
