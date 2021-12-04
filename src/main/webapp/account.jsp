@@ -76,11 +76,8 @@
                                     <div>
                                         <label>
                                             <input type="text" name="fullName" maxlength="128" class="Input-styles"
-<<<<<<< Updated upstream
-                                                   value="${account.shopId}">
-=======
-                                                   value="${shop.shopname}">
->>>>>>> Stashed changes
+                                                    value="${shop.shopname}">
+
                                         </label>
                                     </div>
                                 </div>
