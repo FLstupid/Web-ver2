@@ -88,14 +88,12 @@ public class orderDetailIO {
     {
         EntityManager em = emf.createEntityManager();
         try {
-            return em.createQuery("SELECT p.id as MaDonHang, " +
-                    "p.createdAt as NgayMua, g.title as TenSanPham ," +
+            return em.createQuery("SELECT p.id as MaDonHang, p.createdAt as NgayMua, g.title as TenSanPham , " +
                     "p.totalPrice as TongTien,l.states as TrangThai, p.createdAt, p.phone," +
-                    "n.amount " +
-                    "FROM OrderDetail p , Account ac, OrderItem  n , Product g,Trans l, Shop s\n" +
-                    "WHERE n.orderDetailByOrderId.id = p.id " +
+                    "n.amount   FROM OrderDetail p , Account ac, OrderItem  n , Product g,Trans l, Shop s" +
+                    " WHERE n.orderDetailByOrderId.id = p.id " +
                     "AND g.id=n.productByProductId.id AND ac.id = l.accountByAccountId.id " +
-                    " AND s.accountByAccountId.id = ac.id and g.shopByShopId.id = s.id  AND  ac.id = ?1").setParameter(1,ID).getResultList();
+                    " AND s.accountByAccountId.id = ac.id and g.shopByShopId.id = s.id AND  ac.id = ?1").setParameter(1,ID).getResultList();
 
         } catch (Exception e)
         {
@@ -111,7 +109,7 @@ public class orderDetailIO {
         try {
             return em.createQuery("SELECT p.id as MaDonHang, p.createdAt as NgayMua, g.title as TenSanPham ,\n" +
                     "p.totalPrice as TongTien,l.states as TrangThai, p.createdAt, p.phone,\n" +
-                    "n.amount \n" +
+                    "n.amount  " +
                     "FROM OrderDetail p , Account ac, OrderItem  n , Product g,Trans l, Shop s\n" +
                     "WHERE n.orderDetailByOrderId.id = p.id \n" +
                     "AND g.id=n.productByProductId.id AND ac.id = l.accountByAccountId.id \n" +

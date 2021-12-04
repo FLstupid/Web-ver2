@@ -27,6 +27,21 @@ public class Shop {
     @OneToMany(mappedBy = "shopByShopId")
     private Collection<ShopDelivery> shopDeliveriesById;
 
+    public Shop(String shopCity, String shopStreet, String shopDistrict, String shopName, long numberProduct, Account acc, Timestamp lastupdate, int bank) {
+        this.city = shopCity;
+        this.streetName = shopStreet;
+        this.district = shopDistrict;
+        this.shopname = shopName;
+        this.numberProduct = numberProduct;
+        this.accountByAccountId = acc;
+        this.lastUpdate = lastupdate;
+        this.bankId = bank;
+    }
+
+    public Shop() {
+
+    }
+
     public long getId() {
         return id;
     }

@@ -27,7 +27,6 @@ public class productIO {
 
     public void update (Product product)
     {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
@@ -83,7 +82,6 @@ public class productIO {
 
     }
 
-    //xem lại
     public static List<?> selectListProduct()
     {
         EntityManager em = emf.createEntityManager();
@@ -92,6 +90,24 @@ public class productIO {
                     "p.decription as decription" +
                     ",p.price as price , p.shopByShopId.shopname ,p.id " +
                     "FROM Product p")
+                    .getResultList();
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }finally {
+            em.close();
+        }
+    }
+    public static List<?> selectListProductbyshop(long id)
+    {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createQuery("SELECT p.title as productname, " +
+                            "p.decription as decription" +
+                            ",p.price as price , p.shopByShopId.shopname ," +
+                            "p.id ,p.image, t.tagName " +
+                            "FROM Product p, p.tagProductsById tp, tp.tagByTagId t where p.shopByShopId.id = ?1").setParameter(1,id)
                     .getResultList();
         } catch (Exception e)
         {

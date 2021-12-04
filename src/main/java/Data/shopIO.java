@@ -1,5 +1,6 @@
 package Data;
 
+import Model.Account;
 import Model.Shop;
 
 import javax.persistence.EntityManager;
@@ -8,12 +9,10 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class shopIO {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
-    EntityManager em = emf.createEntityManager();
-    EntityTransaction transaction = em.getTransaction();
-
-    public void insert (Shop shop)
-    {
+    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
+    public static void insert(Shop shop)
+    {EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
             em.persist(shop);
@@ -23,12 +22,12 @@ public class shopIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
         }
     }
 
     public void update (Shop shop)
-    {
+    {EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
 
@@ -39,11 +38,11 @@ public class shopIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
         }
     }
     public void delete (Shop shop)
-    {
+    {EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
             em.remove(shop);
@@ -54,7 +53,22 @@ public class shopIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
+        }
+    }
+    public static Shop getShopbyUserID(long userid)
+    {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createQuery("SELECT p.id , p.shopname,p.streetName,p.district,p.city, " +
+                            "p.numberProduct,p.status from Shop p where p.accountByAccountId.id =?1",Shop.class)
+                    .setParameter(1,userid).getSingleResult();
+
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        }finally {
+            em.close();
         }
     }
 }

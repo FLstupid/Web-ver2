@@ -12,6 +12,7 @@ public class TagProduct {
     @ManyToOne
     private Tag tagByTagId;
 
+
     public long getId() {
         return id;
     }

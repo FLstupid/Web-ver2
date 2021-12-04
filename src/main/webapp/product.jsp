@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html lang="en">
 <head>
@@ -72,25 +73,29 @@
                     <div class="content">
                         <h3 class="title">Thông tin sản phẩm</h3>
                         <div class="inner">
+
                             <table>
                                 <thead>
                                 <tr>
                                     <th>Tên sản phẩm</th>
-                                    <th>Loại</th>
+                                    <th>Mô tả</th>
                                     <th>Tag</th>
                                     <th>Giá</th>
-                                    <th>Số lượng</th>
+                                    <th>Link ảnh</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                </tr>
-                                </tbody>
+                                <c:forEach items="${listproductbyshop}" var="element">
+                                    <tbody>
+                                    <tr>
+                                        <td>${element[0]}</td>
+                                        <td>${element[1]}</td>
+                                        <td>${element[6]}</td>
+                                        <td>${element[2]}</td>
+                                        <td>${element[5]}</td>
+                                    </tr>
+                                    </tbody>
+                                </c:forEach>
+
                             </table>
                         </div>
                     </div>

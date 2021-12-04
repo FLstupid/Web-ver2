@@ -76,7 +76,11 @@
                                     <div>
                                         <label>
                                             <input type="text" name="fullName" maxlength="128" class="Input-styles"
+<<<<<<< Updated upstream
                                                    value="${account.shopId}">
+=======
+                                                   value="${shop.shopname}">
+>>>>>>> Stashed changes
                                         </label>
                                     </div>
                                 </div>
@@ -192,6 +196,90 @@
                                                 <option value="0">Năm</option>
                                                 <option value="2021">2021</option>
                                             </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">&nbsp;</label>
+                                    <button type="submit" class="btn-submit">Cập nhật</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="Account_StylesAccountLayoutInner">
+                        <h3 class="HeadingContent">Thông tin shop</h3>
+                        <div class="Content_StylesNav">
+                            <form action="account" method="post">
+                                <input type="hidden" name="action" value="shopinfor">
+                                <div class="form-control">
+                                    <label class="input-label">Shop</label>
+                                    <div>
+                                        <label>
+                                            <input type="text" name="shopName" maxlength="128" class="Input-styles"
+                                                   value="${shop.shopname}">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">Tên đường, Xã</label>
+                                    <div>
+                                        <label>
+                                            <input type="text" name="shopStreet" placeholder="Nhập tên đường, xã"
+                                                   class="Input-styles" value="${shop.streetName}">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">Quận/ Huyện</label>
+                                    <div>
+                                        <label>
+                                            <input type="text" name="shopDistrict" placeholder="Nhập tên quận, huyện"
+                                                   class="Input-styles" value="${shop.district}">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">Tỉnh/ Thành phố</label>
+                                    <div>
+                                        <label>
+                                            <input type="text" name="shopCity" placeholder="Nhập tên tỉnh, thành phố"
+                                                   class="Input-styles" value="${shop.city}">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">Email</label>
+                                    <div>
+                                        <label>
+                                            <input type="email" disabled name="shopEmail" class="Input-styles"
+                                                   value="${account.email}">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">Số sản phẩm</label>
+                                    <div>
+                                        <label>
+                                            <input type="text" name="numberProduct" placeholder="Nhập số sản phẩm"
+                                                   class="Input-styles" value="${shop.numberProduct}">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">Trạng thái</label>
+                                    <div>
+                                        <label>
+                                            <input type="text" name="address" placeholder="Nhập trạng thái của shop"
+                                                   class="Input-styles" value="${shop.status}">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-control">
+                                    <label class="input-label">Tài khoản ngân hàng</label>
+                                    <div>
+                                        <label>
+                                            <input type="text" name="bank" placeholder="Nhập "
+                                                   class="Input-styles" value="${shop.bankId}">
                                         </label>
                                     </div>
                                 </div>

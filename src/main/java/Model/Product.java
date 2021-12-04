@@ -10,15 +10,16 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    private String content;
+    private Timestamp createdAt;
+    private String decription;
+    private double price;
+    private short quality;
     private Short status;
     private String title;
-    private short quality;
-    private double price;
-    private String decription;
-    private String content;
     private Timestamp updatedAt;
-    private Timestamp createdAt;
-    public Product(){}
+    private String image;
+
     @OneToMany(mappedBy = "productByProductId")
     private Collection<CartItem> cartItemsById;
     @OneToMany(mappedBy = "productByProductId")
@@ -32,55 +33,15 @@ public class Product {
     @OneToMany( mappedBy = "productByProductId")
     private Collection<TagProduct> tagProductsById;
 
-    public long getId() {
-        return id;
-    }
-
     public void setId(long id) {
         this.id = id;
     }
-
-    public Short getStatus() {
-        return status;
+    public long getId() {
+        return this.id;
     }
 
-    public void setStatus(Short status) {
-        this.status = status;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public short getQuality() {
-        return quality;
-    }
-
-    public void setQuality(short quality) {
-        this.quality = quality;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getDecription() {
-        return decription;
-    }
-
-
-    public void setDecription(String decription) {
-        this.decription = decription;
-    }
-
+    @Basic
+    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -89,14 +50,8 @@ public class Product {
         this.content = content;
     }
 
-    public Timestamp getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Timestamp updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
+    @Basic
+    @Column(name = "createdAt")
     public Timestamp getCreatedAt() {
         return createdAt;
     }
@@ -105,88 +60,86 @@ public class Product {
         this.createdAt = createdAt;
     }
 
+    @Basic
+    @Column(name = "decription")
+    public String getDecription() {
+        return decription;
+    }
+
+    public void setDecription(String decription) {
+        this.decription = decription;
+    }
+
+    @Basic
+    @Column(name = "price")
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Basic
+    @Column(name = "quality")
+    public short getQuality() {
+        return quality;
+    }
+
+    public void setQuality(short quality) {
+        this.quality = quality;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public Short getStatus() {
+        return status;
+    }
+
+    public void setStatus(Short status) {
+        this.status = status;
+    }
+
+    @Basic
+    @Column(name = "title")
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Basic
+    @Column(name = "updatedAt")
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @Basic
+    @Column(name = "image")
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Product product = (Product) o;
-
-        if (id != product.id) return false;
-        if (quality != product.quality) return false;
-        if (Double.compare(product.price, price) != 0) return false;
-        if (!Objects.equals(status, product.status)) return false;
-        if (!Objects.equals(title, product.title)) return false;
-        if (!Objects.equals(decription, product.decription)) return false;
-        if (!Objects.equals(content, product.content)) return false;
-        if (!Objects.equals(updatedAt, product.updatedAt)) return false;
-        return Objects.equals(createdAt, product.createdAt);
+        return id == product.id && Double.compare(product.price, price) == 0 && quality == product.quality && Objects.equals(content, product.content) && Objects.equals(createdAt, product.createdAt) && Objects.equals(decription, product.decription) && Objects.equals(status, product.status) && Objects.equals(title, product.title) && Objects.equals(updatedAt, product.updatedAt) && Objects.equals(image, product.image);
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (int) quality;
-        temp = Double.doubleToLongBits(price);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (decription != null ? decription.hashCode() : 0);
-        result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + (updatedAt != null ? updatedAt.hashCode() : 0);
-        result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
-        return result;
-    }
-
-    public Collection<CartItem> getCartItemsById() {
-        return cartItemsById;
-    }
-
-    public void setCartItemsById(Collection<CartItem> cartItemsById) {
-        this.cartItemsById = cartItemsById;
-    }
-
-    public Collection<CategoryProduct> getCategoryProductsById() {
-        return categoryProductsById;
-    }
-
-    public void setCategoryProductsById(Collection<CategoryProduct> categoryProductsById) {
-        this.categoryProductsById = categoryProductsById;
-    }
-
-    public Collection<OrderItem> getOrderItemsById() {
-        return orderItemsById;
-    }
-
-    public void setOrderItemsById(Collection<OrderItem> orderItemsById) {
-        this.orderItemsById = orderItemsById;
-    }
-
-    public Shop getShopByShopId() {
-        return shopByShopId;
-    }
-
-    public void setShopByShopId(Shop shopByShopId) {
-        this.shopByShopId = shopByShopId;
-    }
-
-    public Collection<Review> getReviewsById() {
-        return reviewsById;
-    }
-
-    public void setReviewsById(Collection<Review> reviewsById) {
-        this.reviewsById = reviewsById;
-    }
-
-
-    public Collection<TagProduct> getTagProductsById() {
-        return tagProductsById;
-    }
-
-    public void setTagProductsById(Collection<TagProduct> tagProductsById) {
-        this.tagProductsById = tagProductsById;
+        return Objects.hash(id, content, createdAt, decription, price, quality, status, title, updatedAt, image);
     }
 }

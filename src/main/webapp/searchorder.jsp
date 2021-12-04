@@ -139,16 +139,16 @@
                     <th>ID</th>
                     <th>Tên sản phẩm</th>
                     <th>Giá</th>
-                    <th>Mô tả</th>
-                    <th>Tên shop</th>
+                    <th>Trạng thái</th>
+                    <th>Số lượng</th>
                 </tr>
                 <c:forEach items="${Listorder}" var="elements">
                     <tr>
-                        <td>${elements[4]}</td>
                         <td>${elements[0]}</td>
                         <td>${elements[2]}</td>
                         <td>${elements[1]}</td>
-                        <td>${elements[3]}</td>
+                        <td>${elements[4]}</td>
+                        <td>${elements[6]}</td>
                     </tr>
                 </c:forEach>
             </table>

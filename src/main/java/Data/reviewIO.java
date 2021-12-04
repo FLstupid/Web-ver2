@@ -100,7 +100,8 @@ public class reviewIO {
                     ",p.productByProductId.title as TenSP" +
                     ",p.accountByAccountId.id as TenKhachHang" +
                     ",  p.productByProductId.shopByShopId.shopname as shopname " +
-                    ",p.content as NhanXet, p.createdAt, p.accountByAccountId.username FROM Review p  WHERE p.productByProductId.shopByShopId.accountByAccountId.id =?1").setParameter(1,ID).getResultList();
+                    ",p.content as NhanXet, p.createdAt, p.accountByAccountId.username" +
+                    " FROM Review p  WHERE p.productByProductId.shopByShopId.accountByAccountId.id =?1").setParameter(1,ID).getResultList();
 
         } catch (Exception e)
         {
