@@ -244,10 +244,14 @@
                                         <c:forEach items="${listcart}" var="element">
                                             <tbody>
                                             <tr>
-                                                <form><input type="number" value="${element[0]}" name="amount"></form>
-                                                <a href="cart?action=remove&amp;id=${element[8]}"
-                                                   target="myiframe">Update
-                                                </a>
+                                                <td>
+                                                <form action="cart?action=update" method="post">
+                                                    <input type="number" value="${element[0]}" name="amount">
+                                                    <input type="hidden" value="${element[8]}" name="id">
+                                                    <input type="hidden" value="${element[3]}" name="productCode">
+                                                    <input type="submit" value="update">
+                                                </form>
+                                                </td>
                                                 <td>${element[0]}</td>
                                                 <td>${element[1]}</td>
                                                 <td>${element[2]}</td>
@@ -255,7 +259,6 @@
                                                 <td>${element[4]}</td>
                                                 <td>${element[5]}</td>
                                                 <td>${element[6]}</td>
-                                                <td>${element[7]}</td>
                                                 <td>
                                                     <a href="cart?action=remove&amp;id=${element[0]}"
                                                        target="myiframe">Remove

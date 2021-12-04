@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--@elvariable id="account" type="javax.xml.stream.util.StreamReaderDelegate"--%>
+<%--@elvariable id="account" type="Model.Account"--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html lang="en">
 <head>

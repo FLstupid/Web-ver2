@@ -105,4 +105,23 @@ public class cartItemIO {
             emf.close();
         }
     }
+    public static int CountIteminCart(long id) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        try {
+            em.getTransaction().begin();
+            return (int) em.createQuery("SELECT COUNT(q) FROM CartItem q WHERE q.productByProductId.id =?1").setParameter(1,id).getSingleResult();
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return 0;
+        } finally {
+            if (transaction.isActive()){
+                transaction.rollback();
+            }
+            em.close();
+            emf.close();
+        }
+    }
 }

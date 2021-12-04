@@ -7,6 +7,7 @@ import Data.reviewIO;
 import Model.*;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,10 +34,11 @@ public class ProductDetailServlet extends HttpServlet {
             case "detail": {
                 String productid = request.getParameter("productCode");
                 long id = Long.parseLong(productid);
-                request.getSession();
+
+                HttpSession session = request.getSession();
                 product = productIO.selectProductByid(id);
                 request.getSession().setAttribute("product", product);
-                request.getSession().setAttribute("amount", amount);
+                request.getSession().setAttribute("amount",amount);
                 getServletContext()
                         .getRequestDispatcher(url)
                         .forward(request, response);
@@ -45,7 +47,6 @@ public class ProductDetailServlet extends HttpServlet {
             case "comment": {
                 String productid = request.getParameter("productCode");
                 long id = Long.parseLong(productid);
-                request.getSession();
                 product = productIO.selectProductByid(id);
                 String topic = request.getParameter("topiccomment");
                 String comment = request.getParameter("comment");
@@ -65,12 +66,13 @@ public class ProductDetailServlet extends HttpServlet {
                         .forward(request, response);
                 break;
             }
-            case "checkUser":
+            case "checkUser": {
                 url = "/login.jsp";
                 getServletContext()
                         .getRequestDispatcher(url)
                         .forward(request, response);
                 break;
+            }
             case "add":
                 AddItem(request);
                 break;
@@ -85,9 +87,11 @@ public class ProductDetailServlet extends HttpServlet {
     private void AddItem (HttpServletRequest request) {
         HttpSession session = request.getSession();
         Account acc = (Account) request.getSession().getAttribute("account");
-        int amount = (int) session.getAttribute("amount");
+        String amount1 = request.getParameter("sl");
+        int amount = Integer.parseInt(amount1);
         long productCode = Long.parseLong(request.getParameter("productCode"));
         Cart cart = (Cart) cartIO.selectCart(acc.getId());
+        long id = 0;
         Product product = productIO.selectProductByid(productCode);
         CartItem cartItem = null;
         if (cart != null) {

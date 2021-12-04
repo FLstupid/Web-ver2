@@ -1,6 +1,6 @@
+<%--@elvariable id="amount" type="Model.CartItem"--%>
 <%--@elvariable id="account" type="Model.Account"--%>
-<%--@elvariable id="amount" type="java"--%>
-<%--@elvariable id="product" type="java.Model.Product"--%>
+<%--@elvariable id="product" type="Model.Product"--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -123,7 +123,7 @@
                 <!-- Cart layout -->
                 <div class="header__cart">
                     <div class="header__cart-wrap">
-                        <span class="header__cart-notice">${amount}</span>
+                        <span class="header__cart-notice">3</span>
                         <a href="${pageContext.request.contextPath}/cart" rel="nofollow">
                             <i class="header__cart-icon fas fa-shopping-cart"></i>
                         </a>
@@ -163,27 +163,28 @@
                     <p><h5 class="product-quantity">Shop ${product.shopByShopId.shopname}</h5>
                     <div class="quantity buttons_added">
                         <h5 class="product-quantity">Số lượng</h5>
-                        <input type="button" value="-" class="minus">
-                        <input type="number" step="1" min="1" max="" name="amount" value="1" title="Qty"
-                               class="input-text qty text" size="4" pattern="" inputmode="">
-                        <input type="button" value="+" class="plus">
                     </div>
                     <div class="product__main-info-contact">
                         <%
                             assert session != null;
                             if (session.getAttribute("loggedInUser") == null) {
                         %>
-                        <div>
-                            <a class="product__main-buy-now" href="productdetail?action=checkUser">
-                                Mua Ngay
-                            </a>
-                        </div>
+                        <form action="productdetail?action=checkUser" method="post">
+                            <input type="submit" value="-" class="minus">
+                            <input type="number" step="1" min="1" max="" name="sl" value="${amount}"
+                                   class="input-text qty text" size="4" pattern="" inputmode="">
+                            <input type="submit" value="+" class="plus">
+                            <input type="submit" class="product__main-buy-now" value="Mua Ngay">
+                        </form>
                         <% } else { %>
-                        <div>
-                            <a class="product__main-buy-now" href="productdetail?action=add&amp;productCode=${product.id}&amp;amount=${amount}"
-                               target="myiframe">Mua Ngay
-                            </a>
-                        </div>
+                        <form action="productdetail?action=add" method="post">
+                            <input type="submit" value="-" class="minus">
+                            <input type="number" step="1" min="1" max="" name="sl" value="${amount}"
+                                   class="input-text qty text" size="4" pattern="" inputmode="">
+                            <input type="submit" value="+" class="plus">
+                            <input type="hidden" value="${product.id}" name="productCode">
+                            <input type="submit" class="product__main-buy-now" value="Mua Ngay">
+                        </form>
                         <%}%>
                     </div>
                 </div>
