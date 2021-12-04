@@ -1,4 +1,4 @@
-<%--@elvariable id="account" type="com.sun.webkit.dom.HTMLAreaElementImpl" --%>
+<%--@elvariable id="account" type="Model.Account" --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
@@ -201,6 +201,7 @@
 
                         <div class="row1 sm-gutter1">
                             <!-- Product item -->
+                            <%--@elvariable id="listproduct" type="java.util.List"--%>
                             <c:forEach items="${listproduct}" var="elements">
                                 <div class="col1 l-2-4 m1-4 c-6">
                                         <%-- @elvariable id="listproduct" type="java.util.List" --%>

@@ -9,6 +9,7 @@ import Model.CartItem;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+@MultipartConfig
 @WebServlet(name = "cart", value = "/cart")
 public class CartServlet extends HttpServlet{
     @Override
@@ -28,16 +30,19 @@ public class CartServlet extends HttpServlet{
         String action = request.getParameter("action");
         String url;
         HttpSession session = request.getSession();
-        if (session.getAttribute("account") == null) {
-            url = "/login.jsp";
-            getServletContext()
-                    .getRequestDispatcher(url)
-                    .forward(request, response);
+
+        if (action == null) {
+            action = "cart";
         }
-        else {
-            if (action == null) {
-                action = "cart";
-            } else if (action.equals("cart")) {
+        switch (action) {
+            case "cart":
+                if (session.getAttribute("account") == null) {
+                    url = "/login.jsp";
+                    getServletContext()
+                            .getRequestDispatcher(url)
+                            .forward(request, response);
+                    break;
+                }
                 Account acc = (Account) session.getAttribute("account");
                 long Id = acc.getId();
                 Cart cart = (Cart) cartIO.selectCart(Id);
@@ -53,7 +58,8 @@ public class CartServlet extends HttpServlet{
                 getServletContext()
                         .getRequestDispatcher(url)
                         .forward(request, response);
-            } else if (action.equals("update")) {
+                break;
+            case "update": {
                 long itemId = Long.parseLong(request.getParameter("id"));
                 long productCode = Long.parseLong(request.getParameter("productCode"));
                 int amount = Integer.parseInt(request.getParameter("amount"));
@@ -64,11 +70,22 @@ public class CartServlet extends HttpServlet{
                     item.setAmount(amount);
                     cartItemIO.update(item);
                 }
-            } else if (action.equals("remove")) {
+                url = "/cart?action=update";
+                getServletContext()
+                        .getRequestDispatcher(url)
+                        .forward(request, response);
+                break;
+            }
+            case "remove": {
                 long itemId = Long.parseLong(request.getParameter("id"));
                 long productCode = Long.parseLong(request.getParameter("productCode"));
                 CartItem item = (CartItem) cartItemIO.selectItem(productCode, itemId);
                 cartItemIO.delete(item);
+                url = "/cart?action=remove";
+                getServletContext()
+                        .getRequestDispatcher(url)
+                        .forward(request, response);
+                break;
             }
         }
     }

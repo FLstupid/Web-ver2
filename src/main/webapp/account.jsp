@@ -1,3 +1,4 @@
+<%--@elvariable id="shop" type="Model.Shop"--%>
 <%--@elvariable id="account" type="Model.Account"--%>
 <%--@elvariable id="loggedInUser" type="Model.Account"--%>
 <%@ page contentType="text/html;charset=UTF-8" %>

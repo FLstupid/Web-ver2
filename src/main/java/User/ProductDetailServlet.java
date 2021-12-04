@@ -7,11 +7,9 @@ import Data.reviewIO;
 import Model.*;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Timestamp;
 
@@ -35,7 +33,7 @@ public class ProductDetailServlet extends HttpServlet {
                 String productid = request.getParameter("productCode");
                 long id = Long.parseLong(productid);
 
-                HttpSession session = request.getSession();
+                request.getSession();
                 product = productIO.selectProductByid(id);
                 request.getSession().setAttribute("product", product);
                 request.getSession().setAttribute("amount",amount);
@@ -85,13 +83,12 @@ public class ProductDetailServlet extends HttpServlet {
     }
 
     private void AddItem (HttpServletRequest request) {
-        HttpSession session = request.getSession();
+        request.getSession();
         Account acc = (Account) request.getSession().getAttribute("account");
         String amount1 = request.getParameter("sl");
         int amount = Integer.parseInt(amount1);
         long productCode = Long.parseLong(request.getParameter("productCode"));
         Cart cart = (Cart) cartIO.selectCart(acc.getId());
-        long id = 0;
         Product product = productIO.selectProductByid(productCode);
         CartItem cartItem = null;
         if (cart != null) {

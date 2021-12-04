@@ -142,4 +142,8 @@ public class Product {
     public int hashCode() {
         return Objects.hash(id, content, createdAt, decription, price, quality, status, title, updatedAt, image);
     }
+
+    public Shop getShopByShopId() {
+        return shopByShopId;
+    }
 }

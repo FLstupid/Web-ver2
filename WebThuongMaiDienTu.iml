@@ -220,5 +220,6 @@
     <orderEntry type="library" name="Maven: com.sun.mail:all:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:5.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:0.9.5" level="project" />
+    <orderEntry type="library" name="modernizr" level="application" />
   </component>
 </module>

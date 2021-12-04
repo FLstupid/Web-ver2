@@ -1,5 +1,5 @@
 <%--@elvariable id="address" type="Model.Address"--%>
-<%--@elvariable id="account" type="com.sun.webkit.dom.HTMLAreaElementImpl"--%>
+<%--@elvariable id="account" type="Model.Account"--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
