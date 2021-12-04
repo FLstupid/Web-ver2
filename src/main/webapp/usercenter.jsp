@@ -181,7 +181,7 @@
                 <div class="col1 l-10 m-12 c-12">
                     <!-- Tiêu đề -->
                     <div class="breadcrump-filter">
-                        <span class="breadcrump-filter__label">Thông tin cá nhân</span>
+                        <span class="breadcrump-filter__label">Thông Tin Cá Nhân</span>
                     </div>
 
                     <!-- Nội dung -->
