@@ -360,7 +360,7 @@
                                     </div>
                                 </div>
                                 <label class="home-item__name">&nbsp;</label>
-                                <button type="submit" onclick="alert('${message}')" class="btn-submit2"
+                                <button type="submit" onclick="alert('${message2}')" class="btn-submit2"
                                         style="margin-top:-30px">Cập
                                     nhật
                                 </button>

@@ -210,7 +210,7 @@
                                     </div>
                                 </div>
                                 <label class="home-item__name">&nbsp;</label>
-                                <button type="submit" onclick="alert('${message}')" class="btn-submit2">Thay Đổi
+                                <button type="submit" onclick="alert('${message3}')" class="btn-submit2">Thay Đổi
                                     Mật Khẩu
                                 </button>
                             </form>
