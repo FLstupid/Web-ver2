@@ -6,7 +6,7 @@ import javax.persistence.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public  class accountIO {
+public class accountIO {
   public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
     public accountIO (){
 
@@ -98,5 +98,4 @@ public  class accountIO {
             em.close();
         }
     }
-
 }
