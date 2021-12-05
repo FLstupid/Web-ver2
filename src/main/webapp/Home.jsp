@@ -138,38 +138,7 @@
 
     <div class="app__container">
         <div class="grid wide">
-            <div class="row1 sm-gutter1 app__content">
-                <!-- Category -->
-                <div class="col1 l-2 m-0 c-0">
-                    <nav class="category">
-                        <h3 class="category__heading">
-                            <i class="fas fa-list-ul category__heading-icon"></i>
-                            Danh mục
-                        </h3>
-                        <ul class="category-list">
-                            <li class="category-item catgory-item--active">
-                                <a href="#" class="category-item__link">
-                                    <i class="fas fa-utensils category__item-icon"></i>
-                                    Thực phẩm</a>
-                            </li>
-                            <li class="category-item catgory-item--active">
-                                <a href="#" class="category-item__link">
-                                    <i class="fas fa-tshirt category__item-icon"></i>
-                                    Quần áo</a>
-                            </li>
-                            <li class="category-item catgory-item--active">
-                                <a href="#" class="category-item__link">
-                                    <i class="fas fa-couch category__item-icon"></i>
-                                    Nội thất</a>
-                            </li>
-                            <li class="category-item catgory-item--active">
-                                <a href="#" class="category-item__link">
-                                    <i class="fas fa-home category__item-icon"></i>
-                                    Đồ gia dụng</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+            <div style="margin-right: -250px" class="row1 sm-gutter1 app__content">
 
                 <!-- Filter -->
                 <div class="col1 l-10 m-12 c-12">
@@ -177,21 +146,6 @@
                         <button class="home-filter__btn btn1 btn--primary">
                             Sản Phẩm
                         </button>
-                        <div class="home-filter__page">
-								<span class="home-filter__page-num">
-									<span class="home-filter__page-current">1</span>/
-									<span class="home-filter__page-total">14</span>
-								</span>
-                            <div class="home-filter__page-control">
-                                <a href="#"
-                                   class="home-filter__page-btn home-filter__page-btn--disable non-underline-link">
-                                    <i class="fas fa-angle-left home-filter__page-icon"></i>
-                                </a>
-                                <a href="#" class="home-filter__page-btn non-underline-link">
-                                    <i class="fas fa-angle-right home-filter__page-icon"></i>
-                                </a>
-                            </div>
-                        </div>
                     </div>
                     <!--End home filter -->
 
@@ -242,23 +196,6 @@
                         </div>
 
                     </div>
-
-                    <%-- Page --%>
-                    <ul class="pagination home-product__pagination">
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item__link">
-                                <i class="pagination-item__icon fas fa-angle-left"></i>
-                            </a>
-                        </li>
-                        <c:forEach begin="1" end="${end}" var="i">
-                            <a href="#">${i}</a>
-                        </c:forEach>
-                        <li class="pagination-item">
-                            <a href="" class="pagination-item__link">
-                                <i class="pagination-item__icon fas fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>

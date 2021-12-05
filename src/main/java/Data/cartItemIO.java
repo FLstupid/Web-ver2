@@ -97,6 +97,23 @@ public class cartItemIO {
             em.close();
         }
     }
+    public static Object selectItemincart(long productCode, long id) {
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        try {
+            em.getTransaction().begin();
+            return em.createQuery("SELECT q FROM CartItem q WHERE q.productByProductId.id =?1 AND q.cartByCartId.id =?2").setParameter(1,productCode).setParameter(2,id).getSingleResult();
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            return null;
+        } finally {
+            if (transaction.isActive()){
+                transaction.rollback();
+            }
+            em.close();
+        }
+    }
     public static int CountIteminCart(long id) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();

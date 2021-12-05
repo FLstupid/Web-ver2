@@ -170,7 +170,7 @@
             </c:if>
             <c:if test="${not empty listcart}">
                 <div class="row">
-                    <table class="cart">
+                    <table style="width: 100%;" class="cart">
                         <thead>
                         <tr>
                             <th>Số Lượng</th>
@@ -214,10 +214,14 @@
                     </table>
                     <div class="row">
                         <div class="col1-md-6 cart__foot">
-                            <button type="button" class="btn btn-kx1">Cập nhật giỏ hàng</button>
+                            <a href="cart.jsp">
+                                <button type="button" class="btn btn-kx1">Cập nhật giỏ hàng</button>
+                            </a>
                         </div>
                         <div class="col1-md-6 cart__foot2">
-                            <button type="button" class="btn btn-kx1">Tiếp tục mua sắm</button>
+                            <a href="Home.jsp">
+                                <button type="button" class="btn btn-kx1">Tiếp tục mua sắm</button>
+                            </a>
                         </div>
                         <div class="col1-md-3 cart__foot" style="margin-left: 440px;">
                             <button type="button" class="btn btn-kx1">

@@ -75,6 +75,9 @@ public class ProductDetailServlet extends HttpServlet {
             }
             case "add":
                 AddItem(request);
+                getServletContext()
+                        .getRequestDispatcher(url)
+                        .forward(request, response);
                 break;
         }
     }
@@ -94,7 +97,7 @@ public class ProductDetailServlet extends HttpServlet {
         Product product = productIO.selectProductByid(productCode);
         CartItem cartItem = null;
         if (cart != null) {
-            cartItem = (CartItem) cartItemIO.selectItem(productCode,cart.getId());
+            cartItem = (CartItem) cartItemIO.selectItemincart(productCode,cart.getId());
         }
         if (cartItem == null) {
             CartItem Item = new CartItem();

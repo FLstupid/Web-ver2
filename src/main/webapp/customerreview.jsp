@@ -185,7 +185,7 @@
                             <form method="get" action="customerReview">
                                 <%--@elvariable id="reviewlist" type="util" --%>
                                 <c:if test="${empty reviewlist}">
-                                    <p style="font-size: 15px; line-height: 1.5; margin-left: 440px;">Chưa có sản phẩm nào</p>
+                                    <p style="font-size: 15px; line-height: 1.5; margin-left: 440px;">Chưa có nhận xét nào</p>
                                     <a href="home" style="font-family: Roboto, Helvetica, Arial, sans-serif;line-height: 1.5;text-size-adjust: 100%;text-align: center;box-sizing: border-box;text-decoration: none;width: 190px;border-radius: 4px;color: rgb(74, 74, 74);font-size: 14px;background-color: rgb(253, 216, 53);display: block;margin-left: 420px;">Tiếp tục mua sắm</a>
                                 </c:if>
                                 <c:if test="${not empty reviewlist}">
