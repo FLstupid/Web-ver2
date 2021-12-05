@@ -88,7 +88,7 @@ public class productIO {
         try {
             return em.createQuery("SELECT p.title as productname, " +
                     "p.decription as decription" +
-                    ",p.price as price , p.shopByShopId.shopname ,p.id " +
+                    ",p.price as price , p.shopByShopId.shopname ,p.id, p.image " +
                     "FROM Product p")
                     .getResultList();
         } catch (Exception e)

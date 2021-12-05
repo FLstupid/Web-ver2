@@ -182,7 +182,7 @@
                     <!-- Nội dung -->
                     <div class="home">
                         <div class="row1 sm-gutter1">
-                            <form method="get">
+                            <form style="width: 100%;" method="get">
                                 <%--@elvariable id="listOrder" type="" --%>
                                 <c:if test="${empty listOrder}">
                                     <p style="font-size: 15px; line-height: 1.5; margin-left: 440px;">Chưa có sản phẩm nào</p>

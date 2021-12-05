@@ -161,7 +161,7 @@
                                     <a class="home-product-item"
                                        href="productdetail?action=detail&amp;productCode=${elements[4]}">
                                         <div class="home-product-item__img"
-                                             style="background-image: url(assets/img/product/prd_img_3.jpg)"></div>
+                                             style="background-image: url(${elements[5]})"></div>
                                         <h4 class="home-product-item__name"> ${elements[0]}</h4>
                                         <div class="home-product-item__price">
                                             <span class="home-product-item__price-current">${elements[2]}đ</span>

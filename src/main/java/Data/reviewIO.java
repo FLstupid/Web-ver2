@@ -78,11 +78,10 @@ public class reviewIO {
     {
         EntityManager em = emf.createEntityManager();
         try {
-            return em.createQuery("SELECT p.productByProductId.id as MaDonHang, p.title as TieuDe" +
-                    ",p.productByProductId.title as TenSP" +
-                    ",p.accountByAccountId.id as TenKhachHang" +
-                    ",  p.productByProductId.shopByShopId.shopname as shopname " +
-                    ",p.content as NhanXet FROM Review p  WHERE p.id =?1").setParameter(1,ID).getResultList();
+            return em.createQuery("SELECT p.productByProductId.id as MaDonHang, p.title as TieuDe," +
+                    "p.productByProductId.title as TenSP\n" +
+                    ",p.accountByAccountId.username as TenKhachHang,p.content as NhanXet, p.rating FROM " +
+                    "Review p  WHERE p.productByProductId.id =?1").setParameter(1,ID).getResultList();
 
         } catch (Exception e)
         {

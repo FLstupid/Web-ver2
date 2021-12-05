@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.List;
 
 public class ProductDetailServlet extends HttpServlet {
     @Override
@@ -31,6 +32,7 @@ public class ProductDetailServlet extends HttpServlet {
 
         Product product=null;
         String productid = request.getParameter("productCode");
+        List rv;
         if(productid!=null)
         {
             long id = Long.parseLong(productid);
@@ -42,25 +44,36 @@ public class ProductDetailServlet extends HttpServlet {
             case "detail": {
                 request.getSession().setAttribute("product", product);
                 request.getSession().setAttribute("amount",amount);
+                long id = Long.parseLong(productid);
+                rv = reviewIO.selectOrderReviewList(id);
+                request.getSession().setAttribute("reviewlist",rv);
                 getServletContext()
                         .getRequestDispatcher(url)
                         .forward(request, response);
                 break;
             }
             case "comment": {
-                String topic = request.getParameter("topiccomment");
-                String comment = request.getParameter("comment");
-                String rating1 = request.getParameter("stars");
-                Account acc = (Account) request.getSession().getAttribute("account");
-                Timestamp commenttime = new Timestamp(System.currentTimeMillis());
-                short rating;
-                if (rating1 == null) {
-                    rating = 0;
-                } else {
-                    rating = Short.parseShort(rating1);
+                if (session.getAttribute("account") == null) {
+                    url = "/login.jsp";
+                    getServletContext()
+                            .getRequestDispatcher(url)
+                            .forward(request, response);
                 }
-                Review a = new Review(product, acc, rating, topic, comment, commenttime);
-                reviewIO.insert(a);
+                else {
+                    String topic = request.getParameter("topiccomment");
+                    String comment = request.getParameter("comment");
+                    String rating1 = request.getParameter("stars");
+                    Account acc = (Account) request.getSession().getAttribute("account");
+                    Timestamp commenttime = new Timestamp(System.currentTimeMillis());
+                    short rating;
+                    if (rating1 == null) {
+                        rating = 0;
+                    } else {
+                        rating = Short.parseShort(rating1);
+                    }
+                    Review a = new Review(product, acc, rating, topic, comment, commenttime);
+                    reviewIO.insert(a);
+                }
                 getServletContext()
                         .getRequestDispatcher(url)
                         .forward(request, response);
@@ -80,6 +93,7 @@ public class ProductDetailServlet extends HttpServlet {
                         .forward(request, response);
                 break;
         }
+
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

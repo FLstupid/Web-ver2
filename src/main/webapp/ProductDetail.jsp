@@ -144,10 +144,7 @@
         <div class="col-md-9">
             <div class="row">
                 <div class="col-md-4">
-                    <img class="product-img-primary" src="assets/img/product/product_13.png" alt="">
-                    <img class="product-img-list" src="assets/img/product/product_14.jpg" alt="">
-                    <img class="product-img-list" src="assets/img/product/product_15.jpg" alt="">
-                    <img class="product-img-list" src="assets/img/product/product_16.jpg" alt="">
+                    <img class="product-img-primary" src="${product.image}" alt="">
                 </div>
                 <div class="col-md-8">
                     <div class="product-breadcrumb">
@@ -200,7 +197,6 @@
                 </div>
                 <div class="col-md-12 product-tab">
                     <div>
-                        <a href="#thongtin" class="product-active non-underline-link"> Thông Tin Chi Tiết </a>
                         <a href="#danhgia" class="review product-tab-link non-underline-link"> Đánh giá </a>
                     </div>
                 </div>
@@ -211,66 +207,13 @@
                         liệu vỏ mũ, chất liệu mặt kính mũ, kiểu dáng thời trang. Tạo nên
                         một dòng mũ bảo hiểm Yohe đậm chất chơi.
                     </p>
-                    <p class="text-content">
-                        <span class="text-1">Vỏ mũ bảo hiểm Yohe 967</span> được làm từ
-                        nhựa ABS nguyên sinh cao cấp nên độ an toàn và độ bền rất cao.
-                        Khả năng chịu lực, chịu được va đập mạnh, cứng cáp chống đâm
-                        xuyên và cực an toàn.Trên mặt của vỏ mũ mũ bảo hiểm Yohe 965 có
-                        lỗ thoáng khí. Bao gồm lỗ thông khí phía trước và lỗ thông khí
-                        phía sau.
-                    </p>
-                    <p class="text-content">
-                        <span class="text-1">Không khí trong và ngoài sẽ được lưu thông</span>
-                        nhằm hạn chế mùi cũng như sự tích tụ vi khuẩn. Đây là một trong
-                        những điểm cộng cho thiết kế của dòng mũ bảo hiểm Yohe mới nhất
-                        này.Hơn nữa vỏ mũ bảo hiểm Yohe chính hãng được phủ lớp sơn mỏng
-                        bền chống bám bẩn. Vì vậy mà trông mũ lúc nào cũng như mới.
-                    </p>
-                    <p class="text-content">
-                        <span class="text-1">Màu sắc của vỏ mũ bảo hiểm Yohe 965</span>
-                        cực kì đẹp. Dáng mũ trông rất thể thao, phong cách, đậm chất hầm
-                        hố Châu Âu. Khiến cho những dân chơi xe phải thích thú.
-                    </p>
-                    <p class="text-content">
-                        <span class="text-1">Kính chắn</span> là một trong những điểm vô
-                        cùng quan trọng giúp tạo ra một tầm nhìn tốt khi lái xe. Và
-                        chiếc mũ mũ bảo hiểm Yohe 965 2 kính 2019 này đã làm được điều
-                        đó.Mũ chính hãng gồm 2 kính chắn. Một kính tối ở bên trong có
-                        tác dụng làm giảm cường độ sáng, giảm sự nguy hiểm khi đi đường.
-                    </p>
-                    <p class="text-content">
-                        <span class="text-1">Và một kính trong suốt đạt chuẩn</span> ở
-                        bên ngoài giúp chắn bụi, chắn côn trùng bay vào mắt. Bảo vệ bạn
-                        một cách tốt đa khi di chuyển trên đường.Kính mũ yohe được làm
-                        bằng chất liệu PC cao cấp. Vì vậy mà nó rất là bền. Kính mũ bảo
-                        hiểm Yohe chính hãng chống trầy tốt, chống đọng sương. Khi đi
-                        mùa đông hay đi trời mưa sẽ không lo hơi thở làm đọng sương. Có
-                        thể thay thế sau thời gian dài sử dụng.
-                    </p>
-                    <h5 class="product-conten">
-                        Đại lý, cộng tác viên online sản phẩm mũ Yohe
-                    </h5>
-                    <p class="text-content">
-                        Nếu bạn đang tìm đại lý phân phối sản phẩm mũ bảo hiểm yohe
-                        chính hãng giá rẻ thì hãy đến với chúng tôi. Tại đây bạn sẽ được
-                        hỗ trợ mua hàng như sau :
-                    </p>
-                    <p class="text-content">
-                        Miễn phí vận chuyển. <br/>
-                        Sản phẩm được bảo hành uy tín. <br/>
-                        Giá sản phẩm cạnh tranh và rẻ hơn thị trường. <br/>
-                        Cam kết nguồn gốc sản phẩm, đảm bảo chính hãng. <br/>
-                    </p>
-                    <p class="text-content">
-                        Với kinh nghiệm lâu năm trong nghề,
-                        <span class="text-1">DHS</span> tự tin mang đến cho bạn
-                        sản phẩm chất lượng tốt nhất.
-                    </p>
                 </div>
                 <div id="danhgia" disabled class="col-md-12 product-content-wrap">
                     <%--@elvariable id="nhanxet" type="java.util.List"--%>
-                    <c:forEach items="${nhanxet}" var="elements">
-                        <h4 class="product-content">${elements[1]}</h4>
+                    <c:forEach items="${reviewlist}" var="elements">
+                        <h4 class="product-content">${elements[1]} rating(${elements[5]}*)</h4>
+                        <h5>${elements[3]}</h5>
+                        <p>${elements[4]}</p>
                     </c:forEach>
                     <h5 class="product-conten">Đánh giá của bạn về sản phẩm</h5>
                     <form action="productdetail">

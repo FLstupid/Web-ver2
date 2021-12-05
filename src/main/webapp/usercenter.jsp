@@ -181,7 +181,7 @@
                     <!-- Nội dung -->
                     <div class="home">
                         <div class="row1 sm-gutter1">
-                            <form method="post" style="display:inline-grid; margin-left: 5px; width: 70%;">
+                            <form  method="post" style="display:inline-grid; margin-left: 5px; width: 100%;">
                                 <input type="hidden" name="action" value="add">
                                 <div class="form-control">
                                     <label class="home-item__name">Họ tên</label>
