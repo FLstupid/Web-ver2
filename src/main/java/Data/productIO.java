@@ -8,7 +8,6 @@ import java.util.List;
 public class productIO {
     public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
 
-
     public static void insert(Product product)
     {
         EntityManager em = emf.createEntityManager();
