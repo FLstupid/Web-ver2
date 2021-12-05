@@ -18,6 +18,9 @@ public class ChangingPasswordServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url="/ChangingPassword.jsp";
+        if (request.getCharacterEncoding() == null) {
+            request.setCharacterEncoding("UTF-8");
+        }
         String action = request.getParameter("action");
         if (action == null) {
             action = "join";  // default action

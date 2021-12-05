@@ -66,7 +66,7 @@
                                     <label class="input-label">Shop</label>
                                     <div>
                                         <label>
-                                            <input type="text" name="fullName" maxlength="128" class="Input-styles"
+                                            <input type="text" hidden name="fullName" maxlength="128" class="Input-styles"
                                                     value="${shop.shopname}">
 
                                         </label>

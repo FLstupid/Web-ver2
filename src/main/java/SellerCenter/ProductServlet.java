@@ -21,7 +21,9 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        if (request.getCharacterEncoding() == null) {
+            request.setCharacterEncoding("UTF-8");
+        }
         String url = "/product.jsp";
         Account acc = (Account) request.getSession().getAttribute("account");
         HttpSession session = request.getSession();
