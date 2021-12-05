@@ -188,10 +188,11 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <form action="cart?action=update" method="post">
+                                    <form action="cart" method="post">
+                                        <input type="hidden" name="action" value="update">
                                         <input type="number" value="${element[0]}" name="amount">
                                         <input type="hidden" value="${element[8]}" name="id">
-                                        <input type="hidden" value="${element[3]}" name="productCode">
+                                        <input type="hidden" value="${element[9]}" name="productCode">
                                         <input type="submit" value="update"
                                                style="width: 60px; font-size:15px; margin-left:10px">
                                     </form>
@@ -203,7 +204,7 @@
                                 <td>${element[5]}</td>
                                 <td>${element[6]}</td>
                                 <td>
-                                    <a href="cart?action=remove&amp;id=${element[0]}"
+                                    <a href="cart?action=remove&amp;id=${element[8]}&amp;productCode=${element[9]}"
                                        target="myiframe">Xóa
                                     </a>
                                 </td>

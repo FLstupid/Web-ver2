@@ -34,32 +34,30 @@ public class CartServlet extends HttpServlet{
         if (action == null) {
             action = "cart";
         }
-        switch (action) {
-            case "cart":
-                if (session.getAttribute("account") == null) {
-                    url = "/login.jsp";
-                    getServletContext()
-                            .getRequestDispatcher(url)
-                            .forward(request, response);
-                    break;
-                }
-                Account acc = (Account) session.getAttribute("account");
-                long Id = acc.getId();
-                Cart cart = (Cart) cartIO.selectCart(Id);
-                List<?> listcart = null;
-                List<?> listaddress = addressIO.selectUserAdress(Id);
-
-                if (cart != null) {
-                    listcart = cartItemIO.selectItems(cart.getId());
-                }
-                session.setAttribute("listcart", listcart);
-                session.setAttribute("listaddress", listaddress);
-                url = "/cart.jsp";
+        if (action.equals("cart")) {
+            if (session.getAttribute("account") == null) {
+                url = "/login.jsp";
                 getServletContext()
                         .getRequestDispatcher(url)
                         .forward(request, response);
-                break;
-            case "update": {
+            }
+            Account acc = (Account) session.getAttribute("account");
+            long Id = acc.getId();
+            Cart cart = (Cart) cartIO.selectCart(Id);
+            List<?> listcart = null;
+            List<?> listaddress = addressIO.selectUserAdress(Id);
+
+            if (cart != null) {
+                listcart = cartItemIO.selectItems(cart.getId());
+            }
+            session.setAttribute("listcart", listcart);
+            session.setAttribute("listaddress", listaddress);
+            url = "/cart.jsp";
+            getServletContext()
+                    .getRequestDispatcher(url)
+                    .forward(request, response);
+        }
+        else  if(action.equals("update")) {
                 long itemId = Long.parseLong(request.getParameter("id"));
                 long productCode = Long.parseLong(request.getParameter("productCode"));
                 int amount = Integer.parseInt(request.getParameter("amount"));
@@ -70,24 +68,41 @@ public class CartServlet extends HttpServlet{
                     item.setAmount(amount);
                     cartItemIO.update(item);
                 }
-                url = "/cart?action=update";
+            Account acc = (Account) session.getAttribute("account");
+            long Id = acc.getId();
+            Cart cart = (Cart) cartIO.selectCart(Id);
+            List<?> listcart = null;
+
+            if (cart != null) {
+                listcart = cartItemIO.selectItems(cart.getId());
+            }
+            session.setAttribute("listcart", listcart);
+                url = "/cart.jsp";
                 getServletContext()
                         .getRequestDispatcher(url)
                         .forward(request, response);
-                break;
-            }
-            case "remove": {
+        }
+        else if(action.equals("remove")) {
                 long itemId = Long.parseLong(request.getParameter("id"));
                 long productCode = Long.parseLong(request.getParameter("productCode"));
                 CartItem item = (CartItem) cartItemIO.selectItem(productCode, itemId);
                 cartItemIO.delete(item);
-                url = "/cart?action=remove";
+            Account acc = (Account) session.getAttribute("account");
+            long Id = acc.getId();
+            Cart cart = (Cart) cartIO.selectCart(Id);
+            List<?> listcart = null;
+
+            if (cart != null) {
+                listcart = cartItemIO.selectItems(cart.getId());
+            }
+            session.setAttribute("listcart", listcart);
+                url = "/cart.jsp";
                 getServletContext()
                         .getRequestDispatcher(url)
                         .forward(request, response);
-                break;
-            }
+
         }
+
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -9,9 +9,10 @@ import javax.persistence.Persistence;
 import java.util.List;
 
 public class cartItemIO {
+    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
     public static void insert(CartItem cartItem)
     {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
+
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
@@ -23,13 +24,11 @@ public class cartItemIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
         }
     }
 
     public static void update (CartItem cartItem)
     {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
@@ -41,29 +40,25 @@ public class cartItemIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
         }
     }
     public static void delete (CartItem cartItem)
     {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
-            em.remove(cartItem);
+            em.remove(em.merge(cartItem));
             transaction.commit();
         } finally {
             if (transaction.isActive()){
                 transaction.rollback();
             }
             em.close();
-            emf.close();
         }
     }
     public static List<?> selectItems (long cartId)
     {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
@@ -71,7 +66,7 @@ public class cartItemIO {
             return em.createQuery("SELECT c.amount,c.cartByCartId.id," +
                     "c.cartByCartId.accountByAccountId.id," +
                     "c.productByProductId.title,c.price," +
-                    "c.discount,c.price,c.content,c.id FROM" +
+                    "c.discount,c.price,c.content,c.id, c.productByProductId.id FROM" +
                     " CartItem c WHERE c.cartByCartId.id =?1").setParameter(1,cartId).getResultList();
         } catch (Exception e)
         {
@@ -82,17 +77,15 @@ public class cartItemIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
         }
     }
 
     public static Object selectItem(long productCode, long id) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
             em.getTransaction().begin();
-            return em.createQuery("SELECT q FROM CartItem q WHERE q.productByProductId.id =?1 AND q.cartByCartId.id =?2").setParameter(1,productCode).setParameter(2,id).getSingleResult();
+            return em.createQuery("SELECT q FROM CartItem q WHERE q.productByProductId.id =?1 AND q.id =?2").setParameter(1,productCode).setParameter(2,id).getSingleResult();
         } catch (Exception e)
         {
             System.out.println(e.getMessage());
@@ -102,11 +95,9 @@ public class cartItemIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
         }
     }
     public static int CountIteminCart(long id) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("dhs");
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {
@@ -121,7 +112,6 @@ public class cartItemIO {
                 transaction.rollback();
             }
             em.close();
-            emf.close();
         }
     }
 }
