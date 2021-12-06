@@ -69,11 +69,11 @@ public class orderDetailIO {
         try {
             return em.createQuery("SELECT p.id as MaDonHang, " +
                     "p.createdAt as NgayMua, g.title as TenSanPham ," +
-                    "p.totalPrice as TongTien,l.states as TrangThai, p.phone," +
+                    "p.totalPrice as TongTien, p.phone," +
                     "n.amount " +
-                    "FROM OrderDetail p , Account ac, OrderItem  n , Product g,Trans l, Shop s\n" +
+                    "FROM OrderDetail p , Account ac, OrderItem  n , Product g, Shop s\n" +
                     "WHERE n.orderDetailByOrderId.id = p.id " +
-                    "AND g.id=n.productByProductId.id AND ac.id = l.accountByAccountId.id " +
+                    "AND g.id=n.productByProductId.id" +
                     " and g.shopByShopId.id = s.id AND  ac.id = ?1").setParameter(1,ID).getResultList();
 
         } catch (Exception e)

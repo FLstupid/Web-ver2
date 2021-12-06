@@ -34,9 +34,4 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         doPost(request, response);
     }
-//    public static List<?> selectListProductpaging(List productpaging, int start, int end, int count)
-//    {
-//        end = count/
-//
-//    }
 }

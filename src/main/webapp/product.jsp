@@ -19,8 +19,7 @@
         </a>
 
         <div class="account-avatar">
-            <img class="avt" src="SellerCenter/img/avatar.jfif" alt="">
-            <span>Lê Trần Minh Nhựt</span>
+            <a style="text-decoration: none; color: black;" href="usercenter.jsp"><span>${account.username}</span></a>
         </div>
     </section>
 </header>

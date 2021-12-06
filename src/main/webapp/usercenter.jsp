@@ -76,8 +76,8 @@
                             </li>
                             <li class="header__navbar-user-item">
                                 <a rel="nofollow"
-                                   href="${pageContext.request.contextPath}/customerorder"
-                                >Đơn mua</a>
+                                   href="${pageContext.request.contextPath}/changingpassword"
+                                >Đổi mật khẩu</a>
                             </li>
                             <li class="header__navbar-user-item header__navbar-user-item--separate">
                                 <a rel="nofollow"
@@ -154,11 +154,6 @@
                                     Đổi mật khẩu</a>
                             </li>
                             <li class="menu-item catgory-item--active">
-                                <a href="customerorder" class="menu-item__link">
-                                    <i class="fas fa-cart-arrow-down menu__item-icon"></i>
-                                    Quản lý đơn hàng</a>
-                            </li>
-                            <li class="menu-item catgory-item--active">
                                 <a href="addresslist" class="menu-item__link">
                                     <i class="fas fa-map-marked menu__item-icon"></i>
                                     Sổ địa chỉ</a>
@@ -214,7 +209,7 @@
                                 </div>
                                 <div class="form-control">
                                     <label class="home-item__name">Giới tính</label>
-                                    <label class="Radio_StylesRadio">
+                                    <label style="margin-left: 350px" class="Radio_StylesRadio">
                                         <input type="radio" name="gender" value="male" checked>
                                         <span class="radio-fake"></span>
                                         <span class="radio-label">Nam</span>
@@ -233,7 +228,7 @@
                                         <p>Ngày sinh</p>
                                     </label>
                                     <div class="styles_StylesBirthdayPicker">
-                                        <select id="day" class="selectday" name="day" required>
+                                        <select style="margin-left: 150px;" id="day" class="selectday" name="day" required>
                                             <option class="day1" value="0" selected>Ngày</option>
                                             <option class="day1" value="1">1</option>
                                             <option class="day1" value="2">2</option>

@@ -80,8 +80,8 @@
                             </li>
                             <li class="header__navbar-user-item">
                                 <a rel="nofollow"
-                                   href="${pageContext.request.contextPath}/customerorder"
-                                >Đơn mua</a>
+                                   href="${pageContext.request.contextPath}/changingpassword"
+                                >Đổi mật khẩu</a>
                             </li>
                             <li class="header__navbar-user-item header__navbar-user-item--separate">
                                 <a rel="nofollow"
@@ -155,11 +155,6 @@
                                 <a href="changingpassword" class="menu-item__link">
                                     <i class="fas fa-key menu__item-icon"></i>
                                     Đổi mật khẩu</a>
-                            </li>
-                            <li class="menu-item catgory-item--active">
-                                <a href="customerorder" class="menu-item__link">
-                                    <i class="fas fa-cart-arrow-down menu__item-icon"></i>
-                                    Quản lý đơn hàng</a>
                             </li>
                             <li class="menu-item catgory-item--active">
                                 <a href="addresslist" class="menu-item__link">

@@ -22,14 +22,13 @@
         </a>
 
         <div class="account-avatar">
-            <img class="avt" src="SellerCenter/img/" alt="">
             <%
                 if (session.getAttribute("loggedInUser") == null) {%>
             <span>Admin</span>
             <%
             } else {
             %>
-            <span>${account.username}</span>
+            <a style="text-decoration: none; color: black;" href="usercenter.jsp"><span>${account.username}</span></a>
             <%}%>
         </div>
     </section>
@@ -66,7 +65,7 @@
                                     <label class="input-label">Shop</label>
                                     <div>
                                         <label>
-                                            <input type="text" hidden name="fullName" maxlength="128" class="Input-styles"
+                                            <input type="text" disabled name="fullName" maxlength="128" class="Input-styles"
                                                     value="${shop.shopname}">
 
                                         </label>

@@ -21,14 +21,11 @@
         </a>
         <% if (session == null || session.getAttribute("account") == null) {%>
         <div class="account-avatar">
-            <img class="avt" src="SellerCenter/img/avatar.jfif" alt="">
             <span>Signup/Login</span>
         </div>
         <%} else {%>
-        <
         <div class="account-avatar">
-            <img class="avt" src="SellerCenter/img/avatar.jfif" alt="">
-            <span>${account.username}</span>
+            <a style="text-decoration: none; color: black;" href="usercenter.jsp"><span>${account.username}</span></a>
             <%}%>
         </div>
     </section>
