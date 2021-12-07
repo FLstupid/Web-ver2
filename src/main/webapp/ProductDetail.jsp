@@ -158,6 +158,7 @@
                         <i class="fas fa-star product__main-info-rate"></i>
                         <i class="fas fa-star product__main-info-rate"></i>
                     </div>
+                    <h3 class="product-price">${product.price} VND</h3>
                     <p class="product-current">${product.content}</p>
                     <p class="product-description">${product.decription}</p>
                     <p class="product-quantity">Shop ${product.shopByShopId.shopname}</p>
@@ -202,9 +203,9 @@
                 <div id="danhgia" disabled class="col-md-12 product-content-wrap">
                     <%--@elvariable id="nhanxet" type="java.util.List"--%>
                     <c:forEach items="${reviewlist}" var="elements">
-                        <h4 class="product-content">${elements[1]} rating(${elements[5]}*)</h4>
-                        <h5>${elements[3]}</h5>
-                        <p>${elements[4]}</p>
+                        <h4 class="product-content">${elements[1]} rating(${elements[3]}*)</h4>
+                        <h5>${elements[4]}</h5>
+                        <p>${elements[2]}</p>
                     </c:forEach>
                     <h5 class="product-conten">Đánh giá của bạn về sản phẩm</h5>
                     <form action="productdetail">

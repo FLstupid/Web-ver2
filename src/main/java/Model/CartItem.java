@@ -1,6 +1,8 @@
 package Model;
 
 import javax.persistence.*;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Objects;
 
 @Entity
@@ -46,6 +48,7 @@ public class CartItem {
     {
         this.price = this.productByProductId.getPrice()*amount;
     }
+
     public double getDiscount() {
         return discount;
     }
@@ -115,5 +118,10 @@ public class CartItem {
 
     public Cart getCartByCartId() {
         return cartByCartId;
+    }
+    public String getPriceCurrencyFormat() {
+        Locale localeVN = new Locale("vi", "VN");
+        NumberFormat currency = NumberFormat.getInstance(localeVN);
+        return currency.format(price);
     }
 }

@@ -355,7 +355,7 @@
                                     </div>
                                 </div>
                                 <label class="home-item__name">&nbsp;</label>
-                                <button type="submit" onclick="alert('${message2}')" class="btn-submit2"
+                                <button type="submit"  class="btn-submit2"
                                         style="margin-top:-30px">Cập
                                     nhật
                                 </button>
@@ -446,12 +446,6 @@
 </div>
 
 <script src="js/main.js"></script>
-<script>
-    function Showmessage(message) {
-        alert(message);
-    }
-
-</script>
 <script>
     async function uploadFile() {
         let formData = new FormData();

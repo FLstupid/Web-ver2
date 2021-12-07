@@ -2,7 +2,9 @@ package Model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.text.NumberFormat;
 import java.util.Collection;
+import java.util.Locale;
 import java.util.Objects;
 
 @Entity
@@ -13,7 +15,7 @@ public class Product {
     private String content;
     private Timestamp createdAt;
     private String decription;
-    private double price;
+    private double  price ;
     private short quality;
     private Short status;
     private String title;
@@ -40,7 +42,7 @@ public class Product {
         this.title = productName;
         this.status = productstatus;
         this.quality = productQuality;
-        this.price = productprice;
+        this.price =  productprice;
         this.shopByShopId = s;
         this.content = productcontent;
     }
@@ -161,5 +163,10 @@ public class Product {
 
     public Shop getShopByShopId() {
         return shopByShopId;
+    }
+    public String getPriceCurrencyFormat() {
+        Locale localeVN = new Locale("vi", "VN");
+        NumberFormat currency = NumberFormat.getInstance(localeVN);
+        return currency.format(price);
     }
 }

@@ -83,7 +83,7 @@
                                 <table>
                                     <thead>
                                     <tr>
-                                        <th>Mã thanh toán</th>
+                                        <th>Mã sản phẩm</th>
                                         <th>Tên sản phẩm</th>
                                         <th>Số điện thoại</th>
                                         <th>Ngày mua</th>

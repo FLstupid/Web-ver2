@@ -1,5 +1,6 @@
 package SellerCenter;
 
+import Data.cartItemIO;
 import Data.orderDetailIO;
 import Model.Account;
 
@@ -27,7 +28,7 @@ public class BillServlet extends HttpServlet {
         Account acc = (Account) request.getSession().getAttribute("account");
         long id1 = acc.getId();
         HttpSession session = request.getSession();
-        List<?> listbill = orderDetailIO.selectOrderListforSeller(id1);
+        List<?> listbill = cartItemIO.selectItemsforseller(id1);
         session.setAttribute("listBill", listbill);
         String url = "/bill.jsp";
         getServletContext()

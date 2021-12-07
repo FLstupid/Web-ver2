@@ -24,7 +24,7 @@ public class productIO {
         }
     }
 
-    public void update (Product product)
+    public static void update(Product product)
     {
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
@@ -81,7 +81,7 @@ public class productIO {
 
     }
 
-    public static List<?> selectListProduct()
+    public static List<Product> selectListProduct()
     {
         EntityManager em = emf.createEntityManager();
         try {

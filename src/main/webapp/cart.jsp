@@ -1,4 +1,5 @@
-<%--@elvariable id="account" type="Model.Account"--%>
+<%@ page import="java.util.Locale" %>
+<%@ page import="java.text.NumberFormat" %><%--@elvariable id="account" type="Model.Account"--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -174,13 +175,12 @@
                         <thead>
                         <tr>
                             <th>Số Lượng</th>
-                            <th>Mã giỏ hàng</th>
+                            <th>Mã sản phẩm</th>
                             <th>Mã người dùng</th>
                             <th>Tên sản phẩm</th>
                             <th>Giá</th>
                             <th>Ưu đãi</th>
-                            <th>Đơn vị vận chuyển</th>
-                            <th>Chi tiết</th>
+                            <th></th>
                         </tr>
                         </thead>
                             <%--@elvariable id="listcart" type="java.util.List" --%>
@@ -191,8 +191,8 @@
                                     <form action="cart" method="post">
                                         <input type="hidden" name="action" value="update">
                                         <input type="number" value="${element[0]}" name="amount">
-                                        <input type="hidden" value="${element[8]}" name="id">
-                                        <input type="hidden" value="${element[9]}" name="productCode">
+                                        <input type="hidden" value="${element[7]}" name="id">
+                                        <input type="hidden" value="${element[8]}" name="productCode">
                                         <input type="submit" value="update"
                                                style="width: 60px; font-size:15px; margin-left:10px">
                                     </form>
@@ -200,9 +200,8 @@
                                 <td>${element[1]}</td>
                                 <td>${element[2]}</td>
                                 <td>${element[3]}</td>
-                                <td>${element[4]}</td>
+                                <td> ${element[4]} VND</td>
                                 <td>${element[5]}</td>
-                                <td>${element[6]}</td>
                                 <td>
                                     <a href="cart?action=remove&amp;id=${element[8]}&amp;productCode=${element[9]}"
                                        target="myiframe">Xóa

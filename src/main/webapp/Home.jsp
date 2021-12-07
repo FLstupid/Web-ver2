@@ -164,7 +164,7 @@
                                              style="background-image: url(${elements[5]})"></div>
                                         <h4 class="home-product-item__name"> ${elements[0]}</h4>
                                         <div class="home-product-item__price">
-                                            <span class="home-product-item__price-current">${elements[2]}đ</span>
+                                            <span class="home-product-item__price-current">${elements[2]} VND</span>
                                         </div>
                                         <div class="home-product-item__action">
 											<span class="

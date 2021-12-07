@@ -45,7 +45,7 @@ public class ProductDetailServlet extends HttpServlet {
                 request.getSession().setAttribute("product", product);
                 request.getSession().setAttribute("amount",amount);
                 long id = Long.parseLong(productid);
-                rv = reviewIO.selectOrderReviewList(id);
+                rv = reviewIO.selectReviewList(id);
                 request.getSession().setAttribute("reviewlist",rv);
                 getServletContext()
                         .getRequestDispatcher(url)
@@ -74,6 +74,9 @@ public class ProductDetailServlet extends HttpServlet {
                     Review a = new Review(product, acc, rating, topic, comment, commenttime);
                     reviewIO.insert(a);
                 }
+                long id = Long.parseLong(productid);
+                rv = reviewIO.selectReviewList(id);
+                request.getSession().setAttribute("reviewlist",rv);
                 getServletContext()
                         .getRequestDispatcher(url)
                         .forward(request, response);
@@ -108,6 +111,9 @@ public class ProductDetailServlet extends HttpServlet {
         long productCode = Long.parseLong(request.getParameter("productCode"));
         Cart cart = (Cart) cartIO.selectCart(acc.getId());
         Product product = productIO.selectProductByid(productCode);
+        Timestamp lastUpdate = new Timestamp(System.currentTimeMillis());
+        product.setUpdatedAt(lastUpdate);
+        productIO.update(product);
         CartItem cartItem = null;
         if (cart != null) {
             cartItem = (CartItem) cartItemIO.selectItemincart(productCode,cart.getId());

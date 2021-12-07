@@ -1,6 +1,7 @@
 package Home;
 
 import Data.productIO;
+import Model.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +20,7 @@ public class HomeServlet extends HttpServlet {
             request.setCharacterEncoding("UTF-8");
         }
         HttpSession session = request.getSession();
-            List<?> listproduct = productIO.selectListProduct();
+            List<Product> listproduct = productIO.selectListProduct();
             if (listproduct != null) {
                 session.setAttribute("listproduct", listproduct);
            }

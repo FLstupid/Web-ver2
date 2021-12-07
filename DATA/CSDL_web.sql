@@ -18,7 +18,7 @@ create table Account (
 
 create table Shop (
 	id bigint primary key,
-    accountId bigint,
+    accountId bigint not null,
     street_name char(255) default "" ,
     city char(150),
     district char(100),
@@ -44,8 +44,8 @@ create table Cart (
     accountId 	bigint,
     phone 		int(10) ,
     street_name char(255) ,
-    city		char(150) ,
-    district 	char(100) ,
+    city		char(150),
+    district 	char(100),
     delivery	char(100),
     content 	text,
     
@@ -55,7 +55,7 @@ create table Cart (
 create table Product (
 	id bigint primary key,
     status smallint, #have permission form admin <1> : have permission <0> : don't have permission <3> had deleted
-    shopId bigint,
+    shopId bigint not null,
     title char(255) not null,
     quality	smallint not null,
     price	float not null,
