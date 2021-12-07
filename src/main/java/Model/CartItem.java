@@ -42,7 +42,10 @@ public class CartItem {
     public void setPrice(double price) {
         this.price = price;
     }
-
+    public void setpriceproduct(int amount)
+    {
+        this.price = this.productByProductId.getPrice()*amount;
+    }
     public double getDiscount() {
         return discount;
     }

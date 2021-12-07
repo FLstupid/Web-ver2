@@ -66,6 +66,7 @@ public class CartServlet extends HttpServlet{
                 if (item != null) {
                     item.setId(itemId);
                     item.setAmount(amount);
+                    item.setpriceproduct(amount);
                     cartItemIO.update(item);
                 }
             Account acc = (Account) request.getSession().getAttribute("account");
