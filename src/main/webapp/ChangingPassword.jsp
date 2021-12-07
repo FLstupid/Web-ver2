@@ -205,7 +205,7 @@
                                     </div>
                                 </div>
                                 <label class="home-item__name">&nbsp;</label>
-                                <button type="submit" class="btn-submit2">Thay Đổi
+                                <button style="margin-left: 430px" type="submit" class="btn-submit2">Thay Đổi
                                     Mật Khẩu
                                 </button>
                             </form>

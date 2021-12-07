@@ -203,7 +203,7 @@
                                 <td> ${element[4]} VND</td>
                                 <td>${element[5]}</td>
                                 <td>
-                                    <a href="cart?action=remove&amp;id=${element[8]}&amp;productCode=${element[9]}"
+                                    <a href="cart?action=remove&amp;id=${element[7]}&amp;productCode=${element[8]}"
                                        target="myiframe">Xóa
                                     </a>
                                 </td>

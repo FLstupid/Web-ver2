@@ -78,8 +78,8 @@
                         </li>
                         <li class="header__navbar-user-item">
                             <a rel="nofollow"
-                               href="${pageContext.request.contextPath}/customerorder"
-                            >Đơn mua</a>
+                               href="${pageContext.request.contextPath}/changingpassword"
+                            >Đổi mật khẩu</a>
                         </li>
                         <li class="header__navbar-user-item header__navbar-user-item--separate">
                             <a rel="nofollow"
@@ -148,7 +148,7 @@
                 <c:forEach items="${ListProductByproductname}" var="elements">
                     <tr>
                         <td>${elements[4]}</td>
-                        <td>${elements[0]}</td>
+                        <td> <a style="text-decoration: none; color: black;" href="productdetail?action=detail&amp;productCode=${elements[4]}" >${elements[0]}</a></td>
                         <td>${elements[2]}</td>
                         <td>${elements[1]}</td>
                         <td>${elements[3]}</td>

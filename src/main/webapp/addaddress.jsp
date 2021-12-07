@@ -180,7 +180,7 @@
                     <!-- Nội dung -->
                     <div class="home">
                         <div class="row1 sm-gutter1">
-                            <form style="margin-left: 5px; width: 50%;" method="post" action="addaddress">
+                            <form style="margin-left: 5px; width: 100%;" method="post" action="addaddress">
                                 <input type="hidden" name="action" value="add">
                                 <div class="form-control ">
                                     <label class="home-item__name">Họ tên</label>
@@ -197,7 +197,7 @@
                                 </div>
                                 <div class="form-control">
                                     <label name="region" class="home-item__name">Tỉnh / Thành phố</label>
-                                    <select id="nameprovince" name="province" class="inputdiachi" required="">
+                                    <select style="margin-left: 400px;" id="nameprovince" name="province" class="inputdiachi" required="">
                                         <option value="">Chọn Tỉnh/Thành phố</option>
                                         <option>Hồ Chí Minh</option>
                                         <option>Hà Nội</option>
@@ -272,11 +272,11 @@
                                 <div class="form-control ">
                                     <label name="address" class="home-item__name">Địa chỉ</label>
                                     <div>
-                                            <textarea class="Input-styles1" required="" name="street" rows="5"
+                                            <textarea style="margin-left: 250px" class="Input-styles1" required="" name="street" rows="5"
                                                       placeholder="Nhập địa chỉ, phường/ xã"></textarea>
                                     </div>
                                 </div>
-                                <a href="addresslist" class="btn-submitt">
+                                <a style="margin-left: 350px" href="addresslist" class="btn-submitt">
                                     Trở về
                                 </a>
                                 <button type="submit" class="btn-submitt">

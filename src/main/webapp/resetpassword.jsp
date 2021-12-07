@@ -3,37 +3,33 @@
 <!DOCTYPE>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Reset Password</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Verify Page</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/all.min.css"/>
+    <link rel="stylesheet" href="Registration/style.css"/>
     <!-- Logo -->
     <link rel="shortcut icon"
           type="image/x-icon"
           href="assets/img/logo/favicon.ico">
 </head>
 <body>
-
-<div align="center">
-    <h2>Reset Your Password</h2>
-    <p>
-        Please enter your login email, we'll send a new random password to your inbox:
-    </p>
-
+<div style="width: 100%" class="form-container sign-in-container">
     <form action="reset_password" method="post">
         <input type="hidden" name="action" value="resetpass">
-        <table>
-            <tr>
-                <td>Email:</td>
-                <td><input type="text" name="email" id="email" size="20"></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <button type="submit">Send me new password</button>
-                </td>
-            </tr>
-        </table>
+        <h2>Khôi phục mật khẩu</h2>
+        <p>
+            Xin hãy nhập email tài khoản của bạn chúng tôi sẽ gửi 1 mã xác thực đến:
+        </p>
+        <input style="width: 500px" type="text" name="email" id="email" />
+        <button type="submit" class="btn2 btn-submit">Xác Nhận</button>
+        <c:if test="${not empty message}">
+            <script>
+                window.addEventListener("load", function () {
+                    alert("${message}");
+                })
+            </script>
+        </c:if>
     </form>
 </div>
 <c:if test="${not empty message}">
