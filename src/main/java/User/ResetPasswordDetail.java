@@ -22,14 +22,14 @@ public class ResetPasswordDetail extends HttpServlet {
         }
             HttpSession session = request.getSession();
             Account user= (Account) request.getSession().getAttribute("account");
-            String message = null;
+            String message4 = null;
             String newpass = request.getParameter("newpass");
             String confirmnewpasss = request.getParameter("confirmnewpasss");
             request.setAttribute("newpass",newpass);
             String url;
             if(newpass.equals("")||confirmnewpasss.equals(""))
             {
-                message="Xin nhập đủ các giá trị";
+                message4="Xin nhập đủ các giá trị";
                 url = "/resetpassworddetail.jsp";
             }else if(newpass.equals(confirmnewpasss)){
                 user.setPasswordHash(newpass);
@@ -37,9 +37,9 @@ public class ResetPasswordDetail extends HttpServlet {
                 session.setAttribute("account", user);
                 url = "/login.jsp";
             }else{
-                message="Mật khẩu xác thực không đúng";
+                message4="Mật khẩu xác thực không đúng";
                 url = "/resetpassworddetail.jsp";
-            }session.setAttribute("message", message);
+            }session.setAttribute("message4", message4);
             request.getServletContext().getRequestDispatcher(url).forward(request, response);
     }
 }

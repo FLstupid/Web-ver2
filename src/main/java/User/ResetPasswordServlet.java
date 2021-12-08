@@ -44,35 +44,43 @@ public class ResetPasswordServlet extends HttpServlet {
         if (action.equals("join")) {
             action = "changingpassword"; // default action
         }
+        String message5 = "";
         if (action.equals("resetpass"))
         {
             String email = request.getParameter("email");
-            String message = "";
-            Account i = accountIO.selectAcc(email);
-            String code = Utility.getRandom();
-            request.getSession().setAttribute("code", code);
-            request.getSession().setAttribute("account", i);
-            boolean test;
-            try {
-                test = Utility.sendEmail(host, port, username, pass, email, "Mã Xác Thực",
-                        "Xin hãy nhập đoạn mã này vào trang Verify để có thể đặt mật khẩu mới: " +code);
-            } catch (MessagingException e) {
-                e.printStackTrace();
-                test = false;
-            }
-            
+            if(accountIO.selectAcc(email) != null)
+            {
 
-            if(test){
-                HttpSession session  = request.getSession();
-                url="/verifyresetpass.jsp";
-                message = "Chúng tôi đã gửi cho bạn 1 mã xác thực ở trong email.";
-            } else{
-                message = "Đã có lỗi xảy ra. Xin hãy thử lại!";
-                url="/resetpassword.jsp";
+                Account i = accountIO.selectAcc(email);
+                String code = Utility.getRandom();
+                request.getSession().setAttribute("code", code);
+                request.getSession().setAttribute("account", i);
+                boolean test;
+                try {
+                    test = Utility.sendEmail(host, port, username, pass, email, "Mã Xác Thực",
+                            "Xin hãy nhập đoạn mã này vào trang Verify để có thể đặt mật khẩu mới: " +code);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                    test = false;
+                }
+
+
+                if(test){
+                    HttpSession session  = request.getSession();
+                    url="/verifyresetpass.jsp";
+                    message5 = "Chúng tôi đã gửi cho bạn 1 mã xác thực ở trong email.";
+                } else{
+                    message5 = "Đã có lỗi xảy ra. Xin hãy thử lại!";
+                    url="/resetpassword.jsp";
+                }
             }
+            else {
+                message5 = "tài khoản không tồn tại";
+            }
+
 
         }
-           
+        request.setAttribute("message5", message5);
         getServletContext()
                 .getRequestDispatcher(url).forward(request, response);
 

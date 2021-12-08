@@ -20,10 +20,10 @@
         <input style="width: 500px;" type="password" name="newpass"/>
         <input style="width: 500px;" type="password" name="confirmnewpasss"/>
         <button type="submit" id="btn2" value="verify" class="btn2 btn-submit">Xác Nhận</button>
-        <c:if test="${not empty message}">
+        <c:if test="${not empty message4}">
             <script>
                 window.addEventListener("load", function () {
-                    alert("${message}");
+                    alert("${message4}");
                 })
             </script>
         </c:if>

@@ -23,43 +23,14 @@
         </p>
         <input style="width: 500px" type="text" name="email" id="email" />
         <button type="submit" class="btn2 btn-submit">Xác Nhận</button>
-        <c:if test="${not empty message}">
+        <c:if test="${not empty message5}">
             <script>
                 window.addEventListener("load", function () {
-                    alert("${message}");
+                    alert("${message5}");
                 })
             </script>
         </c:if>
     </form>
 </div>
-<c:if test="${not empty message}">
-    <script>
-        window.addEventListener("load", function () {
-            alert("${message}");
-        })
-    </script>
-</c:if>
-<script type="text/javascript">
-
-    $(document).ready(function () {
-        $("#resetForm").validate({
-            rules: {
-                email: {
-                    required: true,
-                    email: true
-                }
-            },
-
-            messages: {
-                email: {
-                    required: "Please enter email",
-                    email: "Please enter a valid email address"
-                }
-            }
-        });
-
-    });
-
-</script>
 </body>
 </html>
