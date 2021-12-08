@@ -359,6 +359,13 @@
                                         style="margin-top:-30px">Cập
                                     nhật
                                 </button>
+                                <c:if test="${not empty message2}">
+                                    <script>
+                                        window.addEventListener("load", function () {
+                                            alert("${message2}");
+                                        })
+                                    </script>
+                                </c:if>
                             </form>
                         </div>
                     </div>

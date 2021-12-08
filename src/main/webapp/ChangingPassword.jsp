@@ -208,6 +208,13 @@
                                 <button style="margin-left: 430px" type="submit" class="btn-submit2">Thay Đổi
                                     Mật Khẩu
                                 </button>
+                                <c:if test="${not empty message3}">
+                                    <script>
+                                        window.addEventListener("load", function () {
+                                            alert("${message3}");
+                                        })
+                                    </script>
+                                </c:if>
                             </form>
                         </div>
                     </div>

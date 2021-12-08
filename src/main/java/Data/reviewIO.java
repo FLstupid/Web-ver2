@@ -80,7 +80,7 @@ public class reviewIO {
         try {
             return em.createQuery("SELECT p.productByProductId.id , p.title," +
                     "p.productByProductId.title  " +
-                    ",p.accountByAccountId.username ,p.content , p.rating FROM " +
+                    " ,p.content , p.rating FROM " +
                     "Review p  WHERE p.accountByAccountId.id =?1").setParameter(1,ID).getResultList();
 
         } catch (Exception e)

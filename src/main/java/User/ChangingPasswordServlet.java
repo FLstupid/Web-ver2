@@ -35,23 +35,26 @@ public class ChangingPasswordServlet extends HttpServlet {
             String newPassword = request.getParameter("newPassword");
             String confirmPassword = request.getParameter("confirmNewPassword");
             String message3;
-            if (oldPassword.equals(acc.getPasswordHash())) {
-                if (newPassword.equals(confirmPassword)) {
-                    message3 = "Mật Khẩu thay đổi thành công!";
-                    acc.setPasswordHash(newPassword);
-                    accountIO.update(acc);
+            if(oldPassword==null|| oldPassword.equals("")||newPassword==null|| newPassword.equals("")||confirmPassword==null|| confirmPassword.equals(""))
+            {
+                message3 = "Mời nhập đủ giá trị";
+            }
+            else {
+                if (oldPassword.equals(acc.getPasswordHash())) {
+                    if (newPassword.equals(confirmPassword)) {
+                        message3 = "Mật Khẩu thay đổi thành công!";
+                        acc.setPasswordHash(newPassword);
+                        accountIO.update(acc);
+                    } else {
+                        message3 = "Xác nhận mật khẩu không đúng";
+                    }
                 } else {
-                    message3 = "Xác nhận mật khẩu không đúng";
+                    message3 = "Mật khẩu cũ không đúng";
                 }
-            } else {
-                message3 = "Mật khẩu cũ không đúng";
             }
              url = "/ChangingPassword.jsp";
             request.setAttribute("account", acc);
-            if(request.getParameter("message3")!=null)
-            {request.setAttribute("message3", message3);
-
-            }
+            request.setAttribute("message3", message3);
         }
         getServletContext()
                 .getRequestDispatcher(url)

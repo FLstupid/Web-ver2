@@ -17,8 +17,8 @@
 <div style="width: 100%" class="form-container sign-in-container">
     <form action="resetpassworddetail" method="post">
         <h1>Nhập Mật Khẩu Mới</h1>
-        <input style="width: 500px;" type="text" name="newpass"/>
-        <input style="width: 500px;" type="text" name="confirmnewpasss"/>
+        <input style="width: 500px;" type="password" name="newpass"/>
+        <input style="width: 500px;" type="password" name="confirmnewpasss"/>
         <button type="submit" id="btn2" value="verify" class="btn2 btn-submit">Xác Nhận</button>
         <c:if test="${not empty message}">
             <script>

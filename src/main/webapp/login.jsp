@@ -29,14 +29,6 @@
         <form method="post" action="login">
             <input type="hidden" name="action" value="signin">
             <h1>Đăng Nhập</h1>
-            <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/WebThuongMaiDienTu_war_exploded/login-google&response_type=code
-   				 &client_id=579923879861-606p232mfsvpib1kan7o9d5fq8b93g07.apps.googleusercontent.com&approval_prompt=force"
-                   class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <span>Hoặc tiếp tục bằng</span>
             <input type="email" name="email" placeholder="Email"/>
             <input type="password" minlength="6" name="password" placeholder="Mật khẩu"/>
             <a href="reset_password">Quên mật khẩu ?</a>

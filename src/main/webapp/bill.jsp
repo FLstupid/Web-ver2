@@ -56,14 +56,14 @@
                 <div class="main-content">
                     <div class="content">
                         <h3 class="title">Tìm kiếm đơn hàng</h3>
-                        <form style="width: 800px" action="search" method="get">
+                        <form style="width: 800px; margin-left: 180px" action="search" method="get">
                             <input type="hidden" name="action" value="searchorder">
                             <div class="header__search">
                                 <div class="header__search-input-wrap">
-                                    <input type="text" name="searchorder" class="header__search-input"
+                                    <input style="width: 800px;" type="text" name="searchorder" class="header__search-input"
                                            placeholder="Nhập để tìm kiếm đơn hàng"/>
                                 </div>
-                                <button type="submit" class="btn submit header__search-btn">
+                                <button style="margin-left: 728px" type="submit" class="btn submit header__search-btn">
                                     <i class="header__search-btn-icon fas fa-search">Tìm kiếm</i>
                                 </button>
 

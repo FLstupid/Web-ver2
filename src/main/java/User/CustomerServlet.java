@@ -109,15 +109,11 @@ public class CustomerServlet extends HttpServlet {
             url = "/usercenter.jsp";
             request.getSession().setAttribute("account", account);
             request.getSession().setAttribute("shop", shop);
-           //request.getSession().setAttribute("cart", cart);
             request.setAttribute("cart", cart);
             request.setAttribute("account", account);
             request.setAttribute("avatar", account.getAvatar());
             request.setAttribute("username", username);
-            if(request.getParameter("message2")!=null)
-            {
-                request.setAttribute("message2", message2);
-            }
+            request.setAttribute("message2", message2);
             request.getSession().setAttribute("username", account.getUsername());
         }
         getServletContext()

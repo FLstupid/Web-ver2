@@ -38,7 +38,6 @@ public class ResetPasswordDetail extends HttpServlet {
                 url = "/login.jsp";
             }else{
                 message="Mật khẩu xác thực không đúng";
-
                 url = "/resetpassworddetail.jsp";
             }session.setAttribute("message", message);
             request.getServletContext().getRequestDispatcher(url).forward(request, response);
