@@ -131,15 +131,15 @@
 
 <c:if test="${not empty Listorder}">
     <div class="body1">
-        <h1 class="titleNotfound">Kết quả tìm kiếm của <%=request.getParameter("searchproduct")%>
+        <h1 class="titleNotfound">Kết quả tìm kiếm của <%=request.getParameter("searchorder")%>
         </h1>
         <center>
             <table border="1">
                 <tr>
                     <th>ID</th>
+                    <th>Số khách hàng</th>
                     <th>Tên sản phẩm</th>
                     <th>Giá</th>
-                    <th>Trạng thái</th>
                     <th>Số lượng</th>
                 </tr>
                 <c:forEach items="${Listorder}" var="elements">
