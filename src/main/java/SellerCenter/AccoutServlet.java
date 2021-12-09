@@ -48,6 +48,7 @@ public class AccoutServlet extends HttpServlet {
             int bank = Integer.parseInt(bank1);
             Timestamp lastupdate = new Timestamp(System.currentTimeMillis());
             long numberProduct = Long.parseLong(numberProduct1);
+            assert shop != null;
             shop.setShopname(shopName);
             shop.setBankId(bank);
             shop.setCity(shopCity);
