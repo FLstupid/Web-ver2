@@ -24,39 +24,44 @@ public class AccoutServlet extends HttpServlet {
         }
 
         String action = request.getParameter("action");
-        Account acc = (Account) request.getSession().getAttribute("account");
-        Shop shop = shopIO.getShopbyUserID(acc.getId());
         HttpSession session = request.getSession();
         if (action == null) {
             action = "account"; // default action
         }
         String url = "/account.jsp";
+        Account acc = null;
+        Shop shop = null;
         if (session.getAttribute("account") == null) {
             url = "/login.jsp";
             getServletContext()
                     .getRequestDispatcher(url)
                     .forward(request, response);
         }
-        else if (action.equals("shopinfor"))
-        {
-            String shopName = request.getParameter("shopName");
-            String shopStreet = request.getParameter("shopStreet");
-            String shopDistrict = request.getParameter("shopDistrict");
-            String shopCity = request.getParameter("shopCity");
-            String numberProduct1 = request.getParameter("numberProduct");
-            String bank1 = request.getParameter("bank");
-            int bank = Integer.parseInt(bank1);
-            Timestamp lastupdate = new Timestamp(System.currentTimeMillis());
-            long numberProduct = Long.parseLong(numberProduct1);
-            assert shop != null;
-            shop.setShopname(shopName);
-            shop.setBankId(bank);
-            shop.setCity(shopCity);
-            shop.setDistrict(shopDistrict);
-            shop.setLastUpdate(lastupdate);
-            shop.setNumberProduct(numberProduct);
-            shop.setStreetName(shopStreet);
-            shopIO.update(shop);
+        else {
+
+            acc = (Account) request.getSession().getAttribute("account");
+            shop = shopIO.getShopbyUserID(acc.getId());
+            if (action.equals("shopinfor"))
+            {
+                String shopName = request.getParameter("shopName");
+                String shopStreet = request.getParameter("shopStreet");
+                String shopDistrict = request.getParameter("shopDistrict");
+                String shopCity = request.getParameter("shopCity");
+                String numberProduct1 = request.getParameter("numberProduct");
+                String bank1 = request.getParameter("bank");
+                int bank = Integer.parseInt(bank1);
+                Timestamp lastupdate = new Timestamp(System.currentTimeMillis());
+                long numberProduct = Long.parseLong(numberProduct1);
+                assert shop != null;
+                shop.setShopname(shopName);
+                shop.setBankId(bank);
+                shop.setCity(shopCity);
+                shop.setDistrict(shopDistrict);
+                shop.setLastUpdate(lastupdate);
+                shop.setNumberProduct(numberProduct);
+                shop.setStreetName(shopStreet);
+                shopIO.update(shop);
+            }
         }
         request.getSession().setAttribute("shop", shop);
         request.getSession().setAttribute("account", acc);
