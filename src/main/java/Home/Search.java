@@ -1,5 +1,6 @@
 package Home;
 
+import Data.cartItemIO;
 import Data.productIO;
 import Data.orderDetailIO;
 import Model.Account;
@@ -38,7 +39,7 @@ public class Search  extends HttpServlet {
             String pn = request.getParameter("searchorder");
             Account acc = (Account) request.getSession().getAttribute("account");
             long id1 = acc.getId();
-            List<?> Listorder = orderDetailIO.selectOrderListforSellerforSearch(id1,pn);
+            List<?> Listorder = cartItemIO.selectItemsforsellerSearch(id1,pn);
             if (pn!=null||Listorder != null) {
                 request.getSession().setAttribute("Listorder", Listorder);
             }

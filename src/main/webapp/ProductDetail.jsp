@@ -82,8 +82,8 @@
                             </li>
                             <li class="header__navbar-user-item">
                                 <a rel="nofollow"
-                                   href="${pageContext.request.contextPath}/customerorder"
-                                >Đơn mua</a>
+                                   href="${pageContext.request.contextPath}/changingpassword"
+                                >Đổi mật khẩu</a>
                             </li>
                             <li class="header__navbar-user-item header__navbar-user-item--separate">
                                 <a rel="nofollow"
@@ -107,6 +107,7 @@
 
                 <!-- Header Search -->
                 <form style="width: 800px" action="search" method="get">
+                    <input type="hidden" name="action" value="searchproduct">
                     <div class="header__search">
                         <div class="header__search-input-wrap">
 
