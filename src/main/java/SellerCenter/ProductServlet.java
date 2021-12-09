@@ -51,7 +51,7 @@ public class ProductServlet extends HttpServlet {
             productIO.insert(p);
         }
         long id = acc.getId();
-        List  listproductbyshop = productIO.selectListProductbyshop(acc.getId());
+        List<?>  listproductbyshop = productIO.selectListProductbyshop(acc.getId());
         session.setAttribute("listproductbyshop", listproductbyshop);
         getServletContext()
                 .getRequestDispatcher(url)
