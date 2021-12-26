@@ -32,7 +32,7 @@ public class ProductDetailServlet extends HttpServlet {
 
         Product product=null;
         String productid = request.getParameter("productCode");
-        List rv;
+        List<?> rv;
         if(productid!=null)
         {
             long id = Long.parseLong(productid);
@@ -44,6 +44,7 @@ public class ProductDetailServlet extends HttpServlet {
             case "detail": {
                 request.getSession().setAttribute("product", product);
                 request.getSession().setAttribute("amount",amount);
+                assert productid != null;
                 long id = Long.parseLong(productid);
                 rv = reviewIO.selectReviewList(id);
                 request.getSession().setAttribute("reviewlist",rv);
@@ -112,6 +113,7 @@ public class ProductDetailServlet extends HttpServlet {
         Cart cart = (Cart) cartIO.selectCart(acc.getId());
         Product product = productIO.selectProductByid(productCode);
         Timestamp lastUpdate = new Timestamp(System.currentTimeMillis());
+        assert product != null;
         product.setUpdatedAt(lastUpdate);
         productIO.update(product);
         CartItem cartItem = null;

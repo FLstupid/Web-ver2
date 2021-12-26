@@ -101,7 +101,6 @@ public class CartServlet extends HttpServlet{
                 getServletContext()
                         .getRequestDispatcher(url)
                         .forward(request, response);
-
         }
 
     }
